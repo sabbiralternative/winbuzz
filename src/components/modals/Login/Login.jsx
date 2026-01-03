@@ -1,4 +1,136 @@
+import { Fragment, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Settings } from "../../../api";
+import { useDispatch } from "react-redux";
+import { useLoginMutation } from "../../../redux/features/auth/authApi";
+import { useForm } from "react-hook-form";
+import { setUser } from "../../../redux/features/auth/authSlice";
+import {
+  setShowBanner,
+  setShowForgotPasswordModal,
+  setShowLoginModal,
+  setShowRegisterModal,
+} from "../../../redux/features/global/globalSlice";
+import toast from "react-hot-toast";
+import { useLogo } from "../../../context/ApiProvider";
+import useWhatsApp from "../../../hooks/whatsapp";
+import images from "../../../assets/images";
+
 const Login = () => {
+  const { data: socialLink } = useWhatsApp();
+  const navigate = useNavigate();
+  const [tab, setTab] = useState(Settings.registration ? "mobile" : "userId");
+  const [showPassword, setShowPassword] = useState(false);
+  const { logo } = useLogo();
+  const dispatch = useDispatch();
+  const [handleLogin] = useLoginMutation();
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = async ({ username, password }) => {
+    const loginData = {
+      username: username,
+      password: password,
+      b2c: Settings.b2c,
+    };
+    const result = await handleLogin(loginData).unwrap();
+
+    if (result.success) {
+      console.log(result);
+      const token = result?.result?.token;
+      const bonusToken = result?.result?.bonusToken;
+      const user = result?.result?.loginName;
+      const game = result?.result?.buttonValue?.game;
+      const memberId = result?.result?.memberId;
+      const banner = result?.result?.banner;
+
+      dispatch(setUser({ user, token, memberId }));
+      localStorage.setItem("memberId", memberId);
+      localStorage.setItem("buttonValue", JSON.stringify(game));
+      localStorage.setItem("token", token);
+      localStorage.setItem("bonusToken", bonusToken);
+      if (banner) {
+        localStorage.setItem("banner", banner);
+        dispatch(setShowBanner(true));
+      }
+      if (result?.result?.changePassword) {
+        dispatch(setShowLoginModal(false));
+        localStorage.setItem("changePassword", true);
+        navigate("/change-password");
+      }
+      if (!result?.result?.changePassword && token && user) {
+        dispatch(setShowLoginModal(false));
+        toast.success("Login successful");
+      }
+    } else {
+      toast.error(result?.error);
+    }
+  };
+
+  /* handle login demo user */
+  const loginWithDemo = async () => {
+    /* Random token generator */
+    /* Encrypted the post data */
+    const loginData = {
+      username: "demo",
+      password: "",
+      b2c: Settings.b2c,
+    };
+    const result = await handleLogin(loginData).unwrap();
+
+    if (result.success) {
+      const token = result?.result?.token;
+      const bonusToken = result?.result?.bonusToken;
+      const user = result?.result?.loginName;
+      const game = result?.result?.buttonValue?.game;
+      const banner = result?.result?.banner;
+
+      dispatch(setUser({ user, token }));
+      localStorage.setItem("buttonValue", JSON.stringify(game));
+      localStorage.setItem("token", token);
+
+      localStorage.setItem("bonusToken", bonusToken);
+      if (banner) {
+        localStorage.setItem("banner", banner);
+        dispatch(setShowBanner(true));
+      }
+      if (token && user) {
+        dispatch(setShowLoginModal(false));
+        toast.success("Login successful");
+      }
+    } else {
+      toast.error(result?.error);
+    }
+  };
+
+  const closeLoginModal = () => {
+    dispatch(setShowLoginModal(false));
+  };
+
+  const showRegister = () => {
+    closeLoginModal();
+    dispatch(setShowRegisterModal(true));
+  };
+
+  const showForgotPassword = () => {
+    closeLoginModal();
+    dispatch(setShowForgotPasswordModal(true));
+  };
+
+  const handleDownload = (e) => {
+    e.preventDefault();
+    const fileUrl = Settings.apkLink;
+    const link = document.createElement("a");
+    link.href = fileUrl;
+    link.setAttribute("download", "site.apk");
+    document.body.appendChild(link);
+    link.click();
+    link.parentNode.removeChild(link);
+  };
+
+  const getWhatsAppId = (link) => {
+    window.open(link, "_blank");
+  };
+
   return (
     <div data-v-b55734cb className="login-model-pop-up-sec login-model-popup">
       <div
@@ -15,6 +147,7 @@ const Login = () => {
         <div data-v-b55734cb className="modal-dialog modal-dialog-centered">
           <div data-v-b55734cb className="modal-content">
             <button
+              onClick={closeLoginModal}
               data-v-b55734cb
               type="button"
               className="btn-close"
@@ -35,12 +168,16 @@ const Login = () => {
                       <img
                         data-v-b55734cb
                         loading="lazy"
-                        src="https://assets3.hurry2.com/site_logo/winbuzz3844.png"
+                        src={logo}
                         alt="logo"
                       />
                     </h2>
                   </div>
-                  <div data-v-b55734cb className="login-form">
+                  <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    data-v-b55734cb
+                    className="login-form"
+                  >
                     <div data-v-b55734cb className="input-field">
                       <div data-v-b55734cb className="profile-tab-list">
                         <ul
@@ -55,8 +192,11 @@ const Login = () => {
                             role="presentation"
                           >
                             <button
+                              onClick={() => setTab("mobile")}
                               data-v-b55734cb
-                              className="nav-link active"
+                              className={`nav-link  ${
+                                tab === "mobile" ? "active" : ""
+                              }`}
                               data-bs-toggle="pill"
                               type="button"
                               role="tab"
@@ -70,8 +210,11 @@ const Login = () => {
                             role="presentation"
                           >
                             <button
+                              onClick={() => setTab("userId")}
                               data-v-b55734cb
-                              className="nav-link"
+                              className={`nav-link  ${
+                                tab === "userId" ? "active" : ""
+                              }`}
                               data-bs-toggle="pill"
                               type="button"
                               role="tab"
@@ -81,153 +224,108 @@ const Login = () => {
                           </li>
                         </ul>
                       </div>
-                      <div data-v-b55734cb className="row g-2">
-                        <div
-                          data-v-b55734cb
-                          className="col-12 col-sm-12 col-md-12"
-                        >
+                      {tab === "userId" ? (
+                        <div data-v-b55734cb className="row g-2">
                           <div
                             data-v-b55734cb
-                            className="input-left phone-no-field"
+                            className="col-12 col-sm-12 col-md-12"
+                          >
+                            <div data-v-b55734cb className="input-left">
+                              <input
+                                {...register("username")}
+                                data-v-b55734cb
+                                type="text"
+                                className="form-control user_id_icon"
+                                placeholder="Enter User ID*"
+                              />
+                              <i data-v-b55734cb className="fa-solid fa-user" />
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        <div data-v-b55734cb className="row g-2">
+                          <div
+                            data-v-b55734cb
+                            className="col-12 col-sm-12 col-md-12"
                           >
                             <div
                               data-v-b55734cb
-                              className="country-code-flag-top-wrapper"
+                              className="input-left phone-no-field"
                             >
                               <div
                                 data-v-b55734cb
-                                className="country-code-flag-top-sec"
+                                className="country-code-flag-top-wrapper"
                               >
-                                <img
+                                <div
                                   data-v-b55734cb
-                                  src="https://flagcdn.com/in.svg"
-                                />{" "}
-                                <span data-v-b55734cb>+91</span>
-                                <i
-                                  data-v-b55734cb
-                                  className="fa-solid fa-caret-down"
-                                />
+                                  className="country-code-flag-top-sec"
+                                >
+                                  <img
+                                    data-v-b55734cb
+                                    src="https://flagcdn.com/in.svg"
+                                  />
+                                  <span data-v-b55734cb>+91</span>
+                                  <i
+                                    data-v-b55734cb
+                                    className="fa-solid fa-caret-down"
+                                  />
+                                </div>
                               </div>
-                              <ul
+                              <input
+                                {...register("username")}
                                 data-v-b55734cb
-                                className="country-code-flag-sec"
-                              >
-                                {/**/}
-                                <li data-v-b55734cb>
-                                  <img
-                                    data-v-b55734cb
-                                    src="https://flagcdn.com/bd.svg"
-                                  />{" "}
-                                  <span data-v-b55734cb>+880</span>
-                                </li>
-                                <li data-v-b55734cb>
-                                  <img
-                                    data-v-b55734cb
-                                    src="https://flagcdn.com/ae.svg"
-                                  />{" "}
-                                  <span data-v-b55734cb>+971</span>
-                                </li>
-                                <li data-v-b55734cb>
-                                  <img
-                                    data-v-b55734cb
-                                    src="https://flagcdn.com/np.svg"
-                                  />{" "}
-                                  <span data-v-b55734cb>+977</span>
-                                </li>
-                                <li data-v-b55734cb>
-                                  <img
-                                    data-v-b55734cb
-                                    src="https://flagcdn.com/pk.svg"
-                                  />{" "}
-                                  <span data-v-b55734cb>+92</span>
-                                </li>
-                              </ul>
+                                type="tel"
+                                required
+                                maxLength={10}
+                                className="form-control"
+                                placeholder={`${
+                                  tab === "mobile"
+                                    ? "Enter Mobile Number"
+                                    : "Enter User Id"
+                                }`}
+                              />
                             </div>
-                            <input
-                              data-v-b55734cb
-                              type="tel"
-                              required
-                              maxLength={10}
-                              className="form-control"
-                              placeholder="Enter Mobile Number*"
-                            />
-                            {/**/}
-                            {/**/}
                           </div>
-                          {/**/}
                         </div>
-                      </div>
+                      )}
                     </div>
-                    <div
-                      data-v-b55734cb
-                      className="d-flex login-method-section mt-2"
-                    >
-                      <div data-v-b55734cb className="login-option">
-                        <input
-                          data-v-b55734cb
-                          className="form-check-input flexRadioDefault-sec"
-                          type="radio"
-                          name="login-method"
-                          id="login-password"
-                          defaultValue="password"
-                        />
-                        <label
-                          data-v-b55734cb
-                          htmlFor="login-password"
-                          className="ps-1 text-white"
-                        >
-                          Password
-                        </label>
-                      </div>
-                      <div data-v-b55734cb className="login-option ms-2">
-                        <input
-                          data-v-b55734cb
-                          className="form-check-input flexRadioDefault-sec"
-                          type="radio"
-                          name="login-method"
-                          id="login-otp"
-                          defaultValue="otp"
-                        />
-                        <label
-                          data-v-b55734cb
-                          htmlFor="login-otp"
-                          className="ps-1 text-white"
-                        >
-                          OTP
-                        </label>
-                      </div>
-                    </div>
+
                     <div data-v-b55734cb className="int-container-box">
                       <div data-v-b55734cb className="forgot-password-field">
                         <input
+                          {...register("password", { required: true })}
                           data-v-b55734cb
-                          type="password"
+                          type={showPassword ? "text" : "password"}
                           placeholder="Enter Password*"
                           className="form-control"
                         />
-                        {/**/}
-                        <div data-v-b55734cb className="otp-login-btn">
-                          {/**/}
-                        </div>
-                        {/**/}
-                        <div data-v-b55734cb className="score-hide-show">
+
+                        <div data-v-b55734cb className="otp-login-btn"></div>
+
+                        <div
+                          onClick={() => setShowPassword((prev) => !prev)}
+                          data-v-b55734cb
+                          className="score-hide-show"
+                        >
                           <img
                             data-v-b55734cb
                             loading="lazy"
                             className="score-hide-icon"
-                            src="/src/assets/img/score-visible-DHkjyyAR.svg"
+                            src={showPassword ? images.eyeShow : images.eyeHide}
                             alt="img"
                           />
                         </div>
                       </div>
-                      {/**/}
-                      {/**/}
                     </div>
                     <div data-v-b55734cb className="check-box-sec">
                       <div data-v-b55734cb className="box-right">
                         <a
+                          style={{
+                            color: "white",
+                            textDecoration: "underline",
+                          }}
                           data-v-b55734cb
-                          href="#forget-password-btn"
+                          onClick={showForgotPassword}
                           data-bs-toggle="modal"
                         >
                           Forgot Password?
@@ -238,54 +336,71 @@ const Login = () => {
                       data-v-b55734cb
                       className="login-cmn-btn login-demo-btn"
                     >
-                      <button data-v-b55734cb type="button">
-                        <span data-v-b55734cb>Login With Demo ID</span>
-                        {/**/}
-                      </button>
-                      <button data-v-b55734cb type="button">
-                        <span data-v-b55734cb>Log In</span>
-                        {/**/}
-                      </button>
-                    </div>
-                    <div
-                      data-v-b55734cb
-                      className="login-cmn-btn download-apk-btn"
-                    >
-                      <a
-                        data-v-b55734cb
-                        className="apk-download-anchor"
-                        href="https://assets3.hurry2.com/site_apk/2114winbuzz (3).apk"
-                        download="2114winbuzz (3).apk"
-                      >
-                        <span data-v-b55734cb>
-                          Download APK{" "}
-                          <img
-                            data-v-b55734cb
-                            src="/src/assets/img/apk_icon-CKpATu5s.svg"
-                          />
-                        </span>
-                      </a>
-                    </div>
-                    <div data-v-b55734cb className="Continue-with">
-                      <div data-v-b55734cb className="login-flow-heading pb-0">
-                        <p data-v-b55734cb>
-                          Get Your Ready-Made ID From WhatsApp
-                        </p>
-                      </div>
-                      <div data-v-b55734cb className="button-whatsapp">
-                        <a
+                      {Settings.demoLogin && (
+                        <button
+                          onClick={loginWithDemo}
                           data-v-b55734cb
-                          href="//wa.me/+917576801624"
-                          target="_blank"
-                          className="btn-whatsapp"
+                          type="button"
                         >
-                          <i
-                            data-v-b55734cb
-                            className="fa-brands fa-whatsapp"
-                          />{" "}
-                          Whatsapp Now
+                          <span data-v-b55734cb>Login With Demo ID</span>
+                        </button>
+                      )}
+
+                      <button data-v-b55734cb type="submit">
+                        <span data-v-b55734cb>Log In</span>
+                      </button>
+                    </div>
+                    {Settings.apkLink && (
+                      <div
+                        data-v-b55734cb
+                        className="login-cmn-btn download-apk-btn"
+                      >
+                        <a
+                          onClick={handleDownload}
+                          data-v-b55734cb
+                          className="apk-download-anchor"
+                        >
+                          <span data-v-b55734cb>
+                            Download APK{" "}
+                            <img
+                              data-v-b55734cb
+                              src="/src/assets/img/apk_icon-CKpATu5s.svg"
+                            />
+                          </span>
                         </a>
                       </div>
+                    )}
+
+                    <div data-v-b55734cb className="Continue-with">
+                      {socialLink?.whatsapplink &&
+                        Settings.registrationWhatsapp && (
+                          <Fragment>
+                            <div
+                              data-v-b55734cb
+                              className="login-flow-heading pb-0"
+                            >
+                              <p data-v-b55734cb>
+                                Get Your Ready-Made ID From WhatsApp
+                              </p>
+                            </div>
+                            <div data-v-b55734cb className="button-whatsapp">
+                              <a
+                                data-v-b55734cb
+                                onClick={() =>
+                                  getWhatsAppId(socialLink?.whatsapplink)
+                                }
+                                className="btn-whatsapp"
+                              >
+                                <i
+                                  data-v-b55734cb
+                                  className="fa-brands fa-whatsapp"
+                                />{" "}
+                                Whatsapp Now
+                              </a>
+                            </div>
+                          </Fragment>
+                        )}
+
                       <span data-v-b55734cb className="or-separate">
                         OR
                       </span>
@@ -295,11 +410,7 @@ const Login = () => {
                       <div data-v-b55734cb className="login-with-social">
                         <ul data-v-b55734cb className="cmn-ul-list">
                           <li data-v-b55734cb>
-                            <a
-                              data-v-b55734cb
-                              href="//fairplay24.agency/"
-                              target="_blank"
-                            >
+                            <a data-v-b55734cb>
                               <img
                                 data-v-b55734cb
                                 loading="lazy"
@@ -309,11 +420,7 @@ const Login = () => {
                             </a>
                           </li>
                           <li data-v-b55734cb>
-                            <a
-                              data-v-b55734cb
-                              href="//fairplay24.game/"
-                              target="_blank"
-                            >
+                            <a data-v-b55734cb>
                               <img
                                 data-v-b55734cb
                                 loading="lazy"
@@ -323,11 +430,7 @@ const Login = () => {
                             </a>
                           </li>
                           <li data-v-b55734cb>
-                            <a
-                              data-v-b55734cb
-                              href="//fairplay24.game/"
-                              target="_blank"
-                            >
+                            <a data-v-b55734cb>
                               <img
                                 data-v-b55734cb
                                 loading="lazy"
@@ -343,8 +446,8 @@ const Login = () => {
                       <span data-v-b55734cb>Don&apos;t Have An Account?</span>{" "}
                       <span data-v-b55734cb>
                         <a
+                          onClick={showRegister}
                           data-v-b55734cb
-                          href="#register-btn"
                           data-bs-toggle="modal"
                         >
                           Join Now
@@ -368,7 +471,7 @@ const Login = () => {
                         className="footer-logo"
                       />
                     </div>
-                  </div>
+                  </form>
                 </div>
               </div>
             </div>

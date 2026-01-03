@@ -22,8 +22,12 @@ import affiInviteGift from "../img/invite-gift.66579aaa.svg";
 import affiCopy from "../img/affi-copy.6ddf100b.svg";
 import affiBonus1 from "../img/affi-bonus-1.4907c6fe.svg";
 import affiBonus2 from "../img/affi-bonus-2.b3bc4c43.svg";
+import eyeShow from "../img/score-visible-DHkjyyAR.svg";
+import eyeHide from "../img/score-hide-icon-CbsWAgUP.svg";
 
 export default {
+  eyeHide,
+  eyeShow,
   affiBonus1,
   affiBonus2,
   affiCopy,
