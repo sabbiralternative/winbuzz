@@ -11459,7 +11459,7 @@ a.wrdl-side-bg {
   background: #8b0000;
 }
 a.multi-mark-bg {
-  color: var(--secondary-color) !important;
+  color: #bfbfbf !important;
 }
 .deposit-m {
   width: 50%;

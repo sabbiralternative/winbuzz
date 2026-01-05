@@ -24,8 +24,14 @@ import affiBonus1 from "../img/affi-bonus-1.4907c6fe.svg";
 import affiBonus2 from "../img/affi-bonus-2.b3bc4c43.svg";
 import eyeShow from "../img/score-visible-DHkjyyAR.svg";
 import eyeHide from "../img/score-hide-icon-CbsWAgUP.svg";
+import cricket from "../img/sports-cricket-Qf1NmI1h.png";
+import tennis from "../img/sports-tennis-DzBamNaA.png";
+import football from "../img/sports-soccer-CaiOK3CT.png";
 
 export default {
+  football,
+  cricket,
+  tennis,
   eyeHide,
   eyeShow,
   affiBonus1,

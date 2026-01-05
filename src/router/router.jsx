@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Home from "../pages/Home/Home";
+import OddSports from "../pages/OddSports/OddSports";
+import EventDetails from "../pages/EventDetails/EventDetails";
 
 export const router = createBrowserRouter(
   [
@@ -12,6 +14,18 @@ export const router = createBrowserRouter(
         {
           index: true,
           element: <Home />,
+        },
+        {
+          path: "/sports/:eventName/:eventId",
+          element: <OddSports />,
+        },
+        {
+          path: "/sports/:eventName/:eventId",
+          element: <OddSports />,
+        },
+        {
+          path: "/event-details/:eventTypeId/:eventId",
+          element: <EventDetails />,
         },
       ],
     },

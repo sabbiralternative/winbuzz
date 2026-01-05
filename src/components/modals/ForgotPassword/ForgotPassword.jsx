@@ -1,48 +1,32 @@
 import { useDispatch } from "react-redux";
 import { useLogo } from "../../../context/ApiProvider";
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
-  setShowBanner,
+  setShowForgotPasswordModal,
   setShowLoginModal,
-  setShowRegisterModal,
 } from "../../../redux/features/global/globalSlice";
-import useWhatsApp from "../../../hooks/whatsapp";
+
 import { Settings } from "../../../api";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import {
+  useForgotPasswordMutation,
   useGetOtpMutation,
-  useRegisterMutation,
 } from "../../../redux/features/auth/authApi";
-import { setUser } from "../../../redux/features/auth/authSlice";
+
 import images from "../../../assets/images";
 
-const Register = () => {
-  const { logo } = useLogo();
-  const { data: socialLink } = useWhatsApp();
-  const [countDown, setCountDown] = useState(45);
-  const referralCode = localStorage.getItem("referralCode");
+const ForgotPassword = () => {
+  const [handleForgotPassword] = useForgotPasswordMutation();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [getOTP] = useGetOtpMutation();
-  const [handleRegister] = useRegisterMutation();
-  const { register, handleSubmit } = useForm();
   const dispatch = useDispatch();
   const [mobile, setMobile] = useState("");
   const [order, setOrder] = useState({});
-
-  const closeModal = () => {
-    dispatch(setShowRegisterModal(false));
-  };
-
-  const showLogin = () => {
-    closeModal();
-    dispatch(setShowLoginModal(true));
-  };
-
-  const getWhatsAppId = (link) => {
-    window.open(link, "_blank");
-  };
+  const [getOTP] = useGetOtpMutation();
+  const { register, handleSubmit } = useForm();
+  const { logo } = useLogo();
+  const [counter, setCounter] = useState(null);
 
   const handleMobileNo = (e) => {
     if (e.target.value.length <= 10) {
@@ -50,73 +34,57 @@ const Register = () => {
     }
   };
 
-  useEffect(() => {
-    if (countDown > 0) {
-      setTimeout(() => {
-        setCountDown((prev) => prev - 1);
-      }, 1000);
-    }
-  }, [countDown]);
-
   const handleOTP = async () => {
-    const res = await getOTP({ mobile }).unwrap();
-    if (res?.success) {
-      setCountDown(45);
-      setOrder({
-        orderId: res?.result?.orderId,
-        otpMethod: "sms",
-      });
-      toast.success(res?.result?.message);
-    } else {
-      toast.error(res?.error?.errorMessage);
+    if (mobile.length > 0) {
+      const res = await getOTP({ mobile }).unwrap();
+
+      if (res?.success) {
+        setCounter(60);
+        setOrder({
+          orderId: res?.result?.orderId,
+          otpMethod: "sms",
+        });
+        toast.success(res?.result?.message);
+      } else {
+        toast.error(res?.error?.errorMessage);
+      }
     }
   };
 
   const onSubmit = async (data) => {
-    const registerData = {
-      username: "",
+    const forgotPasswordData = {
+      username: mobile,
       password: data?.password,
       confirmPassword: data?.confirmPassword,
-      mobile: mobile,
       otp: data?.otp,
       isOtpAvailable: Settings.otp,
-      referralCode: referralCode || data?.referralCode,
       orderId: order.orderId,
       otpMethod: order.otpMethod,
     };
 
-    const result = await handleRegister(registerData).unwrap();
-
+    const result = await handleForgotPassword(forgotPasswordData).unwrap();
     if (result.success) {
-      if (window?.fbq) {
-        window.fbq("track", "CompleteRegistration", {
-          content_name: "User Signup",
-          status: "success",
-        });
-      }
-      localStorage.removeItem("referralCode");
-      const token = result?.result?.token;
-      const bonusToken = result?.result?.bonusToken;
-      const user = result?.result?.loginName;
-      const memberId = result?.result?.memberId;
-      const game = result?.result?.buttonValue?.game;
-      const banner = result?.result?.banner;
-      dispatch(setUser({ user, token, memberId }));
-      localStorage.setItem("buttonValue", JSON.stringify(game));
-      localStorage.setItem("bonusToken", bonusToken);
-      localStorage.setItem("token", token);
-      if (banner) {
-        localStorage.setItem("banner", banner);
-        dispatch(setShowBanner(true));
-      }
-      if (token && user) {
-        dispatch(setShowRegisterModal(false));
-        toast.success("Register successful");
-      }
+      toast.success("Password updated successfully");
+      closeModal();
+      dispatch(setShowLoginModal(true));
     } else {
-      toast.error(result?.error?.description);
+      toast.error(result?.error?.loginName?.[0]?.description);
     }
   };
+
+  const closeModal = () => {
+    dispatch(setShowForgotPasswordModal(false));
+  };
+
+  useEffect(() => {
+    if (counter > 0) {
+      setTimeout(() => {
+        setCounter((prev) => prev - 1);
+      }, 1000);
+    } else {
+      setCounter(null);
+    }
+  }, [counter]);
 
   return (
     <div data-v-27945482 className="login-model-pop-up-sec">
@@ -213,7 +181,7 @@ const Register = () => {
                                   placeholder="Enter Mobile Number*"
                                   required
                                 />
-                                {countDown > 0 ? (
+                                {counter > 0 ? (
                                   <div
                                     data-v-27945482
                                     className="register-get-otp right-side"
@@ -229,7 +197,7 @@ const Register = () => {
                                         data-v-27945482
                                         style={{ textTransform: "initial" }}
                                       >
-                                        Resend OTP in 00:{countDown}s
+                                        Resend OTP in 00:{counter}s
                                       </span>
                                     </button>
                                   </div>
@@ -325,20 +293,6 @@ const Register = () => {
                         </div>
                       </div>
 
-                      <div data-v-27945482 className="mak-gin password-inpt">
-                        <div data-v-27945482 className="phone-no-field">
-                          <input
-                            {...register("referralCode")}
-                            data-v-27945482
-                            type="text"
-                            className="form-control toggle-password"
-                            placeholder="Enter referral code(Optional)"
-                            aria-describedby="password"
-                            defaultValue={referralCode}
-                            readOnly={referralCode}
-                          />
-                        </div>
-                      </div>
                       <div
                         data-v-27945482
                         className="login-cmn-btn login-demo-btn"
@@ -349,52 +303,9 @@ const Register = () => {
                           className="thm-but"
                           id="submitBtn"
                         >
-                          <span data-v-27945482>Register</span>
+                          <span data-v-27945482>Change Password</span>
                         </button>
                       </div>
-                      {socialLink?.whatsapplink &&
-                        Settings.registrationWhatsapp && (
-                          <Fragment>
-                            <div data-v-27945482 className="login-flow-heading">
-                              <p data-v-27945482>
-                                Get Your Ready-Made ID From WhatsApp
-                              </p>
-                            </div>
-                            <div
-                              data-v-27945482
-                              className="whatsapp-btn Continue-with mt-0 pt-0 mb-0 pb-0"
-                            >
-                              <div
-                                data-v-27945482
-                                className="button-whatsapp mt-0 pt-0 mb-0 pb-0"
-                              >
-                                <a
-                                  onClick={getWhatsAppId}
-                                  data-v-27945482
-                                  className="btn-whatsapp"
-                                  target="_blank"
-                                >
-                                  <i
-                                    data-v-27945482
-                                    className="fa-brands fa-whatsapp"
-                                  />
-                                  Whatsapp Now
-                                </a>
-                              </div>
-                            </div>
-                          </Fragment>
-                        )}
-
-                      <p data-v-27945482 className="forpass-in box-right">
-                        Already Have Account?{" "}
-                        <a
-                          data-v-27945482
-                          onClick={showLogin}
-                          data-bs-toggle="modal"
-                        >
-                          LogIn
-                        </a>
-                      </p>
                     </div>
                   </form>
                 </div>
@@ -407,4 +318,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default ForgotPassword;
