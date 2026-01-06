@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { Settings } from "../../../api";
 import useWhatsApp from "../../../hooks/whatsapp";
+import { Link } from "react-router-dom";
 
 const LeftSidebar = () => {
   const { token } = useSelector((state) => state.auth);
@@ -8,8 +9,8 @@ const LeftSidebar = () => {
   const handleDownload = (e) => {
     e.preventDefault();
     const fileUrl = Settings.apkLink;
-    const link = document.createElement("a");
-    link.href = fileUrl;
+    const link = document.createElement("Link");
+    link.to = fileUrl;
     link.setAttribute("download", "site.apk");
     document.body.appendChild(link);
     link.click();
@@ -50,19 +51,7 @@ const LeftSidebar = () => {
             <div className="depo-and-wdrl-sec">
               <ul>
                 <li>
-                  <a href="/multi-market" className="multi-mark-bg">
-                    <div className="icon-sidemenu">
-                      <img
-                        loading="lazy"
-                        src="/src/assets/img/free-chart-icon-DCmNn4g4.png"
-                        alt=""
-                      />
-                    </div>
-                    <span>Multi Market</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/sports/cricket/4" className="multi-mark-bg">
+                  <Link to="/sports/cricket/4" className="multi-mark-bg">
                     <div className="icon-sidemenu">
                       <img
                         loading="lazy"
@@ -71,10 +60,10 @@ const LeftSidebar = () => {
                       />
                     </div>
                     <span>cricket</span>
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/sports/Football/1" className="multi-mark-bg">
+                  <Link to="/sports/Football/1" className="multi-mark-bg">
                     <div className="icon-sidemenu">
                       <img
                         loading="lazy"
@@ -83,10 +72,10 @@ const LeftSidebar = () => {
                       />
                     </div>
                     <span>Football</span>
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/sports/tennis/2" className="multi-mark-bg">
+                  <Link to="/sports/tennis/2" className="multi-mark-bg">
                     <div className="icon-sidemenu">
                       <img
                         loading="lazy"
@@ -95,10 +84,10 @@ const LeftSidebar = () => {
                       />
                     </div>
                     <span>tennis</span>
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="multi-mark-bg">
+                  <Link className="multi-mark-bg">
                     <div className="icon-sidemenu">
                       <img
                         loading="lazy"
@@ -107,22 +96,11 @@ const LeftSidebar = () => {
                       />
                     </div>
                     <span>Sports book</span>
-                  </a>
+                  </Link>
                 </li>
+
                 <li>
-                  <a href="/matka" className="multi-mark-bg">
-                    <div className="icon-sidemenu">
-                      <img
-                        loading="lazy"
-                        src="/src/assets/img/matka-icon-NBWZaN-H.png"
-                        alt=""
-                      />
-                    </div>
-                    <span>Matka</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="/games/casino" className="multi-mark-bg">
+                  <Link to="/games/casino" className="multi-mark-bg">
                     <div className="icon-sidemenu">
                       <img
                         loading="lazy"
@@ -131,10 +109,10 @@ const LeftSidebar = () => {
                       />
                     </div>
                     <span>Casino</span>
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="/games/evolution" className="multi-mark-bg">
+                  <Link to="/games/evolution" className="multi-mark-bg">
                     <div className="icon-sidemenu">
                       <img
                         loading="lazy"
@@ -143,11 +121,14 @@ const LeftSidebar = () => {
                       />
                     </div>
                     <span>Evolution</span>
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
-                  <a href="/sports/Kabaddi /27454572" className="multi-mark-bg">
+                  <Link
+                    to="/sports/Kabaddi /27454572"
+                    className="multi-mark-bg"
+                  >
                     <div className="icon-sidemenu">
                       <img
                         loading="lazy"
@@ -156,12 +137,12 @@ const LeftSidebar = () => {
                       />
                     </div>
                     <span>Kabaddi </span>
-                  </a>
+                  </Link>
                 </li>
 
                 {Settings.apkLink && (
                   <li className="download_apk_side_btn_menu">
-                    <a onClick={handleDownload} className="multi-mark-bg">
+                    <Link onClick={handleDownload} className="multi-mark-bg">
                       <div className="icon-sidemenu">
                         <img
                           loading="lazy"
@@ -170,7 +151,7 @@ const LeftSidebar = () => {
                         />
                       </div>
                       <span>Download APK</span>
-                    </a>
+                    </Link>
                   </li>
                 )}
               </ul>
@@ -184,20 +165,20 @@ const LeftSidebar = () => {
                 {(socialLink?.whatsapplink ||
                   socialLink?.branchWhatsapplink) && (
                   <li>
-                    <a onClick={navigateWhatsApp}>
+                    <Link onClick={navigateWhatsApp}>
                       <img
                         loading="lazy"
                         src="/src/assets/img/whatapp-icon-CGODlOk_.png"
                         alt="WhatsApp Icon"
                       />
                       <span>Whatsapp Now</span>
-                    </a>
+                    </Link>
                   </li>
                 )}
 
                 {socialLink?.telegramLink && (
                   <li>
-                    <a
+                    <Link
                       onClick={() =>
                         window.open(socialLink?.telegramLink, "_blank")
                       }
@@ -208,13 +189,13 @@ const LeftSidebar = () => {
                         alt="Telegram Icon"
                       />
                       <span>Follow On Telegram</span>
-                    </a>
+                    </Link>
                   </li>
                 )}
 
                 {socialLink?.instagramLink && (
                   <li>
-                    <a
+                    <Link
                       onClick={() =>
                         window.open(socialLink?.instagramLink, "_blank")
                       }
@@ -225,7 +206,7 @@ const LeftSidebar = () => {
                         alt="Instagram Icon"
                       />
                       <span>Follow On Instagram</span>
-                    </a>
+                    </Link>
                   </li>
                 )}
               </ul>

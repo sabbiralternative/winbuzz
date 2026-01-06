@@ -53,31 +53,9 @@ const NavMiddleMenu = () => {
               <span>tennis</span>
             </Link>
           </li>
-          <li className="hightlight-nav-menu">
-            <Link className>
-              <img
-                loading="lazy"
-                src="/src/assets/img/sportsbook-menu-Dl5BZyMg.png"
-                alt="Sports Book"
-                className="nav-icon"
-              />
-              <span>Sports book</span>
-            </Link>
-          </li>
-          <li>
-            <Link to="/matka" className>
-              <img
-                loading="lazy"
-                src="/src/assets/img/matka-icon-NBWZaN-H.png"
-                alt="Matka"
-                className="nav-icon"
-              />
-              <span>Matka</span>
-            </Link>
-          </li>
 
           <li className="hightlight-nav-menu">
-            <Link to="/games/casino" className>
+            <Link to="/casino" className>
               <img
                 loading="lazy"
                 src="/src/assets/img/int-casino-DuAshlyx.png"
@@ -85,17 +63,6 @@ const NavMiddleMenu = () => {
                 className="nav-icon"
               />
               <span>Casino</span>
-            </Link>
-          </li>
-          <li className="hightlight-nav-menu">
-            <Link to="/games/evolution" className>
-              <img
-                loading="lazy"
-                src="/src/assets/img/casino-icon-D7N09FcO.png"
-                alt="Casino"
-                className="nav-icon"
-              />
-              <span>Evolution</span>
             </Link>
           </li>
         </ul>

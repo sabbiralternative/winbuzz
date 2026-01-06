@@ -27,8 +27,28 @@ import eyeHide from "../img/score-hide-icon-CbsWAgUP.svg";
 import cricket from "../img/sports-cricket-Qf1NmI1h.png";
 import tennis from "../img/sports-tennis-DzBamNaA.png";
 import football from "../img/sports-soccer-CaiOK3CT.png";
+import install_android from "../img/header_image.png";
+import dashboard from "../img/dashboard-ft.02d913bd.svg";
+import graph from "../img/graph-ft.01703183.svg";
+import userList from "../img/user-list-ft.ad2d77b8.svg";
+import calendar from "../img/affi-calendar.57b07b6a.svg";
+import commission from "../img/affi-commision-icon.ddf556a3.svg";
+import user from "../img/affi-user-icn.b08f83a6.svg";
+import share from "../img/af-share-img.51df8801.svg";
+import affiliate from "../img/affiliate.png";
+import usdt from "../img/usdt.svg";
 
 export default {
+  dashboard,
+  graph,
+  userList,
+  calendar,
+  commission,
+  user,
+  share,
+  affiliate,
+  usdt,
+  install_android,
   football,
   cricket,
   tennis,

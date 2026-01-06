@@ -14,12 +14,16 @@ const Dropdown = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const { user, memberId } = useSelector((state) => state.auth);
 
+  const closeDropdown = () => {
+    setShowDropdown((prev) => !prev);
+  };
+
   return (
     <li data-v-9dda4895>
       <ModalWrapper setModal={setShowDropdown}>
         <div data-v-9dda4895 className="dropdown open-menu-btn">
           <button
-            onClick={() => setShowDropdown((prev) => !prev)}
+            onClick={closeDropdown}
             data-v-9dda4895
             className="btn btn-secondary dropdown-toggle"
             type="button"
@@ -53,7 +57,7 @@ const Dropdown = () => {
             data-popper-placement="bottom-end"
           >
             <li data-v-9dda4895 className="header-userid">
-              <Link data-v-9dda4895 to="javascript:void(0);">
+              <a data-v-9dda4895 to="javascript:void(0);">
                 <div data-v-9dda4895 className="header-copy-icon">
                   <h5 data-v-9dda4895>{memberId}</h5>
                   <button
@@ -65,7 +69,7 @@ const Dropdown = () => {
                     <i data-v-9dda4895 className="fa-solid fa-copy" />
                   </button>
                 </div>
-              </Link>
+              </a>
             </li>
             <li data-v-9dda4895 className="menu-rgt-icons">
               <div data-v-9dda4895 className="displayName-wrap">
@@ -128,7 +132,12 @@ const Dropdown = () => {
                       data-v-9dda4895
                       className="credits-chackn-box refer-ean-btn"
                     >
-                      <Link data-v-9dda4895 to="/affiliate" className="cmn-btn">
+                      <Link
+                        data-v-9dda4895
+                        onClick={closeDropdown}
+                        to="/affiliate"
+                        className="cmn-btn"
+                      >
                         Refer and Earn
                       </Link>
                     </div>
@@ -138,7 +147,12 @@ const Dropdown = () => {
             </li>
             {socialLink?.referral && (
               <li data-v-9dda4895 className="menu-rgt-icons">
-                <Link data-v-9dda4895 to="/affiliate" className="dropdown-item">
+                <Link
+                  data-v-9dda4895
+                  onClick={closeDropdown}
+                  to="/affiliate"
+                  className="dropdown-item"
+                >
                   <i data-v-9dda4895 className="fa-solid fa-users-rays" />
                   <span data-v-9dda4895 className="menu-rgt-text">
                     Affiliate
@@ -150,7 +164,8 @@ const Dropdown = () => {
             <li data-v-9dda4895 className="menu-rgt-icons">
               <Link
                 data-v-9dda4895
-                to="statement.html"
+                onClick={closeDropdown}
+                to="/account-statement"
                 className="dropdown-item"
               >
                 <i data-v-9dda4895 className="fa-solid fa-university" />
@@ -160,7 +175,12 @@ const Dropdown = () => {
               </Link>
             </li>
             <li data-v-9dda4895 className="menu-rgt-icons">
-              <Link data-v-9dda4895 to="stake.html" className="dropdown-item">
+              <Link
+                data-v-9dda4895
+                onClick={closeDropdown}
+                to="/edit-stake"
+                className="dropdown-item"
+              >
                 <i data-v-9dda4895 className="fa-solid fa-gear" />
                 <span data-v-9dda4895 className="menu-rgt-text">
                   Settings
@@ -170,7 +190,8 @@ const Dropdown = () => {
             <li data-v-9dda4895 className="menu-rgt-icons">
               <Link
                 data-v-9dda4895
-                to="profit-loss.html"
+                onClick={closeDropdown}
+                to="/betting-profit-loss"
                 className="dropdown-item"
               >
                 <i data-v-9dda4895 className="fa-regular fa-circle-question" />
@@ -179,16 +200,14 @@ const Dropdown = () => {
                 </span>
               </Link>
             </li>
+
             <li data-v-9dda4895 className="menu-rgt-icons">
-              <Link data-v-9dda4895 className="dropdown-item">
-                <i data-v-9dda4895 className="fa-regular fa-clock" />
-                <span data-v-9dda4895 className="menu-rgt-text">
-                  My Bets
-                </span>
-              </Link>
-            </li>
-            <li data-v-9dda4895 className="menu-rgt-icons">
-              <Link data-v-9dda4895 className="dropdown-item">
+              <Link
+                onClick={closeDropdown}
+                to="/open-bets"
+                data-v-9dda4895
+                className="dropdown-item"
+              >
                 <span data-v-9dda4895 className="icon-menu-sec">
                   <img
                     data-v-9dda4895
@@ -206,6 +225,7 @@ const Dropdown = () => {
             <li data-v-9dda4895 className="menu-rgt-icons">
               <Link
                 data-v-9dda4895
+                onClick={closeDropdown}
                 to="/change-password"
                 className="dropdown-item"
               >
@@ -215,18 +235,7 @@ const Dropdown = () => {
                 </span>
               </Link>
             </li>
-            <li data-v-9dda4895 className="menu-rgt-icons">
-              <Link
-                data-v-9dda4895
-                to="/notifications"
-                className="dropdown-item"
-              >
-                <i data-v-9dda4895 className="fa-solid fa-bell" />
-                <span data-v-9dda4895 className="menu-rgt-text">
-                  Notifications
-                </span>
-              </Link>
-            </li>
+
             <li data-v-9dda4895 className="menu-rgt-icons">
               <Link
                 data-v-9dda4895
