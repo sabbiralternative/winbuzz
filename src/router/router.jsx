@@ -14,6 +14,7 @@ import Affiliate from "../pages/Affiliate/Affiliate";
 import AffiliateUserProfitLoss from "../pages/AffiliateUserProfitLoss/AffiliateUserProfitLoss";
 import AffiliateUserStatement from "../pages/AffiliateUserStatement/AffiliateUserStatement";
 import Casino from "../pages/Casino/Casino";
+import BettingProfitLossDetails from "../pages/BettingProfitLoss/BettingProfitLossDetails";
 
 export const router = createBrowserRouter(
   [
@@ -50,6 +51,10 @@ export const router = createBrowserRouter(
         {
           path: "/betting-profit-loss",
           element: <BettingProfitLoss />,
+        },
+        {
+          path: "/betting-profit-loss/:marketId",
+          element: <BettingProfitLossDetails />,
         },
         {
           path: "/open-bets",

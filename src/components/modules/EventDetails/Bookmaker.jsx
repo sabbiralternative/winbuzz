@@ -7,7 +7,10 @@ import {
   setRunnerId,
 } from "../../../redux/features/events/eventSlice";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
-import isOddSuspended from "../../../utils/isOddSuspended";
+import isOddSuspended, { isGameSuspended } from "../../../utils/isOddSuspended";
+import { Settings } from "../../../api";
+import { handleCashOutPlaceBet } from "../../../utils/handleCashoutPlaceBet";
+import SpeedCashOut from "../../modals/SpeedCashOut/SpeedCashOut";
 
 const Bookmaker = ({ data }) => {
   const [speedCashOut, setSpeedCashOut] = useState(null);
@@ -218,6 +221,12 @@ const Bookmaker = ({ data }) => {
 
   return (
     <Fragment>
+      {speedCashOut && (
+        <SpeedCashOut
+          speedCashOut={speedCashOut}
+          setSpeedCashOut={setSpeedCashOut}
+        />
+      )}
       {data?.length > 0 &&
         data?.map((game) => {
           const teamProfitForGame = teamProfit?.find(
@@ -239,6 +248,60 @@ const Bookmaker = ({ data }) => {
                       <span data-v-4a1ad0c4 className="mrkname">
                         {game?.name?.toUpperCase()}
                       </span>
+                      {Settings.betFairCashOut &&
+                        game?.runners?.length !== 3 &&
+                        game?.status === "OPEN" &&
+                        game?.name !== "toss" &&
+                        !speedCashOut && (
+                          <button
+                            onClick={() =>
+                              handleCashOutPlaceBet(
+                                game,
+                                "lay",
+                                dispatch,
+                                pnlBySelection,
+                                token,
+                                teamProfitForGame
+                              )
+                            }
+                            style={{
+                              cursor: `${
+                                !teamProfitForGame ? "not-allowed" : "pointer"
+                              }`,
+                              opacity: `${!teamProfitForGame ? "0.6" : "1"}`,
+                            }}
+                            data-v-4a1ad0c4
+                            className={` px-2 py-1 rounded ${
+                              teamProfitForGame?.profit > 0
+                                ? "bg-green-500"
+                                : "bg-rose-500"
+                            }`}
+                          >
+                            Cashout{" "}
+                            {teamProfitForGame?.profit &&
+                              `(${teamProfitForGame.profit.toFixed(2)})`}
+                          </button>
+                        )}
+                      {Settings.betFairCashOut &&
+                        game?.runners?.length !== 3 &&
+                        game?.status === "OPEN" &&
+                        game?.name !== "toss" &&
+                        speedCashOut && (
+                          <button
+                            onClick={() =>
+                              setSpeedCashOut({
+                                ...speedCashOut,
+                                market_name: game?.name,
+                                event_name: game?.eventName,
+                              })
+                            }
+                            disabled={isGameSuspended(game)}
+                            data-v-4a1ad0c4
+                            className={` px-2 py-1 rounded bg-[#82371b]`}
+                          >
+                            Speed Cashout
+                          </button>
+                        )}
                     </div>
                   </div>
                   <div data-v-4a1ad0c4 className="col-4 col-md-6">
@@ -296,7 +359,28 @@ const Bookmaker = ({ data }) => {
                         <div data-v-4a1ad0c4 className="col-7">
                           <div data-v-4a1ad0c4 className="market-event-name">
                             <span data-v-4a1ad0c4> {runner?.name}</span>
-                            <div data-v-4a1ad0c4 className="back-lay-status" />
+                            <div data-v-4a1ad0c4 className="back-lay-status">
+                              {pnl && (
+                                <div
+                                  className={`  ${
+                                    pnl?.pnl > 0 ? "positive" : "negative"
+                                  }`}
+                                >
+                                  {pnl?.pnl}
+                                </div>
+                              )}
+                              {stake && runnerId && predictOddValues && (
+                                <div
+                                  className={`  ${
+                                    predictOddValues?.exposure > 0
+                                      ? "positive"
+                                      : "negative"
+                                  }`}
+                                >
+                                  » {predictOddValues?.exposure}
+                                </div>
+                              )}
+                            </div>
                           </div>
                         </div>
                         <div data-v-4a1ad0c4 className="col-5">

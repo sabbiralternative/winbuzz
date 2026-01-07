@@ -7,7 +7,10 @@ import {
   setRunnerId,
 } from "../../../redux/features/events/eventSlice";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
-import isOddSuspended from "../../../utils/isOddSuspended";
+import isOddSuspended, { isGameSuspended } from "../../../utils/isOddSuspended";
+import { Settings } from "../../../api";
+import { handleCashOutPlaceBet } from "../../../utils/handleCashoutPlaceBet";
+import SpeedCashOut from "../../modals/SpeedCashOut/SpeedCashOut";
 
 const MatchOdds = ({ data }) => {
   const [speedCashOut, setSpeedCashOut] = useState(null);
@@ -215,6 +218,12 @@ const MatchOdds = ({ data }) => {
   }
   return (
     <Fragment>
+      {speedCashOut && (
+        <SpeedCashOut
+          speedCashOut={speedCashOut}
+          setSpeedCashOut={setSpeedCashOut}
+        />
+      )}
       {data?.length > 0 &&
         data?.map((game) => {
           const teamProfitForGame = teamProfit?.find(
@@ -232,28 +241,64 @@ const MatchOdds = ({ data }) => {
                   className="row g-0 d-flex align-items-center"
                 >
                   <div data-v-4a1ad0c4 className="col-8 col-md-6 pl-0">
-                    <div
-                      data-v-4a1ad0c4
-                      className="mark-lft-head who_will_win_sec"
-                    >
-                      <div data-v-4a1ad0c4 className="bet-icon m-0">
-                        <div
-                          data-v-4a1ad0c4
-                          className="game-icon ng-star-inserted m-0"
-                        >
-                          <img
-                            data-v-4a1ad0c4
-                            className="star-active"
-                            src="/src/assets/img/star-inactive-Cy8n08QW.png"
-                          />
-                        </div>
-                      </div>
-                      <span
-                        data-v-4a1ad0c4
-                        className="mrkname who_will_win_text"
-                      >
+                    <div data-v-4a1ad0c4 className="mark-lft-head">
+                      <span data-v-4a1ad0c4 className="mrkname">
                         {game?.name?.toUpperCase()}
                       </span>
+                      {Settings.betFairCashOut &&
+                        game?.runners?.length !== 3 &&
+                        game?.status === "OPEN" &&
+                        game?.name !== "toss" &&
+                        !speedCashOut && (
+                          <button
+                            onClick={() =>
+                              handleCashOutPlaceBet(
+                                game,
+                                "lay",
+                                dispatch,
+                                pnlBySelection,
+                                token,
+                                teamProfitForGame
+                              )
+                            }
+                            style={{
+                              cursor: `${
+                                !teamProfitForGame ? "not-allowed" : "pointer"
+                              }`,
+                              opacity: `${!teamProfitForGame ? "0.6" : "1"}`,
+                            }}
+                            data-v-4a1ad0c4
+                            className={` px-2 py-1 rounded ${
+                              teamProfitForGame?.profit > 0
+                                ? "bg-green-500"
+                                : "bg-rose-500"
+                            }`}
+                          >
+                            Cashout{" "}
+                            {teamProfitForGame?.profit &&
+                              `(${teamProfitForGame.profit.toFixed(2)})`}
+                          </button>
+                        )}
+                      {Settings.betFairCashOut &&
+                        game?.runners?.length !== 3 &&
+                        game?.status === "OPEN" &&
+                        game?.name !== "toss" &&
+                        speedCashOut && (
+                          <button
+                            onClick={() =>
+                              setSpeedCashOut({
+                                ...speedCashOut,
+                                market_name: game?.name,
+                                event_name: game?.eventName,
+                              })
+                            }
+                            disabled={isGameSuspended(game)}
+                            data-v-4a1ad0c4
+                            className={` px-2 py-1 rounded bg-[#82371b]`}
+                          >
+                            Speed Cashout
+                          </button>
+                        )}
                     </div>
                   </div>
                   <div data-v-4a1ad0c4 className="col-4 col-md-6">
@@ -292,6 +337,12 @@ const MatchOdds = ({ data }) => {
                   </div>
                 </div>
                 {game?.runners?.map((runner) => {
+                  const pnl = pnlBySelection?.find(
+                    (pnl) => pnl?.RunnerId === runner?.id
+                  );
+                  const predictOddValues = predictOdd?.find(
+                    (val) => val?.id === runner?.id
+                  );
                   return (
                     <div
                       key={runner?.id}
@@ -303,7 +354,26 @@ const MatchOdds = ({ data }) => {
                           <div data-v-4a1ad0c4 className="market-event-name">
                             <span data-v-4a1ad0c4>{runner?.name}</span>
                             <div data-v-4a1ad0c4 className="back-lay-status">
-                              {/* <div className="negative">» 91</div> */}
+                              {pnl && (
+                                <div
+                                  className={`  ${
+                                    pnl?.pnl > 0 ? "positive" : "negative"
+                                  }`}
+                                >
+                                  {pnl?.pnl}
+                                </div>
+                              )}
+                              {stake && runnerId && predictOddValues && (
+                                <div
+                                  className={`  ${
+                                    predictOddValues?.exposure > 0
+                                      ? "positive"
+                                      : "negative"
+                                  }`}
+                                >
+                                  » {predictOddValues?.exposure}
+                                </div>
+                              )}
                             </div>
                           </div>
                         </div>

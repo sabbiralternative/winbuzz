@@ -6,6 +6,8 @@ import useWhatsApp from "../../../hooks/whatsapp";
 import { logout } from "../../../redux/features/auth/authSlice";
 import ModalWrapper from "../../modals/ModalWrapper/ModalWrapper";
 import { handleCopyToClipBoard } from "../../../utils/handleCopyToClipBoard";
+import { AiOutlineQuestionCircle } from "react-icons/ai";
+import { FaBook } from "react-icons/fa6";
 
 const Dropdown = () => {
   const dispatch = useDispatch();
@@ -194,7 +196,7 @@ const Dropdown = () => {
                 to="/betting-profit-loss"
                 className="dropdown-item"
               >
-                <i data-v-9dda4895 className="fa-regular fa-circle-question" />
+                <AiOutlineQuestionCircle className="mr-3" />
                 <span data-v-9dda4895 className="menu-rgt-text">
                   Betting Profit &amp; Loss
                 </span>
@@ -209,12 +211,7 @@ const Dropdown = () => {
                 className="dropdown-item"
               >
                 <span data-v-9dda4895 className="icon-menu-sec">
-                  <img
-                    data-v-9dda4895
-                    loading="lazy"
-                    src="/src/assets/img/menu-book-BqmO0oXZ.png"
-                    alt=""
-                  />
+                  <FaBook className="mr-3 text-black" />
                 </span>
                 <span data-v-9dda4895 className="menu-rgt-text">
                   {" "}

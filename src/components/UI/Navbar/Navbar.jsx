@@ -1,4 +1,4 @@
-import RecentEvent from "./RecentEvent";
+import LatestEvent from "./LatestEvent";
 import NavMiddleMenu from "./NavMiddleMenu";
 import TopNav from "./TopNav";
 import Notification from "./Notification";
@@ -55,7 +55,7 @@ const Navbar = () => {
       <Notification />
       {Settings?.apkLink && showAppPopUp && windowWidth < 1040 && <AppPopup />}
       <TopNav />
-      <RecentEvent />
+      <LatestEvent />
       <NavMiddleMenu />
     </header>
   );

@@ -1,4 +1,8 @@
-const RecentEvent = () => {
+import { useLatestEvent } from "../../../hooks/latestEvent";
+
+const LatestEvent = () => {
+  const { data } = useLatestEvent();
+
   return (
     <div className="header-ipl-election">
       <div className="header-ipl-sec">
@@ -25,4 +29,4 @@ const RecentEvent = () => {
   );
 };
 
-export default RecentEvent;
+export default LatestEvent;
