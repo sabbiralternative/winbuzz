@@ -10,9 +10,7 @@
 .primary-icons svg {
   fill: var(--primary-gradient-color);
 }
-.text-primary {
-  color: var(--primary-gradient-color);
-}
+
 .text-secondary {
   color: var(--color-bg-secondary);
 }
@@ -670,10 +668,6 @@ div:where(.swal2-container) div:where(.swal2-actions) {
   line-height: 1;
   font-size: 12px;
   border: 2px solid rgb(42, 42, 42);
-}
-
-.border-primary {
-  border-color: var(--primary-gradient-color) !important;
 }
 
 .page-body[_ngcontent-ng-c943649379] {

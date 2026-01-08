@@ -68,7 +68,7 @@ const AppPopup = () => {
         className="install-btn"
       >
         <button className="flex  hover:opacity-100 w-max font-extrabold items-center justify-center  bg-bg_color_LoginBtnBgColor rounded-md px-2.5 py-0.5">
-          <span className=" text-x text-primary font-lato md:font-semibold xs:text-xs  md:text-sm font-[800]">
+          <span className=" text-x text-primary  md:font-semibold xs:text-xs  md:text-sm font-[600]">
             Install
           </span>
         </button>

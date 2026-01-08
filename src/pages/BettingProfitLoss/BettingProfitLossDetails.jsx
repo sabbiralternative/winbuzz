@@ -37,7 +37,7 @@ const BettingProfitLossDetails = () => {
     <div className="col-12 col-sm-12 col-md-12 col-lg-10 box-shd-gap">
       <div>
         <div data-v-b6eed746 className="right-side-bar-main-sec my-bets-sec">
-          <div className="w-full h-full flex flex-col gap-2  font font-lato text-sm">
+          <div className="w-full h-full flex flex-col gap-2  font  text-sm">
             <div className="flex flex-col rounded-md overflow-hidden shadow-lg">
               <div className="bg-primary py-2 px-4 text-primary font-semibold">
                 {data?.result?.[0]?.eventName}

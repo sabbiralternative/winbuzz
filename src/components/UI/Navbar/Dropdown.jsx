@@ -147,6 +147,34 @@ const Dropdown = () => {
                 )}
               </div>
             </li>
+
+            <li data-v-9dda4895 className="menu-rgt-icons">
+              <Link
+                data-v-9dda4895
+                onClick={closeDropdown}
+                to="/deposit"
+                className="dropdown-item"
+              >
+                <i data-v-9dda4895 className="fa-solid fa-users-rays" />
+                <span data-v-9dda4895 className="menu-rgt-text">
+                  Deposit
+                </span>
+              </Link>
+            </li>
+            <li data-v-9dda4895 className="menu-rgt-icons">
+              <Link
+                data-v-9dda4895
+                onClick={closeDropdown}
+                to="/withdraw"
+                className="dropdown-item"
+              >
+                <i data-v-9dda4895 className="fa-solid fa-users-rays" />
+                <span data-v-9dda4895 className="menu-rgt-text">
+                  Withdraw
+                </span>
+              </Link>
+            </li>
+
             {socialLink?.referral && (
               <li data-v-9dda4895 className="menu-rgt-icons">
                 <Link

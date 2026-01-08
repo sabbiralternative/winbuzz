@@ -108,7 +108,7 @@ const ProfitLoss = () => {
                         totalPnl > 0
                           ? "text-text_color_success"
                           : totalPnl < 0
-                          ? "text-text_color_danger"
+                          ? "text-rose-500"
                           : "text-white"
                       }`}
                     >

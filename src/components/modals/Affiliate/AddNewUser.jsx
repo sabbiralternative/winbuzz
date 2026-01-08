@@ -182,14 +182,11 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
                 className="w-full gap-y-4 flex flex-col"
               >
                 <div className="flex flex-col gap-1">
-                  <div
-                    title="passwordInput"
-                    className="w-full font-lato uppercase"
-                  >
+                  <div title="passwordInput" className="w-full  uppercase">
                     <div className="text-[10px] ml-1 md:text-xs lg:text-sm">
                       Mobile
                     </div>
-                    <div className="flex w-full items-center py-2 bg-bg_color_input_bg border-border_color_primary1  rounded-lg border">
+                    <div className="flex w-full items-center py-2  border-border_color_primary1  rounded-lg border">
                       <input
                         onChange={(e) => {
                           if (e.target.value.length <= 10) {
@@ -197,7 +194,7 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
                           }
                         }}
                         id="mobile-no-input"
-                        className="px-2 block w-full focus:outline-none w-full font-lato bg-bg_color_input_bg  rounded-none text-text_Ternary pr-2 text-sm xs:text-md"
+                        className="px-2 block w-full focus:outline-none w-full    rounded-none text-text_Ternary pr-2 text-sm xs:text-md"
                         placeholder="Phone Number"
                         type="text"
                         value={mobile}
@@ -206,7 +203,7 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
                       <div className="w-max">
                         {timer ? (
                           <button
-                            className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out font-lato-bold h-fit bg-primary text-text_Quaternary transition-all ease-in-out text-xs whitespace-nowrap mr-1 py-1 px-3 rounded active:scale-[0.98] active:opacity-95 disabled:bg-bg_Slate500 disabled:opacity-50 font-medium relative flex items-center justify-center cursor-pointer"
+                            className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out -bold h-fit bg-primary  transition-all ease-in-out text-xs whitespace-nowrap mr-1 py-1 px-3 rounded active:scale-[0.98] active:opacity-95 disabled:bg-bg_Slate500 disabled:opacity-50 font-medium relative flex items-center justify-center cursor-pointer"
                             type="button"
                           >
                             <span className=" ">Retry in {timer}</span>
@@ -217,7 +214,7 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
                             {Settings.otpWhatsapp && (
                               <button
                                 onClick={getOtpOnWhatsapp}
-                                className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out font-lato-bold h-fit bg-primary text-text_Quaternary transition-all ease-in-out text-xs whitespace-nowrap mr-1 py-1 px-3 rounded active:scale-[0.98] active:opacity-95 disabled:bg-bg_Slate500 disabled:opacity-50 font-medium relative flex items-center justify-center cursor-pointer bg-bg_text_brand_primary"
+                                className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out -bold h-fit bg-primary  transition-all ease-in-out text-xs whitespace-nowrap mr-1 py-1 px-3 rounded active:scale-[0.98] active:opacity-95 disabled:bg-bg_Slate500 disabled:opacity-50 font-medium relative flex items-center justify-center cursor-pointer bg-primary"
                                 type="button"
                               >
                                 <span className="text-primary">
@@ -229,7 +226,7 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
 
                             <button
                               onClick={getOtp}
-                              className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out font-lato-bold h-fit bg-primary text-text_Quaternary transition-all ease-in-out text-xs whitespace-nowrap mr-1 py-1 px-3 rounded active:scale-[0.98] active:opacity-95 disabled:bg-bg_Slate500 disabled:opacity-50 font-medium relative flex items-center justify-center cursor-pointer bg-bg_text_brand_primary"
+                              className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out -bold h-fit bg-primary  transition-all ease-in-out text-xs whitespace-nowrap mr-1 py-1 px-3 rounded active:scale-[0.98] active:opacity-95 disabled:bg-bg_Slate500 disabled:opacity-50 font-medium relative flex items-center justify-center cursor-pointer bg-primary"
                               type="button"
                             >
                               <span className="text-primary">Get OTP SMS</span>
@@ -243,14 +240,11 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <div
-                    title="passwordInput"
-                    className="w-full font-lato uppercase"
-                  >
+                  <div title="passwordInput" className="w-full  uppercase">
                     <div className="text-[10px] ml-1 md:text-xs lg:text-sm">
                       OTP
                     </div>
-                    <div className="flex w-full items-center border p-1 bg-bg_color_input_bg border-border_color_primary1  rounded-lg mt-2">
+                    <div className="flex w-full items-center border p-1  border-border_color_primary1  rounded-lg mt-2">
                       <input
                         maxLength={6}
                         onChange={(e) => {
@@ -260,7 +254,7 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
                           });
                         }}
                         id="otpSignUp"
-                        className="block w-full focus:outline-none w-full font-lato rounded-none py-1 text-text_Ternary px-2 text-sm xs:text-md bg-bg_color_input_bg "
+                        className="block w-full focus:outline-none w-full  rounded-none py-1 text-text_Ternary px-2 text-sm xs:text-md  "
                         placeholder="Enter OTP"
                         type="text"
                       />
@@ -276,14 +270,11 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <div
-                    title="passwordInput"
-                    className="w-full font-lato uppercase"
-                  >
+                  <div title="passwordInput" className="w-full  uppercase">
                     <div className="text-[10px] ml-1 md:text-xs lg:text-sm">
                       User Id
                     </div>
-                    <div className="flex w-full items-center py-2 px-2 bg-bg_color_input_bg border-border_color_primary1 rounded-lg border">
+                    <div className="flex w-full items-center py-2 px-2  border-border_color_primary1 rounded-lg border">
                       <input
                         onChange={(e) => {
                           setUserDetails({
@@ -293,21 +284,18 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
                         }}
                         placeholder="Enter User Id"
                         id="password-input"
-                        className="block w-full focus:outline-none w-full pr-2 rounded-none text-text_Ternary bg-bg_color_input_bg  text-sm xs:text-md"
+                        className="block w-full focus:outline-none w-full pr-2 rounded-none text-text_Ternary   text-sm xs:text-md"
                         value={userDetails.userId}
                       />
                     </div>
                   </div>
                 </div>
                 <div className="flex flex-col gap-1">
-                  <div
-                    title="passwordInput"
-                    className="w-full font-lato uppercase"
-                  >
+                  <div title="passwordInput" className="w-full  uppercase">
                     <div className="text-[10px] ml-1 md:text-xs lg:text-sm">
                       Password
                     </div>
-                    <div className="flex w-full items-center py-2 px-2 bg-bg_color_input_bg  border-border_color_primary1  rounded-lg border">
+                    <div className="flex w-full items-center py-2 px-2   border-border_color_primary1  rounded-lg border">
                       <input
                         onChange={(e) => {
                           setUserDetails({
@@ -317,7 +305,7 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
                         }}
                         placeholder="Enter Password"
                         id="password-input"
-                        className="block w-full focus:outline-none w-full pr-2 rounded-none text-text_Ternary bg-bg_color_input_bg  text-sm xs:text-md"
+                        className="block w-full focus:outline-none w-full pr-2 rounded-none text-text_Ternary   text-sm xs:text-md"
                         value={userDetails.password}
                         type="password"
                       />
@@ -325,14 +313,11 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
                   </div>
                 </div>
                 <div className="flex flex-col gap-1">
-                  <div
-                    title="passwordInput"
-                    className="w-full font-lato uppercase"
-                  >
+                  <div title="passwordInput" className="w-full  uppercase">
                     <div className="text-[10px] ml-1 md:text-xs lg:text-sm">
                       Confirm Password
                     </div>
-                    <div className="flex w-full items-center py-2 px-2 bg-bg_color_input_bg  border-border_color_primary1 rounded-lg border">
+                    <div className="flex w-full items-center py-2 px-2   border-border_color_primary1 rounded-lg border">
                       <input
                         onChange={(e) => {
                           setUserDetails({
@@ -342,7 +327,7 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
                         }}
                         placeholder="Enter Confirm Password"
                         id="password-input"
-                        className="block w-full focus:outline-none w-full pr-2 rounded-none text-text_Ternary bg-bg_color_input_bg  text-sm xs:text-md"
+                        className="block w-full focus:outline-none w-full pr-2 rounded-none text-text_Ternary   text-sm xs:text-md"
                         value={userDetails.confirmPassword}
                         type="password"
                       />
@@ -351,14 +336,11 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
                 </div>
 
                 <div className="flex flex-col gap-1">
-                  <div
-                    title="passwordInput"
-                    className="w-full font-lato uppercase"
-                  >
+                  <div title="passwordInput" className="w-full  uppercase">
                     <div className="text-[10px] ml-1 md:text-xs lg:text-sm">
                       Self Password
                     </div>
-                    <div className="flex w-full items-center py-2 px-2 bg-bg_color_input_bg  border-border_color_primary1 rounded-lg border">
+                    <div className="flex w-full items-center py-2 px-2   border-border_color_primary1 rounded-lg border">
                       <input
                         onChange={(e) => {
                           setUserDetails({
@@ -368,7 +350,7 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
                         }}
                         placeholder="Enter Self Password"
                         id="password-input"
-                        className="block w-full focus:outline-none w-full pr-2 rounded-none text-text_Ternary bg-bg_color_input_bg  text-sm xs:text-md"
+                        className="block w-full focus:outline-none w-full pr-2 rounded-none text-text_Ternary   text-sm xs:text-md"
                         value={userDetails.selfPassword}
                         type="password"
                       />
@@ -381,7 +363,7 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
                   <button
                     disabled={!isFormValid}
                     type="submit"
-                    className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out w-full text-text_Quaternary bg-bg_LoginButtonColor shadow-lg rounded-md xs:text-[15px] px-5 py-2 flex items-center justify-center gap-x-2 font-lato-bold font-semibold text-base cursor-pointer bg-primary text-primary disabled:cursor-not-allowed disabled:opacity-50"
+                    className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out w-full  bg-bg_LoginButtonColor shadow-lg rounded-md xs:text-[15px] px-5 py-2 flex items-center justify-center gap-x-2 -bold font-semibold text-base cursor-pointer bg-primary text-primary disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     <span>Add New User</span>
                   </button>

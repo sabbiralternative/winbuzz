@@ -15,6 +15,8 @@ import AffiliateUserProfitLoss from "../pages/AffiliateUserProfitLoss/AffiliateU
 import AffiliateUserStatement from "../pages/AffiliateUserStatement/AffiliateUserStatement";
 import Casino from "../pages/Casino/Casino";
 import BettingProfitLossDetails from "../pages/BettingProfitLoss/BettingProfitLossDetails";
+import Deposit from "../pages/Deposit/Deposit";
+import Withdraw from "../pages/Withdraw/Withdraw";
 
 export const router = createBrowserRouter(
   [
@@ -84,6 +86,14 @@ export const router = createBrowserRouter(
         {
           path: "/casino",
           element: <Casino />,
+        },
+        {
+          path: "/deposit",
+          element: <Deposit />,
+        },
+        {
+          path: "/withdraw",
+          element: <Withdraw />,
         },
       ],
     },

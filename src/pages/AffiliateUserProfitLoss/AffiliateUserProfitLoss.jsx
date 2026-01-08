@@ -40,7 +40,7 @@ const AffiliateUserProfitLoss = () => {
               <div
                 key={category}
                 title="Profit & Loss Statement"
-                className="w-full px-1 my-1.5 font font-lato"
+                className="w-full px-1 my-1.5 font "
               >
                 <div className="w-full text-black rounded-[4px] flex items-center justify-between px-2.5 py-[9px] bg-primary">
                   <div className="text-xs text-black  font-[600] leading-[140%]">
@@ -66,7 +66,7 @@ const AffiliateUserProfitLoss = () => {
                 {filterData?.map((item) => (
                   <div
                     key={item?.eventId}
-                    className="w-full flex bg-bg_color_primary active:scale-95 transition-all ease-in-out duration-200 flex-col rounded-[4px] items-center justify-start gap-y-1 my-1 shadow-md cursor-pointer"
+                    className="w-full flex  active:scale-95 transition-all ease-in-out duration-200 flex-col rounded-[4px] items-center justify-start gap-y-1 my-1 shadow-md cursor-pointer"
                   >
                     <div className="w-full text-start   px-2.5 py-2 text-xs font-[550] capitalize flex items-center justify-between">
                       <span>{item?.narration}</span>
