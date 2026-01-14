@@ -17,6 +17,8 @@ import Casino from "../pages/Casino/Casino";
 import BettingProfitLossDetails from "../pages/BettingProfitLoss/BettingProfitLossDetails";
 import Deposit from "../pages/Deposit/Deposit";
 import Withdraw from "../pages/Withdraw/Withdraw";
+import Promotions from "../pages/Promotions/Promotions";
+import LossBackClaims from "../pages/LossBackClaims/LossBackClaims";
 
 export const router = createBrowserRouter(
   [
@@ -94,6 +96,14 @@ export const router = createBrowserRouter(
         {
           path: "/withdraw",
           element: <Withdraw />,
+        },
+        {
+          path: "/promotions",
+          element: <Promotions />,
+        },
+        {
+          path: "/lossback-claims",
+          element: <LossBackClaims />,
         },
       ],
     },

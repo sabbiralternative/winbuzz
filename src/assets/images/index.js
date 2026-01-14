@@ -37,8 +37,15 @@ import user from "../img/affi-user-icn.b08f83a6.svg";
 import share from "../img/af-share-img.51df8801.svg";
 import affiliate from "../img/affiliate.png";
 import usdt from "../img/usdt.svg";
+import cashBundle from "../img/cash-bundle.webp";
+import giftCard from "../img/giftCard.webp";
+import redeemCardGift from "../img/redeemCardGift.svg";
 
 export default {
+  cashBundle,
+  giftCard,
+  redeemCardGift,
+
   dashboard,
   graph,
   userList,
