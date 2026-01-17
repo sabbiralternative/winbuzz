@@ -15,6 +15,7 @@ import {
 } from "../../../redux/features/auth/authApi";
 
 import images from "../../../assets/images";
+import ModalWrapper from "../ModalWrapper/ModalWrapper";
 
 const ForgotPassword = () => {
   const [handleForgotPassword] = useForgotPasswordMutation();
@@ -98,7 +99,7 @@ const ForgotPassword = () => {
         data-bs-keyboard="false"
         aria-modal="true"
         role="dialog"
-        style={{ display: "block" }}
+        style={{ display: "block", background: "none" }}
       >
         <div data-v-27945482 className="modal-dialog modal-dialog-centered">
           <div data-v-27945482 className="modal-content">
@@ -113,203 +114,215 @@ const ForgotPassword = () => {
               <i data-v-27945482 className="fa-solid fa-xmark" />
             </button>
             <div data-v-27945482 className="modal-body">
-              <div data-v-27945482 className="login-body-sec">
-                <div data-v-27945482 className="login-body-lft">
-                  <div data-v-27945482 className="login-header">
-                    <h2
-                      data-v-27945482
-                      className="modal-title"
-                      id="exampleModalLabel"
-                    >
-                      <img
+              <ModalWrapper setModal={setShowForgotPasswordModal} redux={true}>
+                <div
+                  data-v-27945482
+                  className="login-body-sec"
+                  style={{
+                    backgroundImage: "url(/src/assets/img/login-back-1.jpg)",
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                >
+                  <div data-v-27945482 className="login-body-lft">
+                    <div data-v-27945482 className="login-header">
+                      <h2
                         data-v-27945482
-                        loading="lazy"
-                        src={logo}
-                        alt="logo"
-                      />
-                    </h2>
-                  </div>
-                  <form
-                    onSubmit={handleSubmit(onSubmit)}
-                    data-v-27945482
-                    className="forget-login"
-                  >
-                    <div data-v-27945482 className="login-now">
-                      <div data-v-27945482 className="login-flow-heading" />
-                      <div data-v-27945482 id="msgFromServer" />
-                      <input data-v-27945482 type="hidden" id="csrf-token" />
-                      <div
-                        data-v-27945482
-                        className="number-var mak-gin mb-2.5"
+                        className="modal-title"
+                        id="exampleModalLabel"
                       >
-                        <div data-v-27945482 className="row g-2">
-                          <div
-                            data-v-27945482
-                            className="col-12 col-sm-12 col-md-12"
-                          >
-                            <div data-v-27945482 className="whatsup-sec">
-                              <div
-                                data-v-27945482
-                                className="input-left phone-no-field"
-                              >
+                        <img
+                          data-v-27945482
+                          loading="lazy"
+                          src={logo}
+                          alt="logo"
+                        />
+                      </h2>
+                    </div>
+                    <form
+                      onSubmit={handleSubmit(onSubmit)}
+                      data-v-27945482
+                      className="forget-login"
+                    >
+                      <div data-v-27945482 className="login-now">
+                        <div data-v-27945482 className="login-flow-heading" />
+                        <div data-v-27945482 id="msgFromServer" />
+                        <input data-v-27945482 type="hidden" id="csrf-token" />
+                        <div
+                          data-v-27945482
+                          className="number-var mak-gin mb-2.5"
+                        >
+                          <div data-v-27945482 className="row g-2">
+                            <div
+                              data-v-27945482
+                              className="col-12 col-sm-12 col-md-12"
+                            >
+                              <div data-v-27945482 className="whatsup-sec">
                                 <div
                                   data-v-27945482
-                                  className="country-code-flag-top-wrapper"
+                                  className="input-left phone-no-field"
                                 >
                                   <div
                                     data-v-27945482
-                                    className="country-code-flag-top-sec"
+                                    className="country-code-flag-top-wrapper"
                                   >
-                                    <img
+                                    <div
                                       data-v-27945482
-                                      src="https://flagcdn.com/in.svg"
-                                    />{" "}
-                                    <span data-v-27945482>+91</span>
-                                    <i
-                                      data-v-27945482
-                                      className="fa-solid fa-caret-down"
-                                    />
-                                  </div>
-                                </div>
-                                <input
-                                  onChange={handleMobileNo}
-                                  data-v-27945482
-                                  type="tel"
-                                  maxLength={10}
-                                  className="form-control"
-                                  id="mobile"
-                                  placeholder="Enter Mobile Number*"
-                                  required
-                                />
-                                {counter > 0 ? (
-                                  <div
-                                    data-v-27945482
-                                    className="register-get-otp right-side"
-                                  >
-                                    <button
-                                      style={{ cursor: "text" }}
-                                      data-v-27945482
-                                      type="button"
-                                      id="otp-btn"
-                                      className="thm-btn thm-boder-btn otp-btn text-right"
+                                      className="country-code-flag-top-sec"
                                     >
-                                      <span
+                                      <img
                                         data-v-27945482
-                                        style={{ textTransform: "initial" }}
-                                      >
-                                        Resend OTP in 00:{counter}s
-                                      </span>
-                                    </button>
+                                        src="https://flagcdn.com/in.svg"
+                                      />{" "}
+                                      <span data-v-27945482>+91</span>
+                                      <i
+                                        data-v-27945482
+                                        className="fa-solid fa-caret-down"
+                                      />
+                                    </div>
                                   </div>
-                                ) : (
-                                  <div
+                                  <input
+                                    onChange={handleMobileNo}
                                     data-v-27945482
-                                    className="register-get-otp right-side"
-                                  >
-                                    <button
-                                      onClick={handleOTP}
+                                    type="tel"
+                                    maxLength={10}
+                                    className="form-control"
+                                    id="mobile"
+                                    placeholder="Enter Mobile Number*"
+                                    required
+                                  />
+                                  {counter > 0 ? (
+                                    <div
                                       data-v-27945482
-                                      type="button"
-                                      id="otp-btn"
-                                      className={`thm-btn thm-boder-btn otp-btn text-right ${
-                                        mobile?.length < 10
-                                          ? "disabled-btn"
-                                          : ""
-                                      }`}
-                                      disabled={mobile?.length < 10}
+                                      className="register-get-otp right-side"
                                     >
-                                      <span data-v-27945482>GET OTP</span>
-                                    </button>
-                                  </div>
-                                )}
+                                      <button
+                                        style={{ cursor: "text" }}
+                                        data-v-27945482
+                                        type="button"
+                                        id="otp-btn"
+                                        className="thm-btn thm-boder-btn otp-btn text-right"
+                                      >
+                                        <span
+                                          data-v-27945482
+                                          style={{ textTransform: "initial" }}
+                                        >
+                                          Resend OTP in 00:{counter}s
+                                        </span>
+                                      </button>
+                                    </div>
+                                  ) : (
+                                    <div
+                                      data-v-27945482
+                                      className="register-get-otp right-side"
+                                    >
+                                      <button
+                                        onClick={handleOTP}
+                                        data-v-27945482
+                                        type="button"
+                                        id="otp-btn"
+                                        className={`thm-btn thm-boder-btn otp-btn text-right ${
+                                          mobile?.length < 10
+                                            ? "disabled-btn"
+                                            : ""
+                                        }`}
+                                        disabled={mobile?.length < 10}
+                                      >
+                                        <span data-v-27945482>GET OTP</span>
+                                      </button>
+                                    </div>
+                                  )}
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                      </div>
 
-                      <div data-v-27945482 className="mak-gin password-inpt">
-                        <div data-v-27945482 className="phone-no-field">
-                          <input
-                            {...register("otp", { required: true })}
-                            data-v-27945482
-                            type="text"
-                            className="form-control toggle-password"
-                            placeholder="Enter OTP*"
-                          />
-                        </div>
-                      </div>
-                      <div data-v-27945482 className="mak-gin password-inpt">
-                        <div data-v-27945482 className="phone-no-field">
-                          <input
-                            data-v-27945482
-                            type={showPassword ? "text" : "password"}
-                            className="form-control toggle-password"
-                            id="password"
-                            placeholder="Enter Password*"
-                            aria-describedby="password"
-                          />
-                          <div data-v-27945482 className="score-hide-show">
-                            <img
-                              onClick={() => setShowPassword((prev) => !prev)}
+                        <div data-v-27945482 className="mak-gin password-inpt">
+                          <div data-v-27945482 className="phone-no-field">
+                            <input
+                              {...register("otp", { required: true })}
                               data-v-27945482
-                              loading="lazy"
-                              className="score-hide-icon"
-                              src={
-                                showPassword ? images.eyeShow : images.eyeHide
-                              }
+                              type="text"
+                              className="form-control toggle-password"
+                              placeholder="Enter OTP*"
                             />
                           </div>
                         </div>
-                      </div>
-                      <div data-v-27945482 className="mak-gin password-inpt">
-                        <div data-v-27945482 className="phone-no-field">
-                          <input
-                            {...register("confirmPassword", { required: true })}
-                            data-v-27945482
-                            type={showConfirmPassword ? "text" : "password"}
-                            className="form-control toggle-password"
-                            id="confirm_password"
-                            placeholder="Enter Confirm Password*"
-                            maxLength={20}
-                            aria-describedby="password"
-                          />
-                          <div data-v-27945482 className="score-hide-show">
-                            <img
-                              onClick={() =>
-                                setShowConfirmPassword((prev) => !prev)
-                              }
+                        <div data-v-27945482 className="mak-gin password-inpt">
+                          <div data-v-27945482 className="phone-no-field">
+                            <input
                               data-v-27945482
-                              loading="lazy"
-                              className="score-hide-icon"
-                              src={
-                                showConfirmPassword
-                                  ? images.eyeShow
-                                  : images.eyeHide
-                              }
-                              alt="img"
+                              type={showPassword ? "text" : "password"}
+                              className="form-control toggle-password"
+                              id="password"
+                              placeholder="Enter Password*"
+                              aria-describedby="password"
                             />
+                            <div data-v-27945482 className="score-hide-show">
+                              <img
+                                onClick={() => setShowPassword((prev) => !prev)}
+                                data-v-27945482
+                                loading="lazy"
+                                className="score-hide-icon"
+                                src={
+                                  showPassword ? images.eyeShow : images.eyeHide
+                                }
+                              />
+                            </div>
                           </div>
                         </div>
-                      </div>
+                        <div data-v-27945482 className="mak-gin password-inpt">
+                          <div data-v-27945482 className="phone-no-field">
+                            <input
+                              {...register("confirmPassword", {
+                                required: true,
+                              })}
+                              data-v-27945482
+                              type={showConfirmPassword ? "text" : "password"}
+                              className="form-control toggle-password"
+                              id="confirm_password"
+                              placeholder="Enter Confirm Password*"
+                              maxLength={20}
+                              aria-describedby="password"
+                            />
+                            <div data-v-27945482 className="score-hide-show">
+                              <img
+                                onClick={() =>
+                                  setShowConfirmPassword((prev) => !prev)
+                                }
+                                data-v-27945482
+                                loading="lazy"
+                                className="score-hide-icon"
+                                src={
+                                  showConfirmPassword
+                                    ? images.eyeShow
+                                    : images.eyeHide
+                                }
+                                alt="img"
+                              />
+                            </div>
+                          </div>
+                        </div>
 
-                      <div
-                        data-v-27945482
-                        className="login-cmn-btn login-demo-btn"
-                      >
-                        <button
+                        <div
                           data-v-27945482
-                          type="submit"
-                          className="thm-but"
-                          id="submitBtn"
+                          className="login-cmn-btn login-demo-btn"
                         >
-                          <span data-v-27945482>Change Password</span>
-                        </button>
+                          <button
+                            data-v-27945482
+                            type="submit"
+                            className="thm-but"
+                            id="submitBtn"
+                          >
+                            <span data-v-27945482>Change Password</span>
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  </form>
+                    </form>
+                  </div>
                 </div>
-              </div>
+              </ModalWrapper>
             </div>
           </div>
         </div>

@@ -16,6 +16,7 @@ import {
 } from "../../../redux/features/auth/authApi";
 import { setUser } from "../../../redux/features/auth/authSlice";
 import images from "../../../assets/images";
+import ModalWrapper from "../ModalWrapper/ModalWrapper";
 
 const Register = () => {
   const { logo } = useLogo();
@@ -130,7 +131,7 @@ const Register = () => {
         data-bs-keyboard="false"
         aria-modal="true"
         role="dialog"
-        style={{ display: "block" }}
+        style={{ display: "block", background: "none" }}
       >
         <div data-v-27945482 className="modal-dialog modal-dialog-centered">
           <div data-v-27945482 className="modal-content">
@@ -145,260 +146,275 @@ const Register = () => {
               <i data-v-27945482 className="fa-solid fa-xmark" />
             </button>
             <div data-v-27945482 className="modal-body">
-              <div data-v-27945482 className="login-body-sec">
-                <div data-v-27945482 className="login-body-lft">
-                  <div data-v-27945482 className="login-header">
-                    <h2
-                      data-v-27945482
-                      className="modal-title"
-                      id="exampleModalLabel"
-                    >
-                      <img
+              <ModalWrapper setModal={setShowRegisterModal} redux={true}>
+                <div
+                  data-v-27945482
+                  className="login-body-sec"
+                  style={{
+                    backgroundImage: "url(/src/assets/img/login-back-1.jpg)",
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                  }}
+                >
+                  <div data-v-27945482 className="login-body-lft">
+                    <div data-v-27945482 className="login-header">
+                      <h2
                         data-v-27945482
-                        loading="lazy"
-                        src={logo}
-                        alt="logo"
-                      />
-                    </h2>
-                  </div>
-                  <form
-                    onSubmit={handleSubmit(onSubmit)}
-                    data-v-27945482
-                    className="forget-login"
-                  >
-                    <div data-v-27945482 className="login-now">
-                      <div data-v-27945482 className="login-flow-heading" />
-                      <div data-v-27945482 id="msgFromServer" />
-                      <input data-v-27945482 type="hidden" id="csrf-token" />
-                      <div
-                        data-v-27945482
-                        className="number-var mak-gin mb-2.5"
+                        className="modal-title"
+                        id="exampleModalLabel"
                       >
-                        <div data-v-27945482 className="row g-2">
-                          <div
+                        <img
+                          data-v-27945482
+                          loading="lazy"
+                          src={logo}
+                          alt="logo"
+                        />
+                      </h2>
+                    </div>
+                    <form
+                      onSubmit={handleSubmit(onSubmit)}
+                      data-v-27945482
+                      className="forget-login"
+                    >
+                      <div data-v-27945482 className="login-now">
+                        <div data-v-27945482 className="login-flow-heading" />
+                        <div data-v-27945482 id="msgFromServer" />
+                        <input data-v-27945482 type="hidden" id="csrf-token" />
+                        <div
+                          data-v-27945482
+                          className="number-var mak-gin mb-2.5"
+                        >
+                          <div data-v-27945482 className="row g-2">
+                            <div
+                              data-v-27945482
+                              className="col-12 col-sm-12 col-md-12"
+                            >
+                              <div data-v-27945482 className="whatsup-sec">
+                                <div
+                                  data-v-27945482
+                                  className="input-left phone-no-field"
+                                >
+                                  <div
+                                    data-v-27945482
+                                    className="country-code-flag-top-wrapper"
+                                  >
+                                    <div
+                                      data-v-27945482
+                                      className="country-code-flag-top-sec"
+                                    >
+                                      <img
+                                        data-v-27945482
+                                        src="https://flagcdn.com/in.svg"
+                                      />{" "}
+                                      <span data-v-27945482>+91</span>
+                                      <i
+                                        data-v-27945482
+                                        className="fa-solid fa-caret-down"
+                                      />
+                                    </div>
+                                  </div>
+                                  <input
+                                    onChange={handleMobileNo}
+                                    data-v-27945482
+                                    type="tel"
+                                    maxLength={10}
+                                    className="form-control"
+                                    id="mobile"
+                                    placeholder="Enter Mobile Number*"
+                                    required
+                                  />
+                                  {countDown > 0 ? (
+                                    <div
+                                      data-v-27945482
+                                      className="register-get-otp right-side"
+                                    >
+                                      <button
+                                        style={{ cursor: "text" }}
+                                        data-v-27945482
+                                        type="button"
+                                        id="otp-btn"
+                                        className="thm-btn thm-boder-btn otp-btn text-right"
+                                      >
+                                        <span
+                                          data-v-27945482
+                                          style={{ textTransform: "initial" }}
+                                        >
+                                          Resend OTP in 00:{countDown}s
+                                        </span>
+                                      </button>
+                                    </div>
+                                  ) : (
+                                    <div
+                                      data-v-27945482
+                                      className="register-get-otp right-side"
+                                    >
+                                      <button
+                                        onClick={handleOTP}
+                                        data-v-27945482
+                                        type="button"
+                                        id="otp-btn"
+                                        className={`thm-btn thm-boder-btn otp-btn text-right ${
+                                          mobile?.length < 10
+                                            ? "disabled-btn"
+                                            : ""
+                                        }`}
+                                        disabled={mobile?.length < 10}
+                                      >
+                                        <span data-v-27945482>GET OTP</span>
+                                      </button>
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div data-v-27945482 className="mak-gin password-inpt">
+                          <div data-v-27945482 className="phone-no-field">
+                            <input
+                              {...register("otp", { required: true })}
+                              data-v-27945482
+                              type="text"
+                              className="form-control toggle-password"
+                              placeholder="Enter OTP*"
+                            />
+                          </div>
+                        </div>
+                        <div data-v-27945482 className="mak-gin password-inpt">
+                          <div data-v-27945482 className="phone-no-field">
+                            <input
+                              data-v-27945482
+                              type={showPassword ? "text" : "password"}
+                              className="form-control toggle-password"
+                              id="password"
+                              placeholder="Enter Password*"
+                              aria-describedby="password"
+                            />
+                            <div data-v-27945482 className="score-hide-show">
+                              <img
+                                onClick={() => setShowPassword((prev) => !prev)}
+                                data-v-27945482
+                                loading="lazy"
+                                className="score-hide-icon"
+                                src={
+                                  showPassword ? images.eyeShow : images.eyeHide
+                                }
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div data-v-27945482 className="mak-gin password-inpt">
+                          <div data-v-27945482 className="phone-no-field">
+                            <input
+                              {...register("confirmPassword", {
+                                required: true,
+                              })}
+                              data-v-27945482
+                              type={showConfirmPassword ? "text" : "password"}
+                              className="form-control toggle-password"
+                              id="confirm_password"
+                              placeholder="Enter Confirm Password*"
+                              maxLength={20}
+                              aria-describedby="password"
+                            />
+                            <div data-v-27945482 className="score-hide-show">
+                              <img
+                                onClick={() =>
+                                  setShowConfirmPassword((prev) => !prev)
+                                }
+                                data-v-27945482
+                                loading="lazy"
+                                className="score-hide-icon"
+                                src={
+                                  showConfirmPassword
+                                    ? images.eyeShow
+                                    : images.eyeHide
+                                }
+                                alt="img"
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div data-v-27945482 className="mak-gin password-inpt">
+                          <div data-v-27945482 className="phone-no-field">
+                            <input
+                              {...register("referralCode")}
+                              data-v-27945482
+                              type="text"
+                              className="form-control toggle-password"
+                              placeholder="Enter referral code(Optional)"
+                              aria-describedby="password"
+                              defaultValue={referralCode}
+                              readOnly={referralCode}
+                            />
+                          </div>
+                        </div>
+                        <div
+                          data-v-27945482
+                          className="login-cmn-btn login-demo-btn"
+                        >
+                          <button
                             data-v-27945482
-                            className="col-12 col-sm-12 col-md-12"
+                            type="submit"
+                            className="thm-but"
+                            id="submitBtn"
                           >
-                            <div data-v-27945482 className="whatsup-sec">
+                            <span data-v-27945482>Register</span>
+                          </button>
+                        </div>
+                        {socialLink?.whatsapplink &&
+                          Settings.registrationWhatsapp && (
+                            <Fragment>
                               <div
                                 data-v-27945482
-                                className="input-left phone-no-field"
+                                className="login-flow-heading"
+                              >
+                                <p data-v-27945482>
+                                  Get Your Ready-Made ID From WhatsApp
+                                </p>
+                              </div>
+                              <div
+                                data-v-27945482
+                                className="whatsapp-btn Continue-with mt-0 pt-0 mb-0 pb-0"
                               >
                                 <div
                                   data-v-27945482
-                                  className="country-code-flag-top-wrapper"
+                                  className="button-whatsapp mt-0 pt-0 mb-0 pb-0"
                                 >
-                                  <div
+                                  <a
+                                    onClick={getWhatsAppId}
                                     data-v-27945482
-                                    className="country-code-flag-top-sec"
+                                    className="btn-whatsapp"
+                                    target="_blank"
                                   >
-                                    <img
-                                      data-v-27945482
-                                      src="https://flagcdn.com/in.svg"
-                                    />{" "}
-                                    <span data-v-27945482>+91</span>
                                     <i
                                       data-v-27945482
-                                      className="fa-solid fa-caret-down"
+                                      className="fa-brands fa-whatsapp"
                                     />
-                                  </div>
+                                    Whatsapp Now
+                                  </a>
                                 </div>
-                                <input
-                                  onChange={handleMobileNo}
-                                  data-v-27945482
-                                  type="tel"
-                                  maxLength={10}
-                                  className="form-control"
-                                  id="mobile"
-                                  placeholder="Enter Mobile Number*"
-                                  required
-                                />
-                                {countDown > 0 ? (
-                                  <div
-                                    data-v-27945482
-                                    className="register-get-otp right-side"
-                                  >
-                                    <button
-                                      style={{ cursor: "text" }}
-                                      data-v-27945482
-                                      type="button"
-                                      id="otp-btn"
-                                      className="thm-btn thm-boder-btn otp-btn text-right"
-                                    >
-                                      <span
-                                        data-v-27945482
-                                        style={{ textTransform: "initial" }}
-                                      >
-                                        Resend OTP in 00:{countDown}s
-                                      </span>
-                                    </button>
-                                  </div>
-                                ) : (
-                                  <div
-                                    data-v-27945482
-                                    className="register-get-otp right-side"
-                                  >
-                                    <button
-                                      onClick={handleOTP}
-                                      data-v-27945482
-                                      type="button"
-                                      id="otp-btn"
-                                      className={`thm-btn thm-boder-btn otp-btn text-right ${
-                                        mobile?.length < 10
-                                          ? "disabled-btn"
-                                          : ""
-                                      }`}
-                                      disabled={mobile?.length < 10}
-                                    >
-                                      <span data-v-27945482>GET OTP</span>
-                                    </button>
-                                  </div>
-                                )}
                               </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                            </Fragment>
+                          )}
 
-                      <div data-v-27945482 className="mak-gin password-inpt">
-                        <div data-v-27945482 className="phone-no-field">
-                          <input
-                            {...register("otp", { required: true })}
+                        <p data-v-27945482 className="forpass-in box-right">
+                          Already Have Account?{" "}
+                          <a
                             data-v-27945482
-                            type="text"
-                            className="form-control toggle-password"
-                            placeholder="Enter OTP*"
-                          />
-                        </div>
+                            onClick={showLogin}
+                            data-bs-toggle="modal"
+                          >
+                            LogIn
+                          </a>
+                        </p>
                       </div>
-                      <div data-v-27945482 className="mak-gin password-inpt">
-                        <div data-v-27945482 className="phone-no-field">
-                          <input
-                            data-v-27945482
-                            type={showPassword ? "text" : "password"}
-                            className="form-control toggle-password"
-                            id="password"
-                            placeholder="Enter Password*"
-                            aria-describedby="password"
-                          />
-                          <div data-v-27945482 className="score-hide-show">
-                            <img
-                              onClick={() => setShowPassword((prev) => !prev)}
-                              data-v-27945482
-                              loading="lazy"
-                              className="score-hide-icon"
-                              src={
-                                showPassword ? images.eyeShow : images.eyeHide
-                              }
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div data-v-27945482 className="mak-gin password-inpt">
-                        <div data-v-27945482 className="phone-no-field">
-                          <input
-                            {...register("confirmPassword", { required: true })}
-                            data-v-27945482
-                            type={showConfirmPassword ? "text" : "password"}
-                            className="form-control toggle-password"
-                            id="confirm_password"
-                            placeholder="Enter Confirm Password*"
-                            maxLength={20}
-                            aria-describedby="password"
-                          />
-                          <div data-v-27945482 className="score-hide-show">
-                            <img
-                              onClick={() =>
-                                setShowConfirmPassword((prev) => !prev)
-                              }
-                              data-v-27945482
-                              loading="lazy"
-                              className="score-hide-icon"
-                              src={
-                                showConfirmPassword
-                                  ? images.eyeShow
-                                  : images.eyeHide
-                              }
-                              alt="img"
-                            />
-                          </div>
-                        </div>
-                      </div>
-
-                      <div data-v-27945482 className="mak-gin password-inpt">
-                        <div data-v-27945482 className="phone-no-field">
-                          <input
-                            {...register("referralCode")}
-                            data-v-27945482
-                            type="text"
-                            className="form-control toggle-password"
-                            placeholder="Enter referral code(Optional)"
-                            aria-describedby="password"
-                            defaultValue={referralCode}
-                            readOnly={referralCode}
-                          />
-                        </div>
-                      </div>
-                      <div
-                        data-v-27945482
-                        className="login-cmn-btn login-demo-btn"
-                      >
-                        <button
-                          data-v-27945482
-                          type="submit"
-                          className="thm-but"
-                          id="submitBtn"
-                        >
-                          <span data-v-27945482>Register</span>
-                        </button>
-                      </div>
-                      {socialLink?.whatsapplink &&
-                        Settings.registrationWhatsapp && (
-                          <Fragment>
-                            <div data-v-27945482 className="login-flow-heading">
-                              <p data-v-27945482>
-                                Get Your Ready-Made ID From WhatsApp
-                              </p>
-                            </div>
-                            <div
-                              data-v-27945482
-                              className="whatsapp-btn Continue-with mt-0 pt-0 mb-0 pb-0"
-                            >
-                              <div
-                                data-v-27945482
-                                className="button-whatsapp mt-0 pt-0 mb-0 pb-0"
-                              >
-                                <a
-                                  onClick={getWhatsAppId}
-                                  data-v-27945482
-                                  className="btn-whatsapp"
-                                  target="_blank"
-                                >
-                                  <i
-                                    data-v-27945482
-                                    className="fa-brands fa-whatsapp"
-                                  />
-                                  Whatsapp Now
-                                </a>
-                              </div>
-                            </div>
-                          </Fragment>
-                        )}
-
-                      <p data-v-27945482 className="forpass-in box-right">
-                        Already Have Account?{" "}
-                        <a
-                          data-v-27945482
-                          onClick={showLogin}
-                          data-bs-toggle="modal"
-                        >
-                          LogIn
-                        </a>
-                      </p>
-                    </div>
-                  </form>
+                    </form>
+                  </div>
                 </div>
-              </div>
+              </ModalWrapper>
             </div>
           </div>
         </div>
