@@ -101,7 +101,7 @@ const MobileFooter = () => {
           </li>
         </ul>
       </div>
-      <div
+      {/* <div
         data-v-238a5417
         className="header-marquee-sec footer-bootom-fixed-marquee"
       >
@@ -116,7 +116,7 @@ const MobileFooter = () => {
         <button data-v-238a5417 className="close-marquee">
           <i data-v-238a5417 className="fa fa-close" />
         </button>
-      </div>
+      </div> */}
       {/**/}
     </div>
   );

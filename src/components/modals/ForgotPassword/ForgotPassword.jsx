@@ -99,10 +99,27 @@ const ForgotPassword = () => {
         data-bs-keyboard="false"
         aria-modal="true"
         role="dialog"
-        style={{ display: "block", background: "none" }}
+        style={{
+          display: "block",
+          background: "none",
+          padding: "0px",
+        }}
       >
-        <div data-v-27945482 className="modal-dialog modal-dialog-centered">
-          <div data-v-27945482 className="modal-content">
+        <div
+          data-v-27945482
+          className="modal-dialog modal-dialog-centered"
+          style={{ minHeight: "100vh", margin: "0px auto", width: "100%" }}
+        >
+          <div
+            data-v-27945482
+            className="modal-content"
+            style={{
+              border: "none",
+              background: "none",
+              minHeight: "100vh",
+              borderRadius: "0px",
+            }}
+          >
             <button
               onClick={closeModal}
               data-v-27945482
@@ -113,7 +130,11 @@ const ForgotPassword = () => {
             >
               <i data-v-27945482 className="fa-solid fa-xmark" />
             </button>
-            <div data-v-27945482 className="modal-body">
+            <div
+              data-v-27945482
+              className="modal-body"
+              style={{ padding: "0px" }}
+            >
               <ModalWrapper setModal={setShowForgotPasswordModal} redux={true}>
                 <div
                   data-v-27945482
@@ -122,6 +143,8 @@ const ForgotPassword = () => {
                     backgroundImage: "url(/src/assets/img/login-back-1.jpg)",
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
+                    alignItems: "center",
+                    minHeight: "100vh",
                   }}
                 >
                   <div data-v-27945482 className="login-body-lft">

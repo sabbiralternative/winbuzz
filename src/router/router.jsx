@@ -19,6 +19,7 @@ import Deposit from "../pages/Deposit/Deposit";
 import Withdraw from "../pages/Withdraw/Withdraw";
 import Promotions from "../pages/Promotions/Promotions";
 import LossBackClaims from "../pages/LossBackClaims/LossBackClaims";
+import IFrame from "../pages/IFrame/IFrame";
 
 export const router = createBrowserRouter(
   [
@@ -90,6 +91,10 @@ export const router = createBrowserRouter(
           element: <Casino />,
         },
         {
+          path: "/:route/:name/:gameId",
+          element: <IFrame />,
+        },
+        {
           path: "/deposit",
           element: <Deposit />,
         },
@@ -110,5 +115,5 @@ export const router = createBrowserRouter(
   ],
   {
     basename: import.meta.env.BASE_URL ?? "/",
-  }
+  },
 );

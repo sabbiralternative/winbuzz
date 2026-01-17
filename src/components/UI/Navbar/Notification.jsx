@@ -29,7 +29,7 @@ const Notification = () => {
       !showNotification
     ) {
       const filteredNotifications = notification.filter(
-        (notif) => !storedNotificationId.some((nId) => nId.id == notif.id)
+        (notif) => !storedNotificationId.some((nId) => nId.id == notif.id),
       );
 
       if (filteredNotifications?.length > 0) {
@@ -59,6 +59,7 @@ const Notification = () => {
 
     dispatch(setShowNotification(false));
   };
+
   return (
     <>
       {showNotification && filteredNotification?.length > 0 && (

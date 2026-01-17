@@ -1,5 +1,5 @@
 // import LatestEvent from "./LatestEvent";
-import NavMiddleMenu from "./NavMiddleMenu";
+import NavMiddleMenuDesktop from "./NavMiddleMenuDesktop";
 import TopNav from "./TopNav";
 import Notification from "./Notification";
 import { Settings } from "../../../api";
@@ -12,6 +12,7 @@ import {
 } from "../../../redux/features/global/globalSlice";
 import AppPopup from "./AppPopUp";
 import DownloadAPK from "../../modals/DownloadAPK/DownloadAPK";
+import NavbarMiddleMenuMobile from "./NavbarMiddleMenuMobile";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -56,7 +57,8 @@ const Navbar = () => {
       {Settings?.apkLink && showAppPopUp && windowWidth < 1040 && <AppPopup />}
       <TopNav />
       {/* <LatestEvent /> */}
-      <NavMiddleMenu />
+      <NavMiddleMenuDesktop />
+      <NavbarMiddleMenuMobile />
     </header>
   );
 };

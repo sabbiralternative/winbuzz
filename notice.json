@@ -94,7 +94,7 @@
       "searchEvent": "https://api7.live/api/exchange/diamond/searchEvent",
       "virtualCasino": " https://cache7.live/api/exchange/diamond/virtualCasino",
       "slotCasino": " https://cache7.live/api/exchange/diamond/slotCasino",
-      "liveCasinoIFrame": " https://api7.live/api/livecasino/iframe",
+      "liveCasinoIFrame": "https://api7.live/api/livecasino/iframe",
       "liveCasino": " https://cache7.live/api/exchange/diamond/liveCasino",
       "fantasyGames": "https://cache7.live/api/exchange/diamond/fantasyGames/",
       "depositIframe": "https://b2c.bet/deposit",

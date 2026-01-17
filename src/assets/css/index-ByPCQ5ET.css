@@ -16400,7 +16400,7 @@ span.fl-left {
   bottom: 0;
   color: #040404;
   font-size: 13px;
-  z-index: 999;
+  z-index: 100;
   background-image: radial-gradient(
     circle at 50% 3px,
     transparent 35px,
@@ -20252,7 +20252,7 @@ button.btn-class.number-buttons.btn-active {
 .login-model-pop-up-sec #register-btn .login-body-sec,
 .login-model-pop-up-sec #login-btn .login-body-sec,
 .login-model-pop-up-sec #forget-password-btn .login-body-sec {
-  background: #122326;
+  /* background: #122326; */
   min-height: auto;
 }
 .login-model-pop-up-sec #register-btn .modal-body,
@@ -29293,7 +29293,7 @@ tr.open-bet-footer.settled-tabel-footer {
   }
   .modal-body,
   .modal-header {
-    padding: 10px !important;
+    padding: 10px;
   }
   .game-iframe-body {
     padding: 0 !important;

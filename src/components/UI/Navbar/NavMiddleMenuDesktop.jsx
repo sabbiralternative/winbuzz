@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-const NavMiddleMenu = () => {
+const NavMiddleMenuDesktop = () => {
   return (
-    <section className="nav-new-bar-sec">
+    <section className="nav-new-bar-sec hidden md:block">
       <div className="nav-middle-menu">
         <ul>
           <li>
@@ -71,4 +71,4 @@ const NavMiddleMenu = () => {
   );
 };
 
-export default NavMiddleMenu;
+export default NavMiddleMenuDesktop;

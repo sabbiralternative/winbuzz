@@ -2,6 +2,7 @@ import { Fragment, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setShowLoginModal,
+  setShowMobileSidebar,
   setShowRegisterModal,
 } from "../../../redux/features/global/globalSlice";
 import Rules from "../../modals/Rules/Rules";
@@ -47,6 +48,10 @@ const TopNav = () => {
                   <div data-v-9dda4895 className="mobile-toggle-btn-sec">
                     <div data-v-9dda4895 className="mobile-search-menu">
                       <button
+                        style={{ pointerEvents: "auto" }}
+                        onClick={() => {
+                          dispatch(setShowMobileSidebar(true));
+                        }}
                         data-v-9dda4895
                         type="button"
                         data-bs-toggle="offcanvas"

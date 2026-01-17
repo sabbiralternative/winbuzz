@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useExposure } from "../../../hooks/exposure";
@@ -9,13 +9,14 @@ import {
 } from "../../../redux/features/events/eventSlice";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 import isOddSuspended from "../../../utils/isOddSuspended";
+import MobileBetSlip from "./MobileBetSlip";
 
 const Fancy = ({ data }) => {
   const fancyData = data?.filter(
     (fancy) =>
       fancy.btype === "FANCY" &&
       fancy.tabGroupName === "Normal" &&
-      fancy?.visible == true
+      fancy?.visible == true,
   );
   const [marketName, setMarketName] = useState("");
   const [ladderData, setLadderData] = useState([]);
@@ -63,7 +64,7 @@ const Fancy = ({ data }) => {
         eventTypeId = games?.marketId;
         games?.runners?.forEach((runner) => {
           const pnl = pnlBySelection?.find(
-            (p) => p?.RunnerId === runner?.selectionId
+            (p) => p?.RunnerId === runner?.selectionId,
           );
           if (pnl) {
             updatedPnl.push(pnl?.pnl);
@@ -172,123 +173,131 @@ const Fancy = ({ data }) => {
                 </div>
                 {fancyData?.map((game) => {
                   return (
-                    <div key={game?.id} data-v-4a1ad0c4>
-                      <div
-                        data-v-4a1ad0c4
-                        className="fancy-market-tabs-details-sec bet-slip-area"
-                      >
-                        <div data-v-4a1ad0c4 className="row g-0">
-                          <div data-v-4a1ad0c4 className="col-7">
-                            <div
-                              data-v-4a1ad0c4
-                              className="fancy-tab-lft-content"
-                            >
+                    <Fragment key={game?.id}>
+                      <div data-v-4a1ad0c4>
+                        <div
+                          data-v-4a1ad0c4
+                          className="fancy-market-tabs-details-sec bet-slip-area"
+                        >
+                          <div data-v-4a1ad0c4 className="row g-0">
+                            <div data-v-4a1ad0c4 className="col-7">
                               <div
                                 data-v-4a1ad0c4
-                                className="game-icon ng-star-inserted"
+                                className="fancy-tab-lft-content"
                               >
-                                <img
-                                  data-v-4a1ad0c4
-                                  className="star-active"
-                                  src="/src/assets/img/star-inactive-Cy8n08QW.png"
-                                />
-                              </div>
-                              <div data-v-4a1ad0c4 className="fancy-lft-title">
-                                <span
-                                  data-v-4a1ad0c4
-                                  className="market-event-head"
-                                >
-                                  {game?.name}
-                                </span>
                                 <div
                                   data-v-4a1ad0c4
-                                  className="back-lay-status"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                          <div data-v-4a1ad0c4 className="col-5">
-                            <div data-v-4a1ad0c4 className="fancy-group-box">
-                              <div data-v-4a1ad0c4 className="fancy-box-1">
-                                {isOddSuspended(game) && (
+                                  className="game-icon ng-star-inserted"
+                                >
+                                  <img
+                                    data-v-4a1ad0c4
+                                    className="star-active"
+                                    src="/src/assets/img/star-inactive-Cy8n08QW.png"
+                                  />
+                                </div>
+                                <div
+                                  data-v-4a1ad0c4
+                                  className="fancy-lft-title"
+                                >
+                                  <span
+                                    data-v-4a1ad0c4
+                                    className="market-event-head"
+                                  >
+                                    {game?.name}
+                                  </span>
                                   <div
                                     data-v-4a1ad0c4
-                                    className="running-con suspend-con"
-                                  >
-                                    <span data-v-4a1ad0c4>SUSPENDED</span>
-                                  </div>
-                                )}
-
-                                <button
-                                  onClick={() =>
-                                    handleBetSlip(
-                                      "lay",
-                                      game,
-                                      game?.runners?.[0],
-                                      game?.runners?.[0]?.lay?.[0]?.line,
-                                      game?.runners?.[0]?.lay?.[0]?.price
-                                    )
-                                  }
-                                  data-v-4a1ad0c4
-                                  type="button"
-                                  className="fancy-betting-box light-pink"
-                                >
-                                  <span data-v-4a1ad0c4>
-                                    <b data-v-4a1ad0c4>
-                                      {" "}
-                                      {game?.runners?.[0]?.lay?.[0]?.line}
-                                    </b>
-                                  </span>
-                                  <span data-v-4a1ad0c4>
-                                    {" "}
-                                    {game?.runners?.[0]?.lay?.[0]?.price}
-                                  </span>
-                                </button>
-                                <button
-                                  onClick={() =>
-                                    handleBetSlip(
-                                      "back",
-                                      game,
-                                      game?.runners?.[0],
-                                      game?.runners?.[0]?.back?.[0]?.line,
-                                      game?.runners?.[0]?.back?.[0]?.price
-                                    )
-                                  }
-                                  data-v-4a1ad0c4
-                                  type="button"
-                                  className="fancy-betting-box light-blue"
-                                >
-                                  <span data-v-4a1ad0c4>
-                                    <b data-v-4a1ad0c4>
-                                      {game?.runners?.[0]?.back?.[0]?.line}
-                                    </b>
-                                  </span>
-                                  <span data-v-4a1ad0c4>
-                                    {game?.runners?.[0]?.back?.[0]?.price}
-                                  </span>
-                                </button>
+                                    className="back-lay-status"
+                                  />
+                                </div>
                               </div>
-                              <div
-                                data-v-4a1ad0c4
-                                className="fancy-box-1 fancy-min-max"
-                              >
+                            </div>
+                            <div data-v-4a1ad0c4 className="col-5">
+                              <div data-v-4a1ad0c4 className="fancy-group-box">
+                                <div data-v-4a1ad0c4 className="fancy-box-1">
+                                  {isOddSuspended(game) && (
+                                    <div
+                                      data-v-4a1ad0c4
+                                      className="running-con suspend-con"
+                                    >
+                                      <span data-v-4a1ad0c4>SUSPENDED</span>
+                                    </div>
+                                  )}
+
+                                  <button
+                                    onClick={() =>
+                                      handleBetSlip(
+                                        "lay",
+                                        game,
+                                        game?.runners?.[0],
+                                        game?.runners?.[0]?.lay?.[0]?.line,
+                                        game?.runners?.[0]?.lay?.[0]?.price,
+                                      )
+                                    }
+                                    data-v-4a1ad0c4
+                                    type="button"
+                                    className="fancy-betting-box light-pink"
+                                  >
+                                    <span data-v-4a1ad0c4>
+                                      <b data-v-4a1ad0c4>
+                                        {" "}
+                                        {game?.runners?.[0]?.lay?.[0]?.line}
+                                      </b>
+                                    </span>
+                                    <span data-v-4a1ad0c4>
+                                      {" "}
+                                      {game?.runners?.[0]?.lay?.[0]?.price}
+                                    </span>
+                                  </button>
+                                  <button
+                                    onClick={() =>
+                                      handleBetSlip(
+                                        "back",
+                                        game,
+                                        game?.runners?.[0],
+                                        game?.runners?.[0]?.back?.[0]?.line,
+                                        game?.runners?.[0]?.back?.[0]?.price,
+                                      )
+                                    }
+                                    data-v-4a1ad0c4
+                                    type="button"
+                                    className="fancy-betting-box light-blue"
+                                  >
+                                    <span data-v-4a1ad0c4>
+                                      <b data-v-4a1ad0c4>
+                                        {game?.runners?.[0]?.back?.[0]?.line}
+                                      </b>
+                                    </span>
+                                    <span data-v-4a1ad0c4>
+                                      {game?.runners?.[0]?.back?.[0]?.price}
+                                    </span>
+                                  </button>
+                                </div>
                                 <div
                                   data-v-4a1ad0c4
-                                  className="max-min-bet-rgt-box"
+                                  className="fancy-box-1 fancy-min-max"
                                 >
-                                  <span data-v-4a1ad0c4>
-                                    Max Bet: {game?.minLiabilityPerBet}
-                                  </span>
-                                  <span data-v-4a1ad0c4>
-                                    Max Bet: {game?.maxLiabilityPerBet}
-                                  </span>
+                                  <div
+                                    data-v-4a1ad0c4
+                                    className="max-min-bet-rgt-box"
+                                  >
+                                    <span data-v-4a1ad0c4>
+                                      Max Bet: {game?.minLiabilityPerBet}
+                                    </span>
+                                    <span data-v-4a1ad0c4>
+                                      Max Bet: {game?.maxLiabilityPerBet}
+                                    </span>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                      {game?.id === runnerId && (
+                        <MobileBetSlip currentPlaceBetEvent={game} />
+                      )}
+                    </Fragment>
                   );
                 })}
               </div>

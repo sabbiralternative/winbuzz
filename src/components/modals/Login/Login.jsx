@@ -142,10 +142,27 @@ const Login = () => {
         data-bs-backdrop="static"
         aria-modal="true"
         role="dialog"
-        style={{ display: "block", background: "none" }}
+        style={{
+          display: "block",
+          background: "none",
+          padding: "0px",
+        }}
       >
-        <div data-v-b55734cb className="modal-dialog modal-dialog-centered">
-          <div data-v-b55734cb className="modal-content">
+        <div
+          data-v-b55734cb
+          className="modal-dialog modal-dialog-centered"
+          style={{ minHeight: "100vh", margin: "0px auto", width: "100%" }}
+        >
+          <div
+            data-v-b55734cb
+            className="modal-content"
+            style={{
+              border: "none",
+              background: "none",
+              minHeight: "100vh",
+              borderRadius: "0px",
+            }}
+          >
             <button
               onClick={closeLoginModal}
               data-v-b55734cb
@@ -156,7 +173,11 @@ const Login = () => {
             >
               <i data-v-b55734cb className="fa-solid fa-xmark" />
             </button>
-            <div data-v-b55734cb className="modal-body">
+            <div
+              data-v-b55734cb
+              className="modal-body"
+              style={{ padding: "0px" }}
+            >
               <ModalWrapper setModal={setShowLoginModal} redux={true}>
                 <div
                   data-v-b55734cb
@@ -165,6 +186,8 @@ const Login = () => {
                     backgroundImage: "url(/src/assets/img/login-back-1.jpg)",
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
+                    alignItems: "center",
+                    minHeight: "100vh",
                   }}
                 >
                   <div data-v-b55734cb className="login-body-lft">

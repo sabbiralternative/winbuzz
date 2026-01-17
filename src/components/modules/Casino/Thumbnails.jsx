@@ -1,9 +1,15 @@
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 
 const Thumbnails = ({ data }) => {
+  const dispatch = useDispatch();
+  const { token } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const handleNavigateToIFrame = (casino) => {
-    navigate(`/casino/${casino?.name?.replace(/ /g, "")}/${casino?.id}`);
+    token
+      ? navigate(`/casino/${casino?.name?.replace(/ /g, "")}/${casino?.id}`)
+      : dispatch(setShowLoginModal(true));
   };
   return (
     <div data-v-15497d74 className="tab-content" id="pills-tabContent">
