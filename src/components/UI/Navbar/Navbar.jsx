@@ -1,4 +1,4 @@
-import LatestEvent from "./LatestEvent";
+// import LatestEvent from "./LatestEvent";
 import NavMiddleMenu from "./NavMiddleMenu";
 import TopNav from "./TopNav";
 import Notification from "./Notification";
@@ -17,7 +17,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const { showAppPopUp, windowWidth, showAPKModal } = useSelector(
-    (state) => state?.global
+    (state) => state?.global,
   );
 
   useEffect(() => {
@@ -55,7 +55,7 @@ const Navbar = () => {
       <Notification />
       {Settings?.apkLink && showAppPopUp && windowWidth < 1040 && <AppPopup />}
       <TopNav />
-      <LatestEvent />
+      {/* <LatestEvent /> */}
       <NavMiddleMenu />
     </header>
   );

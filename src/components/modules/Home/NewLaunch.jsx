@@ -1,6 +1,6 @@
 const NewLaunch = () => {
   return (
-    <div data-v-56384811 className="new-launch-game-wrapper">
+    <div data-v-56384811 className="new-launch-game-wrapper block lg:hidden">
       <div data-v-56384811 className="list-sport-title">
         <span data-v-56384811>new launch</span>
       </div>

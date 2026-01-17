@@ -40,8 +40,18 @@ import usdt from "../img/usdt.svg";
 import cashBundle from "../img/cash-bundle.webp";
 import giftCard from "../img/giftCard.webp";
 import redeemCardGift from "../img/redeemCardGift.svg";
+import affiliateFooterIcon from "../img/affiliate-footer-icon-BAPEvRRi.png";
+import casinoFooterIcon from "../img/casino-CEfdPp0N.png";
+import homeFooterIcon from "../img/home-CeOT_89o.png";
+import inPlayFooterIcon from "../img/in-play-7WyfrqDR.png";
+import sportsBookFooterIcon from "../img/football-Wf0AhSYH.png";
 
 export default {
+  affiliateFooterIcon,
+  casinoFooterIcon,
+  homeFooterIcon,
+  inPlayFooterIcon,
+  sportsBookFooterIcon,
   cashBundle,
   giftCard,
   redeemCardGift,

@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../components/UI/Navbar/Navbar";
 import SocialLink from "../components/UI/SocialLink/SocialLink";
 import LeftSidebar from "../components/UI/LeftSidebar/LeftSidebar";
+import MobileFooter from "../components/UI/MobileFooter/MobileFooter";
 
 const MainLayout = () => {
   return (
@@ -15,6 +16,7 @@ const MainLayout = () => {
         </div>
       </section>
       <SocialLink />
+      <MobileFooter />
     </Fragment>
   );
 };

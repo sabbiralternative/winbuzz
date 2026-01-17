@@ -1,5 +1,5 @@
 import CasinoProvider from "../../components/modules/Home/CasinoProvider";
-import CricketFight from "../../components/modules/Home/CricketFight";
+// import CricketFight from "../../components/modules/Home/CricketFight";
 import EventSection from "../../components/modules/Home/EventSection";
 import ExchangeGames from "../../components/modules/Home/ExchangeGames";
 import NewLaunch from "../../components/modules/Home/NewLaunch";
@@ -15,7 +15,7 @@ const Home = () => {
 
             <NewLaunch />
 
-            <CricketFight />
+            {/* <CricketFight /> */}
 
             <EventSection />
 
