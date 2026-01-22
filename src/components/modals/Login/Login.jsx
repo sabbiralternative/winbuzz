@@ -18,6 +18,7 @@ import images from "../../../assets/images";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
 
 const Login = () => {
+  const closePopupForForever = localStorage.getItem("closePopupForForever");
   const { data: socialLink } = useWhatsApp();
   const navigate = useNavigate();
   const [tab, setTab] = useState(Settings.registration ? "mobile" : "userId");
@@ -32,6 +33,7 @@ const Login = () => {
       username: username,
       password: password,
       b2c: Settings.b2c,
+      apk: closePopupForForever ? true : false,
     };
     const result = await handleLogin(loginData).unwrap();
 
@@ -74,6 +76,7 @@ const Login = () => {
       username: "demo",
       password: "",
       b2c: Settings.b2c,
+      apk: closePopupForForever ? true : false,
     };
     const result = await handleLogin(loginData).unwrap();
 
