@@ -2,13 +2,13 @@ import { useNavigate } from "react-router-dom";
 import { useBonusMutation, useBonusQuery } from "../../hooks/bonus";
 import toast from "react-hot-toast";
 
-const LossBackClaims = () => {
+const AppOnlyBonus = () => {
   const navigate = useNavigate();
 
   const { mutate: claimBonus } = useBonusMutation();
   const { data, refetch } = useBonusQuery({
     type: "viewLossbackBonus",
-    visible_on: "all",
+    visible_on: "app",
   });
 
   const handleClaimBonus = (lossback_bonus_id) => {
@@ -16,7 +16,7 @@ const LossBackClaims = () => {
       {
         type: "claimLossbackBonus",
         lossback_bonus_id,
-        visible_on: "all",
+        visible_on: "app",
       },
       {
         onSuccess: (data) => {
@@ -216,4 +216,4 @@ const LossBackClaims = () => {
   );
 };
 
-export default LossBackClaims;
+export default AppOnlyBonus;

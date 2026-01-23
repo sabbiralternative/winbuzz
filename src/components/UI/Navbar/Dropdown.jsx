@@ -10,6 +10,7 @@ import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { FaBook } from "react-icons/fa6";
 
 const Dropdown = () => {
+  const closePopupForForever = localStorage.getItem("closePopupForForever");
   const dispatch = useDispatch();
   const { data: socialLink } = useWhatsApp();
   const { data } = useBalance();
@@ -207,15 +208,31 @@ const Dropdown = () => {
               <Link
                 data-v-9dda4895
                 onClick={closeDropdown}
-                to="/lossback-claims"
+                to="/lossback-bonus"
                 className="dropdown-item"
               >
                 <i data-v-9dda4895 className="fa-solid fa-users-rays" />
                 <span data-v-9dda4895 className="menu-rgt-text">
-                  Loss Back Claim
+                  Lossack Bonus
                 </span>
               </Link>
             </li>
+            {closePopupForForever && (
+              <li data-v-9dda4895 className="menu-rgt-icons">
+                <Link
+                  data-v-9dda4895
+                  onClick={closeDropdown}
+                  to="/app-only-bonus"
+                  className="dropdown-item"
+                >
+                  <i data-v-9dda4895 className="fa-solid fa-users-rays" />
+                  <span data-v-9dda4895 className="menu-rgt-text">
+                    App Only Bonus
+                  </span>
+                </Link>
+              </li>
+            )}
+
             <li data-v-9dda4895 className="menu-rgt-icons">
               <Link
                 data-v-9dda4895
