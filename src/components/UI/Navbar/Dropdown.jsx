@@ -10,7 +10,7 @@ import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { FaBook } from "react-icons/fa6";
 
 const Dropdown = () => {
-  const closePopupForForever = localStorage.getItem("closePopupForForever");
+  const { closePopupForForever } = useSelector((state) => state?.global);
   const dispatch = useDispatch();
   const { data: socialLink } = useWhatsApp();
   const { data } = useBalance();

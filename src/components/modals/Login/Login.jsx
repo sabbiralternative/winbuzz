@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Settings } from "../../../api";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLoginMutation } from "../../../redux/features/auth/authApi";
 import { useForm } from "react-hook-form";
 import { setUser } from "../../../redux/features/auth/authSlice";
@@ -18,7 +18,7 @@ import images from "../../../assets/images";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
 
 const Login = () => {
-  const closePopupForForever = localStorage.getItem("closePopupForForever");
+  const { closePopupForForever } = useSelector((state) => state?.global);
   const { data: socialLink } = useWhatsApp();
   const navigate = useNavigate();
   const [tab, setTab] = useState(Settings.registration ? "mobile" : "userId");

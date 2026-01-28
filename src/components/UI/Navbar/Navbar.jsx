@@ -7,26 +7,29 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import {
+  setClosePopUpForForever,
   setShowAPKModal,
   setShowAppPopUp,
 } from "../../../redux/features/global/globalSlice";
 import AppPopup from "./AppPopUp";
 import DownloadAPK from "../../modals/DownloadAPK/DownloadAPK";
 import NavbarMiddleMenuMobile from "./NavbarMiddleMenuMobile";
+import Error from "../../modals/Error/Error";
 
 const Navbar = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-  const { showAppPopUp, windowWidth, showAPKModal } = useSelector(
-    (state) => state?.global,
-  );
+  const { showAppPopUp, windowWidth, showAPKModal, closePopupForForever } =
+    useSelector((state) => state?.global);
 
   useEffect(() => {
     const closePopupForForever = localStorage.getItem("closePopupForForever");
+    dispatch(setClosePopUpForForever(closePopupForForever ? true : false));
     const apk_modal_shown = sessionStorage.getItem("apk_modal_shown");
     if (location?.state?.pathname === "/apk" || location.pathname === "/apk") {
       sessionStorage.setItem("apk_modal_shown", true);
       localStorage.setItem("closePopupForForever", true);
+      dispatch(setClosePopUpForForever(true));
       localStorage.removeItem("installPromptExpiryTime");
     } else {
       if (!apk_modal_shown) {
@@ -50,6 +53,10 @@ const Navbar = () => {
     location?.state?.pathname,
     location.pathname,
   ]);
+
+  if (Settings.appOnly && !closePopupForForever) {
+    return <Error />;
+  }
   return (
     <header>
       {Settings?.apkLink && showAPKModal && <DownloadAPK />}
