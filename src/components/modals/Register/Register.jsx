@@ -6,7 +6,6 @@ import {
   setShowLoginModal,
   setShowRegisterModal,
 } from "../../../redux/features/global/globalSlice";
-import useWhatsApp from "../../../hooks/whatsapp";
 import { Settings } from "../../../api";
 import toast from "react-hot-toast";
 import { useForm } from "react-hook-form";
@@ -20,7 +19,6 @@ import ModalWrapper from "../ModalWrapper/ModalWrapper";
 
 const Register = () => {
   const { logo } = useLogo();
-  const { data: socialLink } = useWhatsApp();
   const [countDown, setCountDown] = useState(45);
   const referralCode = localStorage.getItem("referralCode");
   const [showPassword, setShowPassword] = useState(false);
@@ -383,7 +381,7 @@ const Register = () => {
                             <span data-v-27945482>Register</span>
                           </button>
                         </div>
-                        {socialLink?.whatsapplink &&
+                        {Settings?.whatsapplink &&
                           Settings.registrationWhatsapp && (
                             <Fragment>
                               <div

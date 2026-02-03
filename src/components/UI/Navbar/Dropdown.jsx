@@ -2,17 +2,16 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useBalance from "../../../hooks/balance";
 import { Link } from "react-router-dom";
-import useWhatsApp from "../../../hooks/whatsapp";
 import { logout } from "../../../redux/features/auth/authSlice";
 import ModalWrapper from "../../modals/ModalWrapper/ModalWrapper";
 import { handleCopyToClipBoard } from "../../../utils/handleCopyToClipBoard";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { FaBook } from "react-icons/fa6";
+import { Settings } from "../../../api";
 
 const Dropdown = () => {
   const { closePopupForForever } = useSelector((state) => state?.global);
   const dispatch = useDispatch();
-  const { data: socialLink } = useWhatsApp();
   const { data } = useBalance();
   const [showDropdown, setShowDropdown] = useState(false);
   const { user, memberId } = useSelector((state) => state.auth);
@@ -129,7 +128,7 @@ const Dropdown = () => {
                     <h6 data-v-9dda4895>{data?.deductedExposure}</h6>
                   </div>
                 </div>
-                {socialLink?.referral && (
+                {Settings?.referral && (
                   <div data-v-9dda4895 className="bonusBx-wrap">
                     <div
                       data-v-9dda4895
@@ -176,7 +175,7 @@ const Dropdown = () => {
               </Link>
             </li>
 
-            {socialLink?.referral && (
+            {Settings?.referral && (
               <li data-v-9dda4895 className="menu-rgt-icons">
                 <Link
                   data-v-9dda4895

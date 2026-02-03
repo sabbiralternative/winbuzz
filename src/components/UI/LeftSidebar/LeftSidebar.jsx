@@ -1,11 +1,9 @@
 import { useSelector } from "react-redux";
 import { Settings } from "../../../api";
-import useWhatsApp from "../../../hooks/whatsapp";
 import { Link } from "react-router-dom";
 
 const LeftSidebar = () => {
   const { token } = useSelector((state) => state.auth);
-  const { data: socialLink } = useWhatsApp();
   const handleDownload = (e) => {
     e.preventDefault();
     const fileUrl = Settings.apkLink;
@@ -18,10 +16,10 @@ const LeftSidebar = () => {
   };
 
   const navigateWhatsApp = () => {
-    if (token && socialLink?.branchWhatsapplink) {
-      window.open(socialLink?.branchWhatsapplink, "_blank");
+    if (token && Settings?.branchWhatsapplink) {
+      window.open(Settings?.branchWhatsapplink, "_blank");
     } else {
-      window.open(socialLink?.whatsapplink, "_blank");
+      window.open(Settings?.whatsapplink, "_blank");
     }
   };
   return (
@@ -157,13 +155,12 @@ const LeftSidebar = () => {
               </ul>
             </div>
             <div className="instant-id-bx">
-              {(socialLink?.whatsapplink || socialLink?.branchWhatsapplink) && (
+              {(Settings?.whatsapplink || Settings?.branchWhatsapplink) && (
                 <strong>Get Instant ID On Whatsapp</strong>
               )}
 
               <ul>
-                {(socialLink?.whatsapplink ||
-                  socialLink?.branchWhatsapplink) && (
+                {(Settings?.whatsapplink || Settings?.branchWhatsapplink) && (
                   <li>
                     <Link onClick={navigateWhatsApp}>
                       <img
@@ -176,11 +173,11 @@ const LeftSidebar = () => {
                   </li>
                 )}
 
-                {socialLink?.telegramLink && (
+                {Settings?.telegramLink && (
                   <li>
                     <Link
                       onClick={() =>
-                        window.open(socialLink?.telegramLink, "_blank")
+                        window.open(Settings?.telegramLink, "_blank")
                       }
                     >
                       <img
@@ -193,11 +190,11 @@ const LeftSidebar = () => {
                   </li>
                 )}
 
-                {socialLink?.instagramLink && (
+                {Settings?.instagramLink && (
                   <li>
                     <Link
                       onClick={() =>
-                        window.open(socialLink?.instagramLink, "_blank")
+                        window.open(Settings?.instagramLink, "_blank")
                       }
                     >
                       <img

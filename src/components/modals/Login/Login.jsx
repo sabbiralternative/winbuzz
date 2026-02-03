@@ -13,13 +13,12 @@ import {
 } from "../../../redux/features/global/globalSlice";
 import toast from "react-hot-toast";
 import { useLogo } from "../../../context/ApiProvider";
-import useWhatsApp from "../../../hooks/whatsapp";
 import images from "../../../assets/images";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
 
 const Login = () => {
   const { closePopupForForever } = useSelector((state) => state?.global);
-  const { data: socialLink } = useWhatsApp();
+
   const navigate = useNavigate();
   const [tab, setTab] = useState(Settings.registration ? "mobile" : "userId");
   const [showPassword, setShowPassword] = useState(false);
@@ -412,7 +411,7 @@ const Login = () => {
                       )}
 
                       <div data-v-b55734cb className="Continue-with">
-                        {socialLink?.whatsapplink &&
+                        {Settings?.whatsapplink &&
                           Settings.registrationWhatsapp && (
                             <Fragment>
                               <div
@@ -427,7 +426,7 @@ const Login = () => {
                                 <a
                                   data-v-b55734cb
                                   onClick={() =>
-                                    getWhatsAppId(socialLink?.whatsapplink)
+                                    getWhatsAppId(Settings?.whatsapplink)
                                   }
                                   className="btn-whatsapp"
                                 >

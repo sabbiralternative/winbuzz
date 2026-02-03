@@ -19,7 +19,6 @@ import {
   handleDecreasePrice,
   handleIncreasePrice,
 } from "../../../utils/editBetSlipPrice";
-import useWhatsApp from "../../../hooks/whatsapp";
 import { AxiosJSEncrypt } from "../../../lib/AxiosJSEncrypt";
 
 const BetSlip = () => {
@@ -35,7 +34,6 @@ const BetSlip = () => {
   const { refetch: refetchExposure } = useExposure(eventId);
   const [betDelay, setBetDelay] = useState(null);
   const [loading, setLoading] = useState(false);
-  const { data: socialLink } = useWhatsApp();
   const buttonValues = localStorage.getItem("buttonValue");
   let parseButtonValues = [];
   if (buttonValues) {
@@ -109,7 +107,7 @@ const BetSlip = () => {
         ...payload,
         site: Settings.siteUrl,
         nounce: uuidv4(),
-        isbetDelay: socialLink?.bet_delay,
+        isbetDelay: Settings?.bet_delay,
         apk: closePopupForForever ? true : false,
       },
     ];
@@ -132,7 +130,7 @@ const BetSlip = () => {
       delay = 9000;
     } else {
       setBetDelay(placeBetValues?.betDelay);
-      delay = socialLink?.bet_delay ? placeBetValues?.betDelay * 1000 : 0;
+      delay = Settings?.bet_delay ? placeBetValues?.betDelay * 1000 : 0;
     }
 
     setTimeout(async () => {
