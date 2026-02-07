@@ -17,7 +17,7 @@
       "deposit": true,
       "withdraw": true,
       "casinoCurrency": "INR",
-      "balanceApiLoop": true,
+
       "baseUrl": "",
       "betFairCashOut": true,
       "bookmakerCashOut": true,
