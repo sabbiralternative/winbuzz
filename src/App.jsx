@@ -7,6 +7,7 @@ import { logout } from "./redux/features/auth/authSlice";
 
 import { setWindowWidth } from "./redux/features/global/globalSlice";
 import { Settings } from "./api";
+import MaintenanceMessage from "./components/UI/MaintenanceMessage/MaintenanceMessage";
 
 function App() {
   const disabledDevtool = Settings?.disabledDevtool;
@@ -84,6 +85,10 @@ function App() {
       };
     }
   }, []);
+
+  if (Settings.maintenance_message) {
+    return <MaintenanceMessage />;
+  }
 
   return <MainLayout />;
 }

@@ -6,7 +6,7 @@ const LeftSidebar = () => {
   const { token } = useSelector((state) => state.auth);
   const handleDownload = (e) => {
     e.preventDefault();
-    const fileUrl = Settings.apkLink;
+    const fileUrl = Settings.apk_link;
     const link = document.createElement("Link");
     link.to = fileUrl;
     link.setAttribute("download", "site.apk");
@@ -138,7 +138,7 @@ const LeftSidebar = () => {
                   </Link>
                 </li>
 
-                {Settings.apkLink && (
+                {Settings.apk_link && (
                   <li className="download_apk_side_btn_menu">
                     <Link onClick={handleDownload} className="multi-mark-bg">
                       <div className="icon-sidemenu">

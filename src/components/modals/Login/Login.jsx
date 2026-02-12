@@ -120,7 +120,7 @@ const Login = () => {
 
   const handleDownload = (e) => {
     e.preventDefault();
-    const fileUrl = Settings.apkLink;
+    const fileUrl = Settings.apk_link;
     const link = document.createElement("a");
     link.href = fileUrl;
     link.setAttribute("download", "site.apk");
@@ -389,7 +389,7 @@ const Login = () => {
                           <span data-v-b55734cb>Log In</span>
                         </button>
                       </div>
-                      {Settings.apkLink && (
+                      {Settings.apk_link && (
                         <div
                           data-v-b55734cb
                           className="login-cmn-btn download-apk-btn"
