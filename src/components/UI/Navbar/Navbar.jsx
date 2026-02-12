@@ -39,7 +39,7 @@ const Navbar = () => {
         const expiryTime = localStorage.getItem("installPromptExpiryTime");
         const currentTime = new Date().getTime();
 
-        if ((!expiryTime || currentTime > expiryTime) && Settings?.apkLink) {
+        if ((!expiryTime || currentTime > expiryTime) && Settings.apk_link) {
           localStorage.removeItem("installPromptExpiryTime");
 
           dispatch(setShowAppPopUp(true));
@@ -59,9 +59,9 @@ const Navbar = () => {
   }
   return (
     <header>
-      {Settings?.apkLink && showAPKModal && <DownloadAPK />}
+      {Settings.apk_link && showAPKModal && <DownloadAPK />}
       <Notification />
-      {Settings?.apkLink && showAppPopUp && windowWidth < 1040 && <AppPopup />}
+      {Settings.apk_link && showAppPopUp && windowWidth < 1040 && <AppPopup />}
       <TopNav />
       {/* <LatestEvent /> */}
       <NavMiddleMenuDesktop />
