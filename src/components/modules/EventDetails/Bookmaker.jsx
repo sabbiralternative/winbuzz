@@ -249,7 +249,7 @@ const Bookmaker = ({ data }) => {
                       <span data-v-4a1ad0c4 className="mrkname">
                         {game?.name?.toUpperCase()}
                       </span>
-                      {Settings.betFairCashOut &&
+                      {Settings.cashout &&
                         game?.runners?.length !== 3 &&
                         game?.status === "OPEN" &&
                         game?.name !== "toss" &&
@@ -280,7 +280,7 @@ const Bookmaker = ({ data }) => {
                               `(${teamProfitForGame.profit.toFixed(2)})`}
                           </button>
                         )}
-                      {Settings.betFairCashOut &&
+                      {Settings.cashout &&
                         game?.runners?.length !== 3 &&
                         game?.status === "OPEN" &&
                         game?.name !== "toss" &&

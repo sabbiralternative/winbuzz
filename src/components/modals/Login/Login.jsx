@@ -375,7 +375,7 @@ const Login = () => {
                         data-v-b55734cb
                         className="login-cmn-btn login-demo-btn"
                       >
-                        {Settings.demoLogin && (
+                        {Settings.demo_login && (
                           <button
                             onClick={loginWithDemo}
                             data-v-b55734cb
@@ -412,7 +412,7 @@ const Login = () => {
 
                       <div data-v-b55734cb className="Continue-with">
                         {Settings?.whatsapplink &&
-                          Settings.registrationWhatsapp && (
+                          Settings.registration_whatsapp && (
                             <Fragment>
                               <div
                                 data-v-b55734cb

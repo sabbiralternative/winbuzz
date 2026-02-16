@@ -382,7 +382,7 @@ const Register = () => {
                           </button>
                         </div>
                         {Settings?.whatsapplink &&
-                          Settings.registrationWhatsapp && (
+                          Settings.registration_whatsapp && (
                             <Fragment>
                               <div
                                 data-v-27945482

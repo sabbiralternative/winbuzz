@@ -113,21 +113,21 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
     }
   }, [timer]);
 
-  const getOtpOnWhatsapp = async () => {
-    const otpData = {
-      mobile: mobile,
-      type: "otpsend",
-    };
+  // const getOtpOnWhatsapp = async () => {
+  //   const otpData = {
+  //     mobile: mobile,
+  //     type: "otpsend",
+  //   };
 
-    const res = await AxiosSecure.post(API.otpless, otpData);
-    const data = res.data;
+  //   const res = await AxiosSecure.post(API.otpless, otpData);
+  //   const data = res.data;
 
-    if (data?.success) {
-      toast.success(data?.result?.message);
-    } else {
-      toast.error(data?.error?.errorMessage);
-    }
-  };
+  //   if (data?.success) {
+  //     toast.success(data?.result?.message);
+  //   } else {
+  //     toast.error(data?.error?.errorMessage);
+  //   }
+  // };
 
   return (
     <Fragment>
@@ -211,7 +211,7 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
                           </button>
                         ) : (
                           <div className="flex items-center gap-2">
-                            {Settings.otpWhatsapp && (
+                            {/* {Settings.otpWhatsapp && (
                               <button
                                 onClick={getOtpOnWhatsapp}
                                 className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out -bold h-fit bg-primary  transition-all ease-in-out text-xs whitespace-nowrap mr-1 py-1 px-3 rounded active:scale-[0.98] active:opacity-95 disabled:bg-bg_Slate500 disabled:opacity-50 font-medium relative flex items-center justify-center cursor-pointer bg-primary"
@@ -222,7 +222,7 @@ const AddNewUser = ({ setShowAddNewUserModal }) => {
                                 </span>
                                 <span className="shimmer"></span>
                               </button>
-                            )}
+                            )} */}
 
                             <button
                               onClick={getOtp}
