@@ -49,7 +49,10 @@ const IFrame = () => {
     );
   }
   return (
-    <div className="col-12 col-sm-12 col-md-12 col-lg-10 box-shd-gap">
+    <div
+      className="col-12 col-sm-12 col-md-12 col-lg-10 box-shd-gap"
+      style={{ minHeight: "100vh" }}
+    >
       <iframe
         style={{ width: "100%", height: "100%" }}
         scrolling="yes"

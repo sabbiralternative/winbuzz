@@ -7,8 +7,8 @@ const LeftSidebar = () => {
   const handleDownload = (e) => {
     e.preventDefault();
     const fileUrl = Settings.apk_link;
-    const link = document.createElement("Link");
-    link.to = fileUrl;
+    const link = document.createElement("a");
+    link.href = fileUrl;
     link.setAttribute("download", "site.apk");
     document.body.appendChild(link);
     link.click();
@@ -81,7 +81,10 @@ const LeftSidebar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link className="multi-mark-bg">
+                  <Link
+                    to="/casino/sportsbook/550000"
+                    className="multi-mark-bg"
+                  >
                     <div className="icon-sidemenu">
                       <img
                         loading="lazy"
@@ -94,7 +97,7 @@ const LeftSidebar = () => {
                 </li>
 
                 <li>
-                  <Link to="/games/casino" className="multi-mark-bg">
+                  <Link to="/casino" className="multi-mark-bg">
                     <div className="icon-sidemenu">
                       <img
                         loading="lazy"
@@ -136,7 +139,7 @@ const LeftSidebar = () => {
 
                 {Settings.apk_link && (
                   <li className="download_apk_side_btn_menu">
-                    <Link onClick={handleDownload} className="multi-mark-bg">
+                    <a onClick={handleDownload} className="multi-mark-bg">
                       <div className="icon-sidemenu">
                         <img
                           loading="lazy"
@@ -145,7 +148,7 @@ const LeftSidebar = () => {
                         />
                       </div>
                       <span>Download APK</span>
-                    </Link>
+                    </a>
                   </li>
                 )}
               </ul>

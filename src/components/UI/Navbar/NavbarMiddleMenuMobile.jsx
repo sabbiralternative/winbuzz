@@ -36,8 +36,10 @@ const NavbarMiddleMenuMobile = () => {
             <img alt="" src="/icon/99998.png" /> Casino{" "}
           </Link>
         </li>
-        <li>
-          <Link to="javascript:void(0)" className="subnav-link">
+        <li
+          className={` ${pathname === "/casino/sportsbook/550000" ? "active" : ""}`}
+        >
+          <Link to="/casino/sportsbook/550000" className="subnav-link">
             <img alt="" src="/icon/99991.png" /> Sports book{" "}
           </Link>
         </li>
