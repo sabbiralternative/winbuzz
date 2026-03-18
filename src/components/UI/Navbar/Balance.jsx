@@ -5,9 +5,9 @@ const Balance = () => {
 
   return (
     <li data-v-9dda4895 className="balance-bx">
-      <span data-v-9dda4895 className="mobile-user-name">
+      {/* <span data-v-9dda4895 className="mobile-user-name">
         demo746
-      </span>
+      </span> */}
       <div data-v-9dda4895 className="balance-head">
         <div data-v-9dda4895 className="bal-text">
           <span data-v-9dda4895>Bal:₹{data?.availBalance}</span>

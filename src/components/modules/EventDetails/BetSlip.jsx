@@ -20,6 +20,7 @@ import {
   handleIncreasePrice,
 } from "../../../utils/editBetSlipPrice";
 import { AxiosJSEncrypt } from "../../../lib/AxiosJSEncrypt";
+import BetLoading from "./BetLoading";
 
 const BetSlip = () => {
   const { closePopupForForever } = useSelector((state) => state?.global);
@@ -209,7 +210,14 @@ const BetSlip = () => {
       <div data-v-4a1ad0c4 className="placed-bet-head">
         <span data-v-4a1ad0c4>Place-Bet</span>
       </div>
-      <div data-v-4a1ad0c4 className="stake-bet-desk-sec">
+      <div data-v-4a1ad0c4 className="stake-bet-desk-sec relative">
+        {loading && (
+          <BetLoading
+            absolute={true}
+            betDelay={betDelay}
+            setBetDelay={setBetDelay}
+          />
+        )}
         <div
           data-v-4a1ad0c4
           className={`stake-placed-bet ${

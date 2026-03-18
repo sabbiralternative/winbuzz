@@ -19897,7 +19897,7 @@ button.btn-class.number-buttons.btn-active {
   box-shadow: none !important;
 }
 .input-left.phone-no-field .form-control {
-  padding: 7px 10px 7px 85px;
+  padding: 7px 10px 7px 70px;
 }
 .footer-logos {
   display: none;
@@ -27522,7 +27522,7 @@ tr.open-bet-footer.settled-tabel-footer {
     font-size: 13px;
   }
   .input-left .form-control {
-    padding: 7px 25px;
+    padding: 7px 4px;
     font-size: 14px;
   }
   .input-left i.fa-solid.fa-phone {
@@ -29316,7 +29316,7 @@ tr.open-bet-footer.settled-tabel-footer {
     padding: 0;
   }
   .input-left.phone-no-field .form-control {
-    padding: 8px 10px 7px 85px;
+    padding: 8px 10px 7px 70px;
   }
   .bonus_new_s span {
     font-size: 14px;

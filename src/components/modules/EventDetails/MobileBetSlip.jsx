@@ -18,6 +18,7 @@ import {
   handleDecreasePrice,
   handleIncreasePrice,
 } from "../../../utils/editBetSlipPrice";
+import BetLoading from "./BetLoading";
 const MobileBetSlip = ({ currentPlaceBetEvent }) => {
   const { closePopupForForever } = useSelector((state) => state?.global);
   const [isCashOut, setIsCashOut] = useState(false);
@@ -219,9 +220,16 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
   return (
     <div
       data-v-4a1ad0c4
-      className="stake-placed-bet stake-light-blue-box"
-      style={{ display: "block" }}
+      className="stake-placed-bet stake-light-blue-box block lg:hidden relative"
+      // style={{ display: "block" }}
     >
+      {loading && (
+        <BetLoading
+          absolute={true}
+          betDelay={betDelay}
+          setBetDelay={setBetDelay}
+        />
+      )}
       {/* <div data-v-4a1ad0c4 className="bet-placing-head">
         <div data-v-4a1ad0c4 className="check-mark accept-any-odds-btn">
           <div data-v-4a1ad0c4 className="form-check form-switch">
