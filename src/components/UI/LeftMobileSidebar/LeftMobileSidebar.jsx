@@ -47,7 +47,7 @@ const LeftMobileSidebar = () => {
                     <li>
                       <a href="/m/multi-market">
                         <img
-                          src="/src/assets/img/free-chart-icon.png"
+                          src="/icon/free-chart-icon.png"
                           alt=""
                           className="menu-icon"
                         />
@@ -60,11 +60,7 @@ const LeftMobileSidebar = () => {
                         className="active"
                         onClick={() => handleNavigate("/sports/cricket/4")}
                       >
-                        <img
-                          alt=""
-                          className="menu-icon"
-                          src="/src/assets/img/4.svg"
-                        />
+                        <img alt="" className="menu-icon" src="/icon/4.svg" />
                         <span>Cricket</span>
                       </a>
                     </li>
@@ -73,11 +69,7 @@ const LeftMobileSidebar = () => {
                         className="active"
                         onClick={() => handleNavigate("/sports/cricket/1")}
                       >
-                        <img
-                          alt=""
-                          className="menu-icon"
-                          src="/src/assets/img/1.svg"
-                        />
+                        <img alt="" className="menu-icon" src="/icon/1.svg" />
                         <span>Football</span>
                       </a>
                     </li>
@@ -86,11 +78,7 @@ const LeftMobileSidebar = () => {
                         onClick={() => handleNavigate("/sports/cricket/2")}
                         className="active"
                       >
-                        <img
-                          alt=""
-                          className="menu-icon"
-                          src="/src/assets/img/2.svg"
-                        />
+                        <img alt="" className="menu-icon" src="/icon/2.svg" />
                         <span>Tennis</span>
                       </a>
                     </li>
@@ -99,7 +87,7 @@ const LeftMobileSidebar = () => {
                         <img
                           alt=""
                           className="menu-icon"
-                          src="/src/assets/img/2378961.svg"
+                          src="/icon/2378961.svg"
                         />
                         <span>Politics</span>
                       </a>
@@ -109,7 +97,7 @@ const LeftMobileSidebar = () => {
                         <img
                           alt=""
                           className="menu-icon"
-                          src="/src/assets/img/99998.svg"
+                          src="/icon/99998.svg"
                         />
                         <span>Int Casino</span>
                       </a>
@@ -119,18 +107,14 @@ const LeftMobileSidebar = () => {
                         <img
                           alt=""
                           className="menu-icon"
-                          src="/src/assets/img/99991.svg"
+                          src="/icon/99991.svg"
                         />
                         <span>Sports book</span>
                       </a>
                     </li>
                     <li>
                       <a href="/m/game-list/7">
-                        <img
-                          alt=""
-                          className="menu-icon"
-                          src="/src/assets/img/7.svg"
-                        />
+                        <img alt="" className="menu-icon" src="/icon/7.svg" />
                         <span>Horse Racing</span>
                       </a>
                     </li>
@@ -139,7 +123,7 @@ const LeftMobileSidebar = () => {
                         <img
                           alt=""
                           className="menu-icon"
-                          src="/src/assets/img/4339.svg"
+                          src="/icon/4339.svg"
                         />
                         <span>Greyhound Racing</span>
                       </a>
@@ -149,7 +133,7 @@ const LeftMobileSidebar = () => {
                         <img
                           alt=""
                           className="menu-icon"
-                          src="/src/assets/img/99990.svg"
+                          src="/icon/99990.svg"
                         />
                         <span>Binary</span>
                       </a>
@@ -159,7 +143,7 @@ const LeftMobileSidebar = () => {
                         <img
                           alt=""
                           className="menu-icon"
-                          src="/src/assets/img/99994.svg"
+                          src="/icon/99994.svg"
                         />
                         <span>Kabaddi</span>
                       </a>
@@ -169,7 +153,7 @@ const LeftMobileSidebar = () => {
                         <img
                           alt=""
                           className="menu-icon"
-                          src="/src/assets/img/7522.svg"
+                          src="/icon/7522.svg"
                         />
                         <span>Basketball</span>
                       </a>
@@ -179,18 +163,14 @@ const LeftMobileSidebar = () => {
                         <img
                           alt=""
                           className="menu-icon"
-                          src="/src/assets/img/7511.svg"
+                          src="/icon/7511.svg"
                         />
                         <span>Baseball</span>
                       </a>
                     </li>
                     <li>
                       <a href="/m/game-list/20">
-                        <img
-                          alt=""
-                          className="menu-icon"
-                          src="/src/assets/img/20.svg"
-                        />
+                        <img alt="" className="menu-icon" src="/icon/20.svg" />
                         <span>Table Tennis</span>
                       </a>
                     </li>
@@ -199,7 +179,7 @@ const LeftMobileSidebar = () => {
                         <img
                           alt=""
                           className="menu-icon"
-                          src="/src/assets/img/998917.svg"
+                          src="/icon/998917.svg"
                         />
                         <span>Volleyball</span>
                       </a>
@@ -209,18 +189,14 @@ const LeftMobileSidebar = () => {
                         <img
                           alt=""
                           className="menu-icon"
-                          src="/src/assets/img/7524.svg"
+                          src="/icon/7524.svg"
                         />
                         <span>Ice Hockey</span>
                       </a>
                     </li>
                     <li>
                       <a href="/m/game-list/5">
-                        <img
-                          alt=""
-                          className="menu-icon"
-                          src="/src/assets/img/5.svg"
-                        />
+                        <img alt="" className="menu-icon" src="/icon/5.svg" />
                         <span>Rugby</span>
                       </a>
                     </li>
@@ -229,7 +205,7 @@ const LeftMobileSidebar = () => {
                         <img
                           alt=""
                           className="menu-icon"
-                          src="/src/assets/img/26420387.svg"
+                          src="/icon/26420387.svg"
                         />
                         <span>Mixed Martial Arts</span>
                       </a>
@@ -239,28 +215,21 @@ const LeftMobileSidebar = () => {
                         <img
                           alt=""
                           className="menu-icon"
-                          src="/src/assets/img/3503.svg"
+                          src="/icon/3503.svg"
                         />
                         <span>Darts</span>
                       </a>
                     </li>
                     <li>
                       <a href="/m/game-list/29">
-                        <img
-                          alt=""
-                          className="menu-icon"
-                          src="/src/assets/img/29.svg"
-                        />
+                        <img alt="" className="menu-icon" src="/icon/29.svg" />
                         <span>Futsal</span>
                       </a>
                     </li>
 
                     <li>
                       <a href="javascript:void(0)">
-                        <img
-                          src="/src/assets/img/rules.svg"
-                          className="menu-icon"
-                        />
+                        <img src="/icon/rules.svg" className="menu-icon" />
                         <span>Rules</span>
                       </a>
                     </li>

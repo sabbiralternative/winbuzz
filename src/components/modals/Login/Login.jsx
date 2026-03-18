@@ -185,7 +185,7 @@ const Login = () => {
                   data-v-b55734cb
                   className="login-body-sec"
                   style={{
-                    backgroundImage: "url(/src/assets/img/login-back-1.jpg)",
+                    backgroundImage: "url(/icon/login-back-1.jpg)",
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
                     alignItems: "center",
@@ -403,7 +403,7 @@ const Login = () => {
                               Download APK{" "}
                               <img
                                 data-v-b55734cb
-                                src="/src/assets/img/apk_icon-CKpATu5s.svg"
+                                src="/icon/apk_icon-CKpATu5s.svg"
                               />
                             </span>
                           </a>
@@ -453,7 +453,7 @@ const Login = () => {
                                 <img
                                   data-v-b55734cb
                                   loading="lazy"
-                                  src="/src/assets/img/telegram-a01fJV7_.png"
+                                  src="/icon/telegram-a01fJV7_.png"
                                   alt=""
                                 />
                               </a>
@@ -463,7 +463,7 @@ const Login = () => {
                                 <img
                                   data-v-b55734cb
                                   loading="lazy"
-                                  src="/src/assets/img/instagram-CBwtwdWl.png"
+                                  src="/icon/instagram-CBwtwdWl.png"
                                   alt=""
                                 />
                               </a>
@@ -473,7 +473,7 @@ const Login = () => {
                                 <img
                                   data-v-b55734cb
                                   loading="lazy"
-                                  src="/src/assets/img/facebook-ZNZi6boh.png"
+                                  src="/icon/facebook-ZNZi6boh.png"
                                   alt=""
                                 />
                               </a>
@@ -496,17 +496,17 @@ const Login = () => {
                       <div data-v-b55734cb className="login-footer-logo">
                         <img
                           data-v-b55734cb
-                          src="/src/assets/img/game-care-C32-PadK.svg"
+                          src="/icon/game-care-C32-PadK.svg"
                           className="footer-logo"
                         />
                         <img
                           data-v-b55734cb
-                          src="/src/assets/img/restricted-regions-logo-BrkaTLIP.svg"
+                          src="/icon/restricted-regions-logo-BrkaTLIP.svg"
                           className="footer-logo"
                         />
                         <img
                           data-v-b55734cb
-                          src="/src/assets/img/underage-logo-NqR90Ywe.svg"
+                          src="/icon/underage-logo-NqR90Ywe.svg"
                           className="footer-logo"
                         />
                       </div>

@@ -51,7 +51,7 @@ const EventRow = ({ data, keys, category }) => {
                         <a>
                           <img
                             loading="lazy"
-                            src="/src/assets/img/tv-Bor3goJP.png"
+                            src="/icon/tv-Bor3goJP.png"
                             alt=""
                           />
                         </a>

@@ -37,7 +37,7 @@ const Dropdown = () => {
               <img
                 data-v-9dda4895
                 className="user-profile-btn__icon"
-                src="/src/assets/img/mobile-user-icon-QyVL-tME.png"
+                src="/icon/mobile-user-icon-QyVL-tME.png"
                 alt=""
               />
             </span>
@@ -85,7 +85,7 @@ const Dropdown = () => {
                 <img
                   data-v-9dda4895
                   loading="lazy"
-                  src="/src/assets/img/edit-icon-BO4-FlBr.svg"
+                  src="/icon/edit-icon-BO4-FlBr.svg"
                   alt="edit-icon"
                 />
               </span> */}

@@ -1,0 +1,5 @@
+:root {
+  --primary-gradient-color: transparent
+    linear-gradient(94deg, #b6842d, #ebda8d 55%, #b7862f);
+  --primary-color: #b88831;
+}

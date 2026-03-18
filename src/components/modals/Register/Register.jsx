@@ -166,7 +166,7 @@ const Register = () => {
                   data-v-27945482
                   className="login-body-sec"
                   style={{
-                    backgroundImage: "url(/src/assets/img/login-back-1.jpg)",
+                    backgroundImage: "url(/icon/login-back-1.jpg)",
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
                     alignItems: "center",

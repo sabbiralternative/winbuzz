@@ -32,11 +32,7 @@ const LeftSidebar = () => {
             data-bs-dismiss="offcanvas"
             aria-label="Close"
           >
-            <img
-              loading="lazy"
-              src="/src/assets/img/close-icon-HndtBqSa.svg"
-              alt=""
-            />
+            <img loading="lazy" src="/icon/close-icon-HndtBqSa.svg" alt="" />
           </button>
           <div className="offcanvass-logo-sec mobile-logo">
             <img
@@ -53,7 +49,7 @@ const LeftSidebar = () => {
                     <div className="icon-sidemenu">
                       <img
                         loading="lazy"
-                        src="/src/assets/img/sports-cricket-Qf1NmI1h.png"
+                        src="/icon/sports-cricket-Qf1NmI1h.png"
                         alt="cricket"
                       />
                     </div>
@@ -65,7 +61,7 @@ const LeftSidebar = () => {
                     <div className="icon-sidemenu">
                       <img
                         loading="lazy"
-                        src="/src/assets/img/sports-soccer-CaiOK3CT.png"
+                        src="/icon/sports-soccer-CaiOK3CT.png"
                         alt="Football"
                       />
                     </div>
@@ -77,7 +73,7 @@ const LeftSidebar = () => {
                     <div className="icon-sidemenu">
                       <img
                         loading="lazy"
-                        src="/src/assets/img/sports-tennis-DzBamNaA.png"
+                        src="/icon/sports-tennis-DzBamNaA.png"
                         alt="tennis"
                       />
                     </div>
@@ -89,7 +85,7 @@ const LeftSidebar = () => {
                     <div className="icon-sidemenu">
                       <img
                         loading="lazy"
-                        src="/src/assets/img/sidebar-sportsbook-CJaqUNak.svg"
+                        src="/icon/sidebar-sportsbook-CJaqUNak.svg"
                         alt=""
                       />
                     </div>
@@ -102,7 +98,7 @@ const LeftSidebar = () => {
                     <div className="icon-sidemenu">
                       <img
                         loading="lazy"
-                        src="/src/assets/img/sidebar-intcasino-BYVw7v_R.svg"
+                        src="/icon/sidebar-intcasino-BYVw7v_R.svg"
                         alt=""
                       />
                     </div>
@@ -114,7 +110,7 @@ const LeftSidebar = () => {
                     <div className="icon-sidemenu">
                       <img
                         loading="lazy"
-                        src="/src/assets/img/casino-icon-D7N09FcO.png"
+                        src="/icon/casino-icon-D7N09FcO.png"
                         alt=""
                       />
                     </div>
@@ -130,7 +126,7 @@ const LeftSidebar = () => {
                     <div className="icon-sidemenu">
                       <img
                         loading="lazy"
-                        src="/src/assets/img/sports-no-YhxjmpH9.png"
+                        src="/icon/sports-no-YhxjmpH9.png"
                         alt="Kabaddi "
                       />
                     </div>
@@ -144,7 +140,7 @@ const LeftSidebar = () => {
                       <div className="icon-sidemenu">
                         <img
                           loading="lazy"
-                          src="/src/assets/img/project-apk-icon-DhSw9Ns5.png"
+                          src="/icon/project-apk-icon-DhSw9Ns5.png"
                           alt=""
                         />
                       </div>
@@ -165,7 +161,7 @@ const LeftSidebar = () => {
                     <Link onClick={navigateWhatsApp}>
                       <img
                         loading="lazy"
-                        src="/src/assets/img/whatapp-icon-CGODlOk_.png"
+                        src="/icon/whatapp-icon-CGODlOk_.png"
                         alt="WhatsApp Icon"
                       />
                       <span>Whatsapp Now</span>
@@ -182,7 +178,7 @@ const LeftSidebar = () => {
                     >
                       <img
                         loading="lazy"
-                        src="/src/assets/img/telegram-icon-NcUOJSTd.png"
+                        src="/icon/telegram-icon-NcUOJSTd.png"
                         alt="Telegram Icon"
                       />
                       <span>Follow On Telegram</span>
@@ -199,7 +195,7 @@ const LeftSidebar = () => {
                     >
                       <img
                         loading="lazy"
-                        src="/src/assets/img/instagrame-BDxmYzsk.png"
+                        src="/icon/instagrame-BDxmYzsk.png"
                         alt="Instagram Icon"
                       />
                       <span>Follow On Instagram</span>

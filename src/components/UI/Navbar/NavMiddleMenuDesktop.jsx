@@ -13,7 +13,7 @@ const NavMiddleMenuDesktop = () => {
             >
               <img
                 loading="lazy"
-                src="/src/assets/img/in-play-7WyfrqDR.png"
+                src="/icon/in-play-7WyfrqDR.png"
                 alt="In Play"
                 className="nav-icon"
               />
@@ -24,7 +24,7 @@ const NavMiddleMenuDesktop = () => {
             <Link to="/sports/cricket/4" className>
               <img
                 loading="lazy"
-                src="/src/assets/img/sports-cricket-Qf1NmI1h.png"
+                src="/icon/sports-cricket-Qf1NmI1h.png"
                 alt="Menu 1"
                 className="nav-icon"
               />
@@ -35,7 +35,7 @@ const NavMiddleMenuDesktop = () => {
             <Link to="/sports/Football/1" className>
               <img
                 loading="lazy"
-                src="/src/assets/img/sports-soccer-CaiOK3CT.png"
+                src="/icon/sports-soccer-CaiOK3CT.png"
                 alt="Menu 1"
                 className="nav-icon"
               />
@@ -46,7 +46,7 @@ const NavMiddleMenuDesktop = () => {
             <Link to="/sports/tennis/2" className>
               <img
                 loading="lazy"
-                src="/src/assets/img/sports-tennis-DzBamNaA.png"
+                src="/icon/sports-tennis-DzBamNaA.png"
                 alt="Menu 1"
                 className="nav-icon"
               />
@@ -54,11 +54,14 @@ const NavMiddleMenuDesktop = () => {
             </Link>
           </li>
 
-          <li className="hightlight-nav-menu">
+          <li
+
+          // className="hightlight-nav-menu"
+          >
             <Link to="/casino" className>
               <img
                 loading="lazy"
-                src="/src/assets/img/int-casino-DuAshlyx.png"
+                src="/icon/int-casino-DuAshlyx.png"
                 alt="Int Casino"
                 className="nav-icon"
               />

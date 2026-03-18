@@ -9,7 +9,7 @@ const CasinoProvider = () => {
           <span data-v-56384811 className="inplay-content__logo-icon">
             <img
               data-v-56384811
-              src="/src/assets/img/play-cart-Sk8L_OAI.png"
+              src="/icon/play-cart-Sk8L_OAI.png"
               alt="play-cart-img"
             />
           </span>
@@ -86,7 +86,7 @@ const CasinoProvider = () => {
           <a>
             <img
               loading="lazy"
-              src="/src/assets/img/image-found-by-default-img-DharNXeI.webp"
+              src="/icon/image-found-by-default-img-DharNXeI.webp"
               alt="game-img-8"
             />
           </a>
@@ -104,7 +104,7 @@ const CasinoProvider = () => {
           <a>
             <img
               loading="lazy"
-              src="/src/assets/img/image-found-by-default-img-DharNXeI.webp"
+              src="/icon/image-found-by-default-img-DharNXeI.webp"
               alt="game-img-10"
             />
           </a>

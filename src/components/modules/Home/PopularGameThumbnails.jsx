@@ -10,7 +10,7 @@ const PopularGameThumbnails = () => {
             <a>
               <img
                 loading="lazy"
-                src="/src/assets/img/aviator-CcSwVRD-.gif"
+                src="/icon/aviator-CcSwVRD-.gif"
                 alt="game-img-1"
               />
             </a>
@@ -22,7 +22,7 @@ const PopularGameThumbnails = () => {
             <a>
               <img
                 loading="lazy"
-                src="/src/assets/img/mines-BX4fedNK.gif"
+                src="/icon/mines-BX4fedNK.gif"
                 alt="game-img-2"
               />
             </a>
@@ -34,7 +34,7 @@ const PopularGameThumbnails = () => {
             <a>
               <img
                 loading="lazy"
-                src="/src/assets/img/fungames-Ckl8E8G4.gif"
+                src="/icon/fungames-Ckl8E8G4.gif"
                 alt="game-img-3"
               />
             </a>
@@ -46,7 +46,7 @@ const PopularGameThumbnails = () => {
             <a>
               <img
                 loading="lazy"
-                src="/src/assets/img/color-pridiction-CuSbNHWl.gif"
+                src="/icon/color-pridiction-CuSbNHWl.gif"
                 alt="game-img-4"
               />
             </a>

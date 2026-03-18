@@ -192,7 +192,7 @@ const Fancy = ({ data }) => {
                                   <img
                                     data-v-4a1ad0c4
                                     className="star-active"
-                                    src="/src/assets/img/star-inactive-Cy8n08QW.png"
+                                    src="/icon/star-inactive-Cy8n08QW.png"
                                   />
                                 </div>
                                 <div

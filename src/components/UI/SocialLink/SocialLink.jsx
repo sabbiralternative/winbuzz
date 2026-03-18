@@ -21,7 +21,7 @@ const SocialLink = () => {
               <img
                 data-v-238a5417
                 loading="lazy"
-                src="/src/assets/img/wp_support-C-DSr-Mj.png"
+                src="/icon/wp_support-C-DSr-Mj.png"
                 alt="WhatsApp Support"
               />
             </a>
