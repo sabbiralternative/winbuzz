@@ -20,6 +20,9 @@
 .bg-primary {
   background: var(--primary-gradient-color) !important;
 }
+.bg-primary-color {
+  background: var(--primary-color);
+}
 
 .white-icon-color svg {
   stroke: #fff;

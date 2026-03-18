@@ -20,7 +20,6 @@ const Login = () => {
   const { closePopupForForever } = useSelector((state) => state?.global);
 
   const navigate = useNavigate();
-  const [tab, setTab] = useState(Settings.registration ? "mobile" : "userId");
   const [showPassword, setShowPassword] = useState(false);
   const { logo } = useLogo();
   const dispatch = useDispatch();
@@ -192,9 +191,18 @@ const Login = () => {
                     minHeight: "100vh",
                   }}
                 >
-                  <div data-v-b55734cb className="login-body-lft">
-                    <div data-v-b55734cb className="login-header">
+                  <div
+                    data-v-b55734cb
+                    className="login-body-lft"
+                    style={{ padding: "10%" }}
+                  >
+                    <div
+                      data-v-b55734cb
+                      className="login-header"
+                      style={{ marginBottom: "10px" }}
+                    >
                       <h2
+                        style={{ display: "flex", justifyContent: "center" }}
                         data-v-b55734cb
                         className="modal-title"
                         id="exampleModalLabel"
@@ -213,127 +221,32 @@ const Login = () => {
                       className="login-form"
                     >
                       <div data-v-b55734cb className="input-field">
-                        <div data-v-b55734cb className="profile-tab-list">
-                          <ul
+                        <div data-v-b55734cb className="row g-2">
+                          <div
                             data-v-b55734cb
-                            className="nav nav-pills mb-3"
-                            id="pills-tab"
-                            role="tablist"
+                            className="col-12 col-sm-12 col-md-12"
                           >
-                            <li
-                              data-v-b55734cb
-                              className="nav-item"
-                              role="presentation"
-                            >
-                              <button
-                                onClick={() => setTab("mobile")}
+                            <div data-v-b55734cb className="input-left">
+                              <input
+                                {...register("username")}
                                 data-v-b55734cb
-                                className={`nav-link  ${
-                                  tab === "mobile" ? "active" : ""
-                                }`}
-                                data-bs-toggle="pill"
-                                type="button"
-                                role="tab"
-                              >
-                                Mobile Number
-                              </button>
-                            </li>
-                            <li
-                              data-v-b55734cb
-                              className="nav-item"
-                              role="presentation"
-                            >
-                              <button
-                                onClick={() => setTab("userId")}
-                                data-v-b55734cb
-                                className={`nav-link  ${
-                                  tab === "userId" ? "active" : ""
-                                }`}
-                                data-bs-toggle="pill"
-                                type="button"
-                                role="tab"
-                              >
-                                User ID
-                              </button>
-                            </li>
-                          </ul>
+                                type="text"
+                                className="form-control"
+                                placeholder="Username"
+                              />
+                            </div>
+                          </div>
                         </div>
-                        {tab === "userId" ? (
-                          <div data-v-b55734cb className="row g-2">
-                            <div
-                              data-v-b55734cb
-                              className="col-12 col-sm-12 col-md-12"
-                            >
-                              <div data-v-b55734cb className="input-left">
-                                <input
-                                  {...register("username")}
-                                  data-v-b55734cb
-                                  type="text"
-                                  className="form-control user_id_icon"
-                                  placeholder="Enter User ID*"
-                                />
-                                <i
-                                  data-v-b55734cb
-                                  className="fa-solid fa-user"
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        ) : (
-                          <div data-v-b55734cb className="row g-2">
-                            <div
-                              data-v-b55734cb
-                              className="col-12 col-sm-12 col-md-12"
-                            >
-                              <div
-                                data-v-b55734cb
-                                className="input-left phone-no-field"
-                              >
-                                <div
-                                  data-v-b55734cb
-                                  className="country-code-flag-top-wrapper"
-                                >
-                                  <div
-                                    data-v-b55734cb
-                                    className="country-code-flag-top-sec"
-                                  >
-                                    <img
-                                      data-v-b55734cb
-                                      src="https://flagcdn.com/in.svg"
-                                    />
-                                    <span data-v-b55734cb>+91</span>
-                                    <i
-                                      data-v-b55734cb
-                                      className="fa-solid fa-caret-down"
-                                    />
-                                  </div>
-                                </div>
-                                <input
-                                  {...register("username")}
-                                  data-v-b55734cb
-                                  type="tel"
-                                  required
-                                  maxLength={10}
-                                  className="form-control"
-                                  placeholder={`${
-                                    tab === "mobile"
-                                      ? "Enter Mobile Number"
-                                      : "Enter User Id"
-                                  }`}
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        )}
                       </div>
 
                       <div data-v-b55734cb className="int-container-box">
                         <div data-v-b55734cb className="forgot-password-field">
                           <input
+                            style={{ paddingLeft: "4px" }}
                             {...register("password", { required: true })}
                             data-v-b55734cb
                             type={showPassword ? "text" : "password"}
-                            placeholder="Enter Password*"
+                            placeholder="Password"
                             className="form-control"
                           />
 
@@ -374,9 +287,18 @@ const Login = () => {
                       <div
                         data-v-b55734cb
                         className="login-cmn-btn login-demo-btn"
+                        style={{ flexDirection: "column", gap: "10px" }}
                       >
+                        <button
+                          style={{ color: "white" }}
+                          data-v-b55734cb
+                          type="submit"
+                        >
+                          <span data-v-b55734cb>Log In</span>
+                        </button>
                         {Settings.demo_login && (
                           <button
+                            style={{ color: "white" }}
                             onClick={loginWithDemo}
                             data-v-b55734cb
                             type="button"
@@ -384,10 +306,6 @@ const Login = () => {
                             <span data-v-b55734cb>Login With Demo ID</span>
                           </button>
                         )}
-
-                        <button data-v-b55734cb type="submit">
-                          <span data-v-b55734cb>Log In</span>
-                        </button>
                       </div>
                       {Settings.apk_link && (
                         <div
@@ -395,17 +313,16 @@ const Login = () => {
                           className="login-cmn-btn download-apk-btn"
                         >
                           <a
+                            style={{ gap: "0px 10px" }}
                             onClick={handleDownload}
                             data-v-b55734cb
                             className="apk-download-anchor"
                           >
-                            <span data-v-b55734cb>
-                              Download APK{" "}
-                              <img
-                                data-v-b55734cb
-                                src="/icon/apk_icon-CKpATu5s.svg"
-                              />
-                            </span>
+                            <span data-v-b55734cb>Download APK</span>
+                            <img
+                              data-v-b55734cb
+                              src="/icon/apk_icon-CKpATu5s.svg"
+                            />
                           </a>
                         </div>
                       )}
@@ -440,7 +357,7 @@ const Login = () => {
                             </Fragment>
                           )}
 
-                        <span data-v-b55734cb className="or-separate">
+                        {/* <span data-v-b55734cb className="or-separate">
                           OR
                         </span>
                         <h3 data-v-b55734cb className="whats-with">
@@ -479,17 +396,18 @@ const Login = () => {
                               </a>
                             </li>
                           </ul>
-                        </div>
+                        </div> */}
                       </div>
                       <div data-v-b55734cb className="acc-and-join-sec">
                         <span data-v-b55734cb>Don&apos;t Have An Account?</span>{" "}
                         <span data-v-b55734cb>
                           <a
+                            className="text-primary underline"
                             onClick={showRegister}
                             data-v-b55734cb
                             data-bs-toggle="modal"
                           >
-                            Join Now
+                            Register
                           </a>
                         </span>
                       </div>

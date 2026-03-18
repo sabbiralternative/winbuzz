@@ -11201,7 +11201,6 @@ section.exchange-game-conetent-sec-in-mobile {
   position: relative;
 }
 .check-box-sec {
-  margin-top: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11312,9 +11311,9 @@ section.exchange-game-conetent-sec-in-mobile {
 .Continue-with .btn-whatsapp {
   text-align: center;
   display: flex;
-  background: #f4ca5b;
+  background: var(--primary-color);
   border-radius: 5px;
-  color: #000;
+  color: #fff;
   text-transform: uppercase;
   text-decoration: none;
   margin-top: 15px;
@@ -11351,7 +11350,7 @@ section.login-form-sec {
   position: relative;
 }
 .input-left .form-control {
-  padding: 7px 0 7px 30px;
+  padding: 7px 0 7px 4px;
   border: 0;
 }
 i.fa-solid.fa-phone {
@@ -16341,7 +16340,7 @@ span.fl-left {
   font-size: 16px;
 }
 .login-cmn-btn.login-demo-btn button {
-  background: var(--primary-gradient-color);
+  background: var(--primary-color);
   color: #000;
   font-weight: 600;
   text-transform: capitalize;
@@ -22172,8 +22171,8 @@ ul.live_virtual li input[type="checkbox"]:checked + label:before {
   column-gap: 5px;
 }
 .login-cmn-btn.download-apk-btn a {
-  background: var(--primary-gradient-color);
-  color: #000;
+  background: var(--primary-color);
+  color: #fff;
   display: flex;
   justify-content: center;
   width: 100%;
