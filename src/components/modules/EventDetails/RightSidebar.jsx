@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import BetSlip from "./BetSlip";
-import OpenBets from "./OpenBets";
 import { Settings } from "../../../api";
 import { useAccessToken } from "../../../hooks/accessToken";
 import { useState } from "react";
+import MatchedBets from "./MatchedBets";
 
 const RightSidebar = () => {
   const [showVideo, setShowVideo] = useState(true);
@@ -40,7 +40,7 @@ const RightSidebar = () => {
           </div>
         )}
         <BetSlip />
-        <OpenBets />
+        <MatchedBets />
       </div>
     </div>
   );

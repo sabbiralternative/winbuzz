@@ -187,16 +187,6 @@ const Fancy = ({ data }) => {
                               >
                                 <div
                                   data-v-4a1ad0c4
-                                  className="game-icon ng-star-inserted"
-                                >
-                                  <img
-                                    data-v-4a1ad0c4
-                                    className="star-active"
-                                    src="/icon/star-inactive-Cy8n08QW.png"
-                                  />
-                                </div>
-                                <div
-                                  data-v-4a1ad0c4
                                   className="fancy-lft-title"
                                 >
                                   <span

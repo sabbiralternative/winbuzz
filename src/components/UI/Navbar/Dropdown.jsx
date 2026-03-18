@@ -153,6 +153,45 @@ const Dropdown = () => {
                 </span>
               </Link>
             </li>
+            <li data-v-9dda4895 className="menu-rgt-icons">
+              <Link
+                data-v-9dda4895
+                onClick={closeDropdown}
+                to="/deposit-report"
+                className="dropdown-item"
+              >
+                <i data-v-9dda4895 className="fa-solid fa-users-rays" />
+                <span data-v-9dda4895 className="menu-rgt-text">
+                  Deposit Report
+                </span>
+              </Link>
+            </li>
+            <li data-v-9dda4895 className="menu-rgt-icons">
+              <Link
+                data-v-9dda4895
+                onClick={closeDropdown}
+                to="/withdraw-report"
+                className="dropdown-item"
+              >
+                <i data-v-9dda4895 className="fa-solid fa-users-rays" />
+                <span data-v-9dda4895 className="menu-rgt-text">
+                  Withdraw Report
+                </span>
+              </Link>
+            </li>
+            <li data-v-9dda4895 className="menu-rgt-icons">
+              <Link
+                data-v-9dda4895
+                onClick={closeDropdown}
+                to="/my-bank-details"
+                className="dropdown-item"
+              >
+                <i data-v-9dda4895 className="fa-solid fa-users-rays" />
+                <span data-v-9dda4895 className="menu-rgt-text">
+                  My Bank Details
+                </span>
+              </Link>
+            </li>
 
             {Settings?.referral && (
               <li data-v-9dda4895 className="menu-rgt-icons">

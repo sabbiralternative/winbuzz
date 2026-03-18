@@ -21,6 +21,9 @@ import Promotions from "../pages/Promotions/Promotions";
 import LossBackClaims from "../pages/LossBackClaims/LossBackClaims";
 import IFrame from "../pages/IFrame/IFrame";
 import AppOnlyBonus from "../pages/AppOnlyBonus/AppOnlyBonus";
+import DepositReport from "../pages/Reports/DepositReport";
+import WithdrawReport from "../pages/Reports/WithdrawReport";
+import MyBankDetails from "../pages/MyBankDetails/MyBankDetails";
 
 export const router = createBrowserRouter(
   [
@@ -114,6 +117,18 @@ export const router = createBrowserRouter(
         {
           path: "/app-only-bonus",
           element: <AppOnlyBonus />,
+        },
+        {
+          path: "/deposit-report",
+          element: <DepositReport />,
+        },
+        {
+          path: "/withdraw-report",
+          element: <WithdrawReport />,
+        },
+        {
+          path: "/my-bank-details",
+          element: <MyBankDetails />,
         },
       ],
     },

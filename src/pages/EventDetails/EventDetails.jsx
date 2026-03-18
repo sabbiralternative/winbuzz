@@ -9,13 +9,19 @@ import MatchOdds from "../../components/modules/EventDetails/MatchOdds";
 import Bookmaker from "../../components/modules/EventDetails/Bookmaker";
 import EventHeader from "../../components/modules/EventDetails/EventHeader";
 import ScoreBoard from "../../components/modules/EventDetails/ScoreBoard";
+import EventTab from "../../components/modules/EventDetails/EventTab";
+import { useCurrentBets } from "../../hooks/currentBets";
+import OpenBets from "../../components/modules/EventDetails/OpenBets";
+import IFrameScore from "../../components/modules/EventDetails/IFrame";
 
 const EventDetails = () => {
+  const [iFrame, setIframe] = useState("");
+  const [eventTab, setEventTab] = useState("live");
   const { eventTypeId, eventId } = useParams();
   const [profit, setProfit] = useState(0);
   const dispatch = useDispatch();
   const { placeBetValues, price, stake } = useSelector((state) => state.event);
-
+  const { data: myBets, refetch } = useCurrentBets(eventId);
   const { data } = useGetEventDetailsQuery(
     { eventTypeId, eventId },
     {
@@ -136,6 +142,29 @@ const EventDetails = () => {
                   {eventTypeId == 4 && data?.iscore && (
                     <ScoreBoard iscore={data?.iscore} />
                   )}
+                  <EventTab
+                    eventTab={eventTab}
+                    setEventTab={setEventTab}
+                    myBets={myBets}
+                    score={data?.score}
+                    setIframe={setIframe}
+                  />
+                  {eventTab === "openBet" && (
+                    <OpenBets
+                      myBets={myBets}
+                      sportsBook={data?.sportsbook?.Result}
+                      refetchCurrentBets={refetch}
+                    />
+                  )}
+
+                  {
+                    <IFrameScore
+                      eventTab={eventTab}
+                      setEventTab={setEventTab}
+                      score={data?.score}
+                      iFrame={iFrame}
+                    />
+                  }
                   <section data-v-4a1ad0c4 className="match-odd-bookmaker-sec">
                     <div data-v-4a1ad0c4 className="market-list">
                       {matchOdds?.length > 0 && <MatchOdds data={matchOdds} />}
