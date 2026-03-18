@@ -1,9 +1,9 @@
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { Settings } from "../../../api";
 import { Link } from "react-router-dom";
 
 const LeftSidebar = () => {
-  const { token } = useSelector((state) => state.auth);
+  // const { token } = useSelector((state) => state.auth);
   const handleDownload = (e) => {
     e.preventDefault();
     const fileUrl = Settings.apk_link;
@@ -15,13 +15,13 @@ const LeftSidebar = () => {
     link.parentNode.removeChild(link);
   };
 
-  const navigateWhatsApp = () => {
-    if (token && Settings?.branchWhatsapplink) {
-      window.open(Settings?.branchWhatsapplink, "_blank");
-    } else {
-      window.open(Settings?.whatsapplink, "_blank");
-    }
-  };
+  // const navigateWhatsApp = () => {
+  //   if (token && Settings?.branchWhatsapplink) {
+  //     window.open(Settings?.branchWhatsapplink, "_blank");
+  //   } else {
+  //     window.open(Settings?.whatsapplink, "_blank");
+  //   }
+  // };
   return (
     <div className="col-0 col-sm-0 col-md-0 col-lg-2 box-shd-sec">
       <div className="left-side-bar-sec darkmenu-sidebar" id="show-m-toggle">
@@ -139,7 +139,11 @@ const LeftSidebar = () => {
 
                 {Settings.apk_link && (
                   <li className="download_apk_side_btn_menu">
-                    <a onClick={handleDownload} className="multi-mark-bg">
+                    <a
+                      onClick={handleDownload}
+                      className="multi-mark-bg"
+                      style={{ borderBottom: "1px solid #efefef" }}
+                    >
                       <div className="icon-sidemenu">
                         <img
                           loading="lazy"
@@ -153,9 +157,9 @@ const LeftSidebar = () => {
                 )}
               </ul>
             </div>
-            <div className="instant-id-bx">
+            {/* <div className="instant-id-bx">
               {(Settings?.whatsapplink || Settings?.branchWhatsapplink) && (
-                <strong>Get Instant ID On Whatsapp</strong>
+                <strong>Get Instant support On Whatsapp</strong>
               )}
 
               <ul>
@@ -206,7 +210,7 @@ const LeftSidebar = () => {
                   </li>
                 )}
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -11516,7 +11516,7 @@ a.wrdl-side-bg {
   background: #8b0000;
 }
 a.multi-mark-bg {
-  color: #bfbfbf !important;
+  color: #000 !important;
 }
 .deposit-m {
   width: 50%;
@@ -15891,7 +15891,7 @@ header.show,
   padding-bottom: 10px;
 }
 .instant-id-bx strong {
-  font-size: 14px;
+  font-size: 12px;
   text-transform: capitalize;
   color: #333;
   font-weight: 600;
@@ -23847,7 +23847,7 @@ button.close-marquee {
 }
 .left-side-bar-sec.darkmenu-sidebar,
 .left-side-bar-sec.darkmenu-sidebar .instant-id-bx {
-  background: #000;
+  background: #fff;
 }
 .average-odd label {
   display: flex;

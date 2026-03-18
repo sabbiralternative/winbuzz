@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import "./scoreBoard.css";
 const ScoreBoard = ({ iscore }) => {
-  console.log(iscore);
   return (
     <div id="score-board" className="score-board  show mb-md-3">
       <div>
