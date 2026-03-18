@@ -76,7 +76,7 @@ const Dropdown = () => {
             <li data-v-9dda4895 className="menu-rgt-icons">
               <div data-v-9dda4895 className="displayName-wrap">
                 <h3 data-v-9dda4895 className="displayName-title">
-                  Display name :
+                  Username :
                 </h3>
                 <span data-v-9dda4895 className="displayName-name">
                   {user}
@@ -91,28 +91,7 @@ const Dropdown = () => {
               </span> */}
               </div>
             </li>
-            <li data-v-9dda4895 className="one-click-bet-bx">
-              <Link data-v-9dda4895 to="javascript:void(0);">
-                <div data-v-9dda4895 className="setting-one-click-bet-sec">
-                  <span data-v-9dda4895>One Click Bet</span>
-                  <div data-v-9dda4895 className="bet-any-odds-sec">
-                    <div
-                      data-v-9dda4895
-                      className="form-check form-switch m-0 p-0"
-                    >
-                      <input
-                        data-v-9dda4895
-                        className="form-check-input"
-                        type="checkbox"
-                      />
-                    </div>
-                  </div>
-                  <div data-v-9dda4895 className="one-bet-click-value">
-                    {/**/}
-                  </div>
-                </div>
-              </Link>
-            </li>
+
             <li data-v-9dda4895 className="bonus-information-bx">
               <div data-v-9dda4895 className="bonus-sec">
                 <div

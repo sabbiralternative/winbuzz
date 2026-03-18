@@ -20049,7 +20049,7 @@ button.btn-class.number-buttons.btn-active {
   box-shadow: 0 1px 1px #dedddd;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  background: #202020;
+  background: #fff;
 }
 .heading__title {
   background: var(--primary-gradient-color);
@@ -20183,6 +20183,7 @@ button.btn-class.number-buttons.btn-active {
   font-weight: 500;
 }
 .profile-change-password-sec .password-rgt .form-control {
+  padding-left: 4px;
   margin-bottom: 0.5rem;
   min-height: 39px;
   font-size: 14px !important;

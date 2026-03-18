@@ -132,10 +132,10 @@ const BettingProfitLoss = () => {
                     return (
                       <tr key={bet?.eventId} data-v-b6eed746>
                         <td data-v-b6eed746 className="text-nowrap">
-                          {moment(bet?.settledTime).format("Do-MMM-YYYY")}
+                          {bet?.eventId}
                         </td>
                         <td data-v-b6eed746 className="text-nowrap">
-                          {moment(bet?.eventId).format("Do-MMM-YYYY")}
+                          {moment(bet?.settledTime).format("Do-MMM-YYYY")}
                         </td>
                         <td data-v-b6eed746 className="text-nowrap">
                           {bet?.plDetails ? (

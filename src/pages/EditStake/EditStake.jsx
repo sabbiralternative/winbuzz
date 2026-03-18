@@ -49,7 +49,7 @@ const EditStake = () => {
                   return (
                     <Fragment key={idx}>
                       <div className="stack-md-inpt-group">
-                        <label>Button Name</label>
+                        {/* <label>Button Name</label> */}
                         <input
                           {...register(`buttonGameValues.${idx}.label`)}
                           maxLength={8}
@@ -58,7 +58,7 @@ const EditStake = () => {
                         />
                       </div>
                       <div className="stack-md-inpt-group">
-                        <label>Button Value</label>
+                        {/* <label>Button Value</label> */}
                         <input
                           {...register(`buttonGameValues.${idx}.value`)}
                           maxLength={8}

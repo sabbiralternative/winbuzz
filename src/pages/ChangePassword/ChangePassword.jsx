@@ -125,9 +125,15 @@ const ChangePassword = () => {
 
               <div
                 data-v-e3bafc35
+                style={{ textAlign: "left" }}
                 className="stack-save-btn change-passwword-btn"
               >
-                <button data-v-e3bafc35 type="submit" className="cmn-btn">
+                <button
+                  style={{ width: "100px" }}
+                  data-v-e3bafc35
+                  type="submit"
+                  className="cmn-btn"
+                >
                   Save
                 </button>
               </div>
