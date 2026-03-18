@@ -8,6 +8,7 @@ import Fancy from "../../components/modules/EventDetails/Fancy";
 import MatchOdds from "../../components/modules/EventDetails/MatchOdds";
 import Bookmaker from "../../components/modules/EventDetails/Bookmaker";
 import EventHeader from "../../components/modules/EventDetails/EventHeader";
+import ScoreBoard from "../../components/modules/EventDetails/ScoreBoard";
 
 const EventDetails = () => {
   const { eventTypeId, eventId } = useParams();
@@ -19,7 +20,7 @@ const EventDetails = () => {
     { eventTypeId, eventId },
     {
       pollingInterval: 1000,
-    }
+    },
   );
 
   useEffect(() => {
@@ -107,21 +108,22 @@ const EventDetails = () => {
     (game) =>
       game.btype === "MATCH_ODDS" &&
       game?.visible == true &&
-      game?.name !== "tied match"
+      game?.name !== "tied match",
   );
   const bookmaker = data?.result?.filter(
     (game) =>
       game.btype === "BOOKMAKER" &&
       game?.visible == true &&
-      game?.name !== "tied match"
+      game?.name !== "tied match",
   );
 
   const tiedMatch = data?.result?.filter(
     (game) =>
       (game.btype === "MATCH_ODDS" || game.btype === "BOOKMAKER") &&
       game?.visible == true &&
-      game?.name === "tied match"
+      game?.name === "tied match",
   );
+
   return (
     <div className="col-12 col-sm-12 col-md-12 col-lg-10 box-shd-gap">
       <div>
@@ -131,6 +133,9 @@ const EventDetails = () => {
               <div data-v-4a1ad0c4 className="col-sm-12 col-md-12 col-lg-8">
                 <div data-v-4a1ad0c4 className="comentry-box-sec">
                   <EventHeader data={data} />
+                  {eventTypeId == 4 && data?.iscore && (
+                    <ScoreBoard iscore={data?.iscore} />
+                  )}
                   <section data-v-4a1ad0c4 className="match-odd-bookmaker-sec">
                     <div data-v-4a1ad0c4 className="market-list">
                       {matchOdds?.length > 0 && <MatchOdds data={matchOdds} />}
