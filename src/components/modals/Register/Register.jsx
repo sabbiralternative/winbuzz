@@ -19,7 +19,7 @@ import ModalWrapper from "../ModalWrapper/ModalWrapper";
 
 const Register = () => {
   const { logo } = useLogo();
-  const [countDown, setCountDown] = useState(45);
+  const [countDown, setCountDown] = useState(null);
   const referralCode = localStorage.getItem("referralCode");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -173,9 +173,14 @@ const Register = () => {
                     minHeight: "100vh",
                   }}
                 >
-                  <div data-v-27945482 className="login-body-lft">
+                  <div
+                    data-v-27945482
+                    className="login-body-lft"
+                    style={{ padding: "10%" }}
+                  >
                     <div data-v-27945482 className="login-header">
                       <h2
+                        style={{ display: "flex", justifyContent: "center" }}
                         data-v-27945482
                         className="modal-title"
                         id="exampleModalLabel"

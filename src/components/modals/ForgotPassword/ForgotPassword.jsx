@@ -147,9 +147,14 @@ const ForgotPassword = () => {
                     minHeight: "100vh",
                   }}
                 >
-                  <div data-v-27945482 className="login-body-lft">
+                  <div
+                    data-v-27945482
+                    className="login-body-lft"
+                    style={{ padding: "10%" }}
+                  >
                     <div data-v-27945482 className="login-header">
                       <h2
+                        style={{ display: "flex", justifyContent: "center" }}
                         data-v-27945482
                         className="modal-title"
                         id="exampleModalLabel"
