@@ -4,7 +4,6 @@ import Home from "../pages/Home/Home";
 import OddSports from "../pages/OddSports/OddSports";
 import EventDetails from "../pages/EventDetails/EventDetails";
 import EditStake from "../pages/EditStake/EditStake";
-import AccountStatement from "../pages/AccountStatement/AccountStatement";
 import BettingProfitLoss from "../pages/BettingProfitLoss/BettingProfitLoss";
 import OpenBets from "../pages/OpenBets/OpenBets";
 import ChangePassword from "../pages/ChangePassword/ChangePassword";
@@ -24,6 +23,9 @@ import AppOnlyBonus from "../pages/AppOnlyBonus/AppOnlyBonus";
 import DepositReport from "../pages/Reports/DepositReport";
 import WithdrawReport from "../pages/Reports/WithdrawReport";
 import MyBankDetails from "../pages/MyBankDetails/MyBankDetails";
+import HorseRacing from "../pages/HorseRacing/HorseRacing";
+import GreyhoundRacing from "../pages/GreyhoundRacing/GreyhoundRacing";
+import InPlay from "../pages/InPlay/InPlay";
 
 export const router = createBrowserRouter(
   [
@@ -37,13 +39,22 @@ export const router = createBrowserRouter(
           index: true,
           element: <Home />,
         },
+
         {
           path: "/sports/:eventName/:eventId",
           element: <OddSports />,
         },
         {
-          path: "/sports/:eventName/:eventId",
-          element: <OddSports />,
+          path: "/in-play",
+          element: <InPlay />,
+        },
+        {
+          path: "/horse-racing",
+          element: <HorseRacing />,
+        },
+        {
+          path: "/greyhound-racing",
+          element: <GreyhoundRacing />,
         },
         {
           path: "/event-details/:eventTypeId/:eventId",
@@ -53,10 +64,7 @@ export const router = createBrowserRouter(
           path: "/edit-stake",
           element: <EditStake />,
         },
-        {
-          path: "/account-statement",
-          element: <AccountStatement />,
-        },
+
         {
           path: "/betting-profit-loss",
           element: <BettingProfitLoss />,

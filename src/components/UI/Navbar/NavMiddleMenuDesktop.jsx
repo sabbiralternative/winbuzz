@@ -8,7 +8,7 @@ const NavMiddleMenuDesktop = () => {
           <li>
             <Link
               aria-current="page"
-              to="/"
+              to="/in-play"
               className="router-link-active router-link-exact-active"
             >
               <img
@@ -21,7 +21,7 @@ const NavMiddleMenuDesktop = () => {
             </Link>
           </li>
           <li>
-            <Link to="/sports/cricket/4" className>
+            <Link to="/sports/cricket/4?type=inPlay" className>
               <img
                 loading="lazy"
                 src="/icon/sports-cricket-Qf1NmI1h.png"
@@ -32,7 +32,7 @@ const NavMiddleMenuDesktop = () => {
             </Link>
           </li>
           <li>
-            <Link to="/sports/Football/1" className>
+            <Link to="/sports/Football/1?type=inPlay" className>
               <img
                 loading="lazy"
                 src="/icon/sports-soccer-CaiOK3CT.png"
@@ -43,7 +43,7 @@ const NavMiddleMenuDesktop = () => {
             </Link>
           </li>
           <li>
-            <Link to="/sports/tennis/2" className>
+            <Link to="/sports/tennis/2?type=inPlay" className>
               <img
                 loading="lazy"
                 src="/icon/sports-tennis-DzBamNaA.png"
@@ -51,6 +51,28 @@ const NavMiddleMenuDesktop = () => {
                 className="nav-icon"
               />
               <span>tennis</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/horse-racing" className>
+              <img
+                loading="lazy"
+                src="/icon/sports-tennis-DzBamNaA.png"
+                alt="Menu 1"
+                className="nav-icon"
+              />
+              <span>Horse</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/greyhound-racing" className>
+              <img
+                loading="lazy"
+                src="/icon/sports-tennis-DzBamNaA.png"
+                alt="Menu 1"
+                className="nav-icon"
+              />
+              <span>Greyhound</span>
             </Link>
           </li>
 

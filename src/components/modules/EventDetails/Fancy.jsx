@@ -10,6 +10,7 @@ import {
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 import isOddSuspended from "../../../utils/isOddSuspended";
 import MobileBetSlip from "./MobileBetSlip";
+import Ladder from "../../modals/Ladder/Ladder";
 
 const Fancy = ({ data }) => {
   const fancyData = data?.filter(
@@ -115,19 +116,25 @@ const Fancy = ({ data }) => {
     pnlBySelection = Object?.values(obj);
   }
 
-  const handleGetLadder = async (pnl, marketName) => {
-    if (!pnl?.MarketId) {
+  const handleGetLadder = async (marketId, marketName) => {
+    if (!marketId) {
       return;
     }
     setMarketName(marketName);
-    const res = await getLadder({ marketId: pnl?.MarketId }).unwrap();
-
+    const res = await getLadder({ marketId }).unwrap();
     if (res.success) {
       setLadderData(res.result);
     }
   };
   return (
     <section data-v-4a1ad0c4 className="fancy-tab-sec" id="fancy-tab">
+      {ladderData?.length > 0 && (
+        <Ladder
+          ladderData={ladderData}
+          setLadderData={setLadderData}
+          eventName={marketName}
+        />
+      )}
       <div data-v-4a1ad0c4 className="fancy-tab-list">
         <div data-v-4a1ad0c4 className="tab-content" id="myTabContent">
           <div
@@ -172,6 +179,10 @@ const Fancy = ({ data }) => {
                   </div>
                 </div>
                 {fancyData?.map((game) => {
+                  const pnl = pnlBySelection?.find(
+                    (pnl) => pnl?.MarketId === game?.id,
+                  );
+
                   return (
                     <Fragment key={game?.id}>
                       <div data-v-4a1ad0c4>
@@ -191,14 +202,139 @@ const Fancy = ({ data }) => {
                                 >
                                   <span
                                     data-v-4a1ad0c4
-                                    className="market-event-head"
+                                    className="market-event-head !flex "
                                   >
-                                    {game?.name}
+                                    <span> {game?.name}</span>
+
+                                    <div className="w-full flex items-center justify-end gap-x-4">
+                                      <span className=" flex items-center">
+                                        <svg
+                                          version="1.0"
+                                          height="15"
+                                          width="15"
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          viewBox="0 0 840.000000 936.000000"
+                                          preserveAspectRatio="xMidYMid meet"
+                                        >
+                                          <g
+                                            transform="translate(0.000000,936.000000) scale(0.100000,-0.100000)"
+                                            fill="var(--color-fancyStopwatchIconColor)"
+                                            stroke="none"
+                                          >
+                                            <path d="M3472 8818 l3 -243 243 -3 242 -2 0 -244 0 -243 -122 -12 c-1359 -130 -2543 -950 -3143 -2176 -155 -318 -271 -677 -334 -1035 -75 -424 -73 -934 5 -1360 226 -1229 1014 -2267 2136 -2810 694 -335 1447 -455 2228 -354 567 74 1147 294 1640 624 792 530 1374 1353 1605 2270 133 529 156 1092 65 1627 -175 1029 -775 1959 -1645 2552 -539 367 -1135 586 -1792 657 l-163 18 0 243 0 243 243 2 242 3 3 243 2 242 -730 0 -730 0 2 -242z m1138 -1242 c478 -59 937 -216 1346 -463 765 -461 1323 -1208 1543 -2067 190 -738 131 -1502 -171 -2206 -175 -408 -460 -814 -789 -1122 -519 -487 -1138 -787 -1845 -895 -164 -25 -204 -27 -484 -27 -325 -1 -422 7 -685 60 -1170 231 -2155 1089 -2543 2214 -222 647 -250 1318 -82 1975 283 1104 1112 1999 2195 2372 215 74 531 144 735 162 63 6 133 13 155 15 85 9 506 -4 625 -18z"></path>
+                                            <path d="M3960 5620 c0 -654 -3 -1010 -10 -1010 -5 0 -41 -30 -80 -66 -51 -49 -80 -86 -105 -138 -133 -272 18 -605 310 -681 132 -34 277 -11 391 63 202 131 276 400 169 618 -25 52 -54 89 -105 138 -39 36 -75 66 -80 66 -7 0 -10 356 -10 1010 l0 1010 -240 0 -240 0 0 -1010z"></path>
+                                          </g>
+                                        </svg>
+                                        <span className="font-[480] text-sm text-text_Ternary">
+                                          {game?.betDelay}s
+                                        </span>
+                                      </span>
+                                      {pnl ? (
+                                        <span
+                                          onClick={() =>
+                                            handleGetLadder(
+                                              pnl?.MarketId,
+                                              game?.name,
+                                            )
+                                          }
+                                          className=""
+                                        >
+                                          <div className="opacity-100 cursor-pointer">
+                                            <svg
+                                              height="18"
+                                              width="18"
+                                              viewBox="0 0 16 16"
+                                              fill="none"
+                                              xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                              <g id="63d691358b4e4026f6539708_stairs 1">
+                                                <path
+                                                  id="Vector"
+                                                  d="M5.21875 3.13672V13.1367"
+                                                  stroke="#000"
+                                                ></path>
+                                                <path
+                                                  id="Vector_2"
+                                                  d="M5.21875 5.48047H10.5312"
+                                                  stroke="#000"
+                                                ></path>
+                                                <path
+                                                  id="Vector_3"
+                                                  d="M5.21875 8.13672H10.5312"
+                                                  stroke="#000"
+                                                ></path>
+                                                <path
+                                                  id="Vector_4"
+                                                  d="M5.21875 11.1055H10.5312"
+                                                  stroke="#000"
+                                                ></path>
+                                                <path
+                                                  id="Vector_5"
+                                                  d="M10.5312 3.13672V13.1367"
+                                                  stroke="#000"
+                                                ></path>
+                                              </g>
+                                            </svg>
+                                          </div>
+                                        </span>
+                                      ) : (
+                                        <span className="">
+                                          <div className="opacity-50 cursor-not-allowed">
+                                            <svg
+                                              height="18"
+                                              width="18"
+                                              viewBox="0 0 16 16"
+                                              fill="none"
+                                              xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                              <g id="63d691358b4e4026f6539708_stairs 1">
+                                                <path
+                                                  id="Vector"
+                                                  d="M5.21875 3.13672V13.1367"
+                                                  stroke="#000"
+                                                ></path>
+                                                <path
+                                                  id="Vector_2"
+                                                  d="M5.21875 5.48047H10.5312"
+                                                  stroke="#000"
+                                                ></path>
+                                                <path
+                                                  id="Vector_3"
+                                                  d="M5.21875 8.13672H10.5312"
+                                                  stroke="#000"
+                                                ></path>
+                                                <path
+                                                  id="Vector_4"
+                                                  d="M5.21875 11.1055H10.5312"
+                                                  stroke="#000"
+                                                ></path>
+                                                <path
+                                                  id="Vector_5"
+                                                  d="M10.5312 3.13672V13.1367"
+                                                  stroke="#000"
+                                                ></path>
+                                              </g>
+                                            </svg>
+                                          </div>
+                                        </span>
+                                      )}
+                                    </div>
                                   </span>
                                   <div
                                     data-v-4a1ad0c4
                                     className="back-lay-status"
-                                  />
+                                  >
+                                    {" "}
+                                    {pnl && (
+                                      <div
+                                        className={`  ${
+                                          pnl?.pnl > 0 ? "positive" : "negative"
+                                        }`}
+                                      >
+                                        {pnl?.pnl}
+                                      </div>
+                                    )}
+                                  </div>
                                 </div>
                               </div>
                             </div>

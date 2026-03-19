@@ -13,6 +13,7 @@ import EventTab from "../../components/modules/EventDetails/EventTab";
 import { useCurrentBets } from "../../hooks/currentBets";
 import OpenBets from "../../components/modules/EventDetails/OpenBets";
 import IFrameScore from "../../components/modules/EventDetails/IFrame";
+import HorseGreyhoundEventDetails from "../../components/modules/EventDetails/HorseGreyhoundEventDetails";
 
 const EventDetails = () => {
   const [iFrame, setIframe] = useState("");
@@ -172,6 +173,9 @@ const EventDetails = () => {
                     </div>
                   </section>
                   {data?.result?.length > 0 && <Fancy data={data?.result} />}
+                  {eventTypeId == 7 || eventTypeId == 4339 ? (
+                    <HorseGreyhoundEventDetails data={data} />
+                  ) : null}
                   {tiedMatch?.length > 0 && <MatchOdds data={tiedMatch} />}
                 </div>
               </div>

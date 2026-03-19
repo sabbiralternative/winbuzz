@@ -45,7 +45,10 @@ const LeftSidebar = () => {
             <div className="depo-and-wdrl-sec">
               <ul>
                 <li>
-                  <Link to="/sports/cricket/4" className="multi-mark-bg">
+                  <Link
+                    to="/sports/cricket/4?type=inPlay"
+                    className="multi-mark-bg"
+                  >
                     <div className="icon-sidemenu">
                       <img
                         loading="lazy"
@@ -57,7 +60,10 @@ const LeftSidebar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/sports/Football/1" className="multi-mark-bg">
+                  <Link
+                    to="/sports/Football/1?type=inPlay"
+                    className="multi-mark-bg"
+                  >
                     <div className="icon-sidemenu">
                       <img
                         loading="lazy"
@@ -69,7 +75,10 @@ const LeftSidebar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/sports/tennis/2" className="multi-mark-bg">
+                  <Link
+                    to="/sports/tennis/2?type=inPlay"
+                    className="multi-mark-bg"
+                  >
                     <div className="icon-sidemenu">
                       <img
                         loading="lazy"
@@ -78,6 +87,22 @@ const LeftSidebar = () => {
                       />
                     </div>
                     <span>tennis</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/horse-racing" className="multi-mark-bg">
+                    <div className="icon-sidemenu">
+                      <img loading="lazy" src="/icon/7.png" alt="tennis" />
+                    </div>
+                    <span>Horse</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/greyhound-racing" className="multi-mark-bg">
+                    <div className="icon-sidemenu">
+                      <img loading="lazy" src="/icon/4339.png" alt="tennis" />
+                    </div>
+                    <span>Greyhound</span>
                   </Link>
                 </li>
                 <li>

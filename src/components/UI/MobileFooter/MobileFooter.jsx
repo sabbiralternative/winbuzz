@@ -7,7 +7,7 @@ const MobileFooter = () => {
       <div data-v-238a5417 className="bottom-tabs">
         <ul data-v-238a5417>
           <li data-v-238a5417>
-            <Link data-v-238a5417 to="Javascript:void(0);">
+            <Link data-v-238a5417 to="/casino/sportsbook/550000">
               <img
                 data-v-238a5417
                 src={images.sportsBookFooterIcon}
@@ -23,7 +23,7 @@ const MobileFooter = () => {
             <Link
               data-v-238a5417
               aria-current="page"
-              to="/"
+              to="/in-play"
               className="router-link-active router-link-exact-active"
             >
               <img

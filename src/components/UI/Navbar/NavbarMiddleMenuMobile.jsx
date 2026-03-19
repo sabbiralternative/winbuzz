@@ -6,31 +6,31 @@ const NavbarMiddleMenuMobile = () => {
     <div className="exchange-menu-wrapper d-md-none">
       <ul className="subnav">
         <li className={` ${pathname === "/" ? "active" : ""}`}>
-          <Link to="/" className="subnav-link ">
+          <Link to="/in-play" className="subnav-link ">
             <img src="/icon/in-play.png" />
             In Play
           </Link>
         </li>
         <li className={` ${pathname === "/sports/cricket/4" ? "active" : ""}`}>
-          <Link to="/sports/cricket/4" className="subnav-link">
+          <Link to="/sports/cricket/4?type=inPlay" className="subnav-link">
             <img alt="" src="/icon/4.png" /> Cricket{" "}
           </Link>
         </li>
         <li className={` ${pathname === "/sports/cricket/1" ? "active" : ""}`}>
-          <Link to="/sports/cricket/1" className="subnav-link">
+          <Link to="/sports/football/1?type=inPlay" className="subnav-link">
             <img alt="" src="/icon/1.png" /> Football{" "}
           </Link>
         </li>
         <li className={` ${pathname === "/sports/cricket/2" ? "active" : ""}`}>
-          <Link to="/sports/cricket/2" className="subnav-link">
+          <Link to="/sports/tennis/2?type=inPlay" className="subnav-link">
             <img alt="" src="/icon/2.png" /> Tennis{" "}
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/m/game-list/2378961" className="subnav-link">
             <img alt="" src="/icon/2378961.png" /> Politics{" "}
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link to="/casino" className="subnav-link hightlight-menus">
             <img alt="" src="/icon/99998.png" /> Casino{" "}
@@ -44,16 +44,16 @@ const NavbarMiddleMenuMobile = () => {
           </Link>
         </li>
         <li>
-          <Link to="/m/game-list/7" className="subnav-link">
+          <Link to="/horse-racing" className="subnav-link">
             <img alt="" src="/icon/7.png" /> Horse Racing{" "}
           </Link>
         </li>
         <li>
-          <Link to="/m/game-list/4339" className="subnav-link">
+          <Link to="/greyhound-racing" className="subnav-link">
             <img alt="" src="/icon/4339.png" /> Greyhound Racing{" "}
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/m/game-list/99990" className="subnav-link">
             <img alt="" src="/icon/99990.png" /> Binary{" "}
           </Link>
@@ -107,7 +107,7 @@ const NavbarMiddleMenuMobile = () => {
           <Link to="/m/game-list/29" className="subnav-link">
             <img alt="" src="/icon/29.png" /> Futsal{" "}
           </Link>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

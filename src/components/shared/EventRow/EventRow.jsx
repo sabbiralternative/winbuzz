@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { eventNames } from "../../../utils/eventNames";
 import images from "../../../assets/images";
 
-const EventRow = ({ data, keys, category }) => {
+const EventRow = ({ data, keys, eventName }) => {
   const navigate = useNavigate();
   const navigateGameList = (keys) => {
     navigate(`/event-details/${data[keys]?.eventTypeId}/${keys}`);
@@ -16,13 +15,13 @@ const EventRow = ({ data, keys, category }) => {
               <div className="game-list">
                 <div className="bet-icon">
                   <div className="game-icon">
-                    {eventNames[category] === "Cricket" && (
+                    {eventName === "cricket" && (
                       <img loading="lazy" src={images.cricket} alt="cricket" />
                     )}
-                    {eventNames[category] === "Tennis" && (
+                    {eventName === "tennis" && (
                       <img loading="lazy" src={images.tennis} alt="tennis" />
                     )}
-                    {eventNames[category] === "Football" && (
+                    {eventName === "football" && (
                       <img
                         loading="lazy"
                         src={images.football}
@@ -38,9 +37,11 @@ const EventRow = ({ data, keys, category }) => {
                     <a href="javascript:void(0);">
                       {data[keys]?.player1} v {data[keys]?.player2}
                     </a>
-                    <em className="ml-1 in__play">
-                      <i className="fa fa-circle" />
-                    </em>
+                    {data[keys]?.inPlay === 1 && (
+                      <em className="ml-1 in__play">
+                        <i className="fa fa-circle" />
+                      </em>
+                    )}
                   </div>
                   <div className="team-2">
                     <div className="in_play_date green">

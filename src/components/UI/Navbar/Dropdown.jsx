@@ -254,19 +254,6 @@ const Dropdown = () => {
               <Link
                 data-v-9dda4895
                 onClick={closeDropdown}
-                to="/account-statement"
-                className="dropdown-item"
-              >
-                <i data-v-9dda4895 className="fa-solid fa-university" />
-                <span data-v-9dda4895 className="menu-rgt-text">
-                  Account statement
-                </span>
-              </Link>
-            </li>
-            <li data-v-9dda4895 className="menu-rgt-icons">
-              <Link
-                data-v-9dda4895
-                onClick={closeDropdown}
                 to="/edit-stake"
                 className="dropdown-item"
               >
