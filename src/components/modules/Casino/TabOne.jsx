@@ -1,4 +1,7 @@
-const TabOne = ({ categories, setSelectedCategory, selectedCategory }) => {
+import { useNavigate } from "react-router-dom";
+
+const TabOne = ({ providersOption, provider }) => {
+  const navigate = useNavigate();
   return (
     <ul
       data-v-15497d74
@@ -6,24 +9,39 @@ const TabOne = ({ categories, setSelectedCategory, selectedCategory }) => {
       id="pills-tab"
       role="tablist"
     >
-      {categories?.map((category) => {
+      <li data-v-15497d74 className="nav-item" role="presentation">
+        <button
+          onClick={() => {
+            navigate(`/casino?provider=all&category=all`);
+          }}
+          data-v-15497d74
+          className={`nav-link  ${provider === "all" ? "active" : "list-menu"}`}
+          id="pills-all12-tab"
+          role="tab"
+        >
+          <span data-v-15497d74>All</span>
+        </button>
+      </li>
+      {providersOption?.map((item) => {
         return (
           <li
-            key={category}
+            key={item}
             data-v-15497d74
             className="nav-item"
             role="presentation"
           >
             <button
-              onClick={() => setSelectedCategory(category)}
+              onClick={() => {
+                navigate(`/casino?provider=${item}&category=all`);
+              }}
               data-v-15497d74
               className={`nav-link  ${
-                selectedCategory === category ? "active" : "list-menu"
+                provider === item ? "active" : "list-menu"
               }`}
               id="pills-all12-tab"
               role="tab"
             >
-              <span data-v-15497d74>{category}</span>
+              <span data-v-15497d74>{item}</span>
             </button>
           </li>
         );

@@ -89,7 +89,13 @@ const TopNav = () => {
                     to="/"
                     className="router-link-active router-link-exact-active desktop-logo"
                   >
-                    <img data-v-9dda4895 loading="lazy" src={logo} alt="logo" />
+                    <img
+                      data-v-9dda4895
+                      loading="lazy"
+                      style={{ display: "initial" }}
+                      src={logo}
+                      alt="logo"
+                    />
                   </Link>
                 </li>
               </ul>

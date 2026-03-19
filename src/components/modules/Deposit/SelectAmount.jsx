@@ -66,45 +66,45 @@ const SelectAmount = ({ amount, setAmount, setTab }) => {
                 </div>
               )}
 
-              <div className="w-full grid grid-cols-3 gap-[10px] mt-[18px] text-primary">
+              <div className="w-full grid grid-cols-3 gap-[10px] mt-[18px] text-white">
                 <button
                   onClick={() => setAmount(300)}
-                  className="relative overflow-hidden bg-primary transition-all ease-in-out duration-300 active:scale-95  min-h-9 text-base  rounded-md font-[600] leading-4"
+                  className="relative overflow-hidden bg-primary-color transition-all ease-in-out duration-300 active:scale-95  min-h-9 text-base  rounded-md font-[600] leading-4"
                   type="button"
                 >
                   <span>+300</span>
                 </button>
                 <button
                   onClick={() => setAmount(500)}
-                  className="relative overflow-hidden bg-primary transition-all ease-in-out duration-300 active:scale-95  min-h-9 text-base  rounded-md font-[600] leading-4"
+                  className="relative overflow-hidden bg-primary-color transition-all ease-in-out duration-300 active:scale-95  min-h-9 text-base  rounded-md font-[600] leading-4"
                   type="button"
                 >
                   <span>+500</span>
                 </button>
                 <button
                   onClick={() => setAmount(1000)}
-                  className="relative overflow-hidden bg-primary transition-all ease-in-out duration-300 active:scale-95  min-h-9 text-base  rounded-md font-[600] leading-4"
+                  className="relative overflow-hidden bg-primary-color transition-all ease-in-out duration-300 active:scale-95  min-h-9 text-base  rounded-md font-[600] leading-4"
                   type="button"
                 >
                   <span>+1,000</span>
                 </button>
                 <button
                   onClick={() => setAmount(2000)}
-                  className="relative overflow-hidden bg-primary transition-all ease-in-out duration-300 active:scale-95  min-h-9 text-base  rounded-md font-[600] leading-4"
+                  className="relative overflow-hidden bg-primary-color transition-all ease-in-out duration-300 active:scale-95  min-h-9 text-base  rounded-md font-[600] leading-4"
                   type="button"
                 >
                   <span>+2,000</span>
                 </button>
                 <button
                   onClick={() => setAmount(5000)}
-                  className="relative overflow-hidden bg-primary transition-all ease-in-out duration-300 active:scale-95  min-h-9 text-base  rounded-md font-[600] leading-4"
+                  className="relative overflow-hidden bg-primary-color transition-all ease-in-out duration-300 active:scale-95  min-h-9 text-base  rounded-md font-[600] leading-4"
                   type="button"
                 >
                   <span>+5,000</span>
                 </button>
                 <button
                   onClick={() => setAmount(10000)}
-                  className="relative overflow-hidden bg-primary transition-all ease-in-out duration-300 active:scale-95  min-h-9 text-base  rounded-md font-[600] leading-4"
+                  className="relative overflow-hidden bg-primary-color transition-all ease-in-out duration-300 active:scale-95  min-h-9 text-base  rounded-md font-[600] leading-4"
                   type="button"
                 >
                   <span>+10,000</span>
@@ -118,7 +118,7 @@ const SelectAmount = ({ amount, setAmount, setTab }) => {
                 onClick={handleShowBankAccount}
                 disabled={!amount}
                 type="submit"
-                className="bg-primary flex items-center justify-center gap-x-2 w-full  h-10 text-base rounded-md font-[500] leading-4 disabled:opacity-70 relative"
+                className="bg-primary-color flex items-center justify-center gap-x-2 w-full  h-10 text-base rounded-md font-[500] leading-4 disabled:opacity-70 relative text-white"
               >
                 <span>NEXT</span>
               </button>

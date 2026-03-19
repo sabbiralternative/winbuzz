@@ -1,9 +1,12 @@
-// import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Settings } from "../../../api";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 
 const LeftSidebar = () => {
-  // const { token } = useSelector((state) => state.auth);
+  const { token } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleDownload = (e) => {
     e.preventDefault();
     const fileUrl = Settings.apk_link;
@@ -22,6 +25,14 @@ const LeftSidebar = () => {
   //     window.open(Settings?.whatsapplink, "_blank");
   //   }
   // };
+
+  const handleNavigateAfterCheckAuth = (link) => {
+    if (token) {
+      navigate(link);
+    } else {
+      dispatch(setShowLoginModal(true));
+    }
+  };
   return (
     <div className="col-0 col-sm-0 col-md-0 col-lg-2 box-shd-sec">
       <div className="left-side-bar-sec darkmenu-sidebar" id="show-m-toggle">
@@ -106,8 +117,10 @@ const LeftSidebar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/casino/sportsbook/550000"
+                  <a
+                    onClick={() =>
+                      handleNavigateAfterCheckAuth("/casino/sportsbook/550000")
+                    }
                     className="multi-mark-bg"
                   >
                     <div className="icon-sidemenu">
@@ -118,11 +131,14 @@ const LeftSidebar = () => {
                       />
                     </div>
                     <span>Sports book</span>
-                  </Link>
+                  </a>
                 </li>
 
                 <li>
-                  <Link to="/casino" className="multi-mark-bg">
+                  <Link
+                    to="/casino?provider=all&category=all"
+                    className="multi-mark-bg"
+                  >
                     <div className="icon-sidemenu">
                       <img
                         loading="lazy"

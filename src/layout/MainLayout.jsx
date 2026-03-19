@@ -16,14 +16,15 @@ const MainLayout = () => {
       <LeftMobileSidebar />
       <Navbar />
       {token && pathname === "/" && <DepositWithdrawBTN />}
-      <section className="padding-top-105 main-body-container-sec">
+      <section className="padding-top-105 main-body-container-sec mb-10 md:mb-0">
         <div className="row cric-login-grid-sec">
           <LeftSidebar />
           <Outlet />
         </div>
       </section>
-      <SocialLink />
-      <MobileFooter />
+      {pathname === "/" && <SocialLink />}
+
+      {!pathname.includes("event-details") && <MobileFooter />}
     </Fragment>
   );
 };

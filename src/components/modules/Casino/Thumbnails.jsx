@@ -24,16 +24,12 @@ const Thumbnails = ({ data }) => {
             return (
               <div
                 onClick={() => handleNavigateToIFrame(casino)}
-                key={casino?.id}
+                key={casino?.gameId}
                 className="all-star-model-img"
                 style={{ cursor: "pointer" }}
               >
                 <a>
-                  <img
-                    loading="lazy"
-                    src={casino?.url_thumb}
-                    alt="game-img-1"
-                  />
+                  <img loading="lazy" src={casino?.urlThumb} alt="game-img-1" />
                 </a>
               </div>
             );

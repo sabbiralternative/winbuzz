@@ -204,7 +204,19 @@ const Fancy = ({ data }) => {
                                     data-v-4a1ad0c4
                                     className="market-event-head !flex "
                                   >
-                                    <span> {game?.name}</span>
+                                    <span className="md:hidden">
+                                      {" "}
+                                      {game?.name?.slice(0, 20)}
+                                      {game?.name?.length > 20 && (
+                                        <>
+                                          <br />
+                                          {game?.name?.slice(20)}
+                                        </>
+                                      )}
+                                    </span>
+                                    <span className="hidden md:block">
+                                      {game?.name}
+                                    </span>
 
                                     <div className="w-full flex items-center justify-end gap-x-4">
                                       <span className=" flex items-center">

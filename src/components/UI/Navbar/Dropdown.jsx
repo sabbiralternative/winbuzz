@@ -25,6 +25,7 @@ const Dropdown = () => {
       <ModalWrapper setModal={setShowDropdown}>
         <div data-v-9dda4895 className="dropdown open-menu-btn">
           <button
+            style={{ minWidth: "40px" }}
             onClick={closeDropdown}
             data-v-9dda4895
             className="btn btn-secondary dropdown-toggle"
@@ -307,7 +308,7 @@ const Dropdown = () => {
               </Link>
             </li>
 
-            <li data-v-9dda4895 className="menu-rgt-icons">
+            {/* <li data-v-9dda4895 className="menu-rgt-icons">
               <Link
                 data-v-9dda4895
                 data-bs-toggle="modal"
@@ -319,7 +320,7 @@ const Dropdown = () => {
                   Language
                 </span>
               </Link>
-            </li>
+            </li> */}
             <li data-v-9dda4895 className="menu-rgt-icons">
               <a
                 onClick={() => dispatch(logout())}

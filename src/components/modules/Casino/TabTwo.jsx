@@ -1,8 +1,7 @@
-const TabTwo = ({
-  categories,
-  setSelectedSubCategory,
-  selectedSubCategory,
-}) => {
+import { useNavigate } from "react-router-dom";
+
+const TabTwo = ({ categoriesOption, category, provider }) => {
+  const navigate = useNavigate();
   return (
     <ul
       data-v-15497d74
@@ -11,16 +10,16 @@ const TabTwo = ({
       role="tablist"
     >
       <li
-        onClick={() => setSelectedSubCategory("All")}
+        onClick={() => {
+          navigate(`/casino?provider=${provider}&category=all`);
+        }}
         data-v-15497d74
         className="nav-item"
         role="presentation"
       >
         <button
           data-v-15497d74
-          className={`nav-link list-menu ${
-            selectedSubCategory === "All" ? "active" : ""
-          }`}
+          className={`nav-link list-menu ${category === "all" ? "active" : ""}`}
           id="pills-all-int-tab"
         >
           <span data-v-15497d74>
@@ -35,35 +34,32 @@ const TabTwo = ({
           <span> All</span>
         </button>
       </li>
-      {categories?.map((category) => {
+      {categoriesOption?.map((item) => {
         return (
           <li
-            onClick={() => setSelectedSubCategory(category)}
-            key={category}
+            onClick={() => {
+              navigate(`/casino?provider=${provider}&category=${item}`);
+            }}
+            key={item}
             data-v-15497d74
             className="nav-item"
             role="presentation"
           >
             <button
               data-v-15497d74
-              className={`nav-link list-menu ${
-                selectedSubCategory === category ? "active" : ""
-              }`}
+              className={`nav-link list-menu ${category === item ? "active" : ""}`}
               id="pills-all-int-tab"
             >
               <span data-v-15497d74>
                 <img
                   data-v-15497d74
                   loading="lazy"
-                  src={`/icon/${category
-                    ?.split(" ")
-                    .join("")
-                    .toLowerCase()}.svg`}
+                  src={`/icon/${item?.split(" ").join("").toLowerCase()}.svg`}
                   alt=""
                   data-fallback-applied="true"
                 />
               </span>{" "}
-              {category}
+              {item}
             </button>
           </li>
         );

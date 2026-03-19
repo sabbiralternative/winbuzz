@@ -1,93 +1,54 @@
-const NewLaunch = () => {
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
+
+const NewLaunch = ({ new_launch }) => {
+  const { token } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const handleNavigateToIFrame = (casino) => {
+    if (!token) return dispatch(setShowLoginModal(true));
+    navigate(`/casino/${casino?.name?.replace(/ /g, "")}/${casino?.id}`);
+  };
   return (
-    <div data-v-56384811 className="new-launch-game-wrapper block lg:hidden">
-      <div data-v-56384811 className="list-sport-title">
-        <span data-v-56384811>new launch</span>
-      </div>
-      <div data-v-56384811 className="new-launch-game-sec">
-        <div data-v-56384811 className="new-launch-game-img">
-          <a data-v-56384811 href="javascript:void(0);">
+    <section data-v-56384811 className="exchange-game-conetent-sec-in-mobile">
+      <div
+        data-v-56384811
+        className="inplay-popular-header inplay-header-color"
+      >
+        <div data-v-56384811 className="inplay-popular-header__logo">
+          <span data-v-56384811 className="inplay-content__logo-icon">
             <img
               data-v-56384811
-              src="https://d1zntghqrw5743.cloudfront.net/newclick/marbles_marble_plinko_classic.webp"
-              alt="nw-lch-trade"
+              src="/icon/play-cart-Sk8L_OAI.png"
+              alt="play-cart-img"
             />
-          </a>
-        </div>
-        <div data-v-56384811 className="new-launch-game-img">
-          <a data-v-56384811 href="javascript:void(0);">
-            <img
-              data-v-56384811
-              src="https://d1zntghqrw5743.cloudfront.net/newclick/marbles_rolling_dunes_classic.webp"
-              alt="nw-lch-trade"
-            />
-          </a>
-        </div>
-        <div data-v-56384811 className="new-launch-game-img">
-          <a data-v-56384811 href="javascript:void(0);">
-            <img
-              data-v-56384811
-              src="https://d1zntghqrw5743.cloudfront.net/newclick/marbles_snake_classic.webp"
-              alt="nw-lch-trade"
-            />
-          </a>
-        </div>
-        <div data-v-56384811 className="new-launch-game-img">
-          <a data-v-56384811 href="javascript:void(0);">
-            <img
-              data-v-56384811
-              src="https://d1zntghqrw5743.cloudfront.net/newclick/marbles_duck_racing.webp"
-              alt="nw-lch-trade"
-            />
-          </a>
-        </div>
-        <div data-v-56384811 className="new-launch-game-img">
-          <a data-v-56384811 href="javascript:void(0);">
-            <img
-              data-v-56384811
-              src="https://d1zntghqrw5743.cloudfront.net/newclick/marbles_stairpong.webp"
-              alt="nw-lch-trade"
-            />
-          </a>
-        </div>
-        <div data-v-56384811 className="new-launch-game-img">
-          <a data-v-56384811 href="javascript:void(0);">
-            <img
-              data-v-56384811
-              src="https://d1zntghqrw5743.cloudfront.net/newclick/more_slots_sugar_daddy.webp"
-              alt="nw-lch-trade"
-            />
-          </a>
-        </div>
-        <div data-v-56384811 className="new-launch-game-img">
-          <a data-v-56384811 href="javascript:void(0);">
-            <img
-              data-v-56384811
-              src="https://d1zntghqrw5743.cloudfront.net/newclick/more_slots_battle_cricket.webp"
-              alt="nw-lch-trade"
-            />
-          </a>
-        </div>
-        <div data-v-56384811 className="new-launch-game-img">
-          <a data-v-56384811 href="javascript:void(0);">
-            <img
-              data-v-56384811
-              src="https://d1zntghqrw5743.cloudfront.net/newclick/more_slots_satta_matka_express.webp"
-              alt="nw-lch-trade"
-            />
-          </a>
-        </div>
-        <div data-v-56384811 className="new-launch-game-img">
-          <a data-v-56384811 href="javascript:void(0);">
-            <img
-              data-v-56384811
-              src="https://d1zntghqrw5743.cloudfront.net/newclick/more_slots_crime_empire.webp"
-              alt="nw-lch-trade"
-            />
-          </a>
+          </span>
+          <span data-v-56384811 className="inplay-popular-header__logo-text">
+            New Launch
+          </span>
         </div>
       </div>
-    </div>
+      <div
+        data-v-56384811
+        className="mobile-exch-grid-item grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2"
+      >
+        {new_launch?.map((casino) => {
+          return (
+            <div
+              onClick={() => handleNavigateToIFrame(casino)}
+              key={casino?.id}
+              className="mobile-game-img-box"
+              style={{ cursor: "pointer", width: "100%" }}
+            >
+              <a>
+                <img loading="lazy" src={casino?.url_thumb} alt="game-img-1" />
+              </a>
+            </div>
+          );
+        })}
+      </div>
+    </section>
   );
 };
 

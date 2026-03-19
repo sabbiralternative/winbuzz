@@ -26,7 +26,7 @@ const OpenBets = () => {
               </a>
             </div> */}
           </div>
-          <div data-v-0deca5ec className="form-search-sec win-ac-statement-sec">
+          {/* <div data-v-0deca5ec className="form-search-sec win-ac-statement-sec">
             <div className="row">
               <div className="col-6 col-sm-6 col-md-2 mb-2">
                 <label className="label-upside">From Date :</label>
@@ -86,8 +86,11 @@ const OpenBets = () => {
                 </div>
               </div>
             </div>
-          </div>
-          <div data-v-0deca5ec className="sattle-bet-list bet-list league-list">
+          </div> */}
+          <div
+            data-v-0deca5ec
+            className="sattle-bet-list bet-list league-list mt-2"
+          >
             <ul
               data-v-0deca5ec
               className="accordion accordion-flush"
@@ -213,6 +216,17 @@ const OpenBets = () => {
                   </div>
                 );
               })}
+              {currentBets.length === 0 && (
+                <div
+                  data-v-56384811
+                  className="tab-content"
+                  id="pills-tabContent"
+                >
+                  <div data-v-56384811 className="no-real-time">
+                    You have no Open Bets.
+                  </div>
+                </div>
+              )}
             </ul>
           </div>
         </div>

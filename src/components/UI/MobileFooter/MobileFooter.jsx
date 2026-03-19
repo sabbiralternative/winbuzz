@@ -1,13 +1,30 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import images from "../../../assets/images";
+import { useDispatch, useSelector } from "react-redux";
+import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 
 const MobileFooter = () => {
+  const { token } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleNavigateAfterCheckAuth = (link) => {
+    if (token) {
+      navigate(link);
+    } else {
+      dispatch(setShowLoginModal(true));
+    }
+  };
   return (
     <div data-v-238a5417 className="footer-fixed-nav">
       <div data-v-238a5417 className="bottom-tabs">
         <ul data-v-238a5417>
           <li data-v-238a5417>
-            <Link data-v-238a5417 to="/casino/sportsbook/550000">
+            <a
+              onClick={() =>
+                handleNavigateAfterCheckAuth("/casino/sportsbook/550000")
+              }
+              data-v-238a5417
+            >
               <img
                 data-v-238a5417
                 src={images.sportsBookFooterIcon}
@@ -17,7 +34,7 @@ const MobileFooter = () => {
               <div data-v-238a5417 className="title-name">
                 Sports Book
               </div>
-            </Link>
+            </a>
           </li>
           <li data-v-238a5417>
             <Link
@@ -74,7 +91,11 @@ const MobileFooter = () => {
             </Link>
           </li>
           <li data-v-238a5417 className="truncate lpcasomp">
-            <Link data-v-238a5417 to="/casino" className>
+            <Link
+              data-v-238a5417
+              to="/casino?provider=all&category=all"
+              className
+            >
               <img
                 data-v-238a5417
                 src={images.casinoFooterIcon}

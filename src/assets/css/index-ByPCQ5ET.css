@@ -11021,16 +11021,13 @@ section.nav-new-bar-sec {
 .mobile-exch-main-box {
   width: 100%;
   display: grid;
-  grid-template-rows: auto auto;
-  grid-auto-flow: column;
   overflow-x: scroll;
   grid-row-gap: 2px;
   grid-column-gap: 2px;
   margin-bottom: 12px;
-  justify-content: space-between;
 }
 .exch-coupon-card {
-  width: 170px;
+  width: 100%;
   border-radius: 5px;
   overflow: hidden;
   height: 100px;
@@ -11042,9 +11039,9 @@ section.nav-new-bar-sec {
 }
 .mobile-exch-grid-item {
   display: grid;
-  grid-template-rows: auto auto auto auto;
+  /* grid-template-rows: auto auto auto auto;
   overflow-x: auto;
-  grid-auto-flow: column;
+  grid-auto-flow: column; */
   justify-content: space-between;
   width: 100%;
   grid-gap: 5px;
@@ -20027,7 +20024,7 @@ button.btn-class.number-buttons.btn-active {
   margin: 0;
 }
 .change-passwword-btn button {
-  background: var(--primary-gradient-color);
+  background: var(--primary-color);
   border: none;
   margin-top: 5px;
   height: 45px;
@@ -20037,7 +20034,7 @@ button.btn-class.number-buttons.btn-active {
 .change-passwword-btn button:hover,
 .change-passwword-btn button:focus,
 .change-passwword-btn button:active {
-  background: var(--primary-gradient-color);
+  background: var(--primary-color);
   color: #fff;
   font-weight: 600;
 }
@@ -20052,7 +20049,7 @@ button.btn-class.number-buttons.btn-active {
   background: #fff;
 }
 .heading__title {
-  background: var(--primary-gradient-color);
+  background: var(--primary-color);
   color: #fff;
   padding: 8px 13px;
   border-radius: 6px 6px 0 0;

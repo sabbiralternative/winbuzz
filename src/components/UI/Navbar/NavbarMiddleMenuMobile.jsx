@@ -1,7 +1,19 @@
-import { Link, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 
 const NavbarMiddleMenuMobile = () => {
   const { pathname } = useLocation();
+  const { token } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleNavigateAfterCheckAuth = (link) => {
+    if (token) {
+      navigate(link);
+    } else {
+      dispatch(setShowLoginModal(true));
+    }
+  };
   return (
     <div className="exchange-menu-wrapper d-md-none">
       <ul className="subnav">
@@ -39,9 +51,14 @@ const NavbarMiddleMenuMobile = () => {
         <li
           className={` ${pathname === "/casino/sportsbook/550000" ? "active" : ""}`}
         >
-          <Link to="/casino/sportsbook/550000" className="subnav-link">
+          <a
+            onClick={() =>
+              handleNavigateAfterCheckAuth("/casino/sportsbook/550000")
+            }
+            className="subnav-link"
+          >
             <img alt="" src="/icon/99991.png" /> Sports book{" "}
-          </Link>
+          </a>
         </li>
         <li>
           <Link to="/horse-racing" className="subnav-link">
