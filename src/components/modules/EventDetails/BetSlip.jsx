@@ -21,6 +21,7 @@ import {
 } from "../../../utils/editBetSlipPrice";
 import { AxiosJSEncrypt } from "../../../lib/AxiosJSEncrypt";
 import BetLoading from "./BetLoading";
+import { isBetDelay, isDelay } from "../../../utils/isBetDelay";
 
 const BetSlip = () => {
   const { closePopupForForever } = useSelector((state) => state?.global);
@@ -108,22 +109,15 @@ const BetSlip = () => {
         ...payload,
 
         nounce: uuidv4(),
-        isbetDelay:
-          placeBetValues?.btype === "FANCY" &&
-          placeBetValues?.eventTypeId === "4"
-            ? false
-            : Settings.bet_delay,
+        isbetDelay: isBetDelay(placeBetValues),
         apk: closePopupForForever ? true : false,
       },
     ];
     setLoading(true);
     let delay = 0;
-    if (
-      placeBetValues?.btype !== "FANCY" &&
-      placeBetValues?.eventTypeId !== "4"
-    ) {
+    if (isDelay(placeBetValues)) {
       if (
-        (eventTypeId == 4 || eventTypeId == 2) &&
+        eventTypeId == 4 &&
         placeBetValues?.btype === "MATCH_ODDS" &&
         price > 3 &&
         placeBetValues?.name?.length === 2
@@ -131,7 +125,7 @@ const BetSlip = () => {
         delay = 9000;
       }
       if (
-        (eventTypeId == 4 || eventTypeId == 2) &&
+        eventTypeId == 4 &&
         placeBetValues?.btype === "MATCH_ODDS" &&
         price > 7 &&
         placeBetValues?.name?.length === 3
