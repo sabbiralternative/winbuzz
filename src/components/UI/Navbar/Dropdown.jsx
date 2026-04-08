@@ -209,6 +209,20 @@ const Dropdown = () => {
                 </Link>
               </li>
             )}
+
+            <li data-v-9dda4895 className="menu-rgt-icons">
+              <Link
+                data-v-9dda4895
+                onClick={closeDropdown}
+                to="/bonus-statement"
+                className="dropdown-item"
+              >
+                <i data-v-9dda4895 className="fa-solid fa-users-rays" />
+                <span data-v-9dda4895 className="menu-rgt-text">
+                  Bonus Statement
+                </span>
+              </Link>
+            </li>
             <li data-v-9dda4895 className="menu-rgt-icons">
               <Link
                 data-v-9dda4895

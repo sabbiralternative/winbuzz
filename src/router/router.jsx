@@ -26,6 +26,7 @@ import MyBankDetails from "../pages/MyBankDetails/MyBankDetails";
 import HorseRacing from "../pages/HorseRacing/HorseRacing";
 import GreyhoundRacing from "../pages/GreyhoundRacing/GreyhoundRacing";
 import InPlay from "../pages/InPlay/InPlay";
+import BonusStatement from "../pages/BonusStatement/BonusStatement";
 
 export const router = createBrowserRouter(
   [
@@ -137,6 +138,10 @@ export const router = createBrowserRouter(
         {
           path: "/my-bank-details",
           element: <MyBankDetails />,
+        },
+        {
+          path: "/bonus-statement",
+          element: <BonusStatement />,
         },
       ],
     },
