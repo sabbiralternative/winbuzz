@@ -18,6 +18,7 @@ import images from "../../../assets/images";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
 
 const Register = () => {
+  const affnook_token = localStorage.getItem("affnook_token");
   const { logo } = useLogo();
   const [countDown, setCountDown] = useState(null);
   const referralCode = localStorage.getItem("referralCode");
@@ -82,6 +83,7 @@ const Register = () => {
       referralCode: referralCode || data?.referralCode,
       orderId: order.orderId,
       otpMethod: order.otpMethod,
+      affnook_token: affnook_token || null,
     };
 
     const result = await handleRegister(registerData).unwrap();
