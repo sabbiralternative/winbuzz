@@ -164,7 +164,7 @@ const LeftSidebar = () => {
 
                 <li>
                   <Link
-                    to="/sports/Kabaddi /27454572"
+                    to="/sports/kabaddi/5?type=inPlay"
                     className="multi-mark-bg"
                   >
                     <div className="icon-sidemenu">
@@ -175,6 +175,21 @@ const LeftSidebar = () => {
                       />
                     </div>
                     <span>Kabaddi </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/sports/politics/6?type=inPlay"
+                    className="multi-mark-bg"
+                  >
+                    <div className="icon-sidemenu">
+                      <img
+                        loading="lazy"
+                        src="/icon/2378961.png"
+                        alt="Kabaddi "
+                      />
+                    </div>
+                    <span>Politics </span>
                   </Link>
                 </li>
 

@@ -43,6 +43,28 @@ const NavMiddleMenuDesktop = () => {
             </Link>
           </li>
           <li>
+            <Link to="/sports/kabaddi/5?type=inPlay" className>
+              <img
+                loading="lazy"
+                src="/icon/sports-soccer-CaiOK3CT.png"
+                alt="Menu 1"
+                className="nav-icon"
+              />
+              <span>Kabaddi</span>
+            </Link>
+          </li>
+          <li>
+            <Link to="/sports/politics/6?type=inPlay" className>
+              <img
+                loading="lazy"
+                src="/icon/sports-soccer-CaiOK3CT.png"
+                alt="Menu 1"
+                className="nav-icon"
+              />
+              <span>Politics</span>
+            </Link>
+          </li>
+          <li>
             <Link to="/sports/tennis/2?type=inPlay" className>
               <img
                 loading="lazy"

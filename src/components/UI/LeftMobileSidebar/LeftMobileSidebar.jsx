@@ -83,6 +83,32 @@ const LeftMobileSidebar = () => {
                       </a>
                     </li>
                     <li>
+                      <a
+                        onClick={() => handleNavigate("/sports/cricket/5")}
+                        className="active"
+                      >
+                        <img
+                          alt=""
+                          className="menu-icon"
+                          src="/icon/sports-no-YhxjmpH9.png"
+                        />
+                        <span>Kabaddi</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        onClick={() => handleNavigate("/sports/cricket/6")}
+                        className="active"
+                      >
+                        <img
+                          alt=""
+                          className="menu-icon"
+                          src="/icon/2378961.png"
+                        />
+                        <span>Politics</span>
+                      </a>
+                    </li>
+                    <li>
                       <a href="/m/game-list/2378961">
                         <img
                           alt=""

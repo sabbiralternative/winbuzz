@@ -38,11 +38,17 @@ const NavbarMiddleMenuMobile = () => {
             <img alt="" src="/icon/2.png" /> Tennis{" "}
           </Link>
         </li>
-        {/* <li>
-          <Link to="/m/game-list/2378961" className="subnav-link">
+        <li className={` ${pathname === "/sports/cricket/5" ? "active" : ""}`}>
+          <Link to="/sports/kabaddi/6?type=inPlay" className="subnav-link">
+            <img alt="" src="/icon/sports-no-YhxjmpH9.png" /> Kabaddi{" "}
+          </Link>
+        </li>
+        <li className={` ${pathname === "/sports/cricket/6" ? "active" : ""}`}>
+          <Link to="/sports/politics/6?type=inPlay" className="subnav-link">
             <img alt="" src="/icon/2378961.png" /> Politics{" "}
           </Link>
-        </li> */}
+        </li>
+
         <li>
           <Link to="/casino" className="subnav-link hightlight-menus">
             <img alt="" src="/icon/99998.png" /> Casino{" "}
