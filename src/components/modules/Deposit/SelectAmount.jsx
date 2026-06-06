@@ -48,7 +48,11 @@ const SelectAmount = ({ amount, setAmount, setTab }) => {
               </div>
               <div className="w-full mt-2 py-2 bg-white grid grid-cols-12 border rounded-[4px] px-2 items-center justify-center  font-semibold">
                 <input
-                  onChange={(e) => setAmount(e.target.value)}
+                  onChange={(e) =>
+                    setAmount(
+                      e.target.value <= 10000000 ? e.target.value : 10000000,
+                    )
+                  }
                   className="block w-full focus:outline-none col-span-11   h-max bg-transparent  placeholder: placeholder:font-normal font-bold text-base"
                   placeholder="₹ Enter Amount"
                   required
@@ -103,11 +107,11 @@ const SelectAmount = ({ amount, setAmount, setTab }) => {
                   <span>+10,000</span>
                 </button>
                 <button
-                  onClick={() => setAmount(1000000000)}
+                  onClick={() => setAmount(50000)}
                   className="relative overflow-hidden bg-primary-color transition-all ease-in-out duration-300 active:scale-95  min-h-9 text-base  rounded-md font-[600] leading-4"
                   type="button"
                 >
-                  <span>+1,000,000,000</span>
+                  <span>+50,000</span>
                 </button>
               </div>
               <div className="text-text_brand_primary my-2 w-full text-start text-base  font-[480] leading-4" />
