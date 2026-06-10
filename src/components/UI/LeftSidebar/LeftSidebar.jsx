@@ -136,7 +136,7 @@ const LeftSidebar = () => {
 
                 <li>
                   <Link
-                    to="/casino?provider=all&category=all"
+                    to="/casino?product=All&category=All"
                     className="multi-mark-bg"
                   >
                     <div className="icon-sidemenu">
@@ -149,7 +149,7 @@ const LeftSidebar = () => {
                     <span>Casino</span>
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link to="/games/evolution" className="multi-mark-bg">
                     <div className="icon-sidemenu">
                       <img
@@ -160,7 +160,7 @@ const LeftSidebar = () => {
                     </div>
                     <span>Evolution</span>
                   </Link>
-                </li>
+                </li> */}
 
                 <li>
                   <Link

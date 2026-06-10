@@ -3,7 +3,7 @@ import CasinoProvider from "../../components/modules/Home/CasinoProvider";
 import EventSection from "../../components/modules/Home/EventSection";
 // import ExchangeGames from "../../components/modules/Home/ExchangeGames";
 import NewLaunch from "../../components/modules/Home/NewLaunch";
-import PopularGameThumbnails from "../../components/modules/Home/PopularGameThumbnails";
+// import PopularGameThumbnails from "../../components/modules/Home/PopularGameThumbnails";
 import { useGetIndex } from "../../hooks";
 
 const Home = () => {
@@ -16,7 +16,7 @@ const Home = () => {
       <div>
         <div data-v-56384811 className="right-side-bar-main-sec">
           <div data-v-56384811 className="section-listing-page">
-            <PopularGameThumbnails highlight_casino={data?.highlight_casino} />
+            {/* <PopularGameThumbnails highlight_casino={data?.highlight_casino} /> */}
 
             <NewLaunch new_launch={data?.new_launch} />
 

@@ -2,57 +2,75 @@ import { Loader } from "rsuite";
 import TabOne from "../../components/modules/Casino/TabOne";
 import TabTwo from "../../components/modules/Casino/TabTwo";
 import Thumbnails from "../../components/modules/Casino/Thumbnails";
-import { useUltraLobbyQuery } from "../../hooks/ultraLobby";
 import { useLocation } from "react-router-dom";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useGetIndex } from "../../hooks";
 const Casino = () => {
+  const [search] = useState("");
   const location = useLocation();
   const params = new URLSearchParams(location.search);
-  const provider = params.get("provider");
+  const product = params.get("product");
   const category = params.get("category");
-  const { data } = useUltraLobbyQuery();
+  const { data } = useGetIndex({
+    type: "99_all_casino",
+  });
 
-  const providersOption =
-    data?.length > 0 &&
-    Array.from(new Set(data.map((item) => item.providerName)));
+  const allTables = data?.data?.allTables;
+  const allGames = useMemo(() => {
+    if (!allTables) return [];
+    return Object.values(allTables).flatMap((provider) =>
+      Object.values(provider).flat(),
+    );
+  }, [allTables]);
+  // const tablesGames =
+  //   tables &&
+  //   Object.values(tables).flatMap((provider) => Object.values(provider).flat());
 
-  const categoriesOption = useMemo(() => {
-    if (data?.length > 0) {
-      if (provider === "all") {
-        return Array.from(new Set(data.map((item) => item.category)));
+  const categories =
+    allGames && Array.from(new Set(allGames?.map((game) => game?.product)));
+
+  // const a =
+  //   allGames && allGames?.find((game) => game.product === "BIKINI GAMES");
+  // console.log(a);
+  // console.log(categories);
+
+  const subCategories = useMemo(() => {
+    if (allGames && categories && product === "All") {
+      return Array.from(new Set(allGames?.map((game) => game?.category)));
+    }
+    if (allGames && categories && product !== "All") {
+      const allCategory = allGames?.filter((game) => game?.product === product);
+      return Array.from(new Set(allCategory?.map((game) => game?.category)));
+    }
+  }, [categories, allGames, product]);
+
+  const filteredData = useMemo(() => {
+    if (allGames && categories && subCategories) {
+      if (search) {
+        return allGames?.filter((game) => game?.category?.includes(search));
       }
-
-      return Array.from(
-        new Set(
-          data
-            ?.filter((item) => item.providerName === provider)
-            .map((item) => item.category),
-        ),
-      );
+      if (!search) {
+        if (product === "All" && category === "All") {
+          return allGames;
+        }
+        if (product === "All" && category !== "All") {
+          return allGames?.filter((game) => game?.category === category);
+        }
+        if (product !== "All" && category === "All") {
+          return allGames?.filter((game) => game?.product === product);
+        }
+        if (product !== "All" && category !== "All") {
+          return allGames?.filter(
+            (game) => game?.product === product && game?.category === category,
+          );
+        }
+      }
     }
-  }, [data, provider]);
+  }, [allGames, categories, category, subCategories, product, search]);
 
-  const filterGames = () => {
-    if (!provider && !category) {
-      return data;
-    }
-
-    if (provider === "all" && category === "all") {
-      return data;
-    }
-
-    if (provider === "all" && category && category !== "all") {
-      return data?.filter((item) => item.category === category);
-    }
-
-    if (provider && provider !== "all" && category === "all") {
-      return data?.filter((item) => item.providerName === provider);
-    }
-
-    return data?.filter((item) => {
-      return item.providerName === provider && item.category === category;
-    });
-  };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [product, category, location.search]);
 
   if (!data) {
     return (
@@ -96,15 +114,15 @@ const Casino = () => {
                     >
                       <div data-v-15497d74 className="all-game-details-page">
                         <TabOne
-                          providersOption={providersOption}
-                          provider={provider}
+                          categories={categories}
+                          selectedCategory={product}
                         />
                         <TabTwo
-                          categoriesOption={categoriesOption}
-                          category={category}
-                          provider={provider}
+                          product={product}
+                          selectedSubCategory={category}
+                          subCategories={subCategories}
                         />
-                        <Thumbnails data={filterGames()} />
+                        <Thumbnails data={filteredData} />
                       </div>
                     </div>
                   </div>

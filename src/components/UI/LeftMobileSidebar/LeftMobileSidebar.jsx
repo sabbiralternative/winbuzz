@@ -1,11 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useLogo } from "../../../context/ApiProvider";
-import { setShowMobileSidebar } from "../../../redux/features/global/globalSlice";
+import {
+  setShowLoginModal,
+  setShowMobileSidebar,
+} from "../../../redux/features/global/globalSlice";
 import ModalWrapper from "../../modals/ModalWrapper/ModalWrapper";
 import "./sidebar.css";
 import { useNavigate } from "react-router-dom";
 
 const LeftMobileSidebar = () => {
+  const { token } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { showMobileSidebar } = useSelector((state) => state.global);
@@ -18,6 +22,16 @@ const LeftMobileSidebar = () => {
   const handleNavigate = (link) => {
     navigate(link);
     closeSidebar();
+  };
+
+  const handleNavigateAfterCheckAuth = (link) => {
+    if (token) {
+      navigate(link);
+      closeSidebar();
+    } else {
+      dispatch(setShowLoginModal(true));
+      closeSidebar();
+    }
   };
 
   return (
@@ -44,17 +58,6 @@ const LeftMobileSidebar = () => {
               <div className="menu-inner">
                 <nav>
                   <ul id="menu" className="metismenu">
-                    <li>
-                      <a href="/m/multi-market">
-                        <img
-                          src="/icon/free-chart-icon.png"
-                          alt=""
-                          className="menu-icon"
-                        />
-                        <span>Multi Market</span>
-                      </a>
-                    </li>
-
                     <li>
                       <a
                         className="active"
@@ -108,28 +111,30 @@ const LeftMobileSidebar = () => {
                         <span>Politics</span>
                       </a>
                     </li>
+
                     <li>
-                      <a href="/m/game-list/2378961">
-                        <img
-                          alt=""
-                          className="menu-icon"
-                          src="/icon/2378961.svg"
-                        />
-                        <span>Politics</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/m/game-list/99998" className="active">
+                      <a
+                        onClick={() =>
+                          handleNavigate("/casino?product=All&category=All")
+                        }
+                        className="active"
+                      >
                         <img
                           alt=""
                           className="menu-icon"
                           src="/icon/99998.svg"
                         />
-                        <span>Int Casino</span>
+                        <span>Casino</span>
                       </a>
                     </li>
                     <li>
-                      <a href="/m/sports-book">
+                      <a
+                        onClick={() =>
+                          handleNavigateAfterCheckAuth(
+                            "/casino/sportsbook/550000",
+                          )
+                        }
+                      >
                         <img
                           alt=""
                           className="menu-icon"
@@ -139,13 +144,13 @@ const LeftMobileSidebar = () => {
                       </a>
                     </li>
                     <li>
-                      <a href="/m/game-list/7">
+                      <a onClick={() => handleNavigate("/horse-racing")}>
                         <img alt="" className="menu-icon" src="/icon/7.svg" />
                         <span>Horse Racing</span>
                       </a>
                     </li>
                     <li>
-                      <a href="/m/game-list/4339">
+                      <a onClick={() => handleNavigate("/greyhound-racing")}>
                         <img
                           alt=""
                           className="menu-icon"
@@ -154,107 +159,9 @@ const LeftMobileSidebar = () => {
                         <span>Greyhound Racing</span>
                       </a>
                     </li>
-                    <li>
-                      <a href="/m/game-list/99990">
-                        <img
-                          alt=""
-                          className="menu-icon"
-                          src="/icon/99990.svg"
-                        />
-                        <span>Binary</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/m/game-list/99994">
-                        <img
-                          alt=""
-                          className="menu-icon"
-                          src="/icon/99994.svg"
-                        />
-                        <span>Kabaddi</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/m/game-list/7522">
-                        <img
-                          alt=""
-                          className="menu-icon"
-                          src="/icon/7522.svg"
-                        />
-                        <span>Basketball</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/m/game-list/7511">
-                        <img
-                          alt=""
-                          className="menu-icon"
-                          src="/icon/7511.svg"
-                        />
-                        <span>Baseball</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/m/game-list/20">
-                        <img alt="" className="menu-icon" src="/icon/20.svg" />
-                        <span>Table Tennis</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/m/game-list/998917">
-                        <img
-                          alt=""
-                          className="menu-icon"
-                          src="/icon/998917.svg"
-                        />
-                        <span>Volleyball</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/m/game-list/7524">
-                        <img
-                          alt=""
-                          className="menu-icon"
-                          src="/icon/7524.svg"
-                        />
-                        <span>Ice Hockey</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/m/game-list/5">
-                        <img alt="" className="menu-icon" src="/icon/5.svg" />
-                        <span>Rugby</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/m/game-list/26420387">
-                        <img
-                          alt=""
-                          className="menu-icon"
-                          src="/icon/26420387.svg"
-                        />
-                        <span>Mixed Martial Arts</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/m/game-list/3503">
-                        <img
-                          alt=""
-                          className="menu-icon"
-                          src="/icon/3503.svg"
-                        />
-                        <span>Darts</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="/m/game-list/29">
-                        <img alt="" className="menu-icon" src="/icon/29.svg" />
-                        <span>Futsal</span>
-                      </a>
-                    </li>
 
                     <li>
-                      <a href="javascript:void(0)">
+                      <a>
                         <img src="/icon/rules.svg" className="menu-icon" />
                         <span>Rules</span>
                       </a>

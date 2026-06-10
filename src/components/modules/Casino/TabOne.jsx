@@ -1,47 +1,66 @@
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
-const TabOne = ({ providersOption, provider }) => {
+const TabOne = ({ categories, selectedCategory }) => {
   const navigate = useNavigate();
+  const activeRef = useRef(null);
+
+  useEffect(() => {
+    if (activeRef.current) {
+      activeRef.current.scrollIntoView({
+        behavior: "smooth",
+        inline: "center", // key part
+        block: "nearest",
+      });
+    }
+  }, [selectedCategory, categories]);
   return (
     <ul
+      style={{ scrollBehavior: "smooth" }}
       data-v-15497d74
       className="nav nav-pills casino-provider-list"
       id="pills-tab"
       role="tablist"
     >
-      <li data-v-15497d74 className="nav-item" role="presentation">
+      <li
+        ref={selectedCategory === "All" ? activeRef : null}
+        data-v-15497d74
+        className="nav-item"
+        role="presentation"
+      >
         <button
           onClick={() => {
-            navigate(`/casino?provider=all&category=all`);
+            navigate(`/casino?product=All&category=All`);
           }}
           data-v-15497d74
-          className={`nav-link  ${provider === "all" ? "active" : "list-menu"}`}
+          className={`nav-link  ${selectedCategory === "All" ? "active" : "list-menu"}`}
           id="pills-all12-tab"
           role="tab"
         >
           <span data-v-15497d74>All</span>
         </button>
       </li>
-      {providersOption?.map((item) => {
+      {categories?.map((category) => {
         return (
           <li
-            key={item}
+            ref={category === selectedCategory ? activeRef : null}
+            key={category}
             data-v-15497d74
             className="nav-item"
             role="presentation"
           >
             <button
               onClick={() => {
-                navigate(`/casino?provider=${item}&category=all`);
+                navigate(`/casino?product=${category}&category=All`);
               }}
               data-v-15497d74
               className={`nav-link  ${
-                provider === item ? "active" : "list-menu"
+                selectedCategory === category ? "active" : "list-menu"
               }`}
               id="pills-all12-tab"
               role="tab"
             >
-              <span data-v-15497d74>{item}</span>
+              <span data-v-15497d74>{category}</span>
             </button>
           </li>
         );

@@ -93,7 +93,7 @@ const MobileFooter = () => {
           <li data-v-238a5417 className="truncate lpcasomp">
             <Link
               data-v-238a5417
-              to="/casino?provider=all&category=all"
+              to="/casino?product=All&category=All"
               className
             >
               <img

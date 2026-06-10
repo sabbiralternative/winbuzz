@@ -102,7 +102,7 @@ const NavMiddleMenuDesktop = () => {
 
           // className="hightlight-nav-menu"
           >
-            <Link to="/casino?provider=all&category=all" className>
+            <Link to="/casino?product=All&category=All" className>
               <img
                 loading="lazy"
                 src="/icon/int-casino-DuAshlyx.png"

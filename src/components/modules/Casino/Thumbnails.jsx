@@ -20,16 +20,20 @@ const Thumbnails = ({ data }) => {
         role="tabpanel"
       >
         <div data-v-15497d74 className="all-in-casino-img">
-          {data?.map((casino) => {
+          {data?.map((casino, i) => {
             return (
               <div
                 onClick={() => handleNavigateToIFrame(casino)}
-                key={casino?.gameId}
+                key={`${casino?.id}-${casino?.category}-${casino?.product}-${i}`}
                 className="all-star-model-img"
                 style={{ cursor: "pointer" }}
               >
                 <a>
-                  <img loading="lazy" src={casino?.urlThumb} alt="game-img-1" />
+                  <img
+                    loading="lazy"
+                    src={casino?.url_thumb}
+                    alt="game-img-1"
+                  />
                 </a>
               </div>
             );

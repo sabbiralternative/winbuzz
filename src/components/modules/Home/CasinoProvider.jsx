@@ -8,9 +8,7 @@ const CasinoProvider = ({ our_provider }) => {
   const navigate = useNavigate();
   const handleNavigateToIFrame = (casino) => {
     if (!token) return dispatch(setShowLoginModal(true));
-    navigate(
-      `/casino?provider=${casino?.product}&category=${casino?.category}`,
-    );
+    navigate(`/casino?product=${casino?.product}&category=${casino?.category}`);
   };
   return (
     <section data-v-56384811 className="exchange-game-conetent-sec-in-mobile">

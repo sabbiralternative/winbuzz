@@ -50,7 +50,10 @@ const NavbarMiddleMenuMobile = () => {
         </li>
 
         <li>
-          <Link to="/casino" className="subnav-link hightlight-menus">
+          <Link
+            to="/casino?product=All&category=All"
+            className="subnav-link hightlight-menus"
+          >
             <img alt="" src="/icon/99998.png" /> Casino{" "}
           </Link>
         </li>
