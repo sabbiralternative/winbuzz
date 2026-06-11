@@ -123,7 +123,7 @@
 .nw-affi-add-new-user-btn {
   background: var(--primary-gradient-color);
   position: relative;
-  color: #000;
+  color: var(--primary-color);
   padding: 16px;
   display: block;
   width: 100%;
@@ -333,7 +333,7 @@ button:not(:disabled) {
 
 .af-top-user-head h6 {
   font-size: 12px;
-  color: #000;
+  color: var(--primary-color);
   font-weight: 500;
 }
 
@@ -528,7 +528,7 @@ footer[data-v-066114c4] {
 
 .affilate_footer a.active[data-v-066114c4] {
   background: var(--primary-gradient-color);
-  color: #000;
+  color: var(--primary-color);
 }
 
 .affilate_footer nav a[data-v-066114c4] {
@@ -542,7 +542,7 @@ footer[data-v-066114c4] {
 
 .affilate_footer nav a.active img[data-v-066114c4] {
   transform: scale(1.1);
-  filter: brightness(0) invert(0);
+  filter: brightness(0) invert(1);
   object-fit: contain;
 }
 

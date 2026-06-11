@@ -59,7 +59,7 @@ const ChooseAmount = ({ setTab, setAmount, amount }) => {
         </div>
         <div className="rounded-lg   py-2 px-3.5 flex flex-col items-start justify-start w-full gap-y-0.5">
           <div className="w-full flex items-start justify-start gap-y-[0.5] flex-col">
-            <span className="text-sm mt-1 bg-primary rounded  shadow-md  px-2 py-1 my-1">
+            <span className="text-sm mt-1 bg-primary rounded  shadow-md  px-2 py-1 my-1 text-primary">
               Available to withdrawal : ₹ {data?.mainWallet}
             </span>
             <div className="flex flex-col w-full">
@@ -129,7 +129,7 @@ const ChooseAmount = ({ setTab, setAmount, amount }) => {
           </div>
           <span className="text-sm  font-[400] leading-5">
             I have read and agree with{" "}
-            <span className="underline text-sm bg-primary bg-clip-text text-transparent font-[400] leading-4 cursor-pointer">
+            <span className="underline text-sm  font-[400] leading-4 cursor-pointer">
               the terms of payment and withdrawal policy.
             </span>
           </span>

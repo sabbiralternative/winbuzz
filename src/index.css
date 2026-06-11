@@ -518,7 +518,7 @@ html * {
 }
 
 .install-btn {
-  background: var(--primary-color);
+  background: var(--primary-bg);
   color: #000;
   border: none;
   padding: 5px 10px;
@@ -529,7 +529,7 @@ html * {
 
 .main-title {
   font-size: 1.4rem;
-  color: var(--primary-color);
+  color: var(--primary-bg);
   line-height: 1.2;
 }
 
@@ -567,7 +567,7 @@ html * {
   content: "✓";
   position: absolute;
   left: 0;
-  background: var(--primary-color);
+  background: var(--primary-bg);
   color: #000;
   width: 18px;
   height: 18px;
@@ -588,7 +588,7 @@ html * {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--primary-color);
+  background: var(--primary-bg);
   text-decoration: none;
   padding: 10px;
   font-size: 12px;
@@ -628,7 +628,7 @@ html * {
   background-color: #dcdada74 !important;
 }
 .border-primary {
-  border: 1px solid var(--primary-color) !important;
+  border: 1px solid var(--primary-bg) !important;
 }
 .text-primary {
   color: var(--primary-color);

@@ -3725,6 +3725,7 @@ fieldset:disabled .btn {
   white-space: nowrap;
 }
 .dropdown-toggle:after {
+  color: var(--primary-color);
   display: inline-block;
   margin-left: 0.255em;
   vertical-align: 0.255em;
@@ -10249,7 +10250,7 @@ fieldset:disabled .btn {
 button.btn-class.number-buttons.btn-active {
   border-radius: 6px;
   background: var(--secondary-color);
-  box-shadow: 0 0 2px 0 var(--primary-color);
+  box-shadow: 0 0 2px 0 var(--primary-bg);
   font-weight: 400;
   padding: 5px 11px;
   font-size: 12px;
@@ -10257,7 +10258,7 @@ button.btn-class.number-buttons.btn-active {
 }
 .btn,
 button.btn-class.number-buttons {
-  color: var(--white-text) !important;
+  color: var(--primary-color) !important;
   border: 1px solid grey;
   border-radius: 6px;
   background: gray;
@@ -10270,7 +10271,7 @@ button.btn-class.number-buttons {
 button.ending-breakpoint-button.btn-class,
 button.starting-breakpoint-button.btn-class {
   color: var(--white-text) !important;
-  background: var(--primary-color);
+  background: var(--primary-bg);
   font-weight: 400;
   padding: 5px 11px;
   font-size: 12px;
@@ -10522,7 +10523,7 @@ a {
   line-height: 1.5;
   background-color: transparent;
   border: 0;
-  color: #012970;
+  color: var(--primary-color);
   box-shadow: none;
   padding: 7px 38px 7px 8px;
   border: 1px solid #fff;
@@ -10539,7 +10540,7 @@ li.input-form {
 .rules-box a {
   text-transform: uppercase;
   font-size: 11px;
-  background: var(--primary-color);
+  background: var(--primary-bg);
   padding: 7px 15px;
   border-radius: 5px;
   color: #fff;
@@ -10548,7 +10549,7 @@ li.input-form {
   align-items: center;
 }
 .rules-box a:hover {
-  border-bottom: 4px solid var(--primary-color);
+  border-bottom: 4px solid var(--primary-bg);
   background: var(--secondary-color);
 }
 .nav-left ul {
@@ -10606,7 +10607,7 @@ li.input-form {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: var(--primary-color);
+  background: var(--primary-bg);
 }
 .nav-middle-menu ul li:first-child:before {
   content: none;
@@ -10634,7 +10635,7 @@ li.input-form {
   transition: none;
 }
 .app-lft-sidebar .accordion-button:hover {
-  color: var(--primary-color);
+  color: var(--primary-bg);
   background: #fff6ee;
 }
 .app-lft-sidebar .accordion-button:not(.collapsed) {
@@ -10678,7 +10679,7 @@ span.img-side-logo {
   padding: 0;
 }
 .more-details-menu .btn-secondary:hover {
-  color: var(--primary-color);
+  color: var(--primary-bg);
   background-color: transparent;
   border-color: transparent;
   box-shadow: none;
@@ -10737,7 +10738,7 @@ span.img-side-logo {
   padding-bottom: 65px;
 }
 .app-lft-sidebar .dropdown-item:hover {
-  color: var(--primary-color);
+  color: var(--primary-bg);
 }
 .commentry-fixed-img img {
   width: 20px;
@@ -10781,11 +10782,7 @@ section.bet-details-sec {
   clip-path: polygon(0 -1px, 100% -1px, 1px 100%, 0 100%);
   width: 18px;
   height: calc(100% + 0px);
-  background: linear-gradient(
-    180deg,
-    var(--primary-color) 0,
-    var(--primary-color)
-  );
+  background: linear-gradient(180deg, var(--primary-bg) 0, var(--primary-bg));
   position: absolute;
   right: -17px;
   top: 0;
@@ -10835,7 +10832,7 @@ section.bet-details-sec {
 .game-icons .game-bm {
   width: 20px;
   display: inline-block;
-  background: var(--primary-color);
+  background: var(--primary-bg);
   text-align: center;
   border-radius: 10px;
   height: 20px;
@@ -11308,7 +11305,7 @@ section.exchange-game-conetent-sec-in-mobile {
 .Continue-with .btn-whatsapp {
   text-align: center;
   display: flex;
-  background: var(--primary-color);
+  background: var(--primary-bg);
   border-radius: 5px;
   color: #fff;
   text-transform: uppercase;
@@ -11396,7 +11393,7 @@ a.withdrowal-btn {
   border-bottom: 4px solid darkgreen;
 }
 a.deposit-btn:hover {
-  background-color: var(--primary-color);
+  background-color: var(--primary-bg);
   border-bottom: 4px solid var(--secondary-color);
 }
 .nav-right.header-nav-rgt ul li {
@@ -11608,7 +11605,7 @@ section.events-details-sec {
 .mrkname {
   align-items: center;
   vertical-align: middle;
-  color: #000;
+  color: var(--primary-color);
   font-size: 13px;
   text-transform: uppercase;
   font-weight: 600;
@@ -11645,7 +11642,7 @@ section.events-details-sec {
   margin: 0 5px;
 }
 .fav-star i.fa-regular.fa-star {
-  color: var(--primary-color);
+  color: var(--primary-bg);
 }
 .min-max-head {
   text-align: end;
@@ -11910,7 +11907,7 @@ button.fancy-betting-box.light-blue {
   width: 40px;
   text-align: center;
   background: var(--primary-gradient-color);
-  color: #000;
+  color: var(--primary-color);
   padding: 1px;
   font-size: 22px;
   border-radius: 0;
@@ -11936,7 +11933,7 @@ button.fancy-betting-box.light-blue {
   font-size: 13px;
   border-radius: 0;
   padding: 7px;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--primary-bg);
   border-color: #fff;
 }
 .select-digit.fancy input {
@@ -11944,7 +11941,7 @@ button.fancy-betting-box.light-blue {
 }
 .select-digit input:focus {
   box-shadow: none;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--primary-bg);
 }
 .inpt-grp-rgt input:focus {
   box-shadow: none;
@@ -12236,11 +12233,11 @@ section.main-body-container-sec.stake-events-details {
   top: 2px;
 }
 .acc-details-data p button i.fa-solid.fa-copy {
-  color: var(--primary-color);
+  color: var(--primary-bg);
   font-size: 15px;
 }
 .acc-details-data p button i.fa-solid.fa-copy:focus {
-  color: var(--primary-color);
+  color: var(--primary-bg);
 }
 .acc-details-data p button:focus {
   box-shadow: 0 0 0 0.2rem #28a74580;
@@ -12303,9 +12300,9 @@ section.main-body-container-sec.stake-events-details {
 }
 .amount-sub-box button.active,
 .amount-sub-box button.active:focus {
-  background: var(--primary-color);
+  background: var(--primary-bg);
   color: #fff;
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--primary-bg);
 }
 .online-form-check-box .form-check .form-check-label {
   color: #333;
@@ -12358,7 +12355,7 @@ section.main-body-container-sec.stake-events-details {
   font-weight: 600;
 }
 .video-player-head {
-  background-color: var(--primary-color);
+  background-color: var(--primary-bg);
   width: 65%;
   border-top-left-radius: 5px;
   position: relative;
@@ -12368,11 +12365,7 @@ section.main-body-container-sec.stake-events-details {
   clip-path: polygon(0 -1px, 100% -1px, 1px 100%, 0 100%);
   width: 17px;
   height: calc(100% + 0px);
-  background: linear-gradient(
-    180deg,
-    var(--primary-color) 0,
-    var(--primary-color)
-  );
+  background: linear-gradient(180deg, var(--primary-bg) 0, var(--primary-bg));
   position: absolute;
   top: 0;
   height: 26px;
@@ -12382,8 +12375,8 @@ section.main-body-container-sec.stake-events-details {
 .video-player-body video {
   width: 100%;
   border-radius: 10px;
-  border: 2px solid var(--primary-color);
-  background: var(--primary-color);
+  border: 2px solid var(--primary-bg);
+  background: var(--primary-bg);
 }
 .video-player-body {
   margin-top: 10px;
@@ -12393,7 +12386,7 @@ section.main-body-container-sec.stake-events-details {
 }
 .promo-img-box {
   text-align: center;
-  background: var(--primary-color);
+  background: var(--primary-bg);
   border-radius: 15px;
   padding: 3px;
 }
@@ -12508,7 +12501,7 @@ p.term-condition-head {
 }
 .acc-model {
   padding: 0;
-  background: var(--primary-color);
+  background: var(--primary-bg);
 }
 .acc-model .modal-header .modal-title {
   text-align: center;
@@ -12550,7 +12543,7 @@ p.term-condition-head {
 .acc-login-model-up-sec .modal .modal-content {
   background: #f3f2f6;
   border: none;
-  box-shadow: 0 0 5px 0 var(--primary-color);
+  box-shadow: 0 0 5px 0 var(--primary-bg);
 }
 .acc-model-footer .modal-footer {
   border-top: 0 !important;
@@ -12558,7 +12551,7 @@ p.term-condition-head {
   justify-content: center;
 }
 .acc-model-footer {
-  background-color: var(--primary-color);
+  background-color: var(--primary-bg);
 }
 .acc-model-footer .modal-footer button {
   border: 1px solid transparent;
@@ -12578,7 +12571,7 @@ p.term-condition-head {
   border-color: #6c757d;
 }
 .acc-model-footer .modal-footer button.save-acc-btn12 {
-  color: var(--primary-color);
+  color: var(--primary-bg);
   background-color: #fff;
   border-color: #fff;
 }
@@ -12645,7 +12638,7 @@ p.term-condition-head {
   border-radius: 0;
 }
 .profile-tab-list .nav-pills .nav-link.active {
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid var(--primary-bg);
 }
 .profile-tab-list .nav-pills .nav-link {
   background: 0 0;
@@ -12771,7 +12764,7 @@ span.addnum {
 .select-search-box .form-select:focus {
   color: #212529;
   background-color: #fff;
-  border-color: var(--primary-color);
+  border-color: var(--primary-bg);
   outline: 0;
 }
 .get-statement-sec button {
@@ -12800,10 +12793,10 @@ span.addnum {
   background-image: none;
 }
 .start-end-date-sec input:focus {
-  box-shadow: 0 0 0 2px var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-bg);
   color: #212529;
   background-color: #fff;
-  border-color: var(--primary-color);
+  border-color: var(--primary-bg);
   outline: 0;
 }
 .form-search-table thead tr th {
@@ -12901,12 +12894,12 @@ li.menu-rgt-icons.wdrl-bg a:hover {
   font-weight: 700 !important;
   padding: 5px !important;
   color: #000 !important;
-  border-right: 1px solid var(--primary-color) !important;
+  border-right: 1px solid var(--primary-bg) !important;
   text-transform: capitalize !important;
 }
 .all-game-details-page ul {
   background: #dedddd !important;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--primary-bg);
 }
 .all-game-details-page .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
@@ -13052,7 +13045,7 @@ p.forpass-in a {
   text-align: center;
 }
 .create-new-acc a {
-  color: var(--primary-color);
+  color: var(--primary-bg);
   text-align: center;
   line-height: 24px;
   font-weight: 600;
@@ -13072,15 +13065,15 @@ a {
 }
 .btn-danger,
 .cmn-btn {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
+  background-color: var(--primary-bg);
+  border-color: var(--primary-bg);
   opacity: 1;
 }
 .btn-danger:hover,
 .cmn-btn:hover,
 .submitt-btn button:active {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
+  background-color: var(--primary-bg);
+  border-color: var(--primary-bg);
 }
 .delete-account-btn .btn.btn-danger {
   position: absolute;
@@ -13122,7 +13115,7 @@ a {
   line-height: 21px;
 }
 .bonus-list-wrapper .nav-pills .nav-link.active {
-  border-color: var(--primary-color);
+  border-color: var(--primary-bg);
 }
 .bonus-list-wrapper .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
@@ -13194,7 +13187,7 @@ a {
   border: 1px solid #fff;
   border-radius: 10px;
   text-align: center;
-  background-color: var(--primary-color);
+  background-color: var(--primary-bg);
 }
 .refer-user .user-nub h3 {
   font-size: 14px;
@@ -13513,7 +13506,7 @@ img {
   max-width: 100%;
 }
 .nav-pills .nav-link.active .match-head h5 {
-  color: var(--primary-color) !important;
+  color: var(--primary-bg) !important;
 }
 .market-analysis {
   width: 87%;
@@ -13702,7 +13695,7 @@ select {
   justify-content: center;
 }
 .deposit-btn .thm-but {
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--primary-bg);
 }
 .continue-btn .thm-but {
   width: 100%;
@@ -13736,7 +13729,7 @@ select {
   width: 50%;
 }
 .edit-btn .thm-bor-but:hover {
-  color: var(--primary-color);
+  color: var(--primary-bg);
   background-color: transparent;
 }
 .recent-wrapper {
@@ -13777,7 +13770,7 @@ select {
   width: 18px;
   height: 18px;
   background-color: transparent;
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--primary-bg);
 }
 .recent-sec .form-check-input:checked[type="radio"] {
   filter: invert(49%) sepia(116%) saturate(1308%) hue-rotate(49deg)
@@ -13800,7 +13793,7 @@ select {
   color: #302828fc;
 }
 .recent-sec.show {
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--primary-bg);
 }
 .new-account-wrapper {
   margin-top: 15px;
@@ -14151,7 +14144,7 @@ select {
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  color: var(--primary-color);
+  color: var(--primary-bg);
 }
 .view-details {
   padding: 10px 15px;
@@ -14228,7 +14221,7 @@ select {
   font-weight: 400;
   font-size: 16px;
   line-height: normal;
-  color: var(--primary-color);
+  color: var(--primary-bg);
   padding-bottom: 10px;
 }
 .collapes-arrow {
@@ -14307,9 +14300,9 @@ figure {
 }
 .thm-bor-but {
   background: transparent;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--primary-bg);
   margin-right: 10px;
-  color: var(--primary-color);
+  color: var(--primary-bg);
 }
 .recent-sec.show {
   border: 2px solid var(--secondary-color);
@@ -14394,7 +14387,7 @@ figure {
   margin-top: 6px;
 }
 .bank-transfer-sec.active {
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--primary-bg);
 }
 .menu-details-list ul li {
   display: flex;
@@ -14447,7 +14440,7 @@ span.menu-rgt-text {
 }
 .copy-input-sec input {
   border-radius: 4px;
-  border: 2px dashed var(--primary-color);
+  border: 2px dashed var(--primary-bg);
   background: #01af701c;
   padding: 15px 10px;
   font-size: 14px;
@@ -15287,7 +15280,7 @@ section.suspended-sec.status-type-sec {
   background: none;
 }
 .modal-header .btn-close {
-  color: #000;
+  color: var(--primary-color);
   margin-right: 0;
   margin-top: -15px;
 }
@@ -15518,7 +15511,7 @@ section.suspended-sec.status-type-sec {
 }
 .bonusBx-wrap {
   margin: 0 5px;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--primary-bg);
   border-radius: 4px;
   line-height: normal;
   background: #fff;
@@ -15718,7 +15711,7 @@ header.show,
 .bdr-btn {
   border: 1px solid #ffffff;
   background-color: transparent;
-  color: var(--secondary-color);
+  color: var(--primary-color);
   border-radius: 50px;
   padding: 6px 15px;
   transition: 0.9s;
@@ -15726,7 +15719,7 @@ header.show,
 }
 .bdr-btn:hover {
   background-color: #fff;
-  color: var(--primary-color);
+  color: var(--primary-bg);
 }
 .signup-login-btn {
   color: #fff;
@@ -15949,12 +15942,12 @@ header.show,
   overflow-x: auto;
   overflow-y: hidden;
   width: auto;
-  box-shadow: inset 0 0 0 1px var(--primary-color);
+  box-shadow: inset 0 0 0 1px var(--primary-bg);
   margin-bottom: 3px;
   margin-top: 3px;
 }
 .fancy-tab-list ul li {
-  border-right: 1px solid var(--primary-color);
+  border-right: 1px solid var(--primary-bg);
 }
 .int_sub_navbar li a,
 .racetabs ul li a {
@@ -16044,7 +16037,7 @@ header.show,
   text-align: center;
 }
 .balance-head {
-  background-color: var(--primary-color);
+  background-color: var(--primary-bg);
   padding: 4px 11px;
   height: 40px;
   box-sizing: border-box;
@@ -16158,7 +16151,7 @@ header.show,
   text-align: center;
   padding: 7px 13px;
   background: var(--primary-gradient-color);
-  color: #000;
+  color: var(--primary-color);
   position: relative;
   width: 90%;
   margin: 0 auto;
@@ -16282,8 +16275,8 @@ button.btn.tv-btn img {
   background-color: #d8d8d8;
 }
 .active-page {
-  background-color: var(--primary-color);
-  border: 1px solid var(--primary-color);
+  background-color: var(--primary-bg);
+  border: 1px solid var(--primary-bg);
   color: #fff;
 }
 .active-page:hover {
@@ -16337,7 +16330,7 @@ span.fl-left {
   font-size: 16px;
 }
 .login-cmn-btn.login-demo-btn button {
-  background: var(--primary-color);
+  background: var(--primary-bg);
   color: #000;
   font-weight: 600;
   text-transform: capitalize;
@@ -16531,7 +16524,7 @@ span.fl-left {
   width: 50%;
 }
 .profile-tab-list .nav-pills .nav-link.active {
-  border-bottom: 2px solid var(--primary-color);
+  border-bottom: 2px solid var(--primary-bg);
   background: var(--primary-gradient-color);
   color: #000 !important;
 }
@@ -16557,8 +16550,8 @@ span.fl-left {
   padding: 0;
 }
 .form-check-input:checked {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
+  background-color: var(--primary-bg);
+  border-color: var(--primary-bg);
 }
 .match-odd-bookmaker-sec {
   position: relative;
@@ -16725,7 +16718,7 @@ span.fl-left {
   margin-left: 5px;
   margin-right: 0;
   color: #fff !important;
-  background: var(--primary-color);
+  background: var(--primary-bg);
   border-radius: 50px;
   text-align: center;
 }
@@ -16795,7 +16788,7 @@ span.fl-left {
   padding: 5px 10px 5px 5px;
   align-items: center;
   vertical-align: middle;
-  color: #000;
+  color: var(--primary-color);
   font-size: 13px;
   position: relative;
   margin-right: 10px;
@@ -16807,7 +16800,7 @@ span.fl-left {
   content: "";
   width: 15px;
   height: 100%;
-  background: var(--primary-color);
+  background: var(--primary-bg);
   position: absolute;
   right: -7px;
   top: 0;
@@ -16963,7 +16956,7 @@ span.fl-left {
   text-decoration: none;
   overflow: hidden;
   border-radius: 3px;
-  background: var(--primary-color);
+  background: var(--primary-bg);
   left: 8px;
   bottom: 7px;
   font-size: 10px;
@@ -17208,7 +17201,7 @@ span.fl-left {
   margin-bottom: 5px;
 }
 .popular-game-tab .nav-tabs .nav-link.active {
-  background-color: var(--primary-color);
+  background-color: var(--primary-bg);
   color: #fff;
 }
 .popular-game-tab .nav-tabs .nav-link p {
@@ -17374,7 +17367,7 @@ span.fl-left {
   z-index: 2;
 }
 .login-page .login-box .login-card .login-card-header .login-text p {
-  color: var(--primary-color);
+  color: var(--primary-bg);
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 600;
@@ -17486,7 +17479,7 @@ input:focus-visible {
   position: absolute;
   right: 15px;
   top: 38px;
-  color: var(--primary-color);
+  color: var(--primary-bg);
 }
 .login-page .login-box .mobile-input .password-input .showPass {
   position: absolute;
@@ -17598,7 +17591,7 @@ input:focus-visible {
   padding-bottom: 0.69rem;
 }
 .login-page .login-box .login-box1 .whatsup-login span {
-  color: var(--primary-color);
+  color: var(--primary-bg);
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 500;
@@ -17630,7 +17623,7 @@ input:focus-visible {
 .form_wrapper .tab {
   width: 50%;
   height: 34px;
-  color: var(--primary-color);
+  color: var(--primary-bg);
   font-size: 0.75rem;
   font-style: normal;
   font-weight: 600;
@@ -17731,7 +17724,7 @@ input:focus-visible {
 }
 .forgot-btn-box .back-btn span,
 .forgot-btn-box .get-otp-btn span {
-  color: var(--primary-color);
+  color: var(--primary-bg);
   font-size: 1rem;
   font-style: normal;
   font-weight: 600;
@@ -17793,7 +17786,7 @@ input:focus-visible {
   border-right: solid 1px #b88831;
 }
 .exch-match-detail-tabs-section .nav-tabs .nav-link.active {
-  background-color: var(--primary-color);
+  background-color: var(--primary-bg);
   color: #fff;
 }
 .exch-cashout-body-center {
@@ -17804,7 +17797,7 @@ input:focus-visible {
   margin-top: 15px;
 }
 .exch-modal-text-msg p {
-  color: var(--primary-color);
+  color: var(--primary-bg);
 }
 .exch-modal-popup-header-section {
   justify-content: space-between;
@@ -17815,7 +17808,7 @@ input:focus-visible {
   top: 10px;
 }
 .exch-open-bets-wrapper .accordion-button h5 {
-  color: var(--primary-color);
+  color: var(--primary-bg);
   font-size: 16px;
 }
 .exch-rule-modal-para {
@@ -17836,7 +17829,7 @@ input:focus-visible {
 }
 .modal-info {
   text-align: center;
-  background: var(--primary-color);
+  background: var(--primary-bg);
   border-radius: 100%;
   padding: 10px;
   width: fit-content;
@@ -17949,7 +17942,7 @@ header.show {
 }
 .balance-btn {
   background-color: transparent;
-  color: var(--primary-color);
+  color: var(--primary-bg);
   border: 1px solid #ccc;
   margin-left: 6px;
 }
@@ -18010,8 +18003,8 @@ a.thm-but.thm-bor-but.share-btn img {
 }
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  color: var(--primary-color) !important;
-  border-bottom: 3px solid var(--primary-color);
+  color: var(--primary-bg) !important;
+  border-bottom: 3px solid var(--primary-bg);
 }
 .btn-check:checked + .btn,
 .btn.active,
@@ -18066,7 +18059,7 @@ a.thm-but.thm-bor-but.share-btn img {
 }
 .dropdown-toggle:focus,
 .dropdown-toggle:hover {
-  color: var(--primary-color);
+  color: var(--primary-bg);
 }
 .number {
   display: flex;
@@ -18140,7 +18133,7 @@ a.thm-but.thm-bor-but.share-btn img {
 }
 .thm-heading p span,
 .thm-heading p span a {
-  color: var(--primary-color);
+  color: var(--primary-bg);
 }
 .match-bg .btn-thm {
   width: 96px !important;
@@ -18156,7 +18149,7 @@ a.thm-but.thm-bor-but.share-btn img {
 }
 input:focus {
   box-shadow: none !important;
-  border-color: var(--primary-color) !important;
+  border-color: var(--primary-bg) !important;
 }
 .btn-close:focus {
   box-shadow: none !important;
@@ -18287,7 +18280,7 @@ div.mm-dropdown ul li img {
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
-  color: var(--primary-color);
+  color: var(--primary-bg);
   padding: 0 2px;
   margin-left: 2px;
 }
@@ -18333,7 +18326,7 @@ div.mm-dropdown ul li img {
   background: #fff;
 }
 .view-but-sec .thm-bor-but:hover {
-  color: var(--primary-color);
+  color: var(--primary-bg);
 }
 .stakefix-sec .the-match-sec .thm-heading {
   margin: 6px 0;
@@ -18403,8 +18396,8 @@ div.mm-dropdown ul li img {
 .withdraw-sec .thm-gradient-but ul li .btn-thm:active,
 .withdraw-sec .thm-gradient-but ul li .btn-thm:checked,
 .withdraw-sec .thm-gradient-but ul li .btn-thm:focus {
-  border: 1px solid var(--primary-color);
-  color: var(--primary-color);
+  border: 1px solid var(--primary-bg);
+  color: var(--primary-bg);
 }
 .withdraw-btn {
   margin-top: 15px;
@@ -18422,7 +18415,7 @@ div.mm-dropdown ul li img {
   width: 45%;
 }
 .edit-btn .thm-bor-but:hover {
-  color: var(--primary-color);
+  color: var(--primary-bg);
 }
 .info-sec {
   display: flex;
@@ -18531,7 +18524,7 @@ ul.nav.nav-pills li {
   text-decoration: underline;
 }
 .thm-heading a:hover span {
-  color: var(--primary-color);
+  color: var(--primary-bg);
   text-decoration: underline;
 }
 .thm-gradient-but ul li:last-child .btn-thm {
@@ -18629,9 +18622,9 @@ ul.nav.nav-pills li {
 }
 .modal-boder-btn .thm-but.show {
   background-color: transparent;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--primary-bg);
   margin-right: 10px;
-  color: var(--primary-color);
+  color: var(--primary-bg);
 }
 .info-footer {
   justify-content: center;
@@ -18691,10 +18684,10 @@ ul.nav.nav-pills li {
   z-index: 9;
 }
 .stage-item.active .dot {
-  background-color: var(--primary-color);
+  background-color: var(--primary-bg);
 }
 .stage-item.active .stage-item-text span {
-  color: var(--primary-color) !important;
+  color: var(--primary-bg) !important;
 }
 .stage-item.active .dot span {
   color: #fff;
@@ -18762,10 +18755,10 @@ ul.nav.nav-pills li {
 }
 .stage.stage-info .stage-item.activated:after,
 .stage.stage-info .stage-item.active:after {
-  background-color: var(--primary-color);
+  background-color: var(--primary-bg);
 }
 .info-footer button:hover {
-  color: var(--primary-color);
+  color: var(--primary-bg);
 }
 .info-footer .thm-but:hover {
   color: #000;
@@ -18990,7 +18983,7 @@ ul.nav.nav-pills li {
   border: 1.6px solid #929eb5;
 }
 .choose-bet-list .nav-pills .nav-link.active .choose-list-con h4 {
-  color: var(--primary-color);
+  color: var(--primary-bg);
 }
 .choose-bet-list .nav-pills .nav-link.active .choose-list-con p {
   color: #333;
@@ -19005,10 +18998,10 @@ ul.nav.nav-pills li {
 }
 .choose-bet-list .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
-  color: var(--primary-color) !important;
+  color: var(--primary-bg) !important;
   border-bottom: none;
   background-color: transparent !important;
-  border: 1.6px solid var(--primary-color);
+  border: 1.6px solid var(--primary-bg);
   margin: 0;
 }
 .choose-bet-list .nav-pills .nav-link.active {
@@ -19032,7 +19025,7 @@ ul.nav.nav-pills li {
 .view-btn-con:focus,
 .view-btn-con:active {
   background: #fff8d6 !important;
-  color: var(--primary-color) !important;
+  color: var(--primary-bg) !important;
 }
 .modal-successfully .modal-header {
   background-color: #2db261 !important;
@@ -19160,7 +19153,7 @@ ul.nav.nav-pills li {
 .info-footer .thm-bor-but:hover,
 .info-footer .thm-bor-but:focus,
 .info-footer .thm-bor-but:active {
-  color: var(--primary-color);
+  color: var(--primary-bg);
 }
 .cancel-btn:hover {
   color: #dd360c !important;
@@ -19199,7 +19192,7 @@ ul.nav.nav-pills li {
 .thm-but:hover,
 .thm-but:focus,
 .thm-but:active {
-  background-color: var(--primary-color);
+  background-color: var(--primary-bg);
   color: #000;
 }
 .modal-header {
@@ -19220,8 +19213,8 @@ ul.nav.nav-pills li {
 .thm-bor-but:focus,
 .thm-bor-but:active {
   background-color: transparent;
-  border-color: var(--primary-color);
-  color: var(--primary-color);
+  border-color: var(--primary-bg);
+  color: var(--primary-bg);
 }
 .cancel-btn:hover {
   background-color: #ffccbf !important;
@@ -19314,7 +19307,7 @@ ul.nav.nav-pills li {
 }
 .player-con .thm-but:hover {
   background: #fff;
-  color: var(--primary-color);
+  color: var(--primary-bg);
 }
 .no-notifucation {
   height: 100%;
@@ -19521,8 +19514,8 @@ ul.nav.nav-pills li {
 }
 .modal-boder-btn.thm-heading.mt-lg-3.mt-2
   .thm-but.thm-bor-but.text-center.active {
-  border: 1px solid var(--primary-color);
-  color: var(--primary-color);
+  border: 1px solid var(--primary-bg);
+  color: var(--primary-bg);
   background: #fff;
 }
 ol {
@@ -19609,7 +19602,7 @@ ol {
 }
 .custom-language-list ul li.active .form-check,
 .custom-language-list ul li .form-check:hover {
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--primary-bg);
 }
 .custom-language-list ul li .form-check .form-check-label {
   font-weight: 500;
@@ -19630,7 +19623,7 @@ ol {
     contrast(92%);
 }
 .custom-language-list ul li.active .form-check label {
-  color: var(--primary-color);
+  color: var(--primary-bg);
 }
 .search-lang-input .form-control {
   padding-right: 35px;
@@ -19638,8 +19631,8 @@ ol {
   padding-bottom: 10px;
 }
 .change-lang-modal .thm-bor-but {
-  border-color: var(--primary-color);
-  color: var(--primary-color);
+  border-color: var(--primary-bg);
+  color: var(--primary-bg);
 }
 .change-lang-modal .modal-header {
   background-color: #f5f5f5;
@@ -19720,7 +19713,7 @@ ol {
   align-items: center;
 }
 .loader span {
-  color: var(--primary-color);
+  color: var(--primary-bg);
   font-size: 46px;
 }
 .login-model-pop-up-sec .modal-content {
@@ -19741,8 +19734,8 @@ ol {
 button.ending-breakpoint-button.btn-class,
 button.starting-breakpoint-button.btn-class,
 button.btn-class.number-buttons.btn-active {
-  background: var(--primary-color);
-  box-shadow: 0 0 2px 0 var(--primary-color);
+  background: var(--primary-bg);
+  box-shadow: 0 0 2px 0 var(--primary-bg);
   color: #fff;
 }
 .bg_img {
@@ -19948,7 +19941,7 @@ button.btn-class.number-buttons.btn-active {
 .or-separate:before,
 .or-separate:after {
   content: "";
-  background: var(--primary-color);
+  background: var(--primary-bg);
   height: 1px;
 }
 .otp-guide-text {
@@ -20024,7 +20017,7 @@ button.btn-class.number-buttons.btn-active {
   margin: 0;
 }
 .change-passwword-btn button {
-  background: var(--primary-color);
+  background: var(--primary-bg);
   border: none;
   margin-top: 5px;
   height: 45px;
@@ -20034,7 +20027,7 @@ button.btn-class.number-buttons.btn-active {
 .change-passwword-btn button:hover,
 .change-passwword-btn button:focus,
 .change-passwword-btn button:active {
-  background: var(--primary-color);
+  background: var(--primary-bg);
   color: #fff;
   font-weight: 600;
 }
@@ -20049,7 +20042,7 @@ button.btn-class.number-buttons.btn-active {
   background: #fff;
 }
 .heading__title {
-  background: var(--primary-color);
+  background: var(--primary-bg);
   color: #fff;
   padding: 8px 13px;
   border-radius: 6px 6px 0 0;
@@ -20120,7 +20113,7 @@ button.btn-class.number-buttons.btn-active {
   align-items: center;
   border-radius: 50px;
   font-size: 10px;
-  color: var(--theme-primary);
+  color: var(--primary-color);
   margin-right: 10px;
 }
 .nav-right.header-nav-rgt ul li i.fa-gavel {
@@ -20356,8 +20349,8 @@ button.btn-class.number-buttons.btn-active {
 }
 .white-btn {
   background: #fff;
-  color: var(--primary-color);
-  border: 1px solid var(--primary-color);
+  color: var(--primary-bg);
+  border: 1px solid var(--primary-bg);
   border-radius: 4px;
   padding: 0 15px;
   font-size: 13px;
@@ -20376,7 +20369,7 @@ button.btn-class.number-buttons.btn-active {
   margin-left: 0;
   padding: 15px;
   background: #fff;
-  border-top: 2px solid var(--primary-color);
+  border-top: 2px solid var(--primary-bg);
   box-shadow: 0 -2px 5px #00000026;
 }
 .digits-fix-header .thm-modal-header {
@@ -20416,7 +20409,7 @@ button.btn-class.number-buttons.btn-active {
   padding: 0;
   font-size: 12px;
   font-weight: 600;
-  color: var(--primary-color);
+  color: var(--primary-bg);
 }
 .matka-section li {
   display: inline-block;
@@ -20463,7 +20456,7 @@ button.btn-class.number-buttons.btn-active {
   box-shadow: #11111a1a 0 0 16px;
 }
 .matka-table-list table thead {
-  background: var(--primary-color);
+  background: var(--primary-bg);
 }
 tr.e-statement-header {
   position: relative;
@@ -20483,7 +20476,7 @@ tr.e-statement-header:after {
   height: 10px;
   display: block;
   position: absolute;
-  background: var(--primary-color);
+  background: var(--primary-bg);
   top: -5px;
   right: 25px;
   transform: translate(-50%, -50%);
@@ -20505,7 +20498,7 @@ td.profit-color {
 }
 .matka-detail-section .matka-sub-header-tab .nav-tabs {
   justify-content: flex-start;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--primary-bg);
   margin: 5px 0 10px;
 }
 .matka-detail-section .matka-sub-header-tab .nav-tabs li.nav-item {
@@ -20545,7 +20538,7 @@ td.profit-color {
 .matka-detail-inner-tabs .nav-tabs li .nav-link {
   background: var(--white-color);
   border-radius: 4px;
-  border: solid 1px var(--primary-color);
+  border: solid 1px var(--primary-bg);
   color: #000;
   padding: 5px 10px;
 }
@@ -20562,7 +20555,7 @@ td.profit-color {
   margin-top: -3px;
 }
 .matka-detail-inner-tabs .nav-tabs li .nav-link.active {
-  border: solid 1px var(--primary-color);
+  border: solid 1px var(--primary-bg);
   background: var(--primary-gradient-color) !important;
 }
 .matka-wrapper-detail .guru-selection-wrapper {
@@ -20615,7 +20608,7 @@ td.profit-color {
   color: var(--white-color);
   padding: 0 15px;
   font-size: 14px;
-  background: var(--primary-color);
+  background: var(--primary-bg);
 }
 .guru-but-sec {
   margin-top: 15px;
@@ -20749,8 +20742,8 @@ tr.e-statement-header:after {
 }
 .white-btn {
   background: #fff;
-  color: var(--primary-color);
-  border: 1px solid var(--primary-color);
+  color: var(--primary-bg);
+  border: 1px solid var(--primary-bg);
   border-radius: 4px;
   padding: 0 15px;
   font-size: 13px;
@@ -20760,15 +20753,15 @@ tr.e-statement-header:after {
 }
 .shortNum .btn {
   background: #f8f9fa;
-  border: 1px solid var(--primary-color) !important;
+  border: 1px solid var(--primary-bg) !important;
   min-width: auto;
-  color: var(--primary-color);
+  color: var(--primary-bg);
   font-weight: 600;
   margin: 0;
   width: 100%;
 }
 .gully-stakefix-sec .select-digit input {
-  border-color: var(--primary-color);
+  border-color: var(--primary-bg);
   background: #e7e7e7;
 }
 .gully-stakefix-sec .button-head {
@@ -20786,7 +20779,7 @@ tr.e-statement-header:after {
   overflow-y: auto;
 }
 .digits-fix-header .link-btn {
-  background-color: var(--primary-color);
+  background-color: var(--primary-bg);
   color: #fff;
   border-radius: 4px;
   padding: 2px 6px;
@@ -20827,7 +20820,7 @@ tr.e-statement-header:after {
   gap: 10px;
 }
 .matka-bets-sec .accordion-header .accordion-button {
-  border-bottom: 1px solid var(--primary-color);
+  border-bottom: 1px solid var(--primary-bg);
   padding: 10px;
   background-color: #fff;
 }
@@ -20993,8 +20986,8 @@ body {
   gap: 10px;
 }
 .new-fancytab-list-ui-sec.fancy-tab-list.fancy-pre-f-tabs ul li button {
-  border: 1px solid var(--primary-color) !important;
-  color: var(--primary-color);
+  border: 1px solid var(--primary-bg) !important;
+  color: var(--primary-bg);
   font-weight: 700;
 }
 .blink-soft {
@@ -21083,13 +21076,13 @@ body {
   color: #000 !important;
 }
 .earn-locked-bonus .credits-list-con h5 {
-  color: var(--primary-color);
+  color: var(--primary-bg);
   font-weight: 600;
   font-size: 16px;
 }
 .locked-bonus-btn {
-  background: var(--primary-color);
-  border: 1px solid var(--primary-color) !important;
+  background: var(--primary-bg);
+  border: 1px solid var(--primary-bg) !important;
   color: var(--white-color);
   border-radius: 4px;
   display: block;
@@ -21111,7 +21104,7 @@ body {
   padding-top: 0;
 }
 .locked-bonus-btn span {
-  color: var(--primary-color) !important;
+  color: var(--primary-bg) !important;
   font-size: 12px !important;
   font-weight: 400 !important;
 }
@@ -21279,7 +21272,7 @@ body {
     contrast(86%);
 }
 .matka-detail-sub-heading h2.nw-worli-matka-btn {
-  background: var(--primary-color);
+  background: var(--primary-bg);
   text-align: center;
   padding: 5px 10px;
   border-radius: 4px;
@@ -21506,7 +21499,7 @@ body {
   padding: 1rem !important;
 }
 .notifi-icon {
-  background: var(--primary-color);
+  background: var(--primary-bg);
   width: 70px;
   height: 70px;
   border-radius: 50px;
@@ -21704,7 +21697,7 @@ h4.win-heading {
   padding: 5px 10px;
 }
 .view-bets-modal {
-  background: var(--primary-color);
+  background: var(--primary-bg);
   border: none;
   border-radius: 4px;
   padding: 4px 6px 5px;
@@ -21843,7 +21836,7 @@ h4.win-heading {
   border: 2px solid transparent;
 }
 .online-payment-bank.selected-card {
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--primary-bg);
 }
 .online-payment-bank p {
   font-weight: 300;
@@ -21864,11 +21857,11 @@ h4.win-heading {
   position: absolute;
 }
 .online-payment-bank p button i.fa-solid.fa-copy {
-  color: var(--primary-color);
+  color: var(--primary-bg);
   font-size: 15px;
 }
 .online-payment-bank p button i.fa-solid.fa-copy:hover {
-  color: var(--primary-color);
+  color: var(--primary-bg);
 }
 .online-payment-bank p button:focus {
   box-shadow: 0 0 0 0.2rem #28a74580;
@@ -22011,7 +22004,7 @@ h4.win-heading {
   border: 2px solid transparent;
 }
 .account-card.online-payment-mode-body.selected-card {
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--primary-bg);
 }
 .online-payment-mode-body .delete-account-btn .btn.btn-danger {
   top: 0;
@@ -22035,18 +22028,18 @@ h4.win-heading {
   border-radius: 0 0 0 5px;
 }
 .submitt-btn .withdraw-btn {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
+  background-color: var(--primary-bg);
+  border-color: var(--primary-bg);
   opacity: 1;
 }
 .submitt-btn .withdraw-btn:active,
 .submitt-btn .withdraw-btn:hover {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
+  background-color: var(--primary-bg);
+  border-color: var(--primary-bg);
 }
 .submitt-btn .withdraw-btn:focus {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
+  background-color: var(--primary-bg);
+  border-color: var(--primary-bg);
 }
 .withdraw-instruction {
   border: solid 1px #a7a7a7;
@@ -22113,7 +22106,7 @@ ul.live_virtual li label {
   align-items: center;
   justify-content: center;
   border: 1px solid #b88831;
-  color: #000;
+  color: var(--primary-color);
   border-radius: 25px;
   white-space: nowrap;
   margin: 0 1px;
@@ -22169,7 +22162,7 @@ ul.live_virtual li input[type="checkbox"]:checked + label:before {
   column-gap: 5px;
 }
 .login-cmn-btn.download-apk-btn a {
-  background: var(--primary-color);
+  background: var(--primary-bg);
   color: #fff;
   display: flex;
   justify-content: center;
@@ -22566,11 +22559,18 @@ p.size-of-box.resend-otp {
   box-shadow: 1px 1px 2px #b98d2e !important;
 }
 .all-game-details-page .nav.nav-pills.casino-provider-list li button.active {
-  color: #000 !important;
+  color: var(--primary-color) !important;
 }
 .int-casino-main-tabs .nav.sub-casino-provider-list .nav-item .nav-link.active {
-  color: #000 !important;
+  color: var(--primary-color) !important;
   border-bottom: none !important;
+}
+.int-casino-main-tabs
+  .nav.sub-casino-provider-list
+  .nav-item
+  .nav-link.active
+  img {
+  filter: invert(1);
 }
 .nav.nav-pills.sub-casino-provider-list {
   margin-top: 0;
@@ -22656,7 +22656,7 @@ button.btn.search-casino-cta i {
   line-height: 20px;
 }
 .one-bet-click-value label {
-  color: var(--primary-color);
+  color: var(--primary-bg);
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
@@ -22693,8 +22693,8 @@ button.btn.search-casino-cta i {
   font-size: 0.865rem;
 }
 .amount-value-item .amount-input.active {
-  color: var(--primary-color);
-  border-color: var(--primary-color);
+  color: var(--primary-bg);
+  border-color: var(--primary-bg);
 }
 .min-max-section {
   display: flex;
@@ -22905,17 +22905,17 @@ button.btn.search-casino-cta i {
   padding: 0.25rem 0.5rem;
   line-height: 18px;
   border-radius: 0.375rem;
-  color: var(--primary-color);
+  color: var(--primary-bg);
   background-color: transparent;
   border: 0;
   box-shadow: #0000000a 0 5px 4px;
-  border: solid 1px var(--primary-color);
+  border: solid 1px var(--primary-bg);
   min-width: max-content;
 }
 .openBetsTabs .nav-tabs .nav-item .nav-link.active {
-  background: var(--primary-color);
+  background: var(--primary-bg);
   color: #fff;
-  border-color: var(--primary-color);
+  border-color: var(--primary-bg);
 }
 .openBetsTabs .table thead tr th {
   text-align: center;
@@ -23072,7 +23072,7 @@ button.btn.search-casino-cta i {
   column-gap: 10px;
 }
 .date-btn {
-  background: var(--primary-color);
+  background: var(--primary-bg);
   color: #fff;
   justify-content: center;
   font-size: 12px;
@@ -23213,7 +23213,7 @@ button.btn.search-casino-cta i {
 }
 .dropdown.open-menu-btn button.active,
 .dropdown.open-menu-btn button:active {
-  background: var(--primary-color);
+  background: var(--primary-bg);
 }
 .install-apk-model .btn-close {
   right: 0 !important;
@@ -24121,7 +24121,7 @@ td.avg-event {
   font-weight: 600;
 }
 .matkaMTL-accordion {
-  border: 1px solid var(--primary-color) !important;
+  border: 1px solid var(--primary-bg) !important;
   overflow: hidden;
 }
 .matkaMTL-accordion .accordion-header .accordion-button {
@@ -24285,7 +24285,7 @@ td.avg-event {
 }
 .bonus-play .text-display {
   width: 100%;
-  background: var(--primary-color);
+  background: var(--primary-bg);
   border: none;
   color: #fff;
   font-size: 13px;
@@ -24436,7 +24436,7 @@ li.header-userid {
 .header-userid a {
   padding: 8px 10px;
   display: block;
-  background: var(--primary-color);
+  background: var(--primary-bg);
 }
 .header-copy-icon h5 {
   font-weight: 600;
@@ -24619,7 +24619,7 @@ p.betslip-aval-bal.hide-avil-fancy-betslip {
 .modal-header h5,
 .modal-header h4,
 .modal-header h2 {
-  color: #000 !important;
+  color: var(--primary-color) !important;
   font-size: 16px;
   line-height: 15px;
   padding: 0;
@@ -24935,7 +24935,7 @@ select.form-select:hover {
 }
 label.wallet-avail-bal {
   text-align: right;
-  background: var(--primary-color);
+  background: var(--primary-bg);
   display: inline-block;
   float: right;
   padding: 5px;
@@ -25108,7 +25108,7 @@ label.wallet-avail-bal span {
   padding: 0 3px;
 }
 .bonus-info-count {
-  background: var(--primary-color);
+  background: var(--primary-bg);
   color: #fff;
   text-align: center;
   font-size: 11px;
@@ -25368,7 +25368,7 @@ marquee.announcement-msg {
   text-transform: capitalize;
   background: transparent !important;
   border-radius: 4px !important;
-  border: 1px solid var(--primary-color) !important;
+  border: 1px solid var(--primary-bg) !important;
   color: #000 !important;
   padding: 6px 15px;
 }
@@ -25487,7 +25487,7 @@ marquee.announcement-msg {
   .dropdown-menu
   li
   .dropdown-item.active {
-  color: var(--primary-color) !important;
+  color: var(--primary-bg) !important;
   background: var(--theme-btn-bg) !important;
 }
 .header-wapper
@@ -25534,7 +25534,7 @@ section.nw-affi-invite-wrapper.affi-pd-bot {
   text-transform: capitalize;
 }
 .nw-affi-add-new-user-btn {
-  background: var(--primary-color) !important;
+  background: var(--primary-bg) !important;
   position: relative;
   color: #fff;
   padding: 10px;
@@ -25847,7 +25847,7 @@ section.nw-affi-invite-wrapper.affi-pd-bot {
   display: none;
 }
 .nw-affi-pl-content-wrapper {
-  background-color: var(--primary-color);
+  background-color: var(--primary-bg);
   padding: 15px;
   border: 1px solid #ffffff29;
   border-radius: 4px;
@@ -25878,7 +25878,7 @@ section.nw-affi-invite-wrapper.affi-pd-bot {
   height: 20px;
   position: absolute;
   top: -10px;
-  background: var(--primary-color);
+  background: var(--primary-bg);
   border-radius: 40% 0 0;
   transform: rotate(45deg);
   border-top: 1px solid #ffffff29;
@@ -26135,8 +26135,8 @@ section.nw-affi-invite-wrapper.affi-pd-bot {
   justify-content: space-between;
   gap: 10px;
   align-items: center;
-  background-color: var(--primary-color) !important;
-  color: var(--primary-color);
+  background-color: var(--primary-bg) !important;
+  color: var(--primary-bg);
 }
 .af-top-user-head h6 {
   font-size: 14px;
@@ -26186,7 +26186,7 @@ section.nw-affi-invite-wrapper.affi-pd-bot {
   right: 0;
   height: 100%;
   border-radius: 0 4px 4px 0;
-  background: var(--primary-color);
+  background: var(--primary-bg);
   color: #fff;
   padding: 0 6px;
   font-size: 14px;
@@ -26260,7 +26260,7 @@ section.nw-affi-invite-wrapper.affi-pd-bot {
   font-size: 14px;
   padding: 6px 15px;
   border-radius: 6px;
-  background: var(--primary-color);
+  background: var(--primary-bg);
   color: #fff;
   border: none;
   width: auto;
@@ -26363,7 +26363,7 @@ ul.affi-how-bonus-list.affi-how-to-get-bonus h5 {
   font-weight: 500;
   min-width: 60px;
   color: #fff !important;
-  background: var(--primary-color) !important;
+  background: var(--primary-bg) !important;
   border: none !important;
 }
 .nw-affi-invite-sec .nw-affi-add-new-user-btn-sec {
@@ -26547,7 +26547,7 @@ td.statement_hyper_link {
 }
 .affiliate-footer-sec ul li a:hover,
 .affiliate-footer-sec ul li .router-link-active {
-  color: var(--primary-color);
+  color: var(--primary-bg);
   opacity: 1;
 }
 .prolodetai {
@@ -26556,7 +26556,7 @@ td.statement_hyper_link {
   border-radius: 4px;
   width: 119px;
   display: inline-block;
-  background: var(--primary-color) !important;
+  background: var(--primary-bg) !important;
   color: #fff;
   text-align: center;
   padding: 5px;
@@ -26572,7 +26572,7 @@ td.statement_hyper_link {
   flex-basis: 14%;
 }
 .affiliate_footer .bottom-tabs ul li .active .title-name {
-  color: var(--primary-color) !important;
+  color: var(--primary-bg) !important;
 }
 .footer-fixed-nav.affiliate_footer {
   z-index: 9999;
@@ -26805,7 +26805,7 @@ td.statement_hyper_link {
   font-weight: 700;
   font-size: 16px;
   line-height: 1.2;
-  color: var(--primary-color) !important;
+  color: var(--primary-bg) !important;
 }
 .cashout__ticket--value {
   font-weight: 400;
@@ -27191,7 +27191,7 @@ button.btn.tv-btn img.score-img {
 }
 .nw-statement-table-wrapper.form-search-table th {
   font-size: 12px;
-  color: #000 !important;
+  color: var(--primary-color) !important;
   background: var(--primary-gradient-color) !important;
   padding: 5px;
   text-transform: uppercase;
@@ -27464,7 +27464,7 @@ tr.open-bet-footer.settled-tabel-footer {
     padding: 10px;
   }
   .nav-middle-menu ul li a.active {
-    background-color: var(--primary-color);
+    background-color: var(--primary-bg);
     color: #fff;
   }
   .commentry-sec {
@@ -27687,7 +27687,7 @@ tr.open-bet-footer.settled-tabel-footer {
     border-radius: 10px;
   }
   .nav-right.header-nav-rgt .bdr-btn.login-btn {
-    background-color: var(--primary-color);
+    background-color: var(--primary-bg);
     color: #fff;
     border-radius: 2px;
     font-size: 14px;
@@ -27699,7 +27699,7 @@ tr.open-bet-footer.settled-tabel-footer {
   }
   .nav-right.header-nav-rgt .bdr-btn.signup-btn {
     background-color: #fff;
-    color: var(--primary-color);
+    color: var(--primary-bg);
     border-radius: 2px;
     font-size: 14px;
     text-transform: uppercase;
@@ -27725,7 +27725,7 @@ tr.open-bet-footer.settled-tabel-footer {
   .accordion-button,
   .download-apk-bx a,
   .instant-id-bx {
-    background-color: var(--primary-color);
+    background-color: var(--primary-bg);
   }
   .accordion-item {
     border: 0;
@@ -27843,7 +27843,7 @@ tr.open-bet-footer.settled-tabel-footer {
     margin-left: 2px;
   }
   .dropdown.open-menu-btn button {
-    background: var(--primary-color);
+    background: var(--primary-bg);
     display: flex;
     flex-direction: column;
     align-items: center;

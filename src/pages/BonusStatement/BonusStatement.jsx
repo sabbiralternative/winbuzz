@@ -21,7 +21,7 @@ const BonusStatement = () => {
         return (
           <button
             onClick={() => handleClaimBonus(item)}
-            className="bg-[var(--primary-color)] px-2 rounded-sm py-1 text-white"
+            className="bg-[var(--primary-bg)] px-2 rounded-sm py-1 text-white"
           >
             Claim
           </button>

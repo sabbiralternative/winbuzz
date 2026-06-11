@@ -56,7 +56,7 @@ const Promotions = () => {
                   height={23}
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
-                  stroke="var(--primary-color)"
+                  stroke="var(--primary-bg)"
                   fill="none"
                   strokeLinecap="round"
                   strokeLinejoin="round"

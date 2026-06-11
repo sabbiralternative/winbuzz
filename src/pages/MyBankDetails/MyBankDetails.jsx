@@ -144,7 +144,7 @@ const MyBankDetails = () => {
                   onClick={() => setShowAddBank(true)}
                   className="btn"
                   style={{
-                    background: "var(--primary-color)",
+                    background: "var(--primary-bg)",
 
                     padding: "6px 0px",
                     fontSize: "14px",
@@ -157,7 +157,7 @@ const MyBankDetails = () => {
                   onClick={() => setShowUSDTModal(true)}
                   className="btn"
                   style={{
-                    background: "var(--primary-color)",
+                    background: "var(--primary-bg)",
 
                     padding: "6px 0px",
                     fontSize: "14px",

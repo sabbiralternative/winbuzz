@@ -135,7 +135,11 @@ const Dropdown = () => {
                 to="/deposit"
                 className="dropdown-item"
               >
-                <i data-v-9dda4895 className="fa-solid fa-users-rays" />
+                <i
+                  style={{ color: "#000" }}
+                  data-v-9dda4895
+                  className="fa-solid fa-users-rays"
+                />
                 <span data-v-9dda4895 className="menu-rgt-text">
                   Deposit
                 </span>
@@ -148,7 +152,11 @@ const Dropdown = () => {
                 to="/withdraw"
                 className="dropdown-item"
               >
-                <i data-v-9dda4895 className="fa-solid fa-users-rays" />
+                <i
+                  style={{ color: "#000" }}
+                  data-v-9dda4895
+                  className="fa-solid fa-users-rays"
+                />
                 <span data-v-9dda4895 className="menu-rgt-text">
                   Withdraw
                 </span>
@@ -161,7 +169,11 @@ const Dropdown = () => {
                 to="/deposit-report"
                 className="dropdown-item"
               >
-                <i data-v-9dda4895 className="fa-solid fa-users-rays" />
+                <i
+                  style={{ color: "#000" }}
+                  data-v-9dda4895
+                  className="fa-solid fa-users-rays"
+                />
                 <span data-v-9dda4895 className="menu-rgt-text">
                   Deposit Report
                 </span>
@@ -174,7 +186,11 @@ const Dropdown = () => {
                 to="/withdraw-report"
                 className="dropdown-item"
               >
-                <i data-v-9dda4895 className="fa-solid fa-users-rays" />
+                <i
+                  style={{ color: "#000" }}
+                  data-v-9dda4895
+                  className="fa-solid fa-users-rays"
+                />
                 <span data-v-9dda4895 className="menu-rgt-text">
                   Withdraw Report
                 </span>
@@ -187,7 +203,11 @@ const Dropdown = () => {
                 to="/my-bank-details"
                 className="dropdown-item"
               >
-                <i data-v-9dda4895 className="fa-solid fa-users-rays" />
+                <i
+                  style={{ color: "#000" }}
+                  data-v-9dda4895
+                  className="fa-solid fa-users-rays"
+                />
                 <span data-v-9dda4895 className="menu-rgt-text">
                   My Bank Details
                 </span>
@@ -202,7 +222,11 @@ const Dropdown = () => {
                   to="/affiliate"
                   className="dropdown-item"
                 >
-                  <i data-v-9dda4895 className="fa-solid fa-users-rays" />
+                  <i
+                    style={{ color: "#000" }}
+                    data-v-9dda4895
+                    className="fa-solid fa-users-rays"
+                  />
                   <span data-v-9dda4895 className="menu-rgt-text">
                     Affiliate
                   </span>
@@ -217,7 +241,11 @@ const Dropdown = () => {
                 to="/bonus-statement"
                 className="dropdown-item"
               >
-                <i data-v-9dda4895 className="fa-solid fa-users-rays" />
+                <i
+                  style={{ color: "#000" }}
+                  data-v-9dda4895
+                  className="fa-solid fa-users-rays"
+                />
                 <span data-v-9dda4895 className="menu-rgt-text">
                   Bonus Statement
                 </span>
@@ -230,7 +258,11 @@ const Dropdown = () => {
                 to="/promotions"
                 className="dropdown-item"
               >
-                <i data-v-9dda4895 className="fa-solid fa-users-rays" />
+                <i
+                  style={{ color: "#000" }}
+                  data-v-9dda4895
+                  className="fa-solid fa-users-rays"
+                />
                 <span data-v-9dda4895 className="menu-rgt-text">
                   Promos & Bonus
                 </span>
@@ -243,7 +275,11 @@ const Dropdown = () => {
                 to="/lossback-bonus"
                 className="dropdown-item"
               >
-                <i data-v-9dda4895 className="fa-solid fa-users-rays" />
+                <i
+                  style={{ color: "#000" }}
+                  data-v-9dda4895
+                  className="fa-solid fa-users-rays"
+                />
                 <span data-v-9dda4895 className="menu-rgt-text">
                   Lossack Bonus
                 </span>
@@ -257,7 +293,11 @@ const Dropdown = () => {
                   to="/app-only-bonus"
                   className="dropdown-item"
                 >
-                  <i data-v-9dda4895 className="fa-solid fa-users-rays" />
+                  <i
+                    style={{ color: "#000" }}
+                    data-v-9dda4895
+                    className="fa-solid fa-users-rays"
+                  />
                   <span data-v-9dda4895 className="menu-rgt-text">
                     App Only Bonus
                   </span>
@@ -272,7 +312,11 @@ const Dropdown = () => {
                 to="/edit-stake"
                 className="dropdown-item"
               >
-                <i data-v-9dda4895 className="fa-solid fa-gear" />
+                <i
+                  style={{ color: "#000" }}
+                  data-v-9dda4895
+                  className="fa-solid fa-gear"
+                />
                 <span data-v-9dda4895 className="menu-rgt-text">
                   Settings
                 </span>
@@ -315,7 +359,11 @@ const Dropdown = () => {
                 to="/change-password"
                 className="dropdown-item"
               >
-                <i data-v-9dda4895 className="fa-solid fa-lock" />
+                <i
+                  style={{ color: "#000" }}
+                  data-v-9dda4895
+                  className="fa-solid fa-lock"
+                />
                 <span data-v-9dda4895 className="menu-rgt-text">
                   Change Password
                 </span>
@@ -329,7 +377,7 @@ const Dropdown = () => {
                 data-bs-target="#language_selection_pop_up"
                 className="dropdown-item"
               >
-                <i data-v-9dda4895 className="fa-solid fa-globe" />
+                <i    style={{ color: "#000" }} data-v-9dda4895 className="fa-solid fa-globe" />
                 <span data-v-9dda4895 className="menu-rgt-text">
                   Language
                 </span>
@@ -341,7 +389,11 @@ const Dropdown = () => {
                 data-v-9dda4895
                 className="dropdown-item"
               >
-                <i data-v-9dda4895 className="fa-solid fa-right-from-bracket" />
+                <i
+                  style={{ color: "#000" }}
+                  data-v-9dda4895
+                  className="fa-solid fa-right-from-bracket"
+                />
                 <span data-v-9dda4895 className="menu-rgt-text">
                   Sign Out
                 </span>

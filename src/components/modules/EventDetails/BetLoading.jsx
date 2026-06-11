@@ -23,7 +23,7 @@ const BetLoading = ({ setBetDelay, betDelay, absolute }) => {
       >
         <div className="flex flex-col gap-4 align-top items-center">
           <span className="relative w-max min-w-6 min-h-6 flex items-center justify-center p-2 pt-6">
-            <span className="absolute min-w-8 min-h-8 animate-spin rounded-full border-[2px] border-[var(--primary-color)] border-dashed"></span>
+            <span className="absolute min-w-8 min-h-8 animate-spin rounded-full border-[2px] border-[var(--primary-bg)] border-dashed"></span>
 
             {/* <span className="font-semibold text-text_Ternary">
               {betDelay > 0 && betDelay}

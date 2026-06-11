@@ -98,7 +98,7 @@ const BankAccount = ({ amount }) => {
                   ₹{amount}
                 </span>
               </p>
-              <p className="bg-bg_color_quaternary py-2.5 w-full px-3 rounded-b-md font-normal  text-xs leading-normal not-italic">
+              <p className="bg-bg_color_quaternary py-2.5 w-full px-3 rounded-b-md font-normal  text-xs leading-normal not-italic text-primary">
                 You will get
                 <span className="text-primary"> ₹{amount}</span> in your main
                 wallet<span>.</span>

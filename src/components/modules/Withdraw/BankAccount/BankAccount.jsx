@@ -34,21 +34,27 @@ const BankAccount = ({ amount }) => {
             >
               <button
                 onClick={() => setTab("add-bank-account")}
-                className={`flex items-center justify-center w-full gap-1.5 tracking-wider  p-3 text-sm font-semibold   $`}
+                className={`flex items-center justify-center w-full gap-1.5 tracking-wider  p-3 text-sm font-semibold   ${
+                  tab === "add-bank-account" ? "text-primary" : ""
+                }`}
                 style={{ zIndex: 10 }}
               >
                 Add Bank Account
               </button>
               <button
                 onClick={() => setTab("add-usdt-account")}
-                className={`flex items-center justify-center w-full gap-1.5 tracking-wider  p-3 text-sm font-semibold    `}
+                className={`flex items-center justify-center w-full gap-1.5 tracking-wider  p-3 text-sm font-semibold   ${
+                  tab === "add-usdt-account" ? "text-primary" : ""
+                } `}
                 style={{ zIndex: 10 }}
               >
                 Add USDT Account
               </button>
               <button
                 onClick={() => setTab("oldAccount")}
-                className={`flex items-center justify-center w-full gap-1.5 tracking-wider  p-3 text-sm font-semibold   bg-none`}
+                className={`flex items-center justify-center w-full gap-1.5 tracking-wider  p-3 text-sm font-semibold   bg-none ${
+                  tab === "oldAccount" ? "text-primary" : ""
+                }`}
                 style={{ zIndex: 10 }}
               >
                 Use Previous Account
@@ -58,8 +64,8 @@ const BankAccount = ({ amount }) => {
                   tab === "oldAccount"
                     ? "right-0"
                     : tab === "add-bank-account"
-                    ? "left-0"
-                    : "left-[35%]"
+                      ? "left-0"
+                      : "left-[35%]"
                 }`}
                 style={{
                   zIndex: 9,

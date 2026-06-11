@@ -19,9 +19,10 @@
 }
 .bg-primary {
   background: var(--primary-gradient-color) !important;
+  color: var(--primary-color);
 }
 .bg-primary-color {
-  background: var(--primary-color);
+  background: var(--primary-bg);
 }
 
 .white-icon-color svg {
