@@ -158,14 +158,13 @@ const EventDetails = () => {
                     />
                   )}
 
-                  {
-                    <IFrameScore
-                      eventTab={eventTab}
-                      setEventTab={setEventTab}
-                      score={data?.score}
-                      iFrame={iFrame}
-                    />
-                  }
+                  <IFrameScore
+                    eventTab={eventTab}
+                    setEventTab={setEventTab}
+                    score={data?.score}
+                    iFrame={iFrame}
+                  />
+
                   <section data-v-4a1ad0c4 className="match-odd-bookmaker-sec">
                     <div data-v-4a1ad0c4 className="market-list">
                       {matchOdds?.length > 0 && <MatchOdds data={matchOdds} />}

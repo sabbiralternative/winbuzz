@@ -1,5 +1,5 @@
 const EventHeader = ({ data }) => {
-  const score = data?.score;
+  // const score = data?.score;
 
   return (
     <div data-v-4a1ad0c4 className="eventtitle-bx">
@@ -9,7 +9,7 @@ const EventHeader = ({ data }) => {
           <time> {data?.result?.[0]?.openDate}</time>
         </div>
       </div>
-      {score && score?.tracker !== null && (
+      {/* {score && score?.tracker !== null && (
         <div className="w-full overflow-hidden h-[125px]">
           <iframe
             id="videoComponent"
@@ -19,7 +19,7 @@ const EventHeader = ({ data }) => {
             allowfullscreen=""
           ></iframe>
         </div>
-      )}
+      )} */}
     </div>
   );
 };
