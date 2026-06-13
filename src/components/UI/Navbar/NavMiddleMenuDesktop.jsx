@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { latestEvent } from "../../../static/latest-event";
 
 const NavMiddleMenuDesktop = () => {
   return (
@@ -20,17 +21,24 @@ const NavMiddleMenuDesktop = () => {
               <span>In-Play</span>
             </Link>
           </li>
-          <li>
-            <Link to="/sports/cricket/4?type=inPlay" className>
-              <img
-                loading="lazy"
-                src="/icon/sports-cricket-Qf1NmI1h.png"
-                alt="Menu 1"
-                className="nav-icon"
-              />
-              <span>cricket</span>
-            </Link>
-          </li>
+          {latestEvent
+            ?.filter((item) => item?.show)
+            ?.map((item) => {
+              return (
+                <li key={item?.eventName}>
+                  <Link to={item?.pathname} className>
+                    <img
+                      loading="lazy"
+                      src="/icon/sports-cricket-Qf1NmI1h.png"
+                      alt="Menu 1"
+                      className="nav-icon"
+                    />
+                    <span> {item?.eventName}</span>
+                  </Link>
+                </li>
+              );
+            })}
+
           <li>
             <Link to="/sports/Football/1?type=inPlay" className>
               <img

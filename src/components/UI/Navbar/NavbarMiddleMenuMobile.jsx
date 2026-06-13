@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
+import { latestEvent } from "../../../static/latest-event";
 
 const NavbarMiddleMenuMobile = () => {
   const { pathname } = useLocation();
@@ -23,6 +24,25 @@ const NavbarMiddleMenuMobile = () => {
             In Play
           </Link>
         </li>
+        {latestEvent
+          ?.filter((item) => item?.show)
+          ?.map((item) => {
+            return (
+              <li
+                key={item?.eventName}
+                className={` ${pathname === item?.pathname ? "active" : ""}`}
+              >
+                <Link to={item?.pathname} className="subnav-link">
+                  <img
+                    loading="lazy"
+                    src="/icon/sports-cricket-Qf1NmI1h.png"
+                    alt="Menu 1"
+                  />
+                  <span> {item?.eventName}</span>
+                </Link>
+              </li>
+            );
+          })}
         <li className={` ${pathname === "/sports/cricket/4" ? "active" : ""}`}>
           <Link to="/sports/cricket/4?type=inPlay" className="subnav-link">
             <img alt="" src="/icon/4.png" /> Cricket{" "}
