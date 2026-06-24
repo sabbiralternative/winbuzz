@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { latestEvent } from "../../../static/latest-event";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
 const NavMiddleMenuDesktop = () => {
+  const { valueByLanguage } = useLanguage();
   return (
     <section className="nav-new-bar-sec hidden md:block">
       <div className="nav-middle-menu">
@@ -47,7 +51,10 @@ const NavMiddleMenuDesktop = () => {
                 alt="Menu 1"
                 className="nav-icon"
               />
-              <span>Football</span>
+              <span>
+                {" "}
+                {languageValue(valueByLanguage, LanguageKey.FOOTBALL)}
+              </span>
             </Link>
           </li>
           <li>
@@ -58,7 +65,10 @@ const NavMiddleMenuDesktop = () => {
                 alt="Menu 1"
                 className="nav-icon"
               />
-              <span>Kabaddi</span>
+              <span>
+                {" "}
+                {languageValue(valueByLanguage, LanguageKey.KABADDI)}
+              </span>
             </Link>
           </li>
           <li>
@@ -80,7 +90,7 @@ const NavMiddleMenuDesktop = () => {
                 alt="Menu 1"
                 className="nav-icon"
               />
-              <span>tennis</span>
+              <span> {languageValue(valueByLanguage, LanguageKey.TENNIS)}</span>
             </Link>
           </li>
           <li>
@@ -91,7 +101,7 @@ const NavMiddleMenuDesktop = () => {
                 alt="Menu 1"
                 className="nav-icon"
               />
-              <span>Horse</span>
+              <span> {languageValue(valueByLanguage, LanguageKey.HORSE)}</span>
             </Link>
           </li>
           <li>
@@ -102,7 +112,10 @@ const NavMiddleMenuDesktop = () => {
                 alt="Menu 1"
                 className="nav-icon"
               />
-              <span>Greyhound</span>
+              <span>
+                {" "}
+                {languageValue(valueByLanguage, LanguageKey.GREYHOUND)}
+              </span>
             </Link>
           </li>
 

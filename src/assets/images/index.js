@@ -45,8 +45,10 @@ import casinoFooterIcon from "../img/casino-CEfdPp0N.png";
 import homeFooterIcon from "../img/home-CeOT_89o.png";
 import inPlayFooterIcon from "../img/in-play-7WyfrqDR.png";
 import sportsBookFooterIcon from "../img/football-Wf0AhSYH.png";
+import globe from "../img/globe.gif";
 
 export default {
+  globe,
   affiliateFooterIcon,
   casinoFooterIcon,
   homeFooterIcon,

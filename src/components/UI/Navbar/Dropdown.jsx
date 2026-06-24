@@ -8,8 +8,12 @@ import { handleCopyToClipBoard } from "../../../utils/handleCopyToClipBoard";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { FaBook } from "react-icons/fa6";
 import { Settings } from "../../../api";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
 const Dropdown = () => {
+  const { valueByLanguage } = useLanguage();
   const { closePopupForForever } = useSelector((state) => state?.global);
   const dispatch = useDispatch();
   const { data } = useBalance();
@@ -141,7 +145,7 @@ const Dropdown = () => {
                   className="fa-solid fa-users-rays"
                 />
                 <span data-v-9dda4895 className="menu-rgt-text">
-                  Deposit
+                  {languageValue(valueByLanguage, LanguageKey.DEPOSIT)}
                 </span>
               </Link>
             </li>
@@ -158,7 +162,7 @@ const Dropdown = () => {
                   className="fa-solid fa-users-rays"
                 />
                 <span data-v-9dda4895 className="menu-rgt-text">
-                  Withdraw
+                  {languageValue(valueByLanguage, LanguageKey.WITHDRAW)}
                 </span>
               </Link>
             </li>
@@ -209,7 +213,7 @@ const Dropdown = () => {
                   className="fa-solid fa-users-rays"
                 />
                 <span data-v-9dda4895 className="menu-rgt-text">
-                  My Bank Details
+                  {languageValue(valueByLanguage, LanguageKey.MY_BANK_DETAILS)}
                 </span>
               </Link>
             </li>
@@ -247,7 +251,7 @@ const Dropdown = () => {
                   className="fa-solid fa-users-rays"
                 />
                 <span data-v-9dda4895 className="menu-rgt-text">
-                  Bonus Statement
+                  {languageValue(valueByLanguage, LanguageKey.BONUS_STATEMENT)}
                 </span>
               </Link>
             </li>
@@ -365,7 +369,7 @@ const Dropdown = () => {
                   className="fa-solid fa-lock"
                 />
                 <span data-v-9dda4895 className="menu-rgt-text">
-                  Change Password
+                  {languageValue(valueByLanguage, LanguageKey.CHANGE_PASSWORD)}
                 </span>
               </Link>
             </li>
@@ -395,7 +399,7 @@ const Dropdown = () => {
                   className="fa-solid fa-right-from-bracket"
                 />
                 <span data-v-9dda4895 className="menu-rgt-text">
-                  Sign Out
+                  {languageValue(valueByLanguage, LanguageKey.LOGOUT)}
                 </span>
               </a>
             </li>

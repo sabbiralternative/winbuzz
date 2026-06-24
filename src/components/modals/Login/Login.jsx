@@ -15,8 +15,12 @@ import toast from "react-hot-toast";
 import { useLogo } from "../../../context/ApiProvider";
 import images from "../../../assets/images";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
 const Login = () => {
+  const { valueByLanguage } = useLanguage();
   const { closePopupForForever } = useSelector((state) => state?.global);
 
   const navigate = useNavigate();
@@ -296,7 +300,10 @@ const Login = () => {
                           data-v-b55734cb
                           type="submit"
                         >
-                          <span data-v-b55734cb>Log In</span>
+                          <span data-v-b55734cb>
+                            {" "}
+                            {languageValue(valueByLanguage, LanguageKey.LOGIN)}
+                          </span>
                         </button>
                         {Settings.demo_login && (
                           <button
@@ -409,7 +416,10 @@ const Login = () => {
                             data-v-b55734cb
                             data-bs-toggle="modal"
                           >
-                            Register
+                            {languageValue(
+                              valueByLanguage,
+                              LanguageKey.REGISTER,
+                            )}
                           </a>
                         </span>
                       </div>

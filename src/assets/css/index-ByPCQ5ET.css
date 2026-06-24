@@ -27840,7 +27840,7 @@ tr.open-bet-footer.settled-tabel-footer {
     margin-left: 0;
   }
   .nav-right.header-nav-rgt ul li {
-    margin-left: 2px;
+    /* margin-left: 2px; */
   }
   .dropdown.open-menu-btn button {
     background: var(--primary-bg);
@@ -29789,7 +29789,7 @@ tr.open-bet-footer.settled-tabel-footer {
     padding-right: 0;
   }
   .nav-right.header-nav-rgt ul li.balance-bx {
-    padding: 0 2px;
+    /* padding: 0 2px; */
   }
   .exch-coupon-card {
     min-width: 156px;

@@ -16,8 +16,12 @@ import {
 import { setUser } from "../../../redux/features/auth/authSlice";
 import images from "../../../assets/images";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
 const Register = () => {
+  const { valueByLanguage } = useLanguage();
   const affnook_token = localStorage.getItem("affnook_token");
   const { logo } = useLogo();
   const [countDown, setCountDown] = useState(null);
@@ -385,7 +389,13 @@ const Register = () => {
                             className="thm-but"
                             id="submitBtn"
                           >
-                            <span data-v-27945482>Register</span>
+                            <span data-v-27945482>
+                              {" "}
+                              {languageValue(
+                                valueByLanguage,
+                                LanguageKey.REGISTER,
+                              )}
+                            </span>
                           </button>
                         </div>
                         {Settings?.whatsapplink &&
@@ -431,7 +441,7 @@ const Register = () => {
                             onClick={showLogin}
                             data-bs-toggle="modal"
                           >
-                            LogIn
+                            {languageValue(valueByLanguage, LanguageKey.LOGIN)}
                           </a>
                         </p>
                       </div>

@@ -7,8 +7,12 @@ import {
 import ModalWrapper from "../../modals/ModalWrapper/ModalWrapper";
 import "./sidebar.css";
 import { useNavigate } from "react-router-dom";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
 const LeftMobileSidebar = () => {
+  const { valueByLanguage } = useLanguage();
   const { token } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -64,7 +68,10 @@ const LeftMobileSidebar = () => {
                         onClick={() => handleNavigate("/sports/cricket/4")}
                       >
                         <img alt="" className="menu-icon" src="/icon/4.svg" />
-                        <span>Cricket</span>
+                        <span>
+                          {" "}
+                          {languageValue(valueByLanguage, LanguageKey.CRICKET)}
+                        </span>
                       </a>
                     </li>
                     <li>
@@ -73,7 +80,10 @@ const LeftMobileSidebar = () => {
                         onClick={() => handleNavigate("/sports/cricket/1")}
                       >
                         <img alt="" className="menu-icon" src="/icon/1.svg" />
-                        <span>Football</span>
+                        <span>
+                          {" "}
+                          {languageValue(valueByLanguage, LanguageKey.FOOTBALL)}
+                        </span>
                       </a>
                     </li>
                     <li>
@@ -82,7 +92,10 @@ const LeftMobileSidebar = () => {
                         className="active"
                       >
                         <img alt="" className="menu-icon" src="/icon/2.svg" />
-                        <span>Tennis</span>
+                        <span>
+                          {" "}
+                          {languageValue(valueByLanguage, LanguageKey.TENNIS)}
+                        </span>
                       </a>
                     </li>
                     <li>
@@ -95,7 +108,10 @@ const LeftMobileSidebar = () => {
                           className="menu-icon"
                           src="/icon/sports-no-YhxjmpH9.png"
                         />
-                        <span>Kabaddi</span>
+                        <span>
+                          {" "}
+                          {languageValue(valueByLanguage, LanguageKey.KABADDI)}
+                        </span>
                       </a>
                     </li>
                     <li>
@@ -146,7 +162,10 @@ const LeftMobileSidebar = () => {
                     <li>
                       <a onClick={() => handleNavigate("/horse-racing")}>
                         <img alt="" className="menu-icon" src="/icon/7.svg" />
-                        <span>Horse Racing</span>
+                        <span>
+                          {" "}
+                          {languageValue(valueByLanguage, LanguageKey.HORSE)}
+                        </span>
                       </a>
                     </li>
                     <li>
@@ -156,7 +175,13 @@ const LeftMobileSidebar = () => {
                           className="menu-icon"
                           src="/icon/4339.svg"
                         />
-                        <span>Greyhound Racing</span>
+                        <span>
+                          {" "}
+                          {languageValue(
+                            valueByLanguage,
+                            LanguageKey.GREYHOUND,
+                          )}
+                        </span>
                       </a>
                     </li>
 

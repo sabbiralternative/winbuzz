@@ -2,8 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 import { latestEvent } from "../../../static/latest-event";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
 const NavbarMiddleMenuMobile = () => {
+  const { valueByLanguage } = useLanguage();
   const { pathname } = useLocation();
   const { token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -45,22 +49,26 @@ const NavbarMiddleMenuMobile = () => {
           })}
         <li className={` ${pathname === "/sports/cricket/4" ? "active" : ""}`}>
           <Link to="/sports/cricket/4?type=inPlay" className="subnav-link">
-            <img alt="" src="/icon/4.png" /> Cricket{" "}
+            <img alt="" src="/icon/4.png" />{" "}
+            {languageValue(valueByLanguage, LanguageKey.CRICKET)}{" "}
           </Link>
         </li>
         <li className={` ${pathname === "/sports/cricket/1" ? "active" : ""}`}>
           <Link to="/sports/football/1?type=inPlay" className="subnav-link">
-            <img alt="" src="/icon/1.png" /> Football{" "}
+            <img alt="" src="/icon/1.png" />{" "}
+            {languageValue(valueByLanguage, LanguageKey.FOOTBALL)}{" "}
           </Link>
         </li>
         <li className={` ${pathname === "/sports/cricket/2" ? "active" : ""}`}>
           <Link to="/sports/tennis/2?type=inPlay" className="subnav-link">
-            <img alt="" src="/icon/2.png" /> Tennis{" "}
+            <img alt="" src="/icon/2.png" />{" "}
+            {languageValue(valueByLanguage, LanguageKey.TENNIS)}{" "}
           </Link>
         </li>
         <li className={` ${pathname === "/sports/cricket/5" ? "active" : ""}`}>
           <Link to="/sports/kabaddi/6?type=inPlay" className="subnav-link">
-            <img alt="" src="/icon/sports-no-YhxjmpH9.png" /> Kabaddi{" "}
+            <img alt="" src="/icon/sports-no-YhxjmpH9.png" />{" "}
+            {languageValue(valueByLanguage, LanguageKey.KABADDI)}{" "}
           </Link>
         </li>
         <li className={` ${pathname === "/sports/cricket/6" ? "active" : ""}`}>
@@ -91,12 +99,14 @@ const NavbarMiddleMenuMobile = () => {
         </li>
         <li>
           <Link to="/horse-racing" className="subnav-link">
-            <img alt="" src="/icon/7.png" /> Horse Racing{" "}
+            <img alt="" src="/icon/7.png" />{" "}
+            {languageValue(valueByLanguage, LanguageKey.HORSE)}{" "}
           </Link>
         </li>
         <li>
           <Link to="/greyhound-racing" className="subnav-link">
-            <img alt="" src="/icon/4339.png" /> Greyhound Racing{" "}
+            <img alt="" src="/icon/4339.png" />{" "}
+            {languageValue(valueByLanguage, LanguageKey.GREYHOUND)}{" "}
           </Link>
         </li>
         {/* <li>

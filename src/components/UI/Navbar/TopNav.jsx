@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setShowLoginModal,
@@ -15,8 +15,16 @@ import ForgotPassword from "../../modals/ForgotPassword/ForgotPassword";
 import { Link } from "react-router-dom";
 import { useLogo } from "../../../context/ApiProvider";
 import MobileSearch from "../../modals/MobileSearch/MobileSearch";
+import { useLanguage } from "../../../context/LanguageProvider";
+import images from "../../../assets/images";
+import { Settings } from "../../../api";
+import Language from "../../modals/Language";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
 const TopNav = () => {
+  const { language, valueByLanguage, setLanguage } = useLanguage();
+  const [showLanguage, setShowLanguage] = useState(false);
   const [showMobileSearch, setShowMobileSearch] = useState();
   const { logo } = useLogo();
   const { showLoginModal, showRegisterModal, showForgotPasswordModal } =
@@ -30,6 +38,10 @@ const TopNav = () => {
   const handleShowRegister = () => {
     dispatch(setShowRegisterModal(true));
   };
+
+  useEffect(() => {
+    setLanguage(localStorage.getItem("language") || "english");
+  }, [setLanguage]);
   return (
     <Fragment>
       {showLoginModal && <Login />}
@@ -101,7 +113,10 @@ const TopNav = () => {
               </ul>
             </div>
             <div data-v-9dda4895 className="nav-right header-nav-rgt">
-              <ul data-v-9dda4895>
+              <ul
+                style={{ display: "flex", alignItems: "center" }}
+                data-v-9dda4895
+              >
                 <li data-v-9dda4895 className="search-box">
                   <a
                     data-v-9dda4895
@@ -134,7 +149,7 @@ const TopNav = () => {
                         data-bs-toggle="modal"
                         className="bdr-btn signup-login-btn login-btn"
                       >
-                        Login
+                        {languageValue(valueByLanguage, LanguageKey.LOGIN)}
                       </a>
                     </li>
                     <li data-v-9dda4895>
@@ -144,7 +159,7 @@ const TopNav = () => {
                         data-bs-toggle="modal"
                         className="bdr-btn signup-login-btn signup-btn"
                       >
-                        Register
+                        {languageValue(valueByLanguage, LanguageKey.REGISTER)}
                       </a>
                     </li>
                   </Fragment>
@@ -157,6 +172,47 @@ const TopNav = () => {
                     <Dropdown />
                   </Fragment>
                 )}
+                <li data-v-9dda4895>
+                  {" "}
+                  <div style={{ position: "relative", padding: "1px 4px" }}>
+                    {Settings.language && (
+                      <button onClick={() => setShowLanguage((prev) => !prev)}>
+                        <div
+                          style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "end",
+                            background: "transparent",
+                            border: "none",
+                          }}
+                        >
+                          <img
+                            style={{
+                              height: "20px",
+                              width: "20px",
+                            }}
+                            src={images.globe}
+                            alt=""
+                          />
+                          <b
+                            style={{
+                              margin: "0px",
+                              fontSize: "10px",
+                              textTransform: "capitalize",
+                              color: "white",
+                            }}
+                          >
+                            {language || "EN"}
+                          </b>
+                        </div>
+                      </button>
+                    )}
+                    {showLanguage && (
+                      <Language setShowLanguage={setShowLanguage} />
+                    )}
+                  </div>
+                </li>
               </ul>
             </div>
           </div>

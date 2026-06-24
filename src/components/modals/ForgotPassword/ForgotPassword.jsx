@@ -16,8 +16,12 @@ import {
 
 import images from "../../../assets/images";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
 const ForgotPassword = () => {
+  const { valueByLanguage } = useLanguage();
   const [handleForgotPassword] = useForgotPasswordMutation();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -343,7 +347,13 @@ const ForgotPassword = () => {
                             className="thm-but"
                             id="submitBtn"
                           >
-                            <span data-v-27945482>Change Password</span>
+                            <span data-v-27945482>
+                              {" "}
+                              {languageValue(
+                                valueByLanguage,
+                                LanguageKey.CHANGE_PASSWORD,
+                              )}
+                            </span>
                           </button>
                         </div>
                       </div>

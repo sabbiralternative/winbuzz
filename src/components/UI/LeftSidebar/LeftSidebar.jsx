@@ -2,8 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Settings } from "../../../api";
 import { Link, useNavigate } from "react-router-dom";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
+import { useLanguage } from "../../../context/LanguageProvider";
+import { languageValue } from "../../../utils/language";
+import { LanguageKey } from "../../../const";
 
 const LeftSidebar = () => {
+  const { valueByLanguage } = useLanguage();
   const { token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -67,7 +71,10 @@ const LeftSidebar = () => {
                         alt="cricket"
                       />
                     </div>
-                    <span>cricket</span>
+                    <span>
+                      {" "}
+                      {languageValue(valueByLanguage, LanguageKey.CRICKET)}
+                    </span>
                   </Link>
                 </li>
                 <li>
@@ -82,7 +89,10 @@ const LeftSidebar = () => {
                         alt="Football"
                       />
                     </div>
-                    <span>Football</span>
+                    <span>
+                      {" "}
+                      {languageValue(valueByLanguage, LanguageKey.FOOTBALL)}
+                    </span>
                   </Link>
                 </li>
                 <li>
@@ -97,7 +107,10 @@ const LeftSidebar = () => {
                         alt="tennis"
                       />
                     </div>
-                    <span>tennis</span>
+                    <span>
+                      {" "}
+                      {languageValue(valueByLanguage, LanguageKey.TENNIS)}
+                    </span>
                   </Link>
                 </li>
                 <li>
@@ -105,7 +118,10 @@ const LeftSidebar = () => {
                     <div className="icon-sidemenu">
                       <img loading="lazy" src="/icon/7.png" alt="tennis" />
                     </div>
-                    <span>Horse</span>
+                    <span>
+                      {" "}
+                      {languageValue(valueByLanguage, LanguageKey.HORSE)}
+                    </span>
                   </Link>
                 </li>
                 <li>
@@ -113,7 +129,10 @@ const LeftSidebar = () => {
                     <div className="icon-sidemenu">
                       <img loading="lazy" src="/icon/4339.png" alt="tennis" />
                     </div>
-                    <span>Greyhound</span>
+                    <span>
+                      {" "}
+                      {languageValue(valueByLanguage, LanguageKey.GREYHOUND)}
+                    </span>
                   </Link>
                 </li>
                 <li>
@@ -174,7 +193,10 @@ const LeftSidebar = () => {
                         alt="Kabaddi "
                       />
                     </div>
-                    <span>Kabaddi </span>
+                    <span>
+                      {" "}
+                      {languageValue(valueByLanguage, LanguageKey.KABADDI)}{" "}
+                    </span>
                   </Link>
                 </li>
                 <li>
