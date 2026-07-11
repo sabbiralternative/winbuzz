@@ -14,6 +14,7 @@ import { useCurrentBets } from "../../hooks/currentBets";
 import OpenBets from "../../components/modules/EventDetails/OpenBets";
 import IFrameScore from "../../components/modules/EventDetails/IFrame";
 import HorseGreyhoundEventDetails from "../../components/modules/EventDetails/HorseGreyhoundEventDetails";
+import Premium from "../../components/modules/EventDetails/Premium";
 
 const EventDetails = () => {
   const [iFrame, setIframe] = useState("");
@@ -168,6 +169,9 @@ const EventDetails = () => {
                   <section data-v-4a1ad0c4 className="match-odd-bookmaker-sec">
                     <div data-v-4a1ad0c4 className="market-list">
                       {matchOdds?.length > 0 && <MatchOdds data={matchOdds} />}
+                      {data?.premium && data?.premium?.eventId && (
+                        <Premium premium={data?.premium} />
+                      )}
                       {bookmaker?.length > 0 && <Bookmaker data={bookmaker} />}
                     </div>
                   </section>
