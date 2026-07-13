@@ -3,6 +3,7 @@ import { latestEvent } from "../../../static/latest-event";
 import { useLanguage } from "../../../context/LanguageProvider";
 import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
+import { eventNameList } from "../../../static/event-name-list";
 
 const NavMiddleMenuDesktop = () => {
   const { valueByLanguage } = useLanguage();
@@ -118,6 +119,24 @@ const NavMiddleMenuDesktop = () => {
               </span>
             </Link>
           </li>
+          {eventNameList.map((item) => {
+            return (
+              <li key={item.id}>
+                <Link
+                  to={`/sports/${item.name}/${item.id}?type=inPlay`}
+                  className
+                >
+                  <img
+                    loading="lazy"
+                    src={item.image}
+                    alt="Menu 1"
+                    className="nav-icon"
+                  />
+                  <span> {item.name}</span>
+                </Link>
+              </li>
+            );
+          })}
 
           <li
 

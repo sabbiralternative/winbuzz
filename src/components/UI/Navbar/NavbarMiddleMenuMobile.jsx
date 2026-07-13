@@ -5,6 +5,7 @@ import { latestEvent } from "../../../static/latest-event";
 import { useLanguage } from "../../../context/LanguageProvider";
 import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
+import { eventNameList } from "../../../static/event-name-list";
 
 const NavbarMiddleMenuMobile = () => {
   const { valueByLanguage } = useLanguage();
@@ -109,6 +110,21 @@ const NavbarMiddleMenuMobile = () => {
             {languageValue(valueByLanguage, LanguageKey.GREYHOUND)}{" "}
           </Link>
         </li>
+        {eventNameList.map((item) => {
+          return (
+            <li
+              key={item.id}
+              className={` ${pathname === `/sports/${item.name}/${item.id}` ? "active" : ""}`}
+            >
+              <Link
+                to={`/sports/${item.name}/${item.id}?type=inPlay`}
+                className="subnav-link"
+              >
+                <img alt="" src={item.image} /> {item.name}
+              </Link>
+            </li>
+          );
+        })}
         {/* <li>
           <Link to="/m/game-list/99990" className="subnav-link">
             <img alt="" src="/icon/99990.png" /> Binary{" "}

@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { useLanguage } from "../../../context/LanguageProvider";
 import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
+import { eventNameList } from "../../../static/event-name-list";
 
 const LeftMobileSidebar = () => {
   const { valueByLanguage } = useLanguage();
@@ -184,7 +185,25 @@ const LeftMobileSidebar = () => {
                         </span>
                       </a>
                     </li>
-
+                    {eventNameList.map((item) => {
+                      return (
+                        <li key={item.id}>
+                          <a
+                            onClick={() =>
+                              handleNavigate(`/sports/${item.name}/${item.id}`)
+                            }
+                            className="active"
+                          >
+                            <img
+                              alt=""
+                              className="menu-icon"
+                              src={item.image}
+                            />
+                            <span>{item.name}</span>
+                          </a>
+                        </li>
+                      );
+                    })}
                     <li>
                       <a>
                         <img src="/icon/rules.svg" className="menu-icon" />
