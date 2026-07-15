@@ -169,9 +169,7 @@ const EventDetails = () => {
                   <section data-v-4a1ad0c4 className="match-odd-bookmaker-sec">
                     <div data-v-4a1ad0c4 className="market-list">
                       {matchOdds?.length > 0 && <MatchOdds data={matchOdds} />}
-                      {data?.premium && data?.premium?.eventId && (
-                        <Premium premium={data?.premium} />
-                      )}
+
                       {bookmaker?.length > 0 && <Bookmaker data={bookmaker} />}
                     </div>
                   </section>
@@ -180,6 +178,9 @@ const EventDetails = () => {
                     <HorseGreyhoundEventDetails data={data} />
                   ) : null}
                   {tiedMatch?.length > 0 && <MatchOdds data={tiedMatch} />}
+                  {data?.premium && data?.premium?.eventId && (
+                    <Premium premium={data?.premium} />
+                  )}
                 </div>
               </div>
               <RightSidebar />
