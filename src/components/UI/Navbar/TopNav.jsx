@@ -23,7 +23,7 @@ import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
 
 const TopNav = () => {
-  const { language, valueByLanguage, setLanguage } = useLanguage();
+  const { valueByLanguage, setLanguage } = useLanguage();
   const [showLanguage, setShowLanguage] = useState(false);
   const [showMobileSearch, setShowMobileSearch] = useState();
   const { logo } = useLogo();
@@ -174,7 +174,13 @@ const TopNav = () => {
                 )}
                 <li data-v-9dda4895>
                   {" "}
-                  <div style={{ position: "relative", padding: "1px 4px" }}>
+                  <div
+                    style={{
+                      position: "relative",
+                      padding: "1px 4px",
+                      marginTop: "5px",
+                    }}
+                  >
                     {Settings.language && (
                       <button onClick={() => setShowLanguage((prev) => !prev)}>
                         <div
@@ -203,7 +209,7 @@ const TopNav = () => {
                               color: "white",
                             }}
                           >
-                            {language || "EN"}
+                            {/* {language || "EN"} */}
                           </b>
                         </div>
                       </button>
