@@ -15,8 +15,10 @@ import OpenBets from "../../components/modules/EventDetails/OpenBets";
 import IFrameScore from "../../components/modules/EventDetails/IFrame";
 import HorseGreyhoundEventDetails from "../../components/modules/EventDetails/HorseGreyhoundEventDetails";
 import Premium from "../../components/modules/EventDetails/Premium";
+import ToggleButtons from "../../components/modules/EventDetails/ToggleButtons";
 
 const EventDetails = () => {
+  const [fancyPremiumTab, setFancyPremiumTab] = useState("");
   const [iFrame, setIframe] = useState("");
   const [eventTab, setEventTab] = useState("live");
   const { eventTypeId, eventId } = useParams();
@@ -132,6 +134,12 @@ const EventDetails = () => {
       game?.name === "tied match",
   );
 
+  const fancy = data?.result?.filter(
+    (normal) =>
+      normal.btype === "FANCY" &&
+      normal.tabGroupName === "Normal" &&
+      normal?.visible == true,
+  );
   return (
     <div className="col-12 col-sm-12 col-md-12 col-lg-10 box-shd-gap">
       <div>
@@ -171,16 +179,28 @@ const EventDetails = () => {
                       {matchOdds?.length > 0 && <MatchOdds data={matchOdds} />}
 
                       {bookmaker?.length > 0 && <Bookmaker data={bookmaker} />}
+                      {data && (
+                        <ToggleButtons
+                          data={data}
+                          fancy={fancy}
+                          setFancyPremiumTab={setFancyPremiumTab}
+                          fancyPremiumTab={fancyPremiumTab}
+                        />
+                      )}
                     </div>
                   </section>
-                  {data?.result?.length > 0 && <Fancy data={data?.result} />}
+                  {data?.result?.length > 0 && fancyPremiumTab === "fancy" && (
+                    <Fancy data={data?.result} />
+                  )}
+                  {data?.premium &&
+                    data?.premium?.eventId &&
+                    fancyPremiumTab === "premium" && (
+                      <Premium premium={data?.premium} />
+                    )}
                   {eventTypeId == 7 || eventTypeId == 4339 ? (
                     <HorseGreyhoundEventDetails data={data} />
                   ) : null}
                   {tiedMatch?.length > 0 && <MatchOdds data={tiedMatch} />}
-                  {data?.premium && data?.premium?.eventId && (
-                    <Premium premium={data?.premium} />
-                  )}
                 </div>
               </div>
               <RightSidebar />
