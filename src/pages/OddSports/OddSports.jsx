@@ -1,10 +1,12 @@
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useGroupQuery } from "../../redux/features/events/events";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import EventRow from "../../components/shared/EventRow/EventRow";
 import moment from "moment";
+import { filterLiveVirtual } from "../../utils/filter-live-virtual";
 
 const OddSports = () => {
+  const [liveVirtual, setLiveVirtual] = useState([]);
   const navigate = useNavigate();
   const { eventId, eventName } = useParams();
   const location = useLocation();
@@ -78,7 +80,32 @@ const OddSports = () => {
       navigate(`/sports/${eventName}/${eventId}?type=upcoming`);
     }
   }, [groupedData, navigate, eventId, eventName]);
+  const onChangeLiveVirtual = (type, eventTypeId, isChecked) => {
+    const obj = { type, eventTypeId, isChecked };
 
+    setLiveVirtual((prev) => {
+      const index = prev.findIndex(
+        (item) => item.eventTypeId === eventTypeId && item.type === type,
+      );
+
+      if (index !== -1) {
+        const updated = [...prev];
+        updated[index] = {
+          ...updated[index],
+          isChecked,
+        };
+        return updated;
+      }
+
+      return [...prev, obj];
+    });
+  };
+
+  const groupedFilterData = filterLiveVirtual(
+    liveVirtual,
+    Number(eventId),
+    finalData,
+  );
   return (
     <div className="col-12 col-sm-12 col-md-12 col-lg-10 box-shd-gap">
       <div>
@@ -110,6 +137,13 @@ const OddSports = () => {
                       <ul data-v-86dd4931 className="live_virtual">
                         <li data-v-86dd4931>
                           <input
+                            onChange={(e) =>
+                              onChangeLiveVirtual(
+                                "live",
+                                Number(eventId),
+                                e.target?.checked,
+                              )
+                            }
                             data-v-86dd4931
                             type="checkbox"
                             className="filter-checkbox"
@@ -118,6 +152,13 @@ const OddSports = () => {
                         </li>
                         <li data-v-86dd4931>
                           <input
+                            onChange={(e) =>
+                              onChangeLiveVirtual(
+                                "virtual",
+                                Number(eventId),
+                                e.target?.checked,
+                              )
+                            }
                             data-v-86dd4931
                             type="checkbox"
                             className="filter-checkbox"
@@ -206,7 +247,7 @@ const OddSports = () => {
                       </button>
                     </li>
                   </ul>
-                  {Object.entries(finalData).length === 0 && (
+                  {groupedFilterData?.length === 0 && (
                     <div
                       data-v-56384811
                       className="tab-content"
@@ -222,19 +263,16 @@ const OddSports = () => {
               <div data-v-86dd4931>
                 <div data-v-86dd4931>
                   {data &&
-                    Object.values(data).length > 0 &&
-                    Object.keys(finalData)
-                      .sort((keyA, keyB) => data[keyA].sort - data[keyB].sort)
-                      .map((keys, index) => {
-                        return (
-                          <EventRow
-                            key={index}
-                            data={data}
-                            keys={keys}
-                            eventName={eventName}
-                          />
-                        );
-                      })}
+                    groupedFilterData?.map(([keys], index) => {
+                      return (
+                        <EventRow
+                          key={index}
+                          data={data}
+                          keys={keys}
+                          eventName={eventName}
+                        />
+                      );
+                    })}
                 </div>
               </div>
             </section>

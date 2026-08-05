@@ -2,13 +2,15 @@ import { Fragment, useEffect, useState } from "react";
 import EventRow from "../../shared/EventRow/EventRow";
 import { useGroupQuery } from "../../../redux/features/events/events";
 import { eventNames } from "../../../utils/eventNames";
+import { filterLiveVirtual } from "../../../utils/filter-live-virtual";
 
 const EventSection = () => {
+  const [liveVirtual, setLiveVirtual] = useState([]);
   const { data } = useGroupQuery(
     { sportsType: 0 },
     {
       pollingInterval: 1000,
-    }
+    },
   );
 
   const [categories, setCategories] = useState([]);
@@ -19,8 +21,8 @@ const EventSection = () => {
         new Set(
           Object.values(data)
             .filter((item) => item.visible)
-            .map((item) => item.eventTypeId)
-        )
+            .map((item) => item.eventTypeId),
+        ),
       );
       const sortedCategories = categories.sort((a, b) => {
         const order = { 4: 0, 1: 1, 2: 2 };
@@ -29,18 +31,31 @@ const EventSection = () => {
       setCategories(sortedCategories);
     }
   }, [data]);
+
+  const onChangeLiveVirtual = (type, eventTypeId, isChecked) => {
+    const obj = { type, eventTypeId, isChecked };
+
+    setLiveVirtual((prev) => {
+      const index = prev.findIndex(
+        (item) => item.eventTypeId === eventTypeId && item.type === type,
+      );
+
+      if (index !== -1) {
+        const updated = [...prev];
+        updated[index] = {
+          ...updated[index],
+          isChecked,
+        };
+        return updated;
+      }
+
+      return [...prev, obj];
+    });
+  };
   return (
     <Fragment>
       {categories?.map((category) => {
-        const filteredData = Object.entries(data)
-          .filter(
-            ([, value]) =>
-              value.eventTypeId === category && value.visible === true
-          )
-          .reduce((obj, [key, value]) => {
-            obj[key] = value;
-            return obj;
-          }, {});
+        const groupedData = filterLiveVirtual(liveVirtual, category, data);
         return (
           <Fragment key={category}>
             <div
@@ -61,6 +76,9 @@ const EventSection = () => {
                 <ul data-v-56384811 className="live_virtual">
                   <li data-v-56384811>
                     <input
+                      onChange={(e) =>
+                        onChangeLiveVirtual("live", category, e.target?.checked)
+                      }
                       data-v-56384811
                       type="checkbox"
                       className="filter-checkbox"
@@ -69,6 +87,13 @@ const EventSection = () => {
                   </li>
                   <li data-v-56384811>
                     <input
+                      onChange={(e) =>
+                        onChangeLiveVirtual(
+                          "virtual",
+                          category,
+                          e.target?.checked,
+                        )
+                      }
                       data-v-56384811
                       type="checkbox"
                       className="filter-checkbox"
@@ -82,23 +107,20 @@ const EventSection = () => {
               <section data-v-56384811 className="bet-details-sec">
                 <div data-v-56384811>
                   {data &&
-                    Object.values(data).length > 0 &&
-                    Object.keys(filteredData)
-                      .sort((keyA, keyB) => data[keyA].sort - data[keyB].sort)
-                      .map((keys, index) => {
-                        if (!data?.[keys]?.visible) {
-                          return null;
-                        }
+                    groupedData?.map(([keys], index) => {
+                      if (!data?.[keys]?.visible) {
+                        return null;
+                      }
 
-                        return (
-                          <EventRow
-                            key={index}
-                            data={data}
-                            keys={keys}
-                            category={category}
-                          />
-                        );
-                      })}
+                      return (
+                        <EventRow
+                          key={index}
+                          data={data}
+                          keys={keys}
+                          category={category}
+                        />
+                      );
+                    })}
                 </div>
               </section>
             </section>
