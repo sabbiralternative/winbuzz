@@ -12,8 +12,11 @@ import { Settings } from "../../../api";
 import { handleCashOutPlaceBet } from "../../../utils/handleCashoutPlaceBet";
 import SpeedCashOut from "../../modals/SpeedCashOut/SpeedCashOut";
 import MobileBetSlip from "./MobileBetSlip";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const MatchOdds = ({ data }) => {
+  const { getLanguage } = useLanguage();
   const [speedCashOut, setSpeedCashOut] = useState(null);
   const { eventId } = useParams();
   const [teamProfit, setTeamProfit] = useState([]);
@@ -272,7 +275,7 @@ const MatchOdds = ({ data }) => {
                             data-v-4a1ad0c4
                             className={` cmn-btn-cashout `}
                           >
-                            Cashout{" "}
+                            {getLanguage(LanguageKey.CASHOUT)}{" "}
                             {teamProfitForGame?.profit &&
                               `(${teamProfitForGame.profit.toFixed(0)})`}
                           </button>
@@ -294,7 +297,7 @@ const MatchOdds = ({ data }) => {
                             data-v-4a1ad0c4
                             className={` px-2 py-1 rounded bg-[#82371b]`}
                           >
-                            Speed Cashout
+                            {getLanguage(LanguageKey.SPEED_CASHOUT)}
                           </button>
                         )}
                     </div>
@@ -302,7 +305,9 @@ const MatchOdds = ({ data }) => {
                   <div data-v-4a1ad0c4 className="col-4 col-md-6">
                     <div data-v-4a1ad0c4 className="min-max-head">
                       <span data-v-4a1ad0c4>
-                        min: {game?.minLiabilityPerBet} | max:
+                        {getLanguage(LanguageKey.MIN)}:{" "}
+                        {game?.minLiabilityPerBet} |{" "}
+                        {getLanguage(LanguageKey.MAX)}:
                         {game?.maxLiabilityPerBet}
                       </span>
                     </div>
@@ -385,7 +390,9 @@ const MatchOdds = ({ data }) => {
                                   data-v-4a1ad0c4
                                   className="running-con suspend-con"
                                 >
-                                  <span data-v-4a1ad0c4>SUSPENDED</span>
+                                  <span data-v-4a1ad0c4>
+                                    {getLanguage(LanguageKey.SUSPENDED)}
+                                  </span>
                                 </div>
                               )}
                               <button

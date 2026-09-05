@@ -5,8 +5,11 @@ import toast from "react-hot-toast";
 import { AxiosSecure } from "../../../../lib/AxiosSecure";
 import { API, Settings } from "../../../../api";
 import { jwtDecode } from "jwt-decode";
+import useLanguage from "../../../../hooks/use-language";
+import { LanguageKey } from "../../../../const";
 
 const AddUSDTAccount = ({ setTab, refetchBankAccounts }) => {
+  const { getLanguage } = useLanguage();
   const [addNewUSDTAccount] = useBankAccountMutation();
   const [isFormValid, setIsFormValid] = useState(false);
   const [mobile, setMobile] = useState(null);
@@ -125,7 +128,8 @@ const AddUSDTAccount = ({ setTab, refetchBankAccounts }) => {
       <div className="rounded-lg   py-2 px-3.5 flex flex-col items-start justify-start w-full gap-y-0.5">
         <div className="flex flex-col w-full">
           <div className="ml-1 text-sm">
-            USDT Type <span className="text-rose-500">*</span>
+            {getLanguage(LanguageKey.USDT_TYPE)}{" "}
+            <span className="text-rose-500">*</span>
           </div>
           <div className="flex items-center w-full   py-2 px-2 rounded-lg border gap-x-10">
             <div className="flex items-center gap-x-2">
@@ -167,7 +171,8 @@ const AddUSDTAccount = ({ setTab, refetchBankAccounts }) => {
         </div>
         <div className="flex flex-col w-full">
           <div className="ml-1 text-sm">
-            Wallet Address <span className="text-rose-500">*</span>
+            {getLanguage(LanguageKey.WALLET_ADDRESS)}{" "}
+            <span className="text-rose-500">*</span>
           </div>
           <div className="flex items-center w-full  w-full py-2 px-2 rounded-lg border">
             <input
@@ -192,7 +197,8 @@ const AddUSDTAccount = ({ setTab, refetchBankAccounts }) => {
         {mobile && Settings.otp && (
           <div className="flex flex-col w-full">
             <div className="ml-1 text-sm">
-              Mobile <span className="text-rose-500">*</span>
+              {getLanguage(LanguageKey.MOBILE_NUMBER)}{" "}
+              <span className="text-rose-500">*</span>
             </div>
             <div className="flex items-center w-full  w-full py-2 px-2 rounded-lg border">
               <input
@@ -211,7 +217,9 @@ const AddUSDTAccount = ({ setTab, refetchBankAccounts }) => {
                     className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out -bold h-fit bg-bg_Primary  transition-all ease-in-out text-xs whitespace-nowrap mr-1 py-1 px-3 rounded active:scale-[0.98] active:opacity-95 disabled:bg-bg_Slate500 disabled:opacity-50 font-medium relative flex items-center justify-center cursor-pointer"
                     type="button"
                   >
-                    <span className=" ">Retry in {timer}</span>
+                    <span className=" ">
+                      {getLanguage(LanguageKey.RETRY_IN)} {timer}
+                    </span>
                     {/* <span className="shimmer"></span> */}
                   </button>
                 ) : (
@@ -232,7 +240,9 @@ const AddUSDTAccount = ({ setTab, refetchBankAccounts }) => {
                       className="inline-block leading-normal relative overflow-hidden transition duration-150 ease-in-out -bold h-fit bg-bg_Primary  transition-all ease-in-out text-xs whitespace-nowrap mr-1 py-1 px-3 rounded active:scale-[0.98] active:opacity-95 disabled:bg-bg_Slate500 disabled:opacity-50 font-medium relative flex items-center justify-center cursor-pointer bg-primary"
                       type="button"
                     >
-                      <span className="">Get OTP SMS</span>
+                      <span className="">
+                        {getLanguage(LanguageKey.GET_OTP_ON_MESSAGE)}
+                      </span>
                       <span className="shimmer"></span>
                     </button>
                   </div>
@@ -247,7 +257,8 @@ const AddUSDTAccount = ({ setTab, refetchBankAccounts }) => {
         {mobile && Settings.otp && (
           <div className="flex flex-col w-full">
             <div className="ml-1 text-sm">
-              OTP <span className="text-rose-500">*</span>
+              {getLanguage(LanguageKey.OTP)}{" "}
+              <span className="text-rose-500">*</span>
             </div>
             <div className="flex items-center w-full  w-full py-2 px-2 rounded-lg border">
               <input
@@ -317,7 +328,7 @@ const AddUSDTAccount = ({ setTab, refetchBankAccounts }) => {
           className="relative overflow-hidden bg-primary w-full  h-10 text-base shadow-lg rounded-md font-[600] leading-4 disabled:opacity-70 flex gap-x-1 items-center justify-center text-primary"
           type="submit"
         >
-          <span>Submit</span>
+          <span>{getLanguage(LanguageKey.SUBMIT)}</span>
         </button>
       </div>
     </form>

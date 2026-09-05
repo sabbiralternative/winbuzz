@@ -8,12 +8,11 @@ import { handleCopyToClipBoard } from "../../../utils/handleCopyToClipBoard";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import { FaBook } from "react-icons/fa6";
 import { Settings } from "../../../api";
-import { useLanguage } from "../../../context/LanguageProvider";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
+import useLanguage from "../../../hooks/use-language";
 
 const Dropdown = () => {
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   const { closePopupForForever } = useSelector((state) => state?.global);
   const dispatch = useDispatch();
   const { data } = useBalance();
@@ -81,7 +80,7 @@ const Dropdown = () => {
             <li data-v-9dda4895 className="menu-rgt-icons">
               <div data-v-9dda4895 className="displayName-wrap">
                 <h3 data-v-9dda4895 className="displayName-title">
-                  Username :
+                  {getLanguage(LanguageKey.USERNAME)} :
                 </h3>
                 <span data-v-9dda4895 className="displayName-name">
                   {user}
@@ -104,11 +103,15 @@ const Dropdown = () => {
                   className="credits-list blanace-exposure-bx"
                 >
                   <div data-v-9dda4895 className="credits-list-con blanace-bx">
-                    <h5 data-v-9dda4895>Wallet Amount</h5>
+                    <h5 data-v-9dda4895>
+                      {getLanguage(LanguageKey.WALLET_AMOUNT)}
+                    </h5>
                     <h6 data-v-9dda4895>₹{data?.availBalance}</h6>
                   </div>
                   <div data-v-9dda4895 className="credits-list-con exposure-bx">
-                    <h5 data-v-9dda4895>Net Exposure</h5>
+                    <h5 data-v-9dda4895>
+                      {getLanguage(LanguageKey.NET_EXPOSURE)}
+                    </h5>
                     <h6 data-v-9dda4895>{data?.deductedExposure}</h6>
                   </div>
                 </div>
@@ -124,7 +127,7 @@ const Dropdown = () => {
                         to="/affiliate"
                         className="cmn-btn"
                       >
-                        Refer and Earn
+                        {getLanguage(LanguageKey.REFER_AND_EARN)}
                       </Link>
                     </div>
                   </div>
@@ -145,7 +148,7 @@ const Dropdown = () => {
                   className="fa-solid fa-users-rays"
                 />
                 <span data-v-9dda4895 className="menu-rgt-text">
-                  {languageValue(valueByLanguage, LanguageKey.DEPOSIT)}
+                  {getLanguage(LanguageKey.DEPOSIT)}
                 </span>
               </Link>
             </li>
@@ -162,7 +165,7 @@ const Dropdown = () => {
                   className="fa-solid fa-users-rays"
                 />
                 <span data-v-9dda4895 className="menu-rgt-text">
-                  {languageValue(valueByLanguage, LanguageKey.WITHDRAW)}
+                  {getLanguage(LanguageKey.WITHDRAW)}
                 </span>
               </Link>
             </li>
@@ -179,7 +182,7 @@ const Dropdown = () => {
                   className="fa-solid fa-users-rays"
                 />
                 <span data-v-9dda4895 className="menu-rgt-text">
-                  Deposit Report
+                  {getLanguage(LanguageKey.DEPOSIT_STATEMENT)}
                 </span>
               </Link>
             </li>
@@ -196,7 +199,7 @@ const Dropdown = () => {
                   className="fa-solid fa-users-rays"
                 />
                 <span data-v-9dda4895 className="menu-rgt-text">
-                  Withdraw Report
+                  {getLanguage(LanguageKey.WITHDRAW_STATMENT)}
                 </span>
               </Link>
             </li>
@@ -213,7 +216,7 @@ const Dropdown = () => {
                   className="fa-solid fa-users-rays"
                 />
                 <span data-v-9dda4895 className="menu-rgt-text">
-                  {languageValue(valueByLanguage, LanguageKey.MY_BANK_DETAILS)}
+                  {getLanguage(LanguageKey.MY_BANK_DETAILS)}
                 </span>
               </Link>
             </li>
@@ -232,7 +235,7 @@ const Dropdown = () => {
                     className="fa-solid fa-users-rays"
                   />
                   <span data-v-9dda4895 className="menu-rgt-text">
-                    Affiliate
+                    {getLanguage(LanguageKey.AFFILIATE)}
                   </span>
                 </Link>
               </li>
@@ -251,7 +254,7 @@ const Dropdown = () => {
                   className="fa-solid fa-users-rays"
                 />
                 <span data-v-9dda4895 className="menu-rgt-text">
-                  {languageValue(valueByLanguage, LanguageKey.BONUS_STATEMENT)}
+                  {getLanguage(LanguageKey.BONUS_STATEMENT)}
                 </span>
               </Link>
             </li>
@@ -268,7 +271,7 @@ const Dropdown = () => {
                   className="fa-solid fa-users-rays"
                 />
                 <span data-v-9dda4895 className="menu-rgt-text">
-                  Promos & Bonus
+                  {getLanguage(LanguageKey.PROMOTION_AND_BONUSES)}
                 </span>
               </Link>
             </li>
@@ -285,7 +288,7 @@ const Dropdown = () => {
                   className="fa-solid fa-users-rays"
                 />
                 <span data-v-9dda4895 className="menu-rgt-text">
-                  Lossack Bonus
+                  {getLanguage(LanguageKey.LOSSBACK_BONUS)}
                 </span>
               </Link>
             </li>
@@ -303,7 +306,7 @@ const Dropdown = () => {
                     className="fa-solid fa-users-rays"
                   />
                   <span data-v-9dda4895 className="menu-rgt-text">
-                    App Only Bonus
+                    {getLanguage(LanguageKey.APP_ONLY_BONUS)}
                   </span>
                 </Link>
               </li>
@@ -322,7 +325,7 @@ const Dropdown = () => {
                   className="fa-solid fa-gear"
                 />
                 <span data-v-9dda4895 className="menu-rgt-text">
-                  Settings
+                  {getLanguage(LanguageKey.SETTINGS)}
                 </span>
               </Link>
             </li>
@@ -335,7 +338,7 @@ const Dropdown = () => {
               >
                 <AiOutlineQuestionCircle className="mr-3" />
                 <span data-v-9dda4895 className="menu-rgt-text">
-                  Betting Profit &amp; Loss
+                  {getLanguage(LanguageKey.BETTING_PROFIT_AND_LOSS)}
                 </span>
               </Link>
             </li>
@@ -352,7 +355,7 @@ const Dropdown = () => {
                 </span>
                 <span data-v-9dda4895 className="menu-rgt-text">
                   {" "}
-                  Open Bets
+                  {getLanguage(LanguageKey.OPEN_BETS)}
                 </span>
               </Link>
             </li>
@@ -369,7 +372,7 @@ const Dropdown = () => {
                   className="fa-solid fa-lock"
                 />
                 <span data-v-9dda4895 className="menu-rgt-text">
-                  {languageValue(valueByLanguage, LanguageKey.CHANGE_PASSWORD)}
+                  {getLanguage(LanguageKey.CHANGE_PASSWORD)}
                 </span>
               </Link>
             </li>
@@ -399,7 +402,7 @@ const Dropdown = () => {
                   className="fa-solid fa-right-from-bracket"
                 />
                 <span data-v-9dda4895 className="menu-rgt-text">
-                  {languageValue(valueByLanguage, LanguageKey.LOGOUT)}
+                  {getLanguage(LanguageKey.LOGOUT)}
                 </span>
               </a>
             </li>

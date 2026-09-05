@@ -15,12 +15,11 @@ import toast from "react-hot-toast";
 import { useLogo } from "../../../context/ApiProvider";
 import images from "../../../assets/images";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
-import { useLanguage } from "../../../context/LanguageProvider";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
+import useLanguage from "../../../hooks/use-language";
 
 const Login = () => {
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   const { closePopupForForever } = useSelector((state) => state?.global);
 
   const navigate = useNavigate();
@@ -286,7 +285,7 @@ const Login = () => {
                             onClick={showForgotPassword}
                             data-bs-toggle="modal"
                           >
-                            Forgot Password?
+                            {getLanguage(LanguageKey.FORGOT_PASSWORD)}?
                           </a>
                         </div>
                       </div>
@@ -302,7 +301,7 @@ const Login = () => {
                         >
                           <span data-v-b55734cb>
                             {" "}
-                            {languageValue(valueByLanguage, LanguageKey.LOGIN)}
+                            {getLanguage(LanguageKey.LOGIN)}
                           </span>
                         </button>
                         {Settings.demo_login && (
@@ -312,7 +311,9 @@ const Login = () => {
                             data-v-b55734cb
                             type="button"
                           >
-                            <span data-v-b55734cb>Login With Demo ID</span>
+                            <span data-v-b55734cb>
+                              {getLanguage(LanguageKey.DEMO_LOGIN)}
+                            </span>
                           </button>
                         )}
                       </div>
@@ -327,7 +328,9 @@ const Login = () => {
                             data-v-b55734cb
                             className="apk-download-anchor"
                           >
-                            <span data-v-b55734cb>Download APK</span>
+                            <span data-v-b55734cb>
+                              {getLanguage(LanguageKey.DOWNLOAD_APK)}
+                            </span>
                             <img
                               data-v-b55734cb
                               src="/icon/apk_icon-CKpATu5s.svg"
@@ -345,7 +348,9 @@ const Login = () => {
                                 className="login-flow-heading pb-0"
                               >
                                 <p data-v-b55734cb>
-                                  Get Your Ready-Made ID From WhatsApp
+                                  {getLanguage(
+                                    LanguageKey.GET_YOUR_INSTANT_ID_FROM_WHATSAPP,
+                                  )}
                                 </p>
                               </div>
                               <div data-v-b55734cb className="button-whatsapp">
@@ -360,7 +365,7 @@ const Login = () => {
                                     data-v-b55734cb
                                     className="fa-brands fa-whatsapp"
                                   />{" "}
-                                  Whatsapp Now
+                                  {getLanguage(LanguageKey.WHATSAPP)}
                                 </a>
                               </div>
                             </Fragment>
@@ -416,10 +421,7 @@ const Login = () => {
                             data-v-b55734cb
                             data-bs-toggle="modal"
                           >
-                            {languageValue(
-                              valueByLanguage,
-                              LanguageKey.REGISTER,
-                            )}
+                            {getLanguage(LanguageKey.REGISTER)}
                           </a>
                         </span>
                       </div>

@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const DepositWithdrawBTN = () => {
+  const { getLanguage } = useLanguage();
   return (
     <div className="deposit-and-wdrl--m-sec">
       <div className="deposit-m">
@@ -38,7 +41,9 @@ const DepositWithdrawBTN = () => {
               ></path>
             </g>
           </svg>
-          <span style={{ marginLeft: "5px" }}>Deposit</span>
+          <span style={{ marginLeft: "5px" }}>
+            {getLanguage(LanguageKey.DEPOSIT)}
+          </span>
         </Link>
       </div>
       <div className="withdraw-m">
@@ -75,7 +80,9 @@ const DepositWithdrawBTN = () => {
               </g>
             </g>
           </svg>
-          <span style={{ marginLeft: "5px" }}>Withdraw</span>
+          <span style={{ marginLeft: "5px" }}>
+            {getLanguage(LanguageKey.WITHDRAW)}
+          </span>
         </Link>
       </div>
     </div>

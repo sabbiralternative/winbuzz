@@ -2,8 +2,11 @@ import { useParams } from "react-router-dom";
 import { useVideoMutation } from "../../../redux/features/events/events";
 import { Settings } from "../../../api";
 import { useEffect } from "react";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const EventTab = ({ setEventTab, eventTab, score, myBets, setIframe }) => {
+  const { getLanguage } = useLanguage();
   const [sportsVideo] = useVideoMutation();
   const { eventId, eventTypeId } = useParams();
 
@@ -59,7 +62,7 @@ const EventTab = ({ setEventTab, eventTab, score, myBets, setIframe }) => {
           <span>
             <div className="w-2 h-2 bg-green-600 rounded-full mr"></div>{" "}
           </span>
-          LIVE
+          {getLanguage(LanguageKey.LIVE)}
           <div
             className={`w-full absolute z-10 transition-all ease-in-out bg-primary-color rounded-lg h-[2px] 
             left-0 ${eventTab === "live" ? "block" : "hidden"}
@@ -84,7 +87,7 @@ const EventTab = ({ setEventTab, eventTab, score, myBets, setIframe }) => {
             }`}
             style={{ zIndex: 10 }}
           >
-            Video{" "}
+            {getLanguage(LanguageKey.VIDEO)}{" "}
             <div
               className={`w-full absolute z-10 transition-all ease-in-out bg-primary-color rounded-lg h-[2px] 
             left-0 ${eventTab === "video" ? "block" : "hidden"}
@@ -111,7 +114,7 @@ const EventTab = ({ setEventTab, eventTab, score, myBets, setIframe }) => {
             }`}
             style={{ zIndex: 10 }}
           >
-            Tracker{" "}
+            {getLanguage(LanguageKey.TRACKER)}{" "}
             <div
               className={`w-full absolute z-10 transition-all ease-in-out bg-primary-color rounded-lg h-[2px] 
             left-0 ${eventTab === "tracker" ? "block" : "hidden"}
@@ -137,7 +140,7 @@ const EventTab = ({ setEventTab, eventTab, score, myBets, setIframe }) => {
           }`}
           style={{ zIndex: 10 }}
         >
-          OPEN BETS
+          {getLanguage(LanguageKey.OPEN_BETS)}
           <span>
             <div>({myBets?.length})</div>
           </span>

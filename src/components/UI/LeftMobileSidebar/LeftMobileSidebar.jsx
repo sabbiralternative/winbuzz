@@ -7,13 +7,12 @@ import {
 import ModalWrapper from "../../modals/ModalWrapper/ModalWrapper";
 import "./sidebar.css";
 import { useNavigate } from "react-router-dom";
-import { useLanguage } from "../../../context/LanguageProvider";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
 import { eventNameList } from "../../../static/event-name-list";
+import useLanguage from "../../../hooks/use-language";
 
 const LeftMobileSidebar = () => {
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   const { token } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -69,10 +68,7 @@ const LeftMobileSidebar = () => {
                         onClick={() => handleNavigate("/sports/cricket/4")}
                       >
                         <img alt="" className="menu-icon" src="/icon/4.svg" />
-                        <span>
-                          {" "}
-                          {languageValue(valueByLanguage, LanguageKey.CRICKET)}
-                        </span>
+                        <span> {getLanguage(LanguageKey.CRICKET)}</span>
                       </a>
                     </li>
                     <li>
@@ -81,10 +77,7 @@ const LeftMobileSidebar = () => {
                         onClick={() => handleNavigate("/sports/cricket/1")}
                       >
                         <img alt="" className="menu-icon" src="/icon/1.svg" />
-                        <span>
-                          {" "}
-                          {languageValue(valueByLanguage, LanguageKey.FOOTBALL)}
-                        </span>
+                        <span> {getLanguage(LanguageKey.FOOTBALL)}</span>
                       </a>
                     </li>
                     <li>
@@ -93,10 +86,7 @@ const LeftMobileSidebar = () => {
                         className="active"
                       >
                         <img alt="" className="menu-icon" src="/icon/2.svg" />
-                        <span>
-                          {" "}
-                          {languageValue(valueByLanguage, LanguageKey.TENNIS)}
-                        </span>
+                        <span> {getLanguage(LanguageKey.TENNIS)}</span>
                       </a>
                     </li>
                     <li>
@@ -109,10 +99,7 @@ const LeftMobileSidebar = () => {
                           className="menu-icon"
                           src="/icon/sports-no-YhxjmpH9.png"
                         />
-                        <span>
-                          {" "}
-                          {languageValue(valueByLanguage, LanguageKey.KABADDI)}
-                        </span>
+                        <span> {getLanguage(LanguageKey.KABADDI)}</span>
                       </a>
                     </li>
                     <li>
@@ -125,7 +112,7 @@ const LeftMobileSidebar = () => {
                           className="menu-icon"
                           src="/icon/2378961.png"
                         />
-                        <span>Politics</span>
+                        <span>{getLanguage(LanguageKey.POLITICS)}</span>
                       </a>
                     </li>
 
@@ -141,7 +128,7 @@ const LeftMobileSidebar = () => {
                           className="menu-icon"
                           src="/icon/99998.svg"
                         />
-                        <span>Casino</span>
+                        <span>{getLanguage(LanguageKey.CASINO)}</span>
                       </a>
                     </li>
                     <li>
@@ -157,16 +144,13 @@ const LeftMobileSidebar = () => {
                           className="menu-icon"
                           src="/icon/99991.svg"
                         />
-                        <span>Sports book</span>
+                        <span>{getLanguage(LanguageKey.SPORTSBOOK)}</span>
                       </a>
                     </li>
                     <li>
                       <a onClick={() => handleNavigate("/horse-racing")}>
                         <img alt="" className="menu-icon" src="/icon/7.svg" />
-                        <span>
-                          {" "}
-                          {languageValue(valueByLanguage, LanguageKey.HORSE)}
-                        </span>
+                        <span> {getLanguage(LanguageKey.HORSE)}</span>
                       </a>
                     </li>
                     <li>
@@ -176,13 +160,7 @@ const LeftMobileSidebar = () => {
                           className="menu-icon"
                           src="/icon/4339.svg"
                         />
-                        <span>
-                          {" "}
-                          {languageValue(
-                            valueByLanguage,
-                            LanguageKey.GREYHOUND,
-                          )}
-                        </span>
+                        <span> {getLanguage(LanguageKey.GREYHOUND)}</span>
                       </a>
                     </li>
                     {eventNameList.map((item) => {
@@ -199,7 +177,7 @@ const LeftMobileSidebar = () => {
                               className="menu-icon"
                               src={item.image}
                             />
-                            <span>{item.name}</span>
+                            <span>{getLanguage(item.name)}</span>
                           </a>
                         </li>
                       );
@@ -207,7 +185,7 @@ const LeftMobileSidebar = () => {
                     <li>
                       <a>
                         <img src="/icon/rules.svg" className="menu-icon" />
-                        <span>Rules</span>
+                        <span>{getLanguage(LanguageKey.RULES)}</span>
                       </a>
                     </li>
                   </ul>

@@ -16,12 +16,12 @@ import {
 
 import images from "../../../assets/images";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
-import { useLanguage } from "../../../context/LanguageProvider";
-import { languageValue } from "../../../utils/language";
+
 import { LanguageKey } from "../../../const";
+import useLanguage from "../../../hooks/use-language";
 
 const ForgotPassword = () => {
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   const [handleForgotPassword] = useForgotPasswordMutation();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -260,7 +260,9 @@ const ForgotPassword = () => {
                                         }`}
                                         disabled={mobile?.length < 10}
                                       >
-                                        <span data-v-27945482>GET OTP</span>
+                                        <span data-v-27945482>
+                                          {getLanguage(LanguageKey.GET_OTP)}
+                                        </span>
                                       </button>
                                     </div>
                                   )}
@@ -349,10 +351,7 @@ const ForgotPassword = () => {
                           >
                             <span data-v-27945482>
                               {" "}
-                              {languageValue(
-                                valueByLanguage,
-                                LanguageKey.CHANGE_PASSWORD,
-                              )}
+                              {getLanguage(LanguageKey.CHANGE_PASSWORD)}
                             </span>
                           </button>
                         </div>

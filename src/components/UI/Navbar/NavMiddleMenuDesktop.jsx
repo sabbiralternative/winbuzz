@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import { latestEvent } from "../../../static/latest-event";
-import { useLanguage } from "../../../context/LanguageProvider";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
 import { eventNameList } from "../../../static/event-name-list";
+import useLanguage from "../../../hooks/use-language";
 
 const NavMiddleMenuDesktop = () => {
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   return (
     <section className="nav-new-bar-sec hidden md:block">
       <div className="nav-middle-menu">
@@ -23,7 +22,7 @@ const NavMiddleMenuDesktop = () => {
                 alt="In Play"
                 className="nav-icon"
               />
-              <span>In-Play</span>
+              <span>{getLanguage(LanguageKey.IN_PLAY)}</span>
             </Link>
           </li>
           {latestEvent
@@ -52,10 +51,7 @@ const NavMiddleMenuDesktop = () => {
                 alt="Menu 1"
                 className="nav-icon"
               />
-              <span>
-                {" "}
-                {languageValue(valueByLanguage, LanguageKey.FOOTBALL)}
-              </span>
+              <span> {getLanguage(LanguageKey.FOOTBALL)}</span>
             </Link>
           </li>
           <li>
@@ -66,10 +62,7 @@ const NavMiddleMenuDesktop = () => {
                 alt="Menu 1"
                 className="nav-icon"
               />
-              <span>
-                {" "}
-                {languageValue(valueByLanguage, LanguageKey.KABADDI)}
-              </span>
+              <span> {getLanguage(LanguageKey.KABADDI)}</span>
             </Link>
           </li>
           <li>
@@ -80,7 +73,7 @@ const NavMiddleMenuDesktop = () => {
                 alt="Menu 1"
                 className="nav-icon"
               />
-              <span>Politics</span>
+              <span> {getLanguage(LanguageKey.POLITICS)}</span>
             </Link>
           </li>
           <li>
@@ -91,7 +84,7 @@ const NavMiddleMenuDesktop = () => {
                 alt="Menu 1"
                 className="nav-icon"
               />
-              <span> {languageValue(valueByLanguage, LanguageKey.TENNIS)}</span>
+              <span> {getLanguage(LanguageKey.TENNIS)}</span>
             </Link>
           </li>
           <li>
@@ -102,7 +95,7 @@ const NavMiddleMenuDesktop = () => {
                 alt="Menu 1"
                 className="nav-icon"
               />
-              <span> {languageValue(valueByLanguage, LanguageKey.HORSE)}</span>
+              <span> {getLanguage(LanguageKey.HORSE)}</span>
             </Link>
           </li>
           <li>
@@ -113,10 +106,7 @@ const NavMiddleMenuDesktop = () => {
                 alt="Menu 1"
                 className="nav-icon"
               />
-              <span>
-                {" "}
-                {languageValue(valueByLanguage, LanguageKey.GREYHOUND)}
-              </span>
+              <span> {getLanguage(LanguageKey.GREYHOUND)}</span>
             </Link>
           </li>
           {eventNameList.map((item) => {
@@ -132,7 +122,7 @@ const NavMiddleMenuDesktop = () => {
                     alt="Menu 1"
                     className="nav-icon"
                   />
-                  <span> {item.name}</span>
+                  <span> {getLanguage(item.name)}</span>
                 </Link>
               </li>
             );
@@ -149,7 +139,7 @@ const NavMiddleMenuDesktop = () => {
                 alt="Int Casino"
                 className="nav-icon"
               />
-              <span>Casino</span>
+              <span> {getLanguage(LanguageKey.CASINO)}</span>
             </Link>
           </li>
         </ul>

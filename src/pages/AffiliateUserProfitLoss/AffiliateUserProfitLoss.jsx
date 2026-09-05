@@ -2,8 +2,11 @@ import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { useGetIndex } from "../../hooks";
 import moment from "moment";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const AffiliateUserProfitLoss = () => {
+  const { getLanguage } = useLanguage();
   const fromDate = new Date(new Date().setDate(new Date().getDate() - 7))
     .toISOString()
     .split("T")[0];
@@ -20,7 +23,7 @@ const AffiliateUserProfitLoss = () => {
   });
 
   const getUniqueDate = Array.from(
-    new Set(data?.result?.map((item) => item?.settledTime))
+    new Set(data?.result?.map((item) => item?.settledTime)),
   );
   return (
     <div className="col-12 col-sm-12 col-md-12 col-lg-10 box-shd-gap">
@@ -31,7 +34,7 @@ const AffiliateUserProfitLoss = () => {
         {token && getUniqueDate?.length > 0 ? (
           getUniqueDate?.map((category) => {
             const filterData = data?.result?.filter(
-              (item) => item.settledTime === category
+              (item) => item.settledTime === category,
             );
             const totalPnl = filterData?.reduce((acc, curr) => {
               return acc + Number(curr.memberWin);
@@ -47,15 +50,17 @@ const AffiliateUserProfitLoss = () => {
                     {moment(category).format("Do-MMM-YYYY")}
                   </div>
                   <div className="text-xs   font-[600] flex items-center justify-center leading-[140%]">
-                    <span className="text-black">Total PL</span>
+                    <span className="text-black">
+                      {getLanguage(LanguageKey.TOTAL_PL)}
+                    </span>
                     <span className="-mt-0.5 ml-1 text-black">:</span>
                     <span
                       className={`ml-1 ${
                         totalPnl > 0
                           ? "text-green-500"
                           : totalPnl < 0
-                          ? "text-rose-500"
-                          : "text-white"
+                            ? "text-rose-500"
+                            : "text-white"
                       }`}
                       style={{ textShadow: "1px 1px #000000" }}
                     >
@@ -80,15 +85,15 @@ const AffiliateUserProfitLoss = () => {
                             item?.memberWin > 0
                               ? "text-green-500"
                               : item?.memberWin < 0
-                              ? "text-rose-500"
-                              : "text-black"
+                                ? "text-rose-500"
+                                : "text-black"
                           }`}
                         >
                           ₹ {item?.memberWin}
                         </span>
                       </span>
                       <span className=" w-1/2 flex items-center justify-end gap-x-1">
-                        <span>Balance:</span>
+                        <span>{getLanguage(LanguageKey.BALANCE)}:</span>
                         <span className="font-semibold ">
                           ₹ {item?.balance}
                         </span>

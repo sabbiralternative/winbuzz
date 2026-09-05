@@ -22,8 +22,11 @@ import {
 import { AxiosJSEncrypt } from "../../../lib/AxiosJSEncrypt";
 import BetLoading from "./BetLoading";
 import { isBetDelay, isDelay } from "../../../utils/isBetDelay";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const BetSlip = () => {
+  const { getLanguage } = useLanguage();
   const { closePopupForForever } = useSelector((state) => state?.global);
   const [isCashOut, setIsCashOut] = useState(false);
   const [profit, setProfit] = useState(0);
@@ -233,10 +236,12 @@ const BetSlip = () => {
           <div data-v-4a1ad0c4 className="bet-placing-head">
             <div data-v-4a1ad0c4 className="bet-placing-head-right">
               <small data-v-4a1ad0c4>
-                MIN: {placeBetValues?.minLiabilityPerBet}
+                {getLanguage(LanguageKey.MIN)}:{" "}
+                {placeBetValues?.minLiabilityPerBet}
               </small>
               <small data-v-4a1ad0c4>
-                MAX: {placeBetValues?.maxLiabilityPerBet}{" "}
+                {getLanguage(LanguageKey.MAX)}:{" "}
+                {placeBetValues?.maxLiabilityPerBet}{" "}
               </small>
             </div>
             <p data-v-4a1ad0c4 className="betslip-aval-bal">
@@ -308,7 +313,7 @@ const BetSlip = () => {
               </div>
             </div>
             <div data-v-4a1ad0c4 className="inpt-grp-rgt">
-              <label data-v-4a1ad0c4>stake</label>
+              <label data-v-4a1ad0c4>{getLanguage(LanguageKey.STAKE)}</label>
               <input
                 disabled={loading}
                 onChange={(e) => {
@@ -346,7 +351,7 @@ const BetSlip = () => {
                 type="button"
                 className="stake-1"
               >
-                Min
+                {getLanguage(LanguageKey.MIN)}
               </button>
             </div>
             <div data-v-4a1ad0c4 className="stake-small-box">
@@ -363,7 +368,7 @@ const BetSlip = () => {
                 type="button"
                 className="stake-2"
               >
-                Max
+                {getLanguage(LanguageKey.MAX)}
               </button>
             </div>
 
@@ -381,7 +386,7 @@ const BetSlip = () => {
                 type="button"
                 className="stake-4"
               >
-                Clear
+                {getLanguage(LanguageKey.CLEAR)}
               </button>
             </div>
           </div>
@@ -394,7 +399,7 @@ const BetSlip = () => {
                 type="button"
                 className="close-btn-1"
               >
-                Cancel
+                {getLanguage(LanguageKey.CANCEL)}
               </button>
             </div>
             <div data-v-4a1ad0c4 className="placed-btn">
@@ -416,7 +421,7 @@ const BetSlip = () => {
                       role="status"
                     >
                       <span data-v-4a1ad0c4="" className="visually-hidden">
-                        Loading...
+                        {getLanguage(LanguageKey.LOADING)}...
                       </span>
                     </div>
                   </div>
@@ -428,7 +433,9 @@ const BetSlip = () => {
                   className="place-btn-outline place-btn-filled"
                   type="button"
                 >
-                  <span data-v-4a1ad0c4>Place Bet</span>
+                  <span data-v-4a1ad0c4>
+                    {getLanguage(LanguageKey.PLACE_BET)}
+                  </span>
                 </button>
               )}
             </div>

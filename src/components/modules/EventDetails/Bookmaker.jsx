@@ -12,8 +12,11 @@ import { Settings } from "../../../api";
 import { handleCashOutPlaceBet } from "../../../utils/handleCashoutPlaceBet";
 import SpeedCashOut from "../../modals/SpeedCashOut/SpeedCashOut";
 import MobileBetSlip from "./MobileBetSlip";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const Bookmaker = ({ data }) => {
+  const { getLanguage } = useLanguage();
   const [speedCashOut, setSpeedCashOut] = useState(null);
   const { eventId } = useParams();
   const [teamProfit, setTeamProfit] = useState([]);
@@ -275,7 +278,7 @@ const Bookmaker = ({ data }) => {
                             data-v-4a1ad0c4
                             className={` cmn-btn-cashout `}
                           >
-                            Cashout{" "}
+                            {getLanguage(LanguageKey.CASHOUT)}{" "}
                             {teamProfitForGame?.profit &&
                               `(${teamProfitForGame.profit.toFixed(0)})`}
                           </button>
@@ -297,7 +300,7 @@ const Bookmaker = ({ data }) => {
                             data-v-4a1ad0c4
                             className={` px-2 py-1 rounded bg-[#82371b]`}
                           >
-                            Speed Cashout
+                            {getLanguage(LanguageKey.SPEED_CASHOUT)}
                           </button>
                         )}
                     </div>
@@ -308,7 +311,9 @@ const Bookmaker = ({ data }) => {
                         data-v-4a1ad0c4
                         style={{ textTransform: "capitalize" }}
                       >
-                        min: {game?.minLiabilityPerBet} | max:{" "}
+                        {getLanguage(LanguageKey.MIN)}:{" "}
+                        {game?.minLiabilityPerBet} |{" "}
+                        {getLanguage(LanguageKey.MAX)}:{" "}
                         {game?.maxLiabilityPerBet}
                       </span>
                     </div>

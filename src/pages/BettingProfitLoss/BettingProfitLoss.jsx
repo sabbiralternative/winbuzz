@@ -3,8 +3,11 @@ import { useAccountStatementMutation } from "../../hooks/accountStatement";
 import { useState } from "react";
 import { from_date, to_date } from "../../utils/default-date";
 import { useNavigate } from "react-router-dom";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const BettingProfitLoss = () => {
+  const { getLanguage } = useLanguage();
   const navigate = useNavigate();
   const [fromDate, setFromDate] = useState(from_date);
   const [toDate, setToDate] = useState(to_date);
@@ -42,7 +45,7 @@ const BettingProfitLoss = () => {
             <form onSubmit={handleSubmit} data-v-275a83f2 className="row">
               <div data-v-275a83f2 className="col-6 col-sm-6 col-md-2 mb-2">
                 <label data-v-275a83f2 className="label-upside">
-                  From Date :
+                  {getLanguage(LanguageKey.FROM_DATE)} :
                 </label>
                 <div data-v-275a83f2 className="start-end-date-sec">
                   <input
@@ -58,7 +61,7 @@ const BettingProfitLoss = () => {
               </div>
               <div data-v-275a83f2 className="col-6 col-sm-6 col-md-2 mb-2">
                 <label data-v-275a83f2 className="label-upside">
-                  To Date :
+                  {getLanguage(LanguageKey.TO_DATE)} :
                 </label>
                 <div data-v-275a83f2 className="start-end-date-sec">
                   <input
@@ -75,7 +78,7 @@ const BettingProfitLoss = () => {
               {/**/}
               <div data-v-275a83f2 className="col-6 col-sm-6 col-md-2">
                 <label data-v-275a83f2 className="label-upside">
-                  Select Type :
+                  {getLanguage(LanguageKey.SELECT_TYPE)} :
                 </label>
                 <div data-v-275a83f2 className="select-search-box">
                   <span data-v-275a83f2 className="select-down-arrow">
@@ -87,13 +90,13 @@ const BettingProfitLoss = () => {
                     aria-label="Default select example"
                   >
                     <option data-v-275a83f2 value="all">
-                      All
+                      {getLanguage(LanguageKey.ALL)}
                     </option>
                     <option data-v-275a83f2 value="dw">
-                      Deposit/Withdrawal
+                      {getLanguage(LanguageKey.DEPOSIT_WITHDRAW_REPORT)}
                     </option>
                     <option data-v-275a83f2 value="sport">
-                      Sports
+                      {getLanguage(LanguageKey.SPORTS)}
                     </option>
                   </select>
                 </div>
@@ -142,7 +145,7 @@ const BettingProfitLoss = () => {
                     type="submit"
                     className="btn btn-gets text-bg-dark"
                   >
-                    Submit
+                    {getLanguage(LanguageKey.SUBMIT)}
                   </button>
                   <div data-v-275a83f2 className="dropdown file_downland">
                     <button
@@ -183,10 +186,14 @@ const BettingProfitLoss = () => {
               <table data-v-82dac09c className="datatable table table-bordered">
                 <thead data-v-82dac09c>
                   <tr data-v-82dac09c>
-                    <th data-v-82dac09c>Event Id</th>
-                    <th data-v-82dac09c>Settled Time</th>
-                    <th data-v-82dac09c>Event</th>
-                    <th data-v-82dac09c>Member Win</th>
+                    <th data-v-82dac09c>{getLanguage(LanguageKey.EVENT_ID)}</th>
+                    <th data-v-82dac09c>
+                      {getLanguage(LanguageKey.SETTLED_TIME)}
+                    </th>
+                    <th data-v-82dac09c>{getLanguage(LanguageKey.EVENT)}</th>
+                    <th data-v-82dac09c>
+                      {getLanguage(LanguageKey.MEMBER_WIN)}
+                    </th>
                   </tr>
                 </thead>
                 <tbody data-v-82dac09c>

@@ -11,8 +11,11 @@ import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
 import isOddSuspended from "../../../utils/isOddSuspended";
 import MobileBetSlip from "./MobileBetSlip";
 import Ladder from "../../modals/Ladder/Ladder";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const Fancy = ({ data }) => {
+  const { getLanguage } = useLanguage();
   const fancyData = data?.filter(
     (fancy) =>
       fancy.btype === "FANCY" &&
@@ -358,7 +361,9 @@ const Fancy = ({ data }) => {
                                       data-v-4a1ad0c4
                                       className="running-con suspend-con"
                                     >
-                                      <span data-v-4a1ad0c4>SUSPENDED</span>
+                                      <span data-v-4a1ad0c4>
+                                        {getLanguage(LanguageKey.SUSPENDED)}
+                                      </span>
                                     </div>
                                   )}
 
@@ -420,10 +425,12 @@ const Fancy = ({ data }) => {
                                     className="max-min-bet-rgt-box"
                                   >
                                     <span data-v-4a1ad0c4>
-                                      Max Bet: {game?.minLiabilityPerBet}
+                                      {getLanguage(LanguageKey.MIN)}:{" "}
+                                      {game?.minLiabilityPerBet}
                                     </span>
                                     <span data-v-4a1ad0c4>
-                                      Max Bet: {game?.maxLiabilityPerBet}
+                                      {getLanguage(LanguageKey.MAX)}:{" "}
+                                      {game?.maxLiabilityPerBet}
                                     </span>
                                   </div>
                                 </div>

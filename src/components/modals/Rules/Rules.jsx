@@ -1,8 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Fragment } from "react";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const Rules = ({ setShowRulesModal }) => {
+  const { getLanguage } = useLanguage();
   return (
     <Fragment>
       <div className="modal-backdrop fade show"></div>
@@ -24,7 +27,9 @@ const Rules = ({ setShowRulesModal }) => {
               <div className="modal-content">
                 <div className="rule-heading12">
                   <div className="modal-header">
-                    <h5 className="modal-title">Rules</h5>
+                    <h5 className="modal-title">
+                      {getLanguage(LanguageKey.RULES)}
+                    </h5>
                     <button
                       onClick={() => setShowRulesModal(false)}
                       type="button"

@@ -16,12 +16,11 @@ import {
 import { setUser } from "../../../redux/features/auth/authSlice";
 import images from "../../../assets/images";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
-import { useLanguage } from "../../../context/LanguageProvider";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
+import useLanguage from "../../../hooks/use-language";
 
 const Register = () => {
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   const affnook_token = localStorage.getItem("affnook_token");
   const { logo } = useLogo();
   const [countDown, setCountDown] = useState(null);
@@ -288,7 +287,9 @@ const Register = () => {
                                         }`}
                                         disabled={mobile?.length < 10}
                                       >
-                                        <span data-v-27945482>GET OTP</span>
+                                        <span data-v-27945482>
+                                          {getLanguage(LanguageKey.GET_OTP)}
+                                        </span>
                                       </button>
                                     </div>
                                   )}
@@ -391,10 +392,7 @@ const Register = () => {
                           >
                             <span data-v-27945482>
                               {" "}
-                              {languageValue(
-                                valueByLanguage,
-                                LanguageKey.REGISTER,
-                              )}
+                              {getLanguage(LanguageKey.REGISTER)}
                             </span>
                           </button>
                         </div>
@@ -406,7 +404,9 @@ const Register = () => {
                                 className="login-flow-heading"
                               >
                                 <p data-v-27945482>
-                                  Get Your Ready-Made ID From WhatsApp
+                                  {getLanguage(
+                                    LanguageKey.GET_YOUR_INSTANT_ID_FROM_WHATSAPP,
+                                  )}
                                 </p>
                               </div>
                               <div
@@ -427,7 +427,7 @@ const Register = () => {
                                       data-v-27945482
                                       className="fa-brands fa-whatsapp"
                                     />
-                                    Whatsapp Now
+                                    {getLanguage(LanguageKey.WHATSAPP)}
                                   </a>
                                 </div>
                               </div>
@@ -441,7 +441,7 @@ const Register = () => {
                             onClick={showLogin}
                             data-bs-toggle="modal"
                           >
-                            {languageValue(valueByLanguage, LanguageKey.LOGIN)}
+                            {getLanguage(LanguageKey.LOGIN)}
                           </a>
                         </p>
                       </div>

@@ -8,8 +8,11 @@ import axios from "axios";
 import { API } from "../../../api";
 import toast from "react-hot-toast";
 import ImageUploadMessage from "../../modals/ImageUploadMessage/ImageUploadMessage";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const UploadTransaction = ({ paymentId, amount, methodType }) => {
+  const { getLanguage } = useLanguage();
   const [imageUploadMessage, setImageUploadMessage] = useState(null);
   const fileRef = useRef();
   const handleInputClick = () => {
@@ -133,7 +136,7 @@ const UploadTransaction = ({ paymentId, amount, methodType }) => {
       {!filePath && !loading && (
         <div className="w-full mt-2.5 rounded-md bg-background  py-3.5 px-3">
           <div className="font-bold text-base leading-5">
-            Upload your payment slip below
+            {getLanguage(LanguageKey.UPLOAD_YOUR_PAYMENT_SLIP_BELOW)}
           </div>
           <div className="w-full relative mt-2">
             <div
@@ -147,10 +150,10 @@ const UploadTransaction = ({ paymentId, amount, methodType }) => {
                 type="file"
               />
               <span className="cursor-pointer pl-8 font-inherit text-base text-text_color_tertiary1 font-normal">
-                Upload
+                {getLanguage(LanguageKey.UPLOAD)}
               </span>
               <span className="ml-1 font-inherit text-base text-text_color_tertiary1 font-normal">
-                or drop a file right here
+                {getLanguage(LanguageKey.OR_DROP_A_FILE_RIGHT_HERE)}{" "}
               </span>
             </div>
             <div className="absolute top-[14px] left-3">
@@ -214,8 +217,8 @@ const UploadTransaction = ({ paymentId, amount, methodType }) => {
       <div className="w-full mt-2.5 bg-background  rounded-md px-3 py-3.5">
         <div className="font-bold text-sm mb-2 leading-5">
           {methodType === "usdt" || methodType === "usdt_bep20"
-            ? "Hash Code"
-            : " Unique Transaction Reference"}
+            ? getLanguage(LanguageKey.HASH_CODE)
+            : getLanguage(LanguageKey.UNIQUE_TRANSACTION_REFERENCE)}
 
           <span className="text-rose-500r">*</span>
         </div>
@@ -281,7 +284,7 @@ const UploadTransaction = ({ paymentId, amount, methodType }) => {
           type="submit"
           className="bg-primary flex items-center justify-center gap-x-2 w-full  h-10 text-base rounded-md font-[500] leading-4 disabled:opacity-70 relative text-primary"
         >
-          <span>SUBMIT</span>
+          <span>{getLanguage(LanguageKey.SUBMIT)}</span>
         </button>
       </div>
     </>

@@ -3,8 +3,11 @@ import { useEditButtonValuesMutation } from "../../redux/features/events/events"
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Fragment } from "react";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const EditStake = () => {
+  const { getLanguage } = useLanguage();
   const [editButtonValue] = useEditButtonValuesMutation();
   const navigate = useNavigate();
   const stakes = JSON.parse(localStorage.getItem("buttonValue"));
@@ -38,7 +41,9 @@ const EditStake = () => {
     <div className="col-12 col-sm-12 col-md-12 col-lg-10 box-shd-gap">
       <div>
         <div className="profile-change-password-wrapper stake-setting-wrapper">
-          <div className="heading__title">Stake Settings</div>
+          <div className="heading__title">
+            {getLanguage(LanguageKey.STAKE_SETTINGS)}
+          </div>
           <div className="profile-change-password-sec">
             <form
               onSubmit={handleSubmit(onSubmit)}
@@ -71,7 +76,7 @@ const EditStake = () => {
                 })}
               </div>
               <div className="stack-save-btn change-passwword-btn">
-                <button type="submit">UPDATE</button>
+                <button type="submit">{getLanguage(LanguageKey.UPDATE)}</button>
               </div>
             </form>
           </div>

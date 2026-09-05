@@ -1,8 +1,11 @@
 import { useEffect } from "react";
 import useDepositBreakdown from "../../../hooks/depositBreakdown";
 import toast from "react-hot-toast";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const SelectAmount = ({ amount, setAmount, setTab }) => {
+  const { getLanguage } = useLanguage();
   const { mutate: handleDepositBreakdown, data } = useDepositBreakdown();
 
   const handleShowBankAccount = (e) => {
@@ -43,7 +46,8 @@ const SelectAmount = ({ amount, setAmount, setTab }) => {
             <div className="w-full mt-2.5 py-[15px] rounded-lg bg-background px-3">
               <div className=" font-bold  text-base leading-5">
                 <p>
-                  Amount<span className="text-rose-500">*</span>
+                  {getLanguage(LanguageKey.AMOUNT)}
+                  <span className="text-rose-500">*</span>
                 </p>
               </div>
               <div className="w-full mt-2 py-2 bg-white grid grid-cols-12 border rounded-[4px] px-2 items-center justify-center  font-semibold">
@@ -66,10 +70,12 @@ const SelectAmount = ({ amount, setAmount, setTab }) => {
               </div>
               {data?.minimumDeposit && (
                 <div className="text-x pl-1 mt-0  ">
-                  <span>Min : {data?.minimumDeposit}</span>
+                  <span>
+                    {getLanguage(LanguageKey.MIN)} : {data?.minimumDeposit}
+                  </span>
                 </div>
               )}
-
+              ``
               <div className="w-full grid grid-cols-3 gap-[10px] mt-[18px] text-white">
                 <button
                   onClick={() => setAmount(500)}
@@ -124,7 +130,7 @@ const SelectAmount = ({ amount, setAmount, setTab }) => {
                 type="submit"
                 className="bg-primary-color flex items-center justify-center gap-x-2 w-full  h-10 text-base rounded-md font-[500] leading-4 disabled:opacity-70 relative text-white"
               >
-                <span>NEXT</span>
+                <span>{getLanguage(LanguageKey.NEXT)}</span>
               </button>
             </div>
           </form>

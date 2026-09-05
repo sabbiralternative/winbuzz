@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSingleProfitLoss } from "../../hooks/settledBets";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const BettingProfitLossDetails = () => {
+  const { getLanguage } = useLanguage();
   const [backTotal, setBackTotal] = useState(0);
   const [layTotal, setLayTotal] = useState(0);
   const { marketId } = useParams();
@@ -57,13 +60,13 @@ const BettingProfitLossDetails = () => {
                         </span>
                       </div>
                       <div className="flex px-4 justify-between gap-x-2">
-                        <span>Competition Name</span>
+                        <span>{getLanguage(LanguageKey.COMPETITION_NAME)}</span>
                         <span className="capitalize text-end max-w-[60%]">
                           {item?.eventName}
                         </span>
                       </div>
                       <div className="flex px-4 justify-between">
-                        <span>Market Name</span>
+                        <span>{getLanguage(LanguageKey.MARKET_NAME)}</span>
                         <span className="capitalize"> {item?.marketName}</span>
                       </div>
                       <div className="flex px-4 py-2 border mx-4 rounded justify-between bg-rose-100">
@@ -88,11 +91,11 @@ const BettingProfitLossDetails = () => {
                         </div>
                       </div>
                       <div className="flex justify-between px-4 ">
-                        <div>Bet ID</div>
+                        <div>{getLanguage(LanguageKey.BET_ID)}</div>
                         <div>{item?.betId}</div>
                       </div>
                       <div className="flex justify-between px-4 ">
-                        <div>Placed Date</div>
+                        <div>{getLanguage(LanguageKey.PLACED_DATE)}</div>
                         <div>{item?.placeDate}</div>
                       </div>
                       <div className="px-4 py-4 text-center text-sm ">
@@ -101,11 +104,13 @@ const BettingProfitLossDetails = () => {
                             <thead>
                               <tr className="bg-blue-100 ">
                                 <th className="border-r px-3 py-1 first:rounded-tl-lg last:rounded-tr-lg">
-                                  Type
+                                  {getLanguage(LanguageKey.TYPE)}
                                 </th>
-                                <th className="border-r px-3 py-1">Odds</th>
+                                <th className="border-r px-3 py-1">
+                                  {getLanguage(LanguageKey.ODDS)}
+                                </th>
                                 <th className="border-b px-3 py-1 first:rounded-tr-lg">
-                                  Stake
+                                  {getLanguage(LanguageKey.STAKE)}
                                 </th>
                               </tr>
                             </thead>
@@ -130,7 +135,7 @@ const BettingProfitLossDetails = () => {
             </div>
             <div className=" py-2 px-4 rounded-md flex flex-col gap-2 shadow-lg">
               <div className="flex justify-between border-dashed ">
-                <div>Back Subtotal</div>
+                <div>{getLanguage(LanguageKey.BACK_SUBTOTAL)}</div>
                 <div
                   className={`font-bold ${
                     backTotal > 0 ? "text-green-500" : "text-rose-500"
@@ -140,7 +145,7 @@ const BettingProfitLossDetails = () => {
                 </div>
               </div>
               <div className="flex justify-between border-dashed ">
-                <div>Lay subtotal</div>
+                <div>{getLanguage(LanguageKey.LAY_SUBTOTAL)}</div>
                 <div
                   className={`font-bold ${
                     layTotal > 0 ? "text-green-500" : "text-rose-500"
@@ -150,7 +155,7 @@ const BettingProfitLossDetails = () => {
                 </div>
               </div>
               <div className="flex justify-between border-dashed  ">
-                <div>Market Subtotal</div>
+                <div>{getLanguage(LanguageKey.MARKET_SUBTOTAL)}</div>
                 <div
                   className={`font-bold ${
                     layTotal + backTotal > 0
@@ -162,11 +167,13 @@ const BettingProfitLossDetails = () => {
                 </div>
               </div>
               <div className="flex justify-between border-dashed  ">
-                <div>Commission</div>
+                <div>{getLanguage(LanguageKey.COMMISSION)}</div>
                 <div className="font-bold">₹ 0.0</div>
               </div>
               <div className="flex justify-between border-t border-dashed  ">
-                <div className="relative top-[3px]">Net Market Total</div>
+                <div className="relative top-[3px]">
+                  {getLanguage(LanguageKey.NET_MARKET_TOTAL)}
+                </div>
                 <div
                   className={`font-bold relative top-[3px] ${
                     layTotal + backTotal > 0

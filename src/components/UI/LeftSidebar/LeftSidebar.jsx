@@ -2,12 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { Settings } from "../../../api";
 import { Link, useNavigate } from "react-router-dom";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
-import { useLanguage } from "../../../context/LanguageProvider";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
+import useLanguage from "../../../hooks/use-language";
 
 const LeftSidebar = () => {
-  const { valueByLanguage } = useLanguage();
+  const { getLanguage } = useLanguage();
   const { token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -71,10 +70,7 @@ const LeftSidebar = () => {
                         alt="cricket"
                       />
                     </div>
-                    <span>
-                      {" "}
-                      {languageValue(valueByLanguage, LanguageKey.CRICKET)}
-                    </span>
+                    <span> {getLanguage(LanguageKey.CRICKET)}</span>
                   </Link>
                 </li>
                 <li>
@@ -89,10 +85,7 @@ const LeftSidebar = () => {
                         alt="Football"
                       />
                     </div>
-                    <span>
-                      {" "}
-                      {languageValue(valueByLanguage, LanguageKey.FOOTBALL)}
-                    </span>
+                    <span> {getLanguage(LanguageKey.FOOTBALL)}</span>
                   </Link>
                 </li>
                 <li>
@@ -107,10 +100,7 @@ const LeftSidebar = () => {
                         alt="tennis"
                       />
                     </div>
-                    <span>
-                      {" "}
-                      {languageValue(valueByLanguage, LanguageKey.TENNIS)}
-                    </span>
+                    <span> {getLanguage(LanguageKey.TENNIS)}</span>
                   </Link>
                 </li>
                 <li>
@@ -118,10 +108,7 @@ const LeftSidebar = () => {
                     <div className="icon-sidemenu">
                       <img loading="lazy" src="/icon/7.png" alt="tennis" />
                     </div>
-                    <span>
-                      {" "}
-                      {languageValue(valueByLanguage, LanguageKey.HORSE)}
-                    </span>
+                    <span> {getLanguage(LanguageKey.HORSE)}</span>
                   </Link>
                 </li>
                 <li>
@@ -129,10 +116,7 @@ const LeftSidebar = () => {
                     <div className="icon-sidemenu">
                       <img loading="lazy" src="/icon/4339.png" alt="tennis" />
                     </div>
-                    <span>
-                      {" "}
-                      {languageValue(valueByLanguage, LanguageKey.GREYHOUND)}
-                    </span>
+                    <span> {getLanguage(LanguageKey.GREYHOUND)}</span>
                   </Link>
                 </li>
                 <li>
@@ -149,7 +133,7 @@ const LeftSidebar = () => {
                         alt=""
                       />
                     </div>
-                    <span>Sports book</span>
+                    <span>{getLanguage(LanguageKey.SPORTSBOOK)}</span>
                   </a>
                 </li>
 
@@ -165,7 +149,7 @@ const LeftSidebar = () => {
                         alt=""
                       />
                     </div>
-                    <span>Casino</span>
+                    <span>{getLanguage(LanguageKey.CASINO)}</span>
                   </Link>
                 </li>
                 {/* <li>
@@ -193,10 +177,7 @@ const LeftSidebar = () => {
                         alt="Kabaddi "
                       />
                     </div>
-                    <span>
-                      {" "}
-                      {languageValue(valueByLanguage, LanguageKey.KABADDI)}{" "}
-                    </span>
+                    <span> {getLanguage(LanguageKey.KABADDI)} </span>
                   </Link>
                 </li>
                 <li>
@@ -211,7 +192,7 @@ const LeftSidebar = () => {
                         alt="Kabaddi "
                       />
                     </div>
-                    <span>Politics </span>
+                    <span>{getLanguage(LanguageKey.POLITICS)} </span>
                   </Link>
                 </li>
 
@@ -229,7 +210,7 @@ const LeftSidebar = () => {
                           alt=""
                         />
                       </div>
-                      <span>Download APK</span>
+                      <span>{getLanguage(LanguageKey.DOWNLOAD_APK)}</span>
                     </a>
                   </li>
                 )}

@@ -9,8 +9,11 @@ import toast from "react-hot-toast";
 import { useCurrentBets } from "../../../hooks/currentBets";
 import useSBCashOut from "../../../hooks/sb_cashout";
 import { useGetEventDetailsQuery } from "../../../redux/features/events/events";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const MatchedBets = () => {
+  const { getLanguage } = useLanguage();
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const { eventId, eventTypeId } = useParams();
@@ -98,7 +101,9 @@ const MatchedBets = () => {
           id="matched_1"
           className="px-3 py-2 cursor-pointer w-full flex items-center justify-between bg-primary rounded "
         >
-          <span className=" text-xs">Matched Bets</span>
+          <span className=" text-xs">
+            {getLanguage(LanguageKey.MATCHED_BETS)}
+          </span>
           <div className=" flex items-center justify-center autoAnimate ">
             {openBets ? (
               <MdOutlineKeyboardArrowUp size={20} />
@@ -113,14 +118,14 @@ const MatchedBets = () => {
             <div className="flex flex-col gap-1 w-full">
               <div className="grid border grid-cols-6 px-2 py-1 bg-bg_Ternary8 rounded items-center gap-1 w-full text-xs font-lato capitalize cursor-pointer">
                 <span className="col-span-2 text-text_Ternary font-semibold capitalize">
-                  Market
+                  {getLanguage(LanguageKey.MARKET)}
                 </span>
 
                 <span className="col-span-2 text-center text-text_Ternary">
-                  Odds
+                  {getLanguage(LanguageKey.ODDS)}
                 </span>
                 <span className="col-span-2 text-center text-text_Ternary">
-                  Stake
+                  {getLanguage(LanguageKey.STAKE)}
                 </span>
                 {/* <span className="col-span-2 text-center text-text_Ternary">
                   P/L
@@ -181,7 +186,7 @@ const MatchedBets = () => {
                             }}
                           >
                             <span style={{ fontSize: "10px", color: "black" }}>
-                              Cashout
+                              {getLanguage(LanguageKey.CASHOUT)}
                             </span>
                             {price && (
                               <span
@@ -225,7 +230,7 @@ const MatchedBets = () => {
         {openBets && myBets?.length === 0 && orderedBets?.length === 0 && (
           <div className={`w-full origin-top scaleVerticalOpen`}>
             <div className="w-full font-medium text-sm bg-bg_Quaternary rounded px-4  py-3 shadow text-text_Ternary ">
-              You have no Matched Bets.
+              {getLanguage(LanguageKey.YOU_HAVE_NO_MATCHED_BETS)}.
             </div>
           </div>
         )}

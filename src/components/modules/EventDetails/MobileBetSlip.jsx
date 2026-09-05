@@ -20,7 +20,10 @@ import {
 } from "../../../utils/editBetSlipPrice";
 import BetLoading from "./BetLoading";
 import { isBetDelay, isDelay } from "../../../utils/isBetDelay";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 const MobileBetSlip = ({ currentPlaceBetEvent }) => {
+  const { getLanguage } = useLanguage();
   const { closePopupForForever } = useSelector((state) => state?.global);
   const [isCashOut, setIsCashOut] = useState(false);
   const [profit, setProfit] = useState(0);
@@ -352,7 +355,7 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
             type="button"
             className="stake-1"
           >
-            min
+            {getLanguage(LanguageKey.MIN)}
           </button>
         </div>
         <div data-v-4a1ad0c4 className="stake-small-box">
@@ -368,12 +371,12 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
             type="button"
             className="stake-2"
           >
-            max
+            {getLanguage(LanguageKey.MAX)}
           </button>
         </div>
         <div data-v-4a1ad0c4 className="stake-small-box">
           <button data-v-4a1ad0c4 type="button" className="stake-3">
-            Edit Stake
+            {getLanguage(LanguageKey.EDIT_STAKE)}
           </button>
         </div>
         <div data-v-4a1ad0c4 className="stake-small-box">
@@ -383,7 +386,7 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
             type="button"
             className="stake-4"
           >
-            Clear
+            {getLanguage(LanguageKey.CLEAR)}
           </button>
         </div>
       </div>
@@ -395,7 +398,7 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
             type="button"
             className="close-btn-1"
           >
-            Cancel
+            {getLanguage(LanguageKey.CANCEL)}
           </button>
         </div>
         <div data-v-4a1ad0c4 className="placed-btn">
@@ -405,7 +408,7 @@ const MobileBetSlip = ({ currentPlaceBetEvent }) => {
             className="place-btn-filled place-btn-outline stakeEmpty"
             type="button"
           >
-            <span data-v-4a1ad0c4>Place Bet</span>
+            <span data-v-4a1ad0c4>{getLanguage(LanguageKey.PLACE_BET)}</span>
           </button>
         </div>
       </div>

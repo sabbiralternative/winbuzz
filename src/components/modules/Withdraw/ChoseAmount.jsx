@@ -1,6 +1,9 @@
+import { LanguageKey } from "../../../const";
+import useLanguage from "../../../hooks/use-language";
 import useWithdrawBreakdown from "../../../hooks/withdrawBreakdown";
 
 const ChooseAmount = ({ setTab, setAmount, amount }) => {
+  const { getLanguage } = useLanguage();
   const { data } = useWithdrawBreakdown();
 
   const handleShowBank = () => {
@@ -54,17 +57,19 @@ const ChooseAmount = ({ setTab, setAmount, amount }) => {
       <div className="px-2  flex flex-col items-start justify-start gap-y-2 mt-1 md:mt-[10px] pb-10">
         <div className="text-base   w-full font-[600] flex flex-col items-start justify-start gap-y-1">
           <span className="text-sm md:text-base">
-            Please fill in all required fields*
+            {getLanguage(LanguageKey.PLEASE_FILL_IN_ALL_REQUIRED_FIELDS)}
           </span>
         </div>
         <div className="rounded-lg   py-2 px-3.5 flex flex-col items-start justify-start w-full gap-y-0.5">
           <div className="w-full flex items-start justify-start gap-y-[0.5] flex-col">
             <span className="text-sm mt-1 bg-primary rounded  shadow-md  px-2 py-1 my-1 text-primary">
-              Available to withdrawal : ₹ {data?.mainWallet}
+              {getLanguage(LanguageKey.AVAILABLE_TO_WITHDRAW)} : ₹{" "}
+              {data?.mainWallet}
             </span>
             <div className="flex flex-col w-full">
               <div className="ml-1 text-sm">
-                Amount <span className="text-rose-500">*</span>
+                {getLanguage(LanguageKey.AMOUNT)}{" "}
+                <span className="text-rose-500">*</span>
               </div>
               <div
                 className={`flex items-center w-full  w-full py-2 px-2 rounded-lg border  ${
@@ -87,7 +92,7 @@ const ChooseAmount = ({ setTab, setAmount, amount }) => {
                   value={amount}
                 />
                 <div className="flex-shrink-0 w-max">
-                  Minimum {data?.minimumWithdraw}
+                  {getLanguage(LanguageKey.MIN)} {data?.minimumWithdraw}
                 </div>
               </div>
               <div className="flex items-start w-full justify-between leading-normal px-1">
@@ -147,7 +152,7 @@ const ChooseAmount = ({ setTab, setAmount, amount }) => {
             className="relative overflow-hidden bg-primary w-full  h-10 text-base shadow-lg rounded-md font-[600] leading-4 disabled:opacity-70 flex gap-x-1 items-center justify-center"
             type="button"
           >
-            <span>Submit</span>
+            <span>{getLanguage(LanguageKey.SUBMIT)}</span>
           </button>
         </div>
       </div>

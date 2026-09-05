@@ -4,8 +4,11 @@ import { useEffect, useMemo, useState } from "react";
 import EventRow from "../../components/shared/EventRow/EventRow";
 import moment from "moment";
 import { filterLiveVirtual } from "../../utils/filter-live-virtual";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const OddSports = () => {
+  const { getLanguage } = useLanguage();
   const [liveVirtual, setLiveVirtual] = useState([]);
   const navigate = useNavigate();
   const { eventId, eventName } = useParams();
@@ -148,7 +151,9 @@ const OddSports = () => {
                             type="checkbox"
                             className="filter-checkbox"
                           />
-                          <label data-v-86dd4931>LIVE</label>
+                          <label data-v-86dd4931>
+                            {getLanguage(LanguageKey.LIVE)}
+                          </label>
                         </li>
                         <li data-v-86dd4931>
                           <input
@@ -163,7 +168,9 @@ const OddSports = () => {
                             type="checkbox"
                             className="filter-checkbox"
                           />
-                          <label data-v-86dd4931>VIRTUAL</label>
+                          <label data-v-86dd4931>
+                            {getLanguage(LanguageKey.VIRTUAL)}
+                          </label>
                         </li>
                       </ul>
                     </div>
@@ -200,7 +207,9 @@ const OddSports = () => {
                         aria-controls="pills-home"
                         aria-selected="true"
                       >
-                        <p data-v-56384811>In Play</p>
+                        <p data-v-56384811>
+                          {getLanguage(LanguageKey.IN_PLAY)}
+                        </p>
                       </button>
                     </li>
                     <li
@@ -220,7 +229,7 @@ const OddSports = () => {
                         aria-controls="pills-home"
                         aria-selected="true"
                       >
-                        <p data-v-56384811>Today</p>
+                        <p data-v-56384811>{getLanguage(LanguageKey.TODAY)}</p>
                       </button>
                     </li>
 
@@ -243,7 +252,9 @@ const OddSports = () => {
                         aria-controls="pills-contact"
                         aria-selected="false"
                       >
-                        <p data-v-56384811>UPCOMING</p>
+                        <p data-v-56384811>
+                          {getLanguage(LanguageKey.UP_COMING)}
+                        </p>
                       </button>
                     </li>
                   </ul>
@@ -254,7 +265,7 @@ const OddSports = () => {
                       id="pills-tabContent"
                     >
                       <div data-v-56384811 className="no-real-time">
-                        No real time records found
+                        {getLanguage(LanguageKey.NO_RECORD_FOUND)}
                       </div>
                     </div>
                   )}

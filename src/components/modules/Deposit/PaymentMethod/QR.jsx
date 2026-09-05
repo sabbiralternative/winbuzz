@@ -1,17 +1,20 @@
+import { LanguageKey } from "../../../../const";
+import useLanguage from "../../../../hooks/use-language";
 import { handleCopyToClipBoard } from "../../../../utils/handleCopyToClipBoard";
 
 const QR = ({ depositData, amount }) => {
+  const { getLanguage } = useLanguage();
   return (
     <div>
       {" "}
       <div className="w-full mt-2.5 rounded-[10px] bg-background  px-3 py-[15px]">
         <div className="w-full relative bottom-[4px] right-[4px]">
           <span className="text-sm  rounded shadow-md px-2 py-1  bg-primary">
-            Current Available Balance: ₹ {amount}
+            {getLanguage(LanguageKey.AVAILABLE_BALANCE)}: ₹ {amount}
           </span>
         </div>
         <div className="font-bold mt-[4px] text-base leading-5">
-          <span>Payment Details</span>
+          <span>{getLanguage(LanguageKey.PAYMENT_DETAILS)}</span>
         </div>
         <div className="flex items-center justify-center">
           <img
@@ -29,7 +32,7 @@ const QR = ({ depositData, amount }) => {
           <div className="mt-2 w-full">
             <span className="flex flex-col items-start justify-start">
               <span className="text-text_color_tertiary1 text-[10px] leading-4 sm:text-xs md:text-sm">
-                Display Name
+                {getLanguage(LanguageKey.DISPLAY_NAME)}
               </span>
               <div className="flex items-center justify-between w-full text-base font-semibold leading-5 tracking-wide">
                 <span>{depositData?.qrDisplayName}</span>

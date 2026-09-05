@@ -4,8 +4,11 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import images from "../../assets/images";
+import useLanguage from "../../hooks/use-language";
+import { LanguageKey } from "../../const";
 
 const ChangePassword = () => {
+  const { getLanguage } = useLanguage();
   const [showPassword, setShowPassword] = useState(false);
   const [showNewPass, setShowNewPass] = useState(false);
   const [showConfirmPass, setShowConfirmPass] = useState(false);
@@ -36,7 +39,7 @@ const ChangePassword = () => {
       <div>
         <div data-v-e3bafc35 className="profile-change-password-wrapper">
           <div data-v-e3bafc35 className="heading__title">
-            Change Password
+            {getLanguage(LanguageKey.CHANGE_PASSWORD)}
           </div>
           <form
             onSubmit={handleSubmit(onSubmit)}
@@ -135,7 +138,7 @@ const ChangePassword = () => {
                   type="submit"
                   className="cmn-btn"
                 >
-                  Save
+                  {getLanguage(LanguageKey.SAVE)}
                 </button>
               </div>
             </div>

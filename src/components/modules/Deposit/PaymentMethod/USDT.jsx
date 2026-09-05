@@ -1,23 +1,26 @@
+import { LanguageKey } from "../../../../const";
+import useLanguage from "../../../../hooks/use-language";
 import { handleCopyToClipBoard } from "../../../../utils/handleCopyToClipBoard";
 
 const USDT = ({ depositData, amount }) => {
+  const { getLanguage } = useLanguage();
   return (
     <div>
       {" "}
       <div className="w-full mt-2.5 rounded-[10px] bg-background text- px-3 py-[15px]">
         <div className="w-full relative bottom-[4px] right-[4px]">
           <span className="text-sm  rounded bg-primary shadow-md px-2 py-1 ">
-            Current Available Balance: ₹ {amount}
+            {getLanguage(LanguageKey.AVAILABLE_BALANCE)}: ₹ {amount}
           </span>
         </div>
         <div className="font-bold mt-[4px] text-base leading-5">
-          <span>Payment Details</span>
+          <span>{getLanguage(LanguageKey.PAYMENT_DETAILS)}</span>
         </div>
 
         <div className="mt-2 w-full">
           <span className="flex flex-col items-start justify-start">
             <span className=" text-[10px] leading-4 sm:text-xs md:text-sm">
-              Wallet Address
+              {getLanguage(LanguageKey.WALLET_ADDRESS)}
             </span>
             <div className="flex items-center justify-between w-full text-base font-semibold leading-5 tracking-wide">
               <span>{depositData?.token}</span>
@@ -55,7 +58,7 @@ const USDT = ({ depositData, amount }) => {
         <div className="mt-2 w-full">
           <span className="flex flex-col items-start justify-start">
             <span className=" text-[10px] leading-4 sm:text-xs md:text-sm">
-              Amount
+              {getLanguage(LanguageKey.AMOUNT)}
             </span>
             <div className="flex items-center justify-between w-full text-base font-semibold leading-5 tracking-wide">
               <span>USDT{depositData?.depositAmount}</span>

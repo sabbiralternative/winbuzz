@@ -3,8 +3,11 @@ import EventRow from "../../shared/EventRow/EventRow";
 import { useGroupQuery } from "../../../redux/features/events/events";
 import { eventNames } from "../../../utils/eventNames";
 import { filterLiveVirtual } from "../../../utils/filter-live-virtual";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const EventSection = () => {
+  const { getLanguage } = useLanguage();
   const [liveVirtual, setLiveVirtual] = useState([]);
   const { data } = useGroupQuery(
     { sportsType: 0 },
@@ -83,7 +86,9 @@ const EventSection = () => {
                       type="checkbox"
                       className="filter-checkbox"
                     />
-                    <label data-v-56384811>LIVE</label>
+                    <label data-v-56384811>
+                      {getLanguage(LanguageKey.LIVE)}
+                    </label>
                   </li>
                   <li data-v-56384811>
                     <input
@@ -98,7 +103,9 @@ const EventSection = () => {
                       type="checkbox"
                       className="filter-checkbox"
                     />
-                    <label data-v-56384811>VIRTUAL</label>
+                    <label data-v-56384811>
+                      {getLanguage(LanguageKey.VIRTUAL)}
+                    </label>
                   </li>
                 </ul>
               </div>

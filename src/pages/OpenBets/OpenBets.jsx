@@ -1,6 +1,9 @@
+import { LanguageKey } from "../../const";
 import { useCurrentBets } from "../../hooks/currentBets";
+import useLanguage from "../../hooks/use-language";
 
 const OpenBets = () => {
+  const { getLanguage } = useLanguage();
   const { data: currentBets } = useCurrentBets();
 
   return (
@@ -8,7 +11,7 @@ const OpenBets = () => {
       <div>
         <div data-v-0deca5ec className="right-side-bar-main-sec my-bets-sec">
           <div data-v-0deca5ec className="profile-head">
-            <span data-v-0deca5ec>Open Bets</span>
+            <span data-v-0deca5ec>{getLanguage(LanguageKey.OPEN_BETS)}</span>
             {/* <div data-v-0deca5ec className="download-pdf-excel-sec">
               <a data-v-0deca5ec href="javascript:void(0);">
                 <img
@@ -166,7 +169,8 @@ const OpenBets = () => {
                                 >
                                   {/**/}
                                   <label data-v-0deca5ec>
-                                    Amount: {bet?.amount}
+                                    {getLanguage(LanguageKey.AMOUNT)}:{" "}
+                                    {bet?.amount}
                                   </label>
                                 </div>
                                 <div data-v-0deca5ec className="bet_show_date">
@@ -174,7 +178,8 @@ const OpenBets = () => {
                                     data-v-0deca5ec
                                     className="settle-list-date"
                                   >
-                                    User Rate: {bet?.userRate}
+                                    {getLanguage(LanguageKey.USER_RATE)}:{" "}
+                                    {bet?.userRate}
                                   </span>
                                 </div>
                               </div>
@@ -223,7 +228,7 @@ const OpenBets = () => {
                   id="pills-tabContent"
                 >
                   <div data-v-56384811 className="no-real-time">
-                    You have no Open Bets.
+                    {getLanguage(LanguageKey.YOU_HAVE_NO_OPEN_BETS)}
                   </div>
                 </div>
               )}

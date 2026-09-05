@@ -15,15 +15,14 @@ import ForgotPassword from "../../modals/ForgotPassword/ForgotPassword";
 import { Link } from "react-router-dom";
 import { useLogo } from "../../../context/ApiProvider";
 import MobileSearch from "../../modals/MobileSearch/MobileSearch";
-import { useLanguage } from "../../../context/LanguageProvider";
 import images from "../../../assets/images";
 import { Settings } from "../../../api";
 import Language from "../../modals/Language";
-import { languageValue } from "../../../utils/language";
 import { LanguageKey } from "../../../const";
+import useLanguage from "../../../hooks/use-language";
 
 const TopNav = () => {
-  const { valueByLanguage, setLanguage } = useLanguage();
+  const { getLanguage, setLanguage } = useLanguage();
   const [showLanguage, setShowLanguage] = useState(false);
   const [showMobileSearch, setShowMobileSearch] = useState();
   const { logo } = useLogo();
@@ -135,7 +134,7 @@ const TopNav = () => {
                       onClick={() => setShowRulesModal(true)}
                       data-bs-toggle="modal"
                     >
-                      Rules
+                      {getLanguage(LanguageKey.RULES)}
                     </a>
                   </li>
                 )}
@@ -149,7 +148,7 @@ const TopNav = () => {
                         data-bs-toggle="modal"
                         className="bdr-btn signup-login-btn login-btn"
                       >
-                        {languageValue(valueByLanguage, LanguageKey.LOGIN)}
+                        {getLanguage(LanguageKey.LOGIN)}
                       </a>
                     </li>
                     <li data-v-9dda4895>
@@ -159,7 +158,7 @@ const TopNav = () => {
                         data-bs-toggle="modal"
                         className="bdr-btn signup-login-btn signup-btn"
                       >
-                        {languageValue(valueByLanguage, LanguageKey.REGISTER)}
+                        {getLanguage(LanguageKey.REGISTER)}
                       </a>
                     </li>
                   </Fragment>

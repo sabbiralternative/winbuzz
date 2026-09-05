@@ -13,8 +13,11 @@ import UPI from "./PaymentMethod/UPI";
 import QR from "./PaymentMethod/QR";
 import USDT from "./PaymentMethod/USDT";
 import PG from "./PaymentMethod/PG";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const BankAccount = ({ amount }) => {
+  const { getLanguage } = useLanguage();
   const paymentMethodRef = useRef();
   const [getPaymentMethod, { data, isSuccess }] = useBankAccountMutation();
   const [methodType, setMethodType] = useState(null);
@@ -111,7 +114,7 @@ const BankAccount = ({ amount }) => {
                 <div className="rounded-lg bg-background overflow-hidden  transition-height duration-500 ease-in-out h-max px-3 pt-[15px] pb-[20px]">
                   <div className="flex flex-row justify-end items-center w-full">
                     <span className="text-base  font-bold leading-5 w-full">
-                      Payment Options
+                      {getLanguage(LanguageKey.PAYMENT_METHODS)}
                       <span className=" font-normal leading-4">
                         ({data?.result?.length})
                       </span>
@@ -225,7 +228,7 @@ const BankAccount = ({ amount }) => {
 
             {data?.result?.length === 0 && isSuccess && (
               <div className="w-full flex items-center justify-center text-white lg:mt-20">
-                No payment method available right now.
+                {getLanguage(LanguageKey.NO_PAYMENT_METHOD_AVAILABLE_RIGHT_NOW)}
               </div>
             )}
           </form>

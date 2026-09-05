@@ -3,8 +3,11 @@ import { useBankAccount } from "../../../../hooks/bankAccount";
 import NewAccount from "./NewAccount";
 import OldAccount from "./OldAccount";
 import AddUSDTAccount from "./AddUSDTAccount";
+import useLanguage from "../../../../hooks/use-language";
+import { LanguageKey } from "../../../../const";
 
 const BankAccount = ({ amount }) => {
+  const { getLanguage } = useLanguage();
   const bankData = {
     type: "getBankAccounts",
     status: "1",
@@ -25,7 +28,7 @@ const BankAccount = ({ amount }) => {
       <div className="px-2  flex flex-col items-start justify-start gap-y-2 mt-1 md:mt-[0px] pb-10">
         <div className="text-base   w-full font-[600] flex flex-col items-start justify-start gap-y-1">
           <span className="text-sm md:text-base">
-            Please fill in all required fields*
+            {getLanguage(LanguageKey.PLEASE_FILL_IN_ALL_REQUIRED_FIELDS)}*
           </span>
           <div className="text-sm w-full ">
             <div
@@ -39,7 +42,7 @@ const BankAccount = ({ amount }) => {
                 }`}
                 style={{ zIndex: 10 }}
               >
-                Add Bank Account
+                {getLanguage(LanguageKey.ADD_BANK_ACCOUNT)}
               </button>
               <button
                 onClick={() => setTab("add-usdt-account")}
@@ -48,7 +51,7 @@ const BankAccount = ({ amount }) => {
                 } `}
                 style={{ zIndex: 10 }}
               >
-                Add USDT Account
+                {getLanguage(LanguageKey.ADD_USDT_ACCOUNT)}
               </button>
               <button
                 onClick={() => setTab("oldAccount")}
@@ -57,7 +60,7 @@ const BankAccount = ({ amount }) => {
                 }`}
                 style={{ zIndex: 10 }}
               >
-                Use Previous Account
+                {getLanguage(LanguageKey.USE_PREVIOUS_ACCOUNT)}
               </button>
               <div
                 className={`w-[30%] absolute z-10 h-full transition-all ease-in-out ${

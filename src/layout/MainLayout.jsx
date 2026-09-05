@@ -7,12 +7,15 @@ import MobileFooter from "../components/UI/MobileFooter/MobileFooter";
 import { useSelector } from "react-redux";
 import DepositWithdrawBTN from "../components/UI/DepositWithdrawBTN/DepositWithdrawBTN";
 import LeftMobileSidebar from "../components/UI/LeftMobileSidebar/LeftMobileSidebar";
+import { Settings } from "../api";
 
 const MainLayout = () => {
   const { pathname } = useLocation();
   const { token } = useSelector((state) => state.auth);
   return (
     <Fragment>
+      <meta name="description" content={Settings.metaDescription} />
+      <meta name="keywords" content={Settings.metaKeywords} />
       <LeftMobileSidebar />
       <Navbar />
       {token && pathname === "/" && <DepositWithdrawBTN />}

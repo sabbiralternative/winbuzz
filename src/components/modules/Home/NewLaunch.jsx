@@ -1,8 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const NewLaunch = ({ new_launch }) => {
+  const { getLanguage } = useLanguage();
   const { token } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -25,7 +28,7 @@ const NewLaunch = ({ new_launch }) => {
             />
           </span>
           <span data-v-56384811 className="inplay-popular-header__logo-text">
-            New Launch
+            {getLanguage(LanguageKey.NEW_LAUNCH)}
           </span>
         </div>
       </div>

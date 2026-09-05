@@ -2,8 +2,11 @@ import { Link, useNavigate } from "react-router-dom";
 import images from "../../../assets/images";
 import { useDispatch, useSelector } from "react-redux";
 import { setShowLoginModal } from "../../../redux/features/global/globalSlice";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const MobileFooter = () => {
+  const { getLanguage } = useLanguage();
   const { token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,7 +35,7 @@ const MobileFooter = () => {
                 className="img-fluid"
               />
               <div data-v-238a5417 className="title-name">
-                Sports Book
+                {getLanguage(LanguageKey.SPORTSBOOK)}
               </div>
             </a>
           </li>
@@ -50,7 +53,7 @@ const MobileFooter = () => {
                 className="img-fluid"
               />
               <div data-v-238a5417 className="title-name">
-                In play
+                {getLanguage(LanguageKey.IN_PLAY)}
               </div>
             </Link>
           </li>
@@ -103,7 +106,7 @@ const MobileFooter = () => {
                 className="img-fluid"
               />
               <div data-v-238a5417 className="title-name">
-                Casino
+                {getLanguage(LanguageKey.CASINO)}
               </div>
             </Link>
           </li>
@@ -116,7 +119,7 @@ const MobileFooter = () => {
                 className="img-fluid"
               />
               <div data-v-238a5417 className="title-name">
-                Affiliate
+                {getLanguage(LanguageKey.AFFILIATE)}
               </div>
             </Link>
           </li>

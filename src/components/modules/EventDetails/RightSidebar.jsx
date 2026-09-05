@@ -4,8 +4,11 @@ import { Settings } from "../../../api";
 import { useAccessToken } from "../../../hooks/accessToken";
 import { useState } from "react";
 import MatchedBets from "./MatchedBets";
+import useLanguage from "../../../hooks/use-language";
+import { LanguageKey } from "../../../const";
 
 const RightSidebar = () => {
+  const { getLanguage } = useLanguage();
   const [showVideo, setShowVideo] = useState(true);
   const { eventId, eventTypeId } = useParams();
   const payload = {
@@ -25,7 +28,7 @@ const RightSidebar = () => {
           data-v-4a1ad0c4
           className="placed-bet-head open-bet"
         >
-          <span data-v-4a1ad0c4>Live stream</span>
+          <span data-v-4a1ad0c4>{getLanguage(LanguageKey.LIVE_STREAM)}</span>
         </div>
         {showVideo && (
           <div data-v-4a1ad0c4 className="live-match-sec">
