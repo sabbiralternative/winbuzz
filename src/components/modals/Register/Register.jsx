@@ -18,8 +18,13 @@ import images from "../../../assets/images";
 import ModalWrapper from "../ModalWrapper/ModalWrapper";
 import { LanguageKey } from "../../../const";
 import useLanguage from "../../../hooks/use-language";
+import { FaRegUser } from "react-icons/fa6";
+import { FaMobileAlt } from "react-icons/fa";
 
 const Register = () => {
+  const [tab, setTab] = useState(
+    Settings.registration_mobile ? "mobile" : "username",
+  );
   const { getLanguage } = useLanguage();
   const affnook_token = localStorage.getItem("affnook_token");
   const { logo } = useLogo();
@@ -77,7 +82,7 @@ const Register = () => {
 
   const onSubmit = async (data) => {
     const registerData = {
-      username: "",
+      username: data?.username,
       password: data?.password,
       confirmPassword: data?.confirmPassword,
       mobile: mobile,
@@ -87,6 +92,8 @@ const Register = () => {
       orderId: order.orderId,
       otpMethod: order.otpMethod,
       affnook_token: affnook_token || null,
+      registration_mobile: Settings.registration_mobile,
+      registration_username: Settings.registration_username,
     };
 
     const result = await handleRegister(registerData).unwrap();
@@ -207,109 +214,211 @@ const Register = () => {
                         <div data-v-27945482 className="login-flow-heading" />
                         <div data-v-27945482 id="msgFromServer" />
                         <input data-v-27945482 type="hidden" id="csrf-token" />
-                        <div
-                          data-v-27945482
-                          className="number-var mak-gin mb-2.5"
-                        >
-                          <div data-v-27945482 className="row g-2">
+
+                        {Settings.registration_mobile &&
+                          Settings.registration_username && (
                             <div
-                              data-v-27945482
-                              className="col-12 col-sm-12 col-md-12"
+                              style={{
+                                width: "100%",
+                                background:
+                                  "color-mix(in srgb, var(--primary-bg) 30%, transparent)",
+                                marginBottom: "12px",
+                              }}
                             >
-                              <div data-v-27945482 className="whatsup-sec">
+                              <div
+                                style={{
+                                  display: "flex",
+                                  flexDirection: "row",
+                                  alignItems: "center",
+                                  justifyContent: "flex-start",
+                                  position: "relative",
+                                  width: "100%",
+                                }}
+                              >
                                 <div
-                                  data-v-27945482
-                                  className="input-left phone-no-field"
+                                  onClick={() => setTab("mobile")}
+                                  style={{
+                                    cursor: "pointer",
+                                    display: "flex",
+                                    flexDirection: "row",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    padding: "5px",
+                                    width: "100%",
+                                    gap: "6px",
+                                    color: "white",
+                                    background:
+                                      tab === "mobile"
+                                        ? "var(--primary-bg)"
+                                        : undefined,
+                                  }}
                                 >
-                                  <div
-                                    data-v-27945482
-                                    className="country-code-flag-top-wrapper"
-                                  >
-                                    <div
-                                      data-v-27945482
-                                      className="country-code-flag-top-sec"
-                                    >
-                                      <img
-                                        data-v-27945482
-                                        src="https://flagcdn.com/in.svg"
-                                      />{" "}
-                                      <span data-v-27945482>+91</span>
-                                      <i
-                                        data-v-27945482
-                                        className="fa-solid fa-caret-down"
-                                      />
-                                    </div>
-                                  </div>
-                                  <input
-                                    onChange={handleMobileNo}
-                                    data-v-27945482
-                                    type="tel"
-                                    maxLength={10}
-                                    className="form-control"
-                                    id="mobile"
-                                    placeholder="Enter Mobile Number*"
-                                    required
-                                  />
-                                  {countDown > 0 ? (
-                                    <div
-                                      data-v-27945482
-                                      className="register-get-otp right-side"
-                                    >
-                                      <button
-                                        style={{ cursor: "text" }}
-                                        data-v-27945482
-                                        type="button"
-                                        id="otp-btn"
-                                        className="thm-btn thm-boder-btn otp-btn text-right"
-                                      >
-                                        <span
-                                          data-v-27945482
-                                          style={{ textTransform: "initial" }}
-                                        >
-                                          Resend OTP in 00:{countDown}s
-                                        </span>
-                                      </button>
-                                    </div>
-                                  ) : (
-                                    <div
-                                      data-v-27945482
-                                      className="register-get-otp right-side"
-                                    >
-                                      <button
-                                        onClick={handleOTP}
-                                        data-v-27945482
-                                        type="button"
-                                        id="otp-btn"
-                                        className={`thm-btn thm-boder-btn otp-btn text-right ${
-                                          mobile?.length < 10
-                                            ? "disabled-btn"
-                                            : ""
-                                        }`}
-                                        disabled={mobile?.length < 10}
-                                      >
-                                        <span data-v-27945482>
-                                          {getLanguage(LanguageKey.GET_OTP)}
-                                        </span>
-                                      </button>
-                                    </div>
-                                  )}
+                                  <FaMobileAlt />
+
+                                  <span>
+                                    {getLanguage(LanguageKey.BY_PHONE)}
+                                  </span>
+                                </div>
+
+                                <div
+                                  onClick={() => setTab("username")}
+                                  style={{
+                                    cursor: "pointer",
+                                    display: "flex",
+                                    flexDirection: "row",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    padding: "5px",
+                                    width: "100%",
+                                    gap: "6px",
+                                    color: "white",
+                                    background:
+                                      tab === "username"
+                                        ? "var(--primary-bg)"
+                                        : undefined,
+                                  }}
+                                >
+                                  <FaRegUser />
+
+                                  <span>
+                                    {getLanguage(LanguageKey.BY_USERNAME)}
+                                  </span>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                        </div>
+                          )}
 
-                        <div data-v-27945482 className="mak-gin password-inpt">
-                          <div data-v-27945482 className="phone-no-field">
-                            <input
-                              {...register("otp", { required: true })}
+                        {tab === "mobile" && Settings.registration_mobile && (
+                          <Fragment>
+                            <div
                               data-v-27945482
-                              type="text"
-                              className="form-control toggle-password"
-                              placeholder="Enter OTP*"
-                            />
-                          </div>
-                        </div>
+                              className="number-var mak-gin mb-2.5"
+                            >
+                              <div data-v-27945482 className="row g-2">
+                                <div
+                                  data-v-27945482
+                                  className="col-12 col-sm-12 col-md-12"
+                                >
+                                  <div data-v-27945482 className="whatsup-sec">
+                                    <div
+                                      data-v-27945482
+                                      className="input-left phone-no-field"
+                                    >
+                                      <div
+                                        data-v-27945482
+                                        className="country-code-flag-top-wrapper"
+                                      >
+                                        <div
+                                          data-v-27945482
+                                          className="country-code-flag-top-sec"
+                                        >
+                                          <img
+                                            data-v-27945482
+                                            src="https://flagcdn.com/in.svg"
+                                          />{" "}
+                                          <span data-v-27945482>+91</span>
+                                          <i
+                                            data-v-27945482
+                                            className="fa-solid fa-caret-down"
+                                          />
+                                        </div>
+                                      </div>
+                                      <input
+                                        onChange={handleMobileNo}
+                                        data-v-27945482
+                                        type="tel"
+                                        maxLength={10}
+                                        className="form-control"
+                                        id="mobile"
+                                        placeholder="Enter Mobile Number*"
+                                        required
+                                      />
+                                      {countDown > 0 ? (
+                                        <div
+                                          data-v-27945482
+                                          className="register-get-otp right-side"
+                                        >
+                                          <button
+                                            style={{ cursor: "text" }}
+                                            data-v-27945482
+                                            type="button"
+                                            id="otp-btn"
+                                            className="thm-btn thm-boder-btn otp-btn text-right"
+                                          >
+                                            <span
+                                              data-v-27945482
+                                              style={{
+                                                textTransform: "initial",
+                                              }}
+                                            >
+                                              Resend OTP in 00:{countDown}s
+                                            </span>
+                                          </button>
+                                        </div>
+                                      ) : (
+                                        <div
+                                          data-v-27945482
+                                          className="register-get-otp right-side"
+                                        >
+                                          <button
+                                            onClick={handleOTP}
+                                            data-v-27945482
+                                            type="button"
+                                            id="otp-btn"
+                                            className={`thm-btn thm-boder-btn otp-btn text-right ${
+                                              mobile?.length < 10
+                                                ? "disabled-btn"
+                                                : ""
+                                            }`}
+                                            disabled={mobile?.length < 10}
+                                          >
+                                            <span data-v-27945482>
+                                              {getLanguage(LanguageKey.GET_OTP)}
+                                            </span>
+                                          </button>
+                                        </div>
+                                      )}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div
+                              data-v-27945482
+                              className="mak-gin password-inpt"
+                            >
+                              <div data-v-27945482 className="phone-no-field">
+                                <input
+                                  {...register("otp", { required: true })}
+                                  data-v-27945482
+                                  type="text"
+                                  className="form-control toggle-password"
+                                  placeholder="Enter OTP*"
+                                />
+                              </div>
+                            </div>
+                          </Fragment>
+                        )}
+
+                        {tab === "username" &&
+                          Settings.registration_username && (
+                            <div
+                              data-v-27945482
+                              className="mak-gin password-inpt"
+                            >
+                              <div data-v-27945482 className="phone-no-field">
+                                <input
+                                  {...register("username", { required: true })}
+                                  data-v-27945482
+                                  type="text"
+                                  className="form-control toggle-password"
+                                  placeholder="Enter Username*"
+                                />
+                              </div>
+                            </div>
+                          )}
+
                         <div data-v-27945482 className="mak-gin password-inpt">
                           <div data-v-27945482 className="phone-no-field">
                             <input
